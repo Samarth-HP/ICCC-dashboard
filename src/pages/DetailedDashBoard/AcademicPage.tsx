@@ -1,24 +1,30 @@
 import React, { FC } from "react";
-import { useHistory } from "react-router-dom";
 import { Button, Col, Layout, Row, Input, Divider, Image } from "antd";
 import {
   UserOutlined,
   LockOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
+  ArrowLeftOutlined,
 } from "@ant-design/icons";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
 
-import AdministrativeKPI from "../../assets/AdministrativeKPI.svg";
-import ReviewMeetingScorecards from "../../assets/ReviewMeetingScorecards.svg";
+import Classroom from "../../assets/ClassroomInputs.svg";
+import Mentoring from "../../assets/Mentoring.svg";
+import TeacherTraining from "../../assets/TeacherTraining.svg";
+import TeacherPerformance from "../../assets/TeacherPerformance.svg";
+import StudentLearning from "../../assets/StudentLearning.svg";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import Login_Img from "../../assets/Login_Img.png";
 import Side_Img from "../../assets/image 135.png";
+import { useHistory } from "react-router-dom";
 
-const DetailedDashboard: FC = () => {
+const AcademicPage: FC = () => {
   const history = useHistory();
-
+  const goBack = () => {
+    history.push("/detailed-dashboard");
+  };
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ backgroundColor: "#FFFFFF" }}>
@@ -40,6 +46,7 @@ const DetailedDashboard: FC = () => {
             ></img>
             {/* </div> */}
           </Col>
+
           <Col span={10}>
             <Row
               className={"middle"}
@@ -51,34 +58,76 @@ const DetailedDashboard: FC = () => {
               }}
             >
               <Col>
-                <div className="title">
-                  <b className="headingb">View Detailed Dashboards</b>
+                <div className="goBackArrow">
+                  <ArrowLeftOutlined
+                    onClick={goBack}
+                    style={{
+                      fontSize: "13px",
+                      marginTop: "4px",
+                      cursor: "pointer",
+                    }}
+                  />
+                  <span
+                    onClick={goBack}
+                    style={{
+                      fontSize: "22px",
+                      textDecoration: "underline",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    {" "}
+                    Go Back
+                  </span>
                 </div>
+                <div className="title">
+                  <b className="headingb">Academic KPIs</b>
+                </div>
+
                 <Button className="DetailsButton">
-                  <Row onClick={()=>{history.push('/detailed-academic')}} style={{display:'flex'}}>
+                   <Row style={{display:'flex'}}>
                     <Col span={3}><img
-                      src={AdministrativeKPI}
+                      src={Classroom}
                       alt=""
                     /></Col>
-                    <Col offset={4}>Academic KPIs</Col>
+                    <Col offset={3}>Classroom Inputs</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton">
-                  <Row onClick={()=>{history.push('/detailed-administrative')}} style={{display:'flex'}}>
+                   <Row style={{display:'flex'}}>
                     <Col span={3}><img
-                      src={AdministrativeKPI}
+                      src={Mentoring}
                       alt=""
                     /></Col>
-                    <Col offset={3}> Administrative KPIs</Col>
+                    <Col offset={6}>Mentoring</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton">
                   <Row style={{display:'flex'}}>
                     <Col span={3}><img
-                      src={ReviewMeetingScorecards}
+                      src={TeacherTraining}
                       alt=""
                     /></Col>
-                    <Col offset={1}>Review Meeting Scorecards</Col>
+                    <Col offset={4}>Teacher Training</Col>
+                    </Row>
+                </Button>
+                <Button className="DetailsButton">
+                   <Row style={{display:'flex'}}>
+                    <Col span={3}><img
+                      src={TeacherPerformance}
+                      alt=""
+                    /></Col>
+                    <Col offset={3}>Teacher Performance</Col>
+                    </Row>
+                </Button>
+                <Button className="DetailsButton">
+                   <Row style={{display:'flex'}}>
+                    <Col span={3}><img
+                      src={StudentLearning}
+                      alt=""
+                    /></Col>
+                    <Col offset={4}>Student Learning</Col>
                     </Row>
                 </Button>
                 {/* <div className="form-container">
@@ -120,5 +169,4 @@ const DetailedDashboard: FC = () => {
     </Layout>
   );
 };
-
-export default DetailedDashboard;
+export default AcademicPage;

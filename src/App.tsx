@@ -14,6 +14,8 @@ import Login from "./pages/Login";
 import EducationPortal from './pages/EducationDashboard';
 import EducationDashboard from './pages/EducationDashboard/dashboard';
 import DetailedDashboard from './pages/DetailedDashBoard/Index';
+import AcademicPage from './pages/DetailedDashBoard/AcademicPage';
+import AdminKPIPage from './pages/DetailedDashBoard/AdminKPIPage';
 
 const App: FC = () => (
     <div className="App">
@@ -21,10 +23,11 @@ const App: FC = () => (
             {/*<Header/>*/}
             {<DashboardHeader />}
             <Switch>
-
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/education-dashboard" component={EducationDashboard}/>
                 <Route exact path="/detailed-dashboard" component={DetailedDashboard}/>
+                <Route exact path="/detailed-academic" component={AcademicPage}/>
+                <Route exact path="/detailed-administrative" component={AdminKPIPage}/>
                 <Route exact path="/" component={EducationPortal}/>
                 <LayoutWithSidebar path={'/'} component={DesktopLayout}/>
                 <Redirect
