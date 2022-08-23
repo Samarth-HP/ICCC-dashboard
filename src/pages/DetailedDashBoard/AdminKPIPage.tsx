@@ -14,7 +14,7 @@ import Enrolment from "../../assets/Enrolment.svg";
 import StudentAttendance from "../../assets/StudentAttendance.svg";
 import SchoolMonitoringVisits from "../../assets/SchoolMonitoringVisits.svg";
 import Infrastructure from "../../assets/Infrastructure.svg";
-import StudentLearning from "../../assets/StudentLearning.svg";
+import ReviewMeetingScorecards from "../../assets/ReviewMeetingScorecards.svg";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import Login_Img from "../../assets/Login_Img.png";
 import Side_Img from "../../assets/image 135.png";
@@ -115,7 +115,7 @@ const AdminKPIPage: FC = () => {
                 <Button className="DetailsButton">
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
-                      src={Infrastructure}
+                      src={ReviewMeetingScorecards}
                       alt=""
                     /></Col>
                     <Col offset={4}>Review Meetings</Col>

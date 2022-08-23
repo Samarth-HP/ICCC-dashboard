@@ -12,7 +12,7 @@ import { Content } from "antd/es/layout/layout";
 
 import AdministrativeKPI from "../../assets/AdministrativeKPI.svg";
 import ReviewMeetingScorecards from "../../assets/ReviewMeetingScorecards.svg";
-import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
+import AcademicKPI from "../../assets/AcademicKPI.svg";
 import Login_Img from "../../assets/Login_Img.png";
 import Side_Img from "../../assets/image 135.png";
 
@@ -57,7 +57,7 @@ const DetailedDashboard: FC = () => {
                 <Button className="DetailsButton">
                   <Row onClick={()=>{history.push('/detailed-academic')}} style={{display:'flex'}}>
                     <Col span={3}><img
-                      src={AdministrativeKPI}
+                      src={AcademicKPI}
                       alt=""
                     /></Col>
                     <Col offset={4}>Academic KPIs</Col>
