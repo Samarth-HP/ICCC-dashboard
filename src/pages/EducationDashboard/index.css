@@ -1,0 +1,60 @@
+.container > * {
+  color: #205140;
+}
+
+.card {
+  background-color: #fbfcf7;
+  border-radius: 12px;
+  width: 280px;
+}
+.divider {
+  border-color: #235343;
+  height: 0px;
+}
+.thumbnail {
+  height: 54px;
+  width: 54px;
+  background-color: #7c7c7c;
+  border-radius: 54px;
+}
+.thumbnail-large {
+  height: 90px;
+  width: 90px;
+  background-color: #7c7c7c;
+  border-radius: 90px;
+}
+.subtitle {
+  font-weight: 400;
+}
+.count {
+  text-align: center;
+  color: #6e642e;
+  font-weight: bold;
+}
+
+.tile {
+  width: 220px;
+  background-color: #f3f7c9;
+  border-radius: 10px;
+  margin: 16px;
+}
+.tile-logo {
+  height: 100px;
+  width: 100px;
+}
+.navButton,
+.navButtonSelected {
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+}
+.navButtonSelected {
+  background-color: #252c68;
+  color: #fff;
+}
+.refrences {
+  color: #014c3d;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: "Mukta";
+}
