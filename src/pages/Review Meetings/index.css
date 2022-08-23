@@ -1,0 +1,105 @@
+.container > * {
+  color: #205140;
+}
+.h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(196, 196, 196, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 70px;
+  color: #014c3d;
+  font: normal normal 700 normal 24px/30px "Open Sans";
+  font-family: inherit;
+}
+.h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rgba(196, 196, 196, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  /* height: 98px; */
+  /* color: #014c3d; */
+  font: normal normal 700 normal 16px/20px "Mukta";
+  font-family: inherit;
+}
+.select {
+  width: 100%;
+  /* background: rgba(196, 196, 196, 0.15); */
+  color: #014c3d;
+  font: normal normal 700 normal 16px/20px "Mukta";
+  font-family: inherit;
+  text-align: center;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background: rgba(196, 196, 196, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  color: #014c3d;
+  font: normal normal 700 normal 16px/20px "Mukta";
+  font-family: inherit;
+  text-align: center;
+}
+.ant-select-dropdown {
+  /* background: rgba(196, 196, 196, 0.15); */
+  text-align: center;
+  font: normal normal 700 normal 16px/20px "Mukta";
+  font-family: inherit;
+  color: #014c3d;
+}
+.card {
+  background-color: #fbfcf7;
+  border-radius: 12px;
+  width: 280px;
+}
+.divider {
+  border-color: #235343;
+  height: 0px;
+}
+.thumbnail {
+  height: 54px;
+  width: 54px;
+  background-color: #7c7c7c;
+  border-radius: 54px;
+}
+.thumbnail-large {
+  height: 90px;
+  width: 90px;
+  background-color: #7c7c7c;
+  border-radius: 90px;
+}
+.subtitle {
+  font-weight: 400;
+}
+.count {
+  text-align: center;
+  color: #6e642e;
+  font-weight: bold;
+}
+
+.tile {
+  width: 220px;
+  background-color: #f3f7c9;
+  border-radius: 10px;
+  margin: 16px;
+}
+.tile-logo {
+  height: 100px;
+  width: 100px;
+}
+.navButton,
+.navButtonSelected {
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+}
+.navButtonSelected {
+  background-color: #252c68;
+  color: #fff;
+}
+.refrences {
+  color: #014c3d;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: "Mukta";
+}

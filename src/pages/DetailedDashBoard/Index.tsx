@@ -73,7 +73,7 @@ const DetailedDashboard: FC = () => {
                     </Row>
                 </Button>
                 <Button className="DetailsButton">
-                  <Row style={{display:'flex'}}>
+                  <Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>
                     <Col span={3}><img
                       src={ReviewMeetingScorecards}
                       alt=""

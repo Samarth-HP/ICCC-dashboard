@@ -9,8 +9,8 @@ import {
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import L from "leaflet";
-import config from "./config.json";
-import bounds from "./bounds.json";
+// import config from "./config.json";
+// import bounds from "./bounds.json";
 import MapBound from "./MapBound";
 import "./Map.css";
 import MapOverlays from "./MapOverlays";
@@ -19,7 +19,7 @@ import green_marker from "../../assets/Map_marker_green.svg";
 import blue_marker from "../../assets/Map_marker_blue.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
 
-export default function MapComponent() {
+export default function MapComponent({config}) {
   const center = config.markers.postions[0].position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
@@ -57,9 +57,9 @@ export default function MapComponent() {
         {/* {byGeoJson && (
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         )} */}
-        {(byGeoJson || byBbox) && <MapBound />}
+        {(byGeoJson || byBbox) && <MapBound bounds={config.bounds} />}
         {/* <MapBound /> */}
-        {byGeoJson && <MapOverlays />}
+        {byGeoJson && <MapOverlays overlays={config.overlays} />}
         {!byGeoJson && //
           (config.markers.shouldClusterMarkers ? (
             // <MarkerClusterGroup>
@@ -141,7 +141,7 @@ export default function MapComponent() {
                     backgroundColor: item.color,
                   }}
                 />
-                <label style={{...item,color: "black"}}>{item.label}</label>
+                <label style={{ ...item, color: "black" }}>{item.label}</label>
               </div>
             );
           })}

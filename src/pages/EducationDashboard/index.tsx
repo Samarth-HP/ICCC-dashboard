@@ -14,6 +14,7 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
+import config from "./config.json";
 
 const sample_data = {
   schools: {
@@ -202,7 +203,7 @@ const EducationPortal: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent></MapComponent>
+                      <MapComponent config={config}></MapComponent>
                     </div>
                   </Col>
                 </Row>

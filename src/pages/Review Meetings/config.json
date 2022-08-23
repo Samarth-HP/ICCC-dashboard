@@ -1,9 +1,9 @@
 {
   "map": {
-    "zoomControl": true,
-    "scrollWheelZoom": true,
-    "dragging": true,
-    "doubleClickZoom": true
+    "zoomControl": false,
+    "scrollWheelZoom": false,
+    "dragging": false,
+    "doubleClickZoom": false
   },
   "legend": {
     "display": true,
@@ -12,7 +12,7 @@
       {
         "width": 100,
         "fontSize": 20,
-        "color": "#ff0000",
+        "color": "#00ff00",
         "fontFamily": "sans-serif",
         "fontWeight": "bold",
         "padding": 10,
@@ -21,20 +21,11 @@
       {
         "width": 100,
         "fontSize": 20,
-        "color": "#ffff00",
+        "color": "#0000ff",
         "fontFamily": "sans-serif",
         "fontWeight": "bold",
         "padding": 10,
         "label": "Legend2"
-      },
-      {
-        "width": 100,
-        "fontSize": 20,
-        "color": "#00ff00",
-        "fontFamily": "sans-serif",
-        "fontWeight": "bold",
-        "padding": 10,
-        "label": "Legend3"
       }
     ]
   },

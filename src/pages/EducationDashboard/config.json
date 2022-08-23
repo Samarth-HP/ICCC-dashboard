@@ -47,7 +47,7 @@
     "postions": [
       {
         "icon": "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-        "color": "",
+        "color": "red",
         "tooltipCSS": {
           "color": "#ff0000"
         },
@@ -55,8 +55,8 @@
         "position": [31.388000241600446, 76.715049743652401]
       },
       {
-        "icon": "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-        "color": "",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/8/88/Map_marker.svg",
+        "color": "green",
         "tooltipCSS": {
           "color": "#00ff00"
         },
@@ -64,13 +64,22 @@
         "position": [31.328000241600446, 76.785049743652401]
       },
       {
-        "icon": "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+        "icon": "https://pics.freeicons.io/uploads/icons/png/4482957981557740362-512.png",
         "color": "",
         "tooltipCSS": {
           "color": "#0000ff"
         },
         "tooltip": "This is the marker tooltip",
         "position": [31.368000241600446, 76.915049743652401]
+      },
+      {
+        "icon": "https://pics.freeicons.io/uploads/icons/png/4482957981557740362-512.png",
+        "color": "yellow",
+        "tooltipCSS": {
+          "color": "#ffff00"
+        },
+        "tooltip": "This is the marker tooltip",
+        "position": [31.308000241600446, 76.915049743652401]
       }
     ]
   },
