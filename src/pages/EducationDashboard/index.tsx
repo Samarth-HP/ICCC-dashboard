@@ -210,7 +210,7 @@ const EducationPortal: FC = () => {
               </Col>
             </Row>
           </Col>
-          <Col span={14}>
+          <Col span={6}>
             <Row>
               <Col span={9}>
                 <Row>
@@ -261,6 +261,175 @@ const EducationPortal: FC = () => {
                   ></iframe>
                 </div>
               </Col>
+            </Row>
+          </Col>
+          <Col span={8}>
+            <Row>
+              <Col span={24}>
+                <div className="NIPUNheading">NIPUN Lakshya Analysis</div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <div style={{ display: "flex" }}>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/4fee588d-5411-41a2-991a-24c02cbbec55"
+                    frameBorder="0"
+                    width="50%"
+                    height="180"
+                    allowTransparency
+                  ></iframe>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/9f349098-91f6-49b2-9b11-095f75350009"
+                    frameBorder="0"
+                    width="50%"
+                    height="180"
+                    allowTransparency
+                  ></iframe>
+                </div>
+                <div style={{ display: "flex" }}>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/52fa4f11-2197-4306-8107-5e3716ee9d49"
+                    frameBorder="0"
+                    width="50%"
+                    height="180"
+                    allowTransparency
+                  ></iframe>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/7ce3d9ca-bc8e-4eff-a962-f9fb50c02f93"
+                    frameBorder="0"
+                    width="50%"
+                    height="180"
+                    allowTransparency
+                  ></iframe>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <div style={{ display: "flex" }}>
+                <Col span={7}>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/e9b4fb3f-4c30-4e21-86a1-9cfe9ba9e8e0"
+                    frameBorder="0"
+                    width="100%"
+                    height="600"
+                    allowTransparency
+                  ></iframe>
+                  <div>
+                  <div className="Districtwice">
+                  District wise students practising atleast twice a month
+                      </div>
+                  </div>
+                </Col>
+                <Col span={7}>
+                  <iframe
+                    src="http://167.71.234.32:3000/public/question/5ada1998-8b3c-48e0-a35b-a882a14c5086"
+                    frameBorder="0"
+                    width="100%"
+                    height="600"
+                    allowTransparency
+                  ></iframe>
+                  <div className="Districtwice2">
+                  District wise NIPUN Students
+                      </div>
+                </Col>
+                <Col style={{ display: "flex", flexDirection: "column" }}>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/71705c36-c213-47f5-830d-cbb7186fa897"
+                      frameBorder="0"
+                      width="100%"
+                      height="300"
+                      allowTransparency
+                    ></iframe>
+                  </div>
+                  <Col>
+                    <Button className="navButtonSelected">
+                      Class-wise NIPUN Students
+                    </Button>
+                  </Col>
+                  <Col style={{ display: "flex" }}>
+                    <Col span={6}></Col>
+                    <Col>
+                      <div className="District-wise-div">
+                        District-wise Trends
+                      </div>
+                    </Col>
+                  </Col>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/91f6d2a5-dd27-4404-9a78-3e20f46091a6"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Top Districts (Class-1)
+                      </div>
+                  </div>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/02e65177-2908-4478-82cf-ebe6e6e8719d"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Bottom Districts (Class-1)
+                      </div>
+                  </div>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/730d8c5b-e248-4a7f-af24-412ca87042ff"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Top Districts (Class-2)
+                      </div>
+                  </div>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/3ec7a9bc-c587-4fb8-ad8f-e4fb3f728cd6"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Bottom Districts (Class-2)
+                      </div>
+                  </div>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/39c7afb6-9f14-492b-89ca-39f2a0b13dff"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Top Districts (Class-3)
+                      </div>
+                  </div>
+                  <div>
+                    <iframe
+                      src="http://167.71.234.32:3000/public/question/8239aab9-23aa-4f60-b661-fbfcde29263a"
+                      frameBorder="0"
+                      width="100%"
+                      height="200"
+                      allowTransparency
+                    ></iframe>
+                     <div className="Districtwice">
+                     Bottom Districts (Class-3)
+                      </div>
+                  </div>
+                </Col>
+              </div>
             </Row>
           </Col>
         </Row>

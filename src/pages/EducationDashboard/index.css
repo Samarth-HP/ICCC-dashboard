@@ -58,3 +58,34 @@
   font-weight: 700;
   font-family: "Mukta";
 }
+.NIPUNheading{
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(196, 196, 196, 0.15);
+  color:#014c3d;
+  font-weight: bold;
+}
+.District-wise-div{
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(196, 196, 196, 0.15);
+  font-weight: bold;
+}
+.Districtwice{
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(196, 196, 196, 0.15);
+  font-weight: bold;
+  background-color: #252c68;
+  color: #fff;
+  font-size: 9px;
+}
+.Districtwice2{
+  text-align: center;
+  padding: 19px;
+  background-color: rgba(196, 196, 196, 0.15);
+  font-weight: bold;
+  background-color: #252c68;
+  color: #fff;
+  font-size: 9px;
+}

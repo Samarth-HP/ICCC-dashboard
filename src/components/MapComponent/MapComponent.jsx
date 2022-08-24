@@ -7,6 +7,7 @@ import {
   Polygon,
   SVGOverlay,
 } from "react-leaflet";
+import { MenuOutlined } from "@ant-design/icons";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import L from "leaflet";
 // import config from "./config.json";
@@ -18,8 +19,9 @@ import red_marker from "../../assets/Map_marker_red.svg";
 import green_marker from "../../assets/Map_marker_green.svg";
 import blue_marker from "../../assets/Map_marker_blue.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
+import { Button, Col, Popover } from "antd";
 
-export default function MapComponent({config}) {
+export default function MapComponent({ config }) {
   const center = config.markers.postions[0].position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
@@ -28,6 +30,13 @@ export default function MapComponent({config}) {
     [76.715049743652401, 31.588310241699446],
     [76.716567993164119, 31.585119247436467],
   ];
+  const content = (
+    <div>
+      <div>Download XLS</div>
+      <div>Download CSV</div>
+      <div>Download PNG Image</div>
+    </div>
+  );
   return (
     <div
       style={{
@@ -145,6 +154,22 @@ export default function MapComponent({config}) {
               </div>
             );
           })}
+              
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row-reverse",
+              width: "100%",
+              marginRight: "5px",
+              cursor:'pointer'
+            }}
+          ><Popover placement="bottom" content={content} trigger="click">
+            <MenuOutlined />
+            </Popover>
+          </div>
+
         </div>
       )}
     </div>
