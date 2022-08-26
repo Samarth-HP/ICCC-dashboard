@@ -16,7 +16,7 @@ import FooterLogo from "../../assets/footer_logo.png";
 const ReviewAndMonitoring: FC = () => (
   <Layout>
     <Content>
-      <Col span={8}>
+      <Col span={24}>
         <Row>
           <Col span={24}>
             <div className="NIPUNheading">Review and Monitoring</div>

@@ -43,15 +43,15 @@ const AdministrativeOverview: FC = () => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col>
+          <Col span={8}>
             <Attendence></Attendence>
           </Col>
-          <Col>
+          <Col span={8}>
             <ReviewAndMonitoring />
           </Col>
-          {/* <Col>
+          <Col span={8}>
             <SchoolStatisticsAndEnrolment />
-          </Col> */}
+          </Col>
         </Row>
       </Content>
     </Layout>

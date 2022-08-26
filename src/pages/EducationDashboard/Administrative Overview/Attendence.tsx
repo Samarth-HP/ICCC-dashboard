@@ -35,7 +35,7 @@ const sample_data = {
 const Attendence: FC = () => (
   <Layout>
     <Content>
-      <Col span={8}>
+      <Col span={24}>
         <Row>
           <Col span={24}>
             <div className="NIPUNheading">Attendance</div>
