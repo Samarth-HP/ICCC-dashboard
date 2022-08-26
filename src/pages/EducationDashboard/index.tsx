@@ -29,6 +29,12 @@ const sample_data = {
 const EducationPortal: FC = () => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
+  const [markerData, setMarkerData] = useState(
+      {
+        "shouldClusterMarkers": true,
+        "postions": []
+      }
+  );
   const onButtonClick = (id: any) => {
     console.log(id);
     setSelectedButton(id);
@@ -38,20 +44,45 @@ const EducationPortal: FC = () => {
     setMarker(id);
   };
 
+  const formatMarkerData = (data: any) => {
+    const formattedData = data.map((item: any) => {
+      return {
+        "icon": "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+        "color": "red",
+        "tooltipCSS": {
+          "color": "#ff0000"
+        },
+        "tooltip": "This is the marker tooltip",
+        "position": [item.latitude, item.longitude],
+          ...item
+      }
+    })
+    setMarkerData(
+        {
+          "shouldClusterMarkers": true,
+          "postions": formattedData
+        }
+    )
+
+  }
+
   const getMarkerData = async () => {
-    const params: any = {}
+    let data: any = [];
+    const params: any = {
+      district: 'SIRMAUR'
+    }
     if(marker === "Districts") {
-      params['district'] = "SIRMAUR"
+      data = await API_SERVICE.getDistrictMarkerData(params);
     }
 
     if(marker === "Blocks") {
-      params['block'] = "SIRMAUR"
+      data = await API_SERVICE.getBlockMarkerData(params);
     }
 
     if(marker === "Schools") {
-      params['school'] = "SIRMAUR"
+      data = await API_SERVICE.getSchoolMarkerData(params);
     }
-    const data = await API_SERVICE.getMarkerData(params);
+    formatMarkerData(data.data.rows)
   }
 
   useEffect(() => {
@@ -225,7 +256,10 @@ const EducationPortal: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={config.markers}></MapComponent>
+                      {
+                        markerData.postions.length > 0 &&
+                        <MapComponent config={config} markers={markerData}></MapComponent>
+                      }
                     </div>
                   </Col>
                 </Row>

@@ -51,9 +51,19 @@ function handleErrors(error: any) {
 }
 
 
-async function getMarkerData(params: any) {
+async function getDistrictMarkerData(params: any) {
     const instance = getPublicInstance();
-    return await instance.post('/query/testquery', params)
+    return await instance.post('/query/district_master_latlong', params)
+}
+
+async function getBlockMarkerData(params: any) {
+    const instance = getPublicInstance();
+    return await instance.post('/query/block_master_latlong', params)
+}
+
+async function getSchoolMarkerData(params: any) {
+    const instance = getPublicInstance();
+    return await instance.post('/query/school_master_latlong', params)
 }
 
 //auth
@@ -89,7 +99,9 @@ async function deleteFund(id: number, params: any = {}) {
 }
 
 const API_SERVICE = {
-    getMarkerData,
+    getDistrictMarkerData,
+    getBlockMarkerData,
+    getSchoolMarkerData,
 
     login,
     self,
