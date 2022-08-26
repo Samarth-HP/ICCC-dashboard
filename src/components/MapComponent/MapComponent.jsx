@@ -22,6 +22,8 @@ import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover } from "antd";
 
 export default function MapComponent({ config, markers }) {
+  // console.log('markers?', markers?.postions[0]?.position);
+
   const center = markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;

@@ -32,12 +32,10 @@ const sample_data = {
 const EducationPortal: FC = () => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
-  const [markerData, setMarkerData] = useState(
-      {
-        "shouldClusterMarkers": true,
-        "postions": []
-      }
-  );
+  const [markerData, setMarkerData] = useState({
+    shouldClusterMarkers: true,
+    postions: [],
+  });
   const onButtonClick = (id: any) => {
     console.log(id);
     setSelectedButton(id);
@@ -46,51 +44,49 @@ const EducationPortal: FC = () => {
     console.log(id);
     setMarker(id);
   };
+  
 
   const formatMarkerData = (data: any) => {
-    const formattedData = data.map((item: any) => {
+    const formattedData = data.filter((item: any,index:number) => index <= 200).map((item: any, index: number) => {
       return {
-        "icon": "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-        "color": "red",
-        "tooltipCSS": {
-          "color": "#ff0000"
+        icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+        color: "red",
+        tooltipCSS: {
+          color: "#ff0000",
         },
-        "tooltip": "This is the marker tooltip",
-        "position": [item.latitude, item.longitude],
-          ...item
-      }
-    })
-    setMarkerData(
-        {
-          "shouldClusterMarkers": true,
-          "postions": formattedData
-        }
-    )
+        tooltip: "This is the marker tooltip",
+        position: [item.latitude, item.longitude],
+        ...item,
+      };
 
-  }
-
-  const getMarkerData = async () => {
+    });
+    setMarkerData({
+      shouldClusterMarkers: true,
+      postions: formattedData,
+    });
+  };
+  const getMarkerData = async (marker: any) => {
     let data: any = [];
     const params: any = {
-      district: 'SIRMAUR'
-    }
-    if(marker === "Districts") {
+      district: "SIRMAUR",
+    };
+    if (marker === "Districts") {
       data = await API_SERVICE.getDistrictMarkerData(params);
     }
 
-    if(marker === "Blocks") {
+    if (marker === "Blocks") {
       data = await API_SERVICE.getBlockMarkerData(params);
     }
 
-    if(marker === "Schools") {
+    if (marker === "Schools") {
       data = await API_SERVICE.getSchoolMarkerData(params);
     }
-    formatMarkerData(data.data.rows)
-  }
+    formatMarkerData(data.data.rows);
+  };
 
   useEffect(() => {
-    getMarkerData();
-  }, [marker]);
+    getMarkerData("Districts");
+  }, []);
 
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
@@ -138,7 +134,10 @@ const EducationPortal: FC = () => {
         <Row>
           {selectedButton == 1 && (
             <Col>
-              <StudentAssessmentPerformanceGrade1_3 />
+              <StudentAssessmentPerformanceGrade1_3
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+              />
             </Col>
           )}
           {selectedButton == 2 && (

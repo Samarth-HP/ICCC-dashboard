@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -25,7 +25,7 @@ const sample_data = {
   },
 };
 
-const StudentAssessmentPerformanceGrade1_3: FC = () => {
+const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
@@ -36,6 +36,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
     console.log(id);
     setMarker(id);
   };
+  
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
@@ -157,6 +158,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
                           : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData('Districts');
                         setMarker("Districts");
                       }}
                     >
@@ -169,6 +171,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData('Blocks');
                         setMarker("Blocks");
                       }}
                     >
@@ -181,6 +184,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData('Districts');
                         setMarker("Clusters");
                       }}
                     >
@@ -193,6 +197,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData('Schools');
                         setMarker("Schools");
                       }}
                     >
@@ -203,7 +208,7 @@ const StudentAssessmentPerformanceGrade1_3: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={undefined}></MapComponent>
+                      <MapComponent config={config} markers={props.markerData}></MapComponent>
                     </div>
                   </Col>
                 </Row>
