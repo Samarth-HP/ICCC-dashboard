@@ -46,10 +46,10 @@ const AdministrativeOverview: FC = () => {
           <Col>
             <Attendence></Attendence>
           </Col>
-          {/* <Col>
+          <Col>
             <ReviewAndMonitoring />
           </Col>
-          <Col>
+          {/* <Col>
             <SchoolStatisticsAndEnrolment />
           </Col> */}
         </Row>
