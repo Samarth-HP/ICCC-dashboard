@@ -46,29 +46,35 @@ const ReviewAndMonitoring: FC = () => (
               allowTransparency
             ></iframe>
           </Col>
+        </Row>
+        
+        <Row>
           <Col span={24} style={{ display: "flex" }}>
             <iframe
               src="http://167.71.234.32:3000/public/question/2b682cd1-db71-4fba-95c8-ebee2351a2a4"
               frameBorder="0"
-              width="33%"
+              width="50%"
               height="400"
               allowTransparency
-            ></iframe>
-            <iframe
+              ></iframe>
+                <iframe
               src="http://167.71.234.32:3000/public/question/d764205f-8c67-4611-87d8-095608392a61"
               frameBorder="0"
-              width="33%"
+              width="50%"
               height="400"
               allowTransparency
-            ></iframe>
+              ></iframe>
+          </Col>
+          <Col span={24}>
             <iframe
               src="http://167.71.234.32:3000/public/question/0688da0c-ce09-4fd1-81c9-51bf14811e1a"
               frameBorder="0"
-              width="33%"
+              width="100%"
               height="400"
               allowTransparency
             ></iframe>
           </Col>
+     
         </Row>
         <Row>
           <Col span={24}>

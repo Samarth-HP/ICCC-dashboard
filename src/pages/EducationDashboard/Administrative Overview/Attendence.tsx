@@ -76,8 +76,8 @@ const Attendence: FC = () => (
           </Col>
         </Row>
         <Row>
-          <Col style={{ display: "flex" }}>
-            <Col span={12}>
+        
+            <Col span={24}>
               <iframe
                 src="http://167.71.234.32:3000/public/question/48a0c31c-efe0-4f78-800a-6accc9948d09"
                 frameBorder="0"
@@ -86,7 +86,7 @@ const Attendence: FC = () => (
                 allowTransparency
               ></iframe>
             </Col>
-            <Col span={12}>
+            <Col span={24}>
               <iframe
                 src="http://167.71.234.32:3000/public/question/3d6db0e4-4923-4a94-8e21-de2b769059a9"
                 frameBorder="0"
@@ -95,11 +95,10 @@ const Attendence: FC = () => (
                 allowTransparency
               ></iframe>
             </Col>
-          </Col>
         </Row>
         <Row>
-          <Col style={{ display: "flex" }}>
-            <Col span={12}>
+          
+            <Col span={24}>
               <iframe
                 src="http://167.71.234.32:3000/public/question/99432b69-51c2-43b6-a2c6-f3b7d7b7f419"
                 frameBorder="0"
@@ -108,7 +107,7 @@ const Attendence: FC = () => (
                 allowTransparency
               ></iframe>
             </Col>
-            <Col span={12}>
+            <Col span={24}>
               <iframe
                 src="http://167.71.234.32:3000/public/question/b806cfd2-d04a-4bdd-9220-04503fbcbd86"
                 frameBorder="0"
@@ -117,7 +116,7 @@ const Attendence: FC = () => (
                 allowTransparency
               ></iframe>
             </Col>
-          </Col>
+        
         </Row>
         <Col span={24}>
             <div className="NIPUNheading">InfraStructure</div>
