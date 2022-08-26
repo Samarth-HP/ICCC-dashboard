@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -15,6 +15,7 @@ import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
+import API_SERVICE from "../../services/api-service";
 
 const sample_data = {
   schools: {
@@ -36,6 +37,27 @@ const EducationPortal: FC = () => {
     console.log(id);
     setMarker(id);
   };
+
+  const getMarkerData = async () => {
+    const params: any = {}
+    if(marker === "Districts") {
+      params['district'] = "SIRMAUR"
+    }
+
+    if(marker === "Blocks") {
+      params['block'] = "SIRMAUR"
+    }
+
+    if(marker === "Schools") {
+      params['school'] = "SIRMAUR"
+    }
+    const data = await API_SERVICE.getMarkerData(params);
+  }
+
+  useEffect(() => {
+    getMarkerData();
+  }, [marker])
+
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
@@ -143,13 +165,13 @@ const EducationPortal: FC = () => {
             <Row>
               <Col span={24}>
                 <Row>
-                  <Col span={4}>
+                  <Col span={6}>
                     <Select defaultValue={"SA-1"} style={{ width: "100%" }}>
                       <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
                       <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Districts"
@@ -163,7 +185,7 @@ const EducationPortal: FC = () => {
                       Districts
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
@@ -175,7 +197,7 @@ const EducationPortal: FC = () => {
                       Blocks
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  {/*<Col span={5}>
                     <Button
                       className={
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
@@ -186,8 +208,8 @@ const EducationPortal: FC = () => {
                     >
                       Clusters
                     </Button>
-                  </Col>
-                  <Col span={5}>
+                  </Col>*/}
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
@@ -203,7 +225,7 @@ const EducationPortal: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config}></MapComponent>
+                      <MapComponent config={config} markers={config.markers}></MapComponent>
                     </div>
                   </Col>
                 </Row>

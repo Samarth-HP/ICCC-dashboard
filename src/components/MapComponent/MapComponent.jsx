@@ -21,8 +21,8 @@ import blue_marker from "../../assets/Map_marker_blue.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover } from "antd";
 
-export default function MapComponent({ config }) {
-  const center = config.markers.postions[0].position || [28.7041, 77.1025];
+export default function MapComponent({ config, markers }) {
+  const center = markers.postions[0].position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
 
@@ -70,10 +70,10 @@ export default function MapComponent({ config }) {
         {/* <MapBound /> */}
         {byGeoJson && <MapOverlays overlays={config.overlays} />}
         {!byGeoJson && //
-          (config.markers.shouldClusterMarkers ? (
+          (markers.shouldClusterMarkers ? (
             // <MarkerClusterGroup>
             <div>
-              {config.markers.postions.map((item) => {
+              {markers.postions.map((item) => {
                 let markerColor = blue_marker;
                 if (item.color == "red") {
                   markerColor = red_marker;
@@ -104,7 +104,7 @@ export default function MapComponent({ config }) {
           ) : (
             // </MarkerClusterGroup>
             <div>
-              {config.markers.postions.map((item) => {
+              {markers.postions.map((item) => {
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
                   // iconRetinaUrl: new URL(`${item.icon}`),
