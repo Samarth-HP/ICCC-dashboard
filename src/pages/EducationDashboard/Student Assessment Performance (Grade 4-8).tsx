@@ -203,7 +203,7 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config}></MapComponent>
+                      <MapComponent config={config} markers={undefined}></MapComponent>
                     </div>
                   </Col>
                 </Row>

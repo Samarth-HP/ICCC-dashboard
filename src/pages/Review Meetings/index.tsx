@@ -91,7 +91,7 @@ const ReviewMeeting: FC = () => {
         <Row>
           <Col span={24}>
             <div style={{ width: "100%",border:'1px solid black' }}>
-              <MapComponent config={config}></MapComponent>
+              <MapComponent config={config} markers={config.markers}></MapComponent>
             </div>
           </Col>
         </Row>
