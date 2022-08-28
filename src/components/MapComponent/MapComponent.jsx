@@ -18,6 +18,7 @@ import MapOverlays from "./MapOverlays";
 import red_marker from "../../assets/Map_marker_red.svg";
 import green_marker from "../../assets/Map_marker_green.svg";
 import blue_marker from "../../assets/Map_marker_blue.svg";
+import purple_marker from "../../assets/Map_marker_purple.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover } from "antd";
 
@@ -85,13 +86,15 @@ export default function MapComponent({ config, markers }) {
                   markerColor = blue_marker;
                 } else if (item.color == "green") {
                   markerColor = green_marker;
+                } else if (item.color == "purple") {
+                  markerColor = purple_marker;
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
                   // iconRetinaUrl: new URL(`${item.icon}`),
                   iconUrl: markerColor,
                   iconRetinaUrl: markerColor,
-                  iconSize: new L.Point(30, 50),
+                  iconSize: new L.Point(20, 30),
                   // className: "leaflet-div-icon",
                 });
                 return (
@@ -110,7 +113,7 @@ export default function MapComponent({ config, markers }) {
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
                   // iconRetinaUrl: new URL(`${item.icon}`),
-                  iconSize: new L.Point(30, 50),
+                  iconSize: new L.Point(10, 10),
                   // className: "leaflet-div-icon",
                 });
                 console.log(item.icon);
@@ -156,7 +159,6 @@ export default function MapComponent({ config, markers }) {
               </div>
             );
           })}
-              
 
           <div
             style={{
@@ -165,13 +167,13 @@ export default function MapComponent({ config, markers }) {
               flexDirection: "row-reverse",
               width: "100%",
               marginRight: "5px",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
-          ><Popover placement="bottom" content={content} trigger="click">
-            <MenuOutlined />
+          >
+            <Popover placement="bottom" content={content} trigger="click">
+              <MenuOutlined />
             </Popover>
           </div>
-
         </div>
       )}
     </div>
