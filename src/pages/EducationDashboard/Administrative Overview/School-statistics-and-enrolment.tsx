@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, {FC, useEffect, useState} from "react";
 import { Card, Col, Layout, Row, Image, Button, Select, Input } from "antd";
 
 import "./index.css";
@@ -16,11 +16,29 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import MapComponent from "../../../components/MapComponent/MapComponent";
 import config from "./config.json";
+import API_SERVICE from "../../../services/api-service";
 
 const { Search } = Input;
 
 const SchoolStatisticsAndEnrolment: FC = (props: any) => {
   const [marker, setMarker] = useState("Districts");
+  const [markerData, setMarkerData] = useState(props.markerData);
+
+
+  const handleSearchByUDISE = async (val: string) => {
+    const params = {
+      udise: val
+    }
+    const data = await API_SERVICE.searchSchoolData(params);
+    console.log('data', data);
+  }
+
+  useEffect(() => {
+    if (props.markerData) {
+      setMarkerData(props.markerData);
+    }
+  }, [props.markerData])
+
   return (
     <Layout>
       <Content>
@@ -277,6 +295,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             <Search
               //@ts-ignore
               onSearch={(val: any) => {
+                handleSearchByUDISE(val);
                 console.log(val);
                 setMarker("Schools");
               }}
@@ -286,7 +305,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <MapComponent config={config} markers={props.markerData} />
+            <MapComponent config={config} markers={markerData} />
           </Col>
         </Row>
       </Content>

@@ -21,6 +21,7 @@ import blue_marker from "../../assets/Map_marker_blue.svg";
 import purple_marker from "../../assets/Map_marker_purple.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover } from "antd";
+import API_SERVICE from "../../services/api-service";
 
 export default function MapComponent({ config, markers }) {
   // console.log('markers?', markers?.postions[0]?.position);
@@ -40,6 +41,37 @@ export default function MapComponent({ config, markers }) {
       <div>Download PNG Image</div>
     </div>
   );
+
+    const getDistrictAttendance = async () => {
+        const params = {
+            district: "SIRMAUR"
+        }
+        const data = await API_SERVICE.getDistrictAttendance(params);
+    }
+
+    const getDistrictEnrolment = async () => {
+        const params = {
+            district: "SIRMAUR"
+        }
+        const data = await API_SERVICE.getDistrictEnrolment(params);
+    }
+
+    const getDistrictPTR = async () => {
+        const params = {
+            district: "SIRMAUR"
+        }
+        const data = await API_SERVICE.getDistrictPTR(params);
+    }
+
+    const getDistrictCWSN = async () => {
+        const params = {
+            district: "SIRMAUR"
+        }
+        const data = await API_SERVICE.getDistrictCWSN(params);
+    }
+
+
+
   return (
     <div
       style={{
