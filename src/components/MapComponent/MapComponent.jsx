@@ -49,47 +49,51 @@ export default function MapComponent({ config, markers }) {
     </div>
   );
 
-  const getDistrictAttendance = async () => {
+  const getDistrictAttendance = async (val) => {
     const params = {
-      district: "SIRMAUR",
+      district: val,
     };
     return await API_SERVICE.getDistrictAttendance(params);
   };
 
-  const getDistrictEnrolment = async () => {
+  const getDistrictEnrolment = async (val) => {
     const params = {
-      district: "SIRMAUR",
+      district: val,
     };
     return await API_SERVICE.getDistrictEnrolment(params);
   };
 
-  const getDistrictPTR = async () => {
+  const getDistrictPTR = async (val) => {
     const params = {
-      district: "SIRMAUR",
+      district: val,
     };
     return await API_SERVICE.getDistrictPTR(params);
   };
 
-  const getDistrictCWSN = async () => {
+  const getDistrictCWSN = async (val) => {
     const params = {
-      district: "SIRMAUR",
+      district: val,
     };
     return await API_SERVICE.getDistrictCWSN(params);
   };
 
-  const getToolTipData = async () => {
+  const getToolTipData = async (district, block, school) => {
+    console.log(district, block, school);
     const promiseArray = [];
-    promiseArray.push(getDistrictAttendance());
-    promiseArray.push(getDistrictEnrolment());
-    promiseArray.push(getDistrictPTR());
-    promiseArray.push(getDistrictCWSN());
+    if (district) {
+      promiseArray.push(getDistrictAttendance(district));
+      promiseArray.push(getDistrictEnrolment(district));
+      promiseArray.push(getDistrictPTR(district));
+      promiseArray.push(getDistrictCWSN(district));
+    }
+
     const resData = await Promise.all(promiseArray);
 
     const temp = {
-      Attendance: resData[0].data.rows[0].PercAttendance,
-      Enrolment: resData[1].data.rows[0].total_students,
-      PTR: resData[2].data.rows[0].Ratio,
-      CWSN: resData[3].data.rows[0].total_cwsn_students,
+      Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
+      Enrolment: resData[1]?.data?.rows[0]?.total_students,
+      PTR: resData[2]?.data?.rows[0]?.Ratio,
+      CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
     };
     console.log(temp);
     setToolTipData(
@@ -187,7 +191,7 @@ export default function MapComponent({ config, markers }) {
                       onOpen={() => {
                         // setToolTipData();
                         // getDistrictEnrolment();
-                        getToolTipData();
+                        getToolTipData(item.district, item.block, item.school);
                       }}
                     >
                       {toolTipData}

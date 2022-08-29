@@ -57,6 +57,9 @@ const EducationPortal: FC = () => {
           },
           tooltip: "This is the marker tooltip",
           position: [item.latitude, item.longitude],
+          district : item?.district,
+          block : item?.block,
+          school : item?.school,
           ...item,
         };
       });
