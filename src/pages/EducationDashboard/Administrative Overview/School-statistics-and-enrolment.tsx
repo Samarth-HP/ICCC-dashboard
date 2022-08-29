@@ -126,7 +126,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               src="http://167.71.234.32:3000/public/question/8cfd8bb3-a219-4594-b731-e15ca3e064cb"
               frameBorder="0"
               width="100%"
-              height="200"
+              height="250"
               allowTransparency
             ></iframe>
             <Button className="navButtonSelected">
@@ -200,7 +200,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               src="http://167.71.234.32:3000/public/question/9f041846-f970-452a-a7e0-13c037054954"
               frameBorder="0"
               width="100%"
-              height="200"
+              height="300"
               allowTransparency
             ></iframe>
             <Button className="navButtonSelected">
@@ -212,7 +212,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               src="http://167.71.234.32:3000/public/question/4ee28061-c30c-436e-b27b-b07de37fecf8"
               frameBorder="0"
               width="100%"
-              height="200"
+              height="300"
               allowTransparency
             ></iframe>
             <Button className="navButtonSelected">

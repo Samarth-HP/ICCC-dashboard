@@ -112,7 +112,7 @@ const EducationPortal: FC = () => {
             </Button>
           </Col>
           <Col span={8}>
-            <Button
+            <Button 
               className={
                 selectedButton == 2 ? "navButtonSelected" : "navButton"
               }

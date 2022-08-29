@@ -47,6 +47,7 @@
   font-size: 10px;
   width: 100%;
   text-align: center;
+  
 }
 .navButtonSelected {
   background-color: #252c68;
@@ -64,6 +65,7 @@
   background-color: rgba(196, 196, 196, 0.15);
   color:#014c3d;
   font-weight: bold;
+  
 }
 .District-wise-div{
   text-align: center;

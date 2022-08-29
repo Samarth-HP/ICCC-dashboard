@@ -58,7 +58,7 @@ const Attendence: FC = () => (
               allowTransparency
             ></iframe>
           </Col>
-          <Col span={24} style={{ display: "flex" }}>
+          {/* <Col span={24} style={{ display: "flex" }}>
             <iframe
               src="http://167.71.234.32:3000/public/question/52fa4f11-2197-4306-8107-5e3716ee9d49"
               frameBorder="0"
@@ -73,54 +73,61 @@ const Attendence: FC = () => (
               height="180"
               allowTransparency
             ></iframe>
+          </Col> */}
+        </Row>
+        <Row>
+          <Col span={24}>
+            <iframe
+              src="http://167.71.234.32:3000/public/question/48a0c31c-efe0-4f78-800a-6accc9948d09"
+              frameBorder="0"
+              width="100%"
+              height="400"
+              allowTransparency
+            ></iframe>
+          </Col>
+          <Col span={24}>
+            <iframe
+              src="http://167.71.234.32:3000/public/question/3d6db0e4-4923-4a94-8e21-de2b769059a9"
+              frameBorder="0"
+              width="100%"
+              height="400"
+              allowTransparency
+            ></iframe>
           </Col>
         </Row>
         <Row>
-        
-            <Col span={24}>
-              <iframe
-                src="http://167.71.234.32:3000/public/question/48a0c31c-efe0-4f78-800a-6accc9948d09"
-                frameBorder="0"
-                width="100%"
-                height="400"
-                allowTransparency
-              ></iframe>
-            </Col>
-            <Col span={24}>
-              <iframe
-                src="http://167.71.234.32:3000/public/question/3d6db0e4-4923-4a94-8e21-de2b769059a9"
-                frameBorder="0"
-                width="100%"
-                height="400"
-                allowTransparency
-              ></iframe>
-            </Col>
-        </Row>
-        <Row>
-          
-            <Col span={24}>
-              <iframe
-                src="http://167.71.234.32:3000/public/question/99432b69-51c2-43b6-a2c6-f3b7d7b7f419"
-                frameBorder="0"
-                width="100%"
-                height="400"
-                allowTransparency
-              ></iframe>
-            </Col>
-            <Col span={24}>
-              <iframe
-                src="http://167.71.234.32:3000/public/question/b806cfd2-d04a-4bdd-9220-04503fbcbd86"
-                frameBorder="0"
-                width="100%"
-                height="400"
-                allowTransparency
-              ></iframe>
-            </Col>
-        
+          <Col span={24}>
+            <iframe
+              src="http://167.71.234.32:3000/public/question/99432b69-51c2-43b6-a2c6-f3b7d7b7f419"
+              frameBorder="0"
+              width="100%"
+              height="400"
+              allowTransparency
+            ></iframe>
+          </Col>
+          <Col span={24}>
+            <Button className="navButtonSelected">
+            Month wise Average Student Attendance and Compliance
+            </Button>
+          </Col>
+          <Col span={24}>
+            <iframe
+              src="http://167.71.234.32:3000/public/question/b806cfd2-d04a-4bdd-9220-04503fbcbd86"
+              frameBorder="0"
+              width="100%"
+              height="400"
+              allowTransparency
+            ></iframe>
+          </Col>
+          <Col span={24}>
+            <Button className="navButtonSelected">
+            Daily Average Student Attendance and Compliance
+            </Button>
+          </Col>
         </Row>
         <Col span={24}>
-            <div className="NIPUNheading">InfraStructure</div>
-          </Col>
+          <div className="NIPUNheading">InfraStructure</div>
+        </Col>
       </Col>
     </Content>
   </Layout>

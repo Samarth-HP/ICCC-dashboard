@@ -77,14 +77,78 @@ export default function MapComponent({ config, markers }) {
     return await API_SERVICE.getDistrictCWSN(params);
   };
 
+  const getSchoolAttendance = async (val) => {
+    const params = {
+      school: val,
+    };
+    return await API_SERVICE.getSchoolAttendance(params);
+  };
+
+  const getSchoolEnrolment = async (val) => {
+    
+    const params = {
+      school: val,
+    };
+    return await API_SERVICE.getSchoolEnrolment(params);
+  };
+
+  const getSchoolPTR = async (val) => {
+    const params = {
+      school: val,
+    };
+    return await API_SERVICE.getSchoolPTR(params);
+  };
+
+  const getSchoolCWSN = async (val) => {
+    const params = {
+      school: val,
+    };
+    return await API_SERVICE.getSchoolCWSN(params);
+  };
+  const getBlockAttendance = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getBlockAttendance(params);
+  };
+  const getBlockEnrolment = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getBlockEnrolment(params);
+  };
+  const getBlockPTR = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getBlockPTR(params);
+  };
+  const getBlockCWSN = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getBlockCWSN(params);
+  };
+
+
   const getToolTipData = async (district, block, school) => {
-    console.log(district, block, school);
     const promiseArray = [];
     if (district) {
       promiseArray.push(getDistrictAttendance(district));
       promiseArray.push(getDistrictEnrolment(district));
       promiseArray.push(getDistrictPTR(district));
       promiseArray.push(getDistrictCWSN(district));
+    } 
+    else if(block){
+      promiseArray.push(getBlockAttendance(district));
+      promiseArray.push(getBlockEnrolment(district));
+      promiseArray.push(getBlockPTR(district));
+      promiseArray.push(getBlockCWSN(district));
+    } else{
+      promiseArray.push(getSchoolAttendance(school));
+      promiseArray.push(getSchoolEnrolment(school));
+      promiseArray.push(getSchoolCWSN(school));
+      promiseArray.push(getSchoolPTR(school));
     }
 
     const resData = await Promise.all(promiseArray);
@@ -95,7 +159,7 @@ export default function MapComponent({ config, markers }) {
       PTR: resData[2]?.data?.rows[0]?.Ratio,
       CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
     };
-    console.log(temp);
+    console.log(temp,'oisjosj');
     setToolTipData(
       `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
     );
