@@ -27,7 +27,7 @@ const sample_data = {
 
 const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
   const [selectedButton, setSelectedButton] = useState(1);
-  const [marker, setMarker] = useState("Districts");
+  const [marker, setMarker] = useState("district");
   const onButtonClick = (id: any) => {
     console.log(id);
     setSelectedButton(id);

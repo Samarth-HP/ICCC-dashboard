@@ -44,22 +44,25 @@ const EducationPortal: FC = () => {
     console.log(id);
     setMarker(id);
   };
-  
 
   const formatMarkerData = (data: any) => {
-    const formattedData = data.filter((item: any,index:number) => index <= 200).map((item: any, index: number) => {
-      return {
-        icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-        color: "red",
-        tooltipCSS: {
-          color: "#ff0000",
-        },
-        tooltip: "This is the marker tooltip",
-        position: [item.latitude, item.longitude],
-        ...item,
-      };
-
-    });
+    const formattedData = data
+      .filter((item: any, index: number) => index <= 200)
+      .map((item: any, index: number) => {
+        return {
+          icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+          color: "purple",
+          tooltipCSS: {
+            color: "#ff0000",
+          },
+          tooltip: "This is the marker tooltip",
+          position: [item.latitude, item.longitude],
+          district : item?.district,
+          block : item?.block,
+          school : item?.school,
+          ...item,
+        };
+      });
     setMarkerData({
       shouldClusterMarkers: true,
       postions: formattedData,
@@ -79,6 +82,10 @@ const EducationPortal: FC = () => {
     }
 
     if (marker === "Schools") {
+      data = await API_SERVICE.getSchoolMarkerData(params);
+    }
+
+    if (marker === "Search") {
       data = await API_SERVICE.getSchoolMarkerData(params);
     }
     formatMarkerData(data.data.rows);
@@ -101,7 +108,7 @@ const EducationPortal: FC = () => {
                 onButtonClick(1);
               }}
             >
-              Student Assessment Performance (Grade 4-8)
+              Student Assessment Performance (Grade 1-3)
             </Button>
           </Col>
           <Col span={8}>
@@ -113,7 +120,7 @@ const EducationPortal: FC = () => {
                 onButtonClick(2);
               }}
             >
-              Student Assessment Performance (Grade 1-3)
+              Student Assessment Performance (Grade 4-8)
             </Button>
           </Col>
           <Col
@@ -147,7 +154,11 @@ const EducationPortal: FC = () => {
           )}
           {selectedButton == 3 && (
             <Col>
-              <AdministrativeOverview></AdministrativeOverview>
+              <AdministrativeOverview
+                //@ts-ignore
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+              />
             </Col>
           )}
         </Row>

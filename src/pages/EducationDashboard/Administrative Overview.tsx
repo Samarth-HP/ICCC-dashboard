@@ -28,7 +28,7 @@ const sample_data = {
   },
 };
 
-const AdministrativeOverview: FC = () => {
+const AdministrativeOverview: FC = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
@@ -43,14 +43,18 @@ const AdministrativeOverview: FC = () => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={8}>
+          <Col span={9}>
+            <SchoolStatisticsAndEnrolment
+            //@ts-ignore
+              markerData={props.markerData}
+              getMarkerData={props.getMarkerData}
+            />
+          </Col>
+          <Col span={7}>
             <Attendence></Attendence>
           </Col>
           <Col span={8}>
             <ReviewAndMonitoring />
-          </Col>
-          <Col span={8}>
-            <SchoolStatisticsAndEnrolment />
           </Col>
         </Row>
       </Content>

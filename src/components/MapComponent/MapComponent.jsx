@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -6,6 +6,7 @@ import {
   Popup,
   Polygon,
   SVGOverlay,
+  Circle,
 } from "react-leaflet";
 import { MenuOutlined } from "@ant-design/icons";
 import MarkerClusterGroup from "react-leaflet-markercluster";
@@ -18,14 +19,23 @@ import MapOverlays from "./MapOverlays";
 import red_marker from "../../assets/Map_marker_red.svg";
 import green_marker from "../../assets/Map_marker_green.svg";
 import blue_marker from "../../assets/Map_marker_blue.svg";
+import purple_marker from "../../assets/Map_marker_purple.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
-import { Button, Col, Popover } from "antd";
+import { Button, Col, Popover, Tooltip } from "antd";
+import API_SERVICE from "../../services/api-service";
 
 export default function MapComponent({ config, markers }) {
-  
+  const eventHandlers = () => ({
+    click() {
+      console.log("CLicked");
+      getToolTipData();
+    },
+  });
+
   const center = markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
+  const [toolTipData, setToolTipData] = useState("");
 
   const tempBounds = [
     [76.715049743652401, 31.588310241699446],
@@ -38,6 +48,71 @@ export default function MapComponent({ config, markers }) {
       <div>Download PNG Image</div>
     </div>
   );
+
+  const getDistrictAttendance = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getDistrictAttendance(params);
+  };
+
+  const getDistrictEnrolment = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getDistrictEnrolment(params);
+  };
+
+  const getDistrictPTR = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getDistrictPTR(params);
+  };
+
+  const getDistrictCWSN = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getDistrictCWSN(params);
+  };
+
+  const getToolTipData = async (district, block, school) => {
+    console.log(district, block, school);
+    const promiseArray = [];
+    if (district) {
+      promiseArray.push(getDistrictAttendance(district));
+      promiseArray.push(getDistrictEnrolment(district));
+      promiseArray.push(getDistrictPTR(district));
+      promiseArray.push(getDistrictCWSN(district));
+    }
+
+    const resData = await Promise.all(promiseArray);
+
+    const temp = {
+      Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
+      Enrolment: resData[1]?.data?.rows[0]?.total_students,
+      PTR: resData[2]?.data?.rows[0]?.Ratio,
+      CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
+    };
+    console.log(temp);
+    setToolTipData(
+      `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
+    );
+  };
+
+  // useEffect(() => {
+  //   const test = async () => {
+  //     const data = await getDistrictEnrolment();
+  //     const resdata = data.data;
+  //     console.log(resdata);
+  //     getDistrictEnrolment();
+  //     getDistrictPTR();
+  //     getDistrictPTR();
+  //   };
+  //   test();
+  // });
+
   return (
     <div
       style={{
@@ -84,20 +159,44 @@ export default function MapComponent({ config, markers }) {
                   markerColor = blue_marker;
                 } else if (item.color == "green") {
                   markerColor = green_marker;
+                } else if (item.color == "purple") {
+                  markerColor = purple_marker;
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
                   // iconRetinaUrl: new URL(`${item.icon}`),
                   iconUrl: markerColor,
                   iconRetinaUrl: markerColor,
-                  iconSize: new L.Point(30, 50),
+                  iconSize: new L.Point(20, 30),
+                  // onclick: getToolTipData,
+                  // eventHandlers: { eventHandlers },
                   // className: "leaflet-div-icon",
                 });
                 return (
                   <Marker position={item.position} icon={iconPerson}>
-                    <Popup>
-                      <div style={{ ...item.tooltipCSS }}>{item.tooltip}</div>
+                    {/* <Circle
+                      center={center}
+                      eventHandlers={eventHandlers}
+                      pathOptions={{ fillColor: "blue" }}
+                      radius={200}
+                    >
+                      <Tooltip>{"clickedText"}</Tooltip> */}
+                    {/* </Circle> */}
+                    {/* <Tooltip> */}
+                    {/* <div style={{ ...item.tooltipCSS }}>{item.tooltip}</div> */}
+                    {/* </Tooltip> */}
+                    {/* </Circle> */}
+                    <Popup
+                      // onOpen={getToolTipData(item.position)}
+                      onOpen={() => {
+                        // setToolTipData();
+                        // getDistrictEnrolment();
+                        getToolTipData(item.district, item.block, item.school);
+                      }}
+                    >
+                      {toolTipData}
                     </Popup>
+                    {/* <Tooltip>{"clickedText"}</Tooltip> */}
                   </Marker>
                 );
               })}
@@ -109,7 +208,8 @@ export default function MapComponent({ config, markers }) {
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
                   // iconRetinaUrl: new URL(`${item.icon}`),
-                  iconSize: new L.Point(30, 50),
+                  iconSize: new L.Point(10, 10),
+                  // onclick: getToolTipData,
                   // className: "leaflet-div-icon",
                 });
                 console.log(item.icon);
@@ -155,7 +255,6 @@ export default function MapComponent({ config, markers }) {
               </div>
             );
           })}
-              
 
           <div
             style={{
@@ -164,13 +263,13 @@ export default function MapComponent({ config, markers }) {
               flexDirection: "row-reverse",
               width: "100%",
               marginRight: "5px",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
-          ><Popover placement="bottom" content={content} trigger="click">
-            <MenuOutlined />
+          >
+            <Popover placement="bottom" content={content} trigger="click">
+              <MenuOutlined />
             </Popover>
           </div>
-
         </div>
       )}
     </div>
