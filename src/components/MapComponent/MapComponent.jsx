@@ -123,6 +123,7 @@ export default function MapComponent({ config, markers }) {
   };
 
   const getToolTipData = async (district, block, school) => {
+    console.log(district, block, school);
     const promiseArray = [];
     if (district) {
       promiseArray.push(getDistrictAttendance(district));

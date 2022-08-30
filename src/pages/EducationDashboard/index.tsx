@@ -59,7 +59,7 @@ const EducationPortal: FC = () => {
           position: [item.latitude, item.longitude],
           district : item?.district,
           block : item?.block,
-          school : item?.school,
+          school : item?.school_name,
           ...item,
         };
       });
