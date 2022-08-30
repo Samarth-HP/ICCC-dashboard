@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -8,77 +8,109 @@ import { NavLink } from "react-router-dom";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import BreadcrumbItem from "antd/lib/breadcrumb/BreadcrumbItem";
 import config from "./config.json";
+import API_SERVICE from "../../services/api-service";
 
 const ReviewMeeting: FC = () => {
+  const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const yearArr = ["2022-23"];
   const [selectedButton, setSelectedButton] = useState(1);
+  const [districtValueData, setDistrictValueData] = useState([]);
+  const [blockValueData, setBlockValueData] = useState();
   const [marker, setMarker] = useState("Districts");
-  const onDistrictChange = (id: any) => {
-    console.log(id);
-    setSelectedButton(id);
+  const [district, setDistrict] = useState([]);
+  const [monthDropdown, setMonthDropdown] = useState(monthArr);
+  const [yearDropdown, setYearDropdown] = useState(yearArr);
+  const onDistrictChange = async (value: any) => {
+    let districtData: any = [];
+    let blockData: any = [];
+    const params: any = {
+      district: value,
+    };
+    console.log(params,'parm');
+    
+    console.log(value);
+    districtData = await API_SERVICE.getDistrictAttendanceBoundary(params);
+    blockData = await API_SERVICE.getBlockAttendanceBoundary(params);
+
+    setDistrictValueData(
+      districtData.data.rows.filter((item: any) => {
+        return item.district === value;
+      })
+    );
+    setBlockValueData(blockData.data);
+
+    setSelectedButton(value);
   };
-  const onBlockChange = (id: any) => {
-    console.log(id);
-    setSelectedButton(id);
+  console.log(districtValueData,'district');
+  console.log(blockValueData,'block');
+
+  const getDistrictAttendanceData = async (District: any) => {
+    let data: any = [];
+    const params: any = {
+      district: "SIRMAUR",
+    };
+    data = await API_SERVICE.getDistrictAttendanceBoundary(params);
+    //
+    //  console.log(data.data.rows,'ksjfkdj')
+    setDistrict(
+      data.data.rows.map((item: any) => {
+        return item.district;
+      })
+    );
   };
-  const onClusterChange = (id: any) => {
-    console.log(id);
-    setSelectedButton(id);
-  };
-  const onYearChange = (id: any) => {
-    console.log(id);
-    setSelectedButton(id);
-  };
-  const onMonthChange = (id: any) => {
-    console.log(id);
-    setSelectedButton(id);
-  };
+
+  useEffect(() => {
+    getDistrictAttendanceData("District");
+  }, []);
+
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px", backgroundColor: "#FFFFFF" }}>
         {/* <Row><BreadcrumbItem></BreadcrumbItem></Row> */}
-        <Row>
-          <Col offset={2} span={3}>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <Col span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">District</h3>
               <Select
-                onChange={onDistrictChange}
+                onSelect={onDistrictChange}
                 className="select"
                 placeholder={"Choose District"}
               >
-                <Select.Option value={"District1"}>{"District1"}</Select.Option>
-                <Select.Option value={"District2"}>{"District2"}</Select.Option>
+                {district.map((obj: any, i: number) => {
+                  return (
+                    <Select.Option key={i} value={obj}>
+                      {obj}{" "}
+                    </Select.Option>
+                  );
+                })}
               </Select>
             </div>
           </Col>
-          <Col offset={1} span={3}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <h3 className="h3">Block</h3>
-              <Select onChange={onBlockChange} placeholder={"Choose Block"}>
-                <Select.Option value={"Block"}>{"Block"}</Select.Option>
-              </Select>
-            </div>
-          </Col>
-          <Col offset={1} span={3}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <h3 className="h3">Cluster</h3>
-              <Select onChange={onClusterChange} placeholder={"Choose Cluster"}>
-                <Select.Option value={"Cluster"}>{"Cluster"}</Select.Option>
-              </Select>
-            </div>
-          </Col>
-          <Col offset={1} span={3}>
+          <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Year</h3>
-              <Select onChange={onYearChange} placeholder={"Choose Year"}>
-                <Select.Option value={"Year"}>{"Year"}</Select.Option>
+              <Select onSelect={onDistrictChange} placeholder={"Choose Year"}>
+                {yearDropdown.map((obj: any, i: number) => {
+                  return (
+                    <Select.Option key={i} value={obj}>
+                      {obj}{" "}
+                    </Select.Option>
+                  );
+                })}
               </Select>
             </div>
           </Col>
-          <Col offset={1} span={3}>
+          <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Month</h3>
-              <Select onChange={onMonthChange} placeholder={"Choose Month"}>
-                <Select.Option value={"Month"}>{"Month"}</Select.Option>
+              <Select onSelect={onDistrictChange} placeholder={"Choose Month"}>
+                {monthDropdown.map((obj: any, i: number) => {
+                  return (
+                    <Select.Option key={i} value={obj}>
+                      {obj}{" "}
+                    </Select.Option>
+                  );
+                })}
               </Select>
             </div>
           </Col>
@@ -90,8 +122,11 @@ const ReviewMeeting: FC = () => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ width: "100%",border:'1px solid black' }}>
-              <MapComponent config={config} markers={config.markers}></MapComponent>
+            <div style={{ width: "100%", border: "1px solid black" }}>
+              <MapComponent
+                config={config}
+                markers={config.markers}
+              ></MapComponent>
             </div>
           </Col>
         </Row>

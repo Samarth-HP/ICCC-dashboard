@@ -130,6 +130,14 @@ async function getSchoolCWSN(params: any) {
     const instance = getPublicInstance();
     return await instance.post('/query/school_cwsn', params)
 }
+async function getDistrictAttendanceBoundary(params: any) {
+    const instance = getPublicInstance();
+    return await instance.post('/query/district_attendance_boundary', params)
+}
+async function getBlockAttendanceBoundary(params: any) {
+    const instance = getPublicInstance();
+    return await instance.post('/query/block_attendance_boundary', params)
+}
 
 //auth
 async function login(email: string, password: string) {
@@ -160,6 +168,8 @@ const API_SERVICE = {
     getSchoolEnrolment,
     getSchoolPTR,
     getSchoolCWSN,
+    getDistrictAttendanceBoundary,
+    getBlockAttendanceBoundary,
 
     login,
     self,
