@@ -9,10 +9,8 @@ import {
   Circle,
 } from "react-leaflet";
 import { MenuOutlined } from "@ant-design/icons";
-import MarkerClusterGroup from "react-leaflet-markercluster";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
-// import config from "./config.json";
-// import bounds from "./bounds.json";
 import MapBound from "./MapBound";
 import "./Map.css";
 import MapOverlays from "./MapOverlays";
@@ -55,21 +53,18 @@ export default function MapComponent({ config, markers }) {
     };
     return await API_SERVICE.getDistrictAttendance(params);
   };
-
   const getDistrictEnrolment = async (val) => {
     const params = {
       district: val,
     };
     return await API_SERVICE.getDistrictEnrolment(params);
   };
-
   const getDistrictPTR = async (val) => {
     const params = {
       district: val,
     };
     return await API_SERVICE.getDistrictPTR(params);
   };
-
   const getDistrictCWSN = async (val) => {
     const params = {
       district: val,
@@ -77,59 +72,55 @@ export default function MapComponent({ config, markers }) {
     return await API_SERVICE.getDistrictCWSN(params);
   };
 
-  const getSchoolAttendance = async (val) => {
-    const params = {
-      school: val,
-    };
-    return await API_SERVICE.getSchoolAttendance(params);
-  };
-
-  const getSchoolEnrolment = async (val) => {
-    
-    const params = {
-      school: val,
-    };
-    return await API_SERVICE.getSchoolEnrolment(params);
-  };
-
-  const getSchoolPTR = async (val) => {
-    const params = {
-      school: val,
-    };
-    return await API_SERVICE.getSchoolPTR(params);
-  };
-
-  const getSchoolCWSN = async (val) => {
-    const params = {
-      school: val,
-    };
-    return await API_SERVICE.getSchoolCWSN(params);
-  };
   const getBlockAttendance = async (val) => {
     const params = {
-      district: val,
+      block: val,
     };
     return await API_SERVICE.getBlockAttendance(params);
   };
   const getBlockEnrolment = async (val) => {
     const params = {
-      district: val,
+      block: val,
     };
     return await API_SERVICE.getBlockEnrolment(params);
   };
   const getBlockPTR = async (val) => {
     const params = {
-      district: val,
+      block: val,
     };
     return await API_SERVICE.getBlockPTR(params);
   };
   const getBlockCWSN = async (val) => {
     const params = {
-      district: val,
+      block: val,
     };
     return await API_SERVICE.getBlockCWSN(params);
   };
 
+  const getSchoolAttendance = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getSchoolAttendance(params);
+  };
+  const getSchoolEnrolment = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getSchoolEnrolment(params);
+  };
+  const getSchoolPTR = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getSchoolPTR(params);
+  };
+  const getSchoolCWSN = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getSchoolCWSN(params);
+  };
 
   const getToolTipData = async (district, block, school) => {
     const promiseArray = [];
@@ -138,13 +129,12 @@ export default function MapComponent({ config, markers }) {
       promiseArray.push(getDistrictEnrolment(district));
       promiseArray.push(getDistrictPTR(district));
       promiseArray.push(getDistrictCWSN(district));
-    } 
-    else if(block){
-      promiseArray.push(getBlockAttendance(district));
-      promiseArray.push(getBlockEnrolment(district));
-      promiseArray.push(getBlockPTR(district));
-      promiseArray.push(getBlockCWSN(district));
-    } else{
+    } else if (block) {
+      promiseArray.push(getBlockAttendance(block));
+      promiseArray.push(getBlockEnrolment(block));
+      promiseArray.push(getBlockPTR(block));
+      promiseArray.push(getBlockCWSN(block));
+    } else {
       promiseArray.push(getSchoolAttendance(school));
       promiseArray.push(getSchoolEnrolment(school));
       promiseArray.push(getSchoolCWSN(school));
@@ -159,23 +149,10 @@ export default function MapComponent({ config, markers }) {
       PTR: resData[2]?.data?.rows[0]?.Ratio,
       CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
     };
-    console.log(temp,'oisjosj');
     setToolTipData(
       `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
     );
   };
-
-  // useEffect(() => {
-  //   const test = async () => {
-  //     const data = await getDistrictEnrolment();
-  //     const resdata = data.data;
-  //     console.log(resdata);
-  //     getDistrictEnrolment();
-  //     getDistrictPTR();
-  //     getDistrictPTR();
-  //   };
-  //   test();
-  // });
 
   return (
     <div
@@ -211,7 +188,47 @@ export default function MapComponent({ config, markers }) {
         {byGeoJson && <MapOverlays overlays={config.overlays} />}
         {!byGeoJson && //
           (markers?.shouldClusterMarkers ? (
-            // <MarkerClusterGroup>
+            <MarkerClusterGroup>
+              {/* <div> */}
+              {markers?.postions.map((item) => {
+                let markerColor = blue_marker;
+                if (item.color == "red") {
+                  markerColor = red_marker;
+                } else if (item.color == "yellow") {
+                  markerColor = yellow_marker;
+                } else if (item.color == "blue") {
+                  markerColor = blue_marker;
+                } else if (item.color == "green") {
+                  markerColor = green_marker;
+                } else if (item.color == "purple") {
+                  markerColor = purple_marker;
+                }
+                const iconPerson = new L.Icon({
+                  // iconUrl: new URL(`${item.icon}`),
+                  // iconRetinaUrl: new URL(`${item.icon}`),
+                  iconUrl: markerColor,
+                  iconRetinaUrl: markerColor,
+                  iconSize: new L.Point(20, 30),
+                  // onclick: getToolTipData,
+                  // eventHandlers: { eventHandlers },
+                  // className: "leaflet-div-icon",
+                });
+                return (
+                  <Marker position={item.position} icon={iconPerson}>
+                    <Popup
+                      onOpen={() => {
+                        getToolTipData(item.district, item.block, item.school);
+                      }}
+                    >
+                      {toolTipData}
+                    </Popup>
+                  </Marker>
+                );
+              })}
+              {/* </div> */}
+            </MarkerClusterGroup>
+          ) : (
+            //
             <div>
               {markers?.postions.map((item) => {
                 let markerColor = blue_marker;
@@ -238,49 +255,12 @@ export default function MapComponent({ config, markers }) {
                 });
                 return (
                   <Marker position={item.position} icon={iconPerson}>
-                    {/* <Circle
-                      center={center}
-                      eventHandlers={eventHandlers}
-                      pathOptions={{ fillColor: "blue" }}
-                      radius={200}
-                    >
-                      <Tooltip>{"clickedText"}</Tooltip> */}
-                    {/* </Circle> */}
-                    {/* <Tooltip> */}
-                    {/* <div style={{ ...item.tooltipCSS }}>{item.tooltip}</div> */}
-                    {/* </Tooltip> */}
-                    {/* </Circle> */}
                     <Popup
-                      // onOpen={getToolTipData(item.position)}
                       onOpen={() => {
-                        // setToolTipData();
-                        // getDistrictEnrolment();
                         getToolTipData(item.district, item.block, item.school);
                       }}
                     >
                       {toolTipData}
-                    </Popup>
-                    {/* <Tooltip>{"clickedText"}</Tooltip> */}
-                  </Marker>
-                );
-              })}
-            </div>
-          ) : (
-            // </MarkerClusterGroup>
-            <div>
-              {markers?.postions.map((item) => {
-                const iconPerson = new L.Icon({
-                  // iconUrl: new URL(`${item.icon}`),
-                  // iconRetinaUrl: new URL(`${item.icon}`),
-                  iconSize: new L.Point(10, 10),
-                  // onclick: getToolTipData,
-                  // className: "leaflet-div-icon",
-                });
-                console.log(item.icon);
-                return (
-                  <Marker position={item.position} icon={iconPerson}>
-                    <Popup>
-                      <div style={{ ...item.tooltipCSS }}>{item.tooltip}</div>
                     </Popup>
                   </Marker>
                 );
