@@ -64,7 +64,7 @@ const ReviewMeeting: FC = () => {
     const params: any = {
       district: value,
     };
-    console.log(value);
+   
     districtData = await API_SERVICE.getDistrictAttendanceBoundary(params);
     blockData = await API_SERVICE.getBlockAttendanceBoundary(params);
 
@@ -87,7 +87,6 @@ const ReviewMeeting: FC = () => {
       district: "SIRMAUR",
     };
     data = await API_SERVICE.getDistrictAttendanceBoundary(params);
-    console.log(data.data);
     const labels = data.data.rows.map((item: any) => {
       return {
         width: 100,
@@ -112,6 +111,9 @@ const ReviewMeeting: FC = () => {
         })[0].geometry.coordinates[0],
       };
     });
+
+  
+    
     const updatedConfig = {
       map: {
         zoomControl: false,
@@ -129,7 +131,7 @@ const ReviewMeeting: FC = () => {
       },
       overlays: overlays,
     };
-    console.log(updatedConfig);
+ 
     setMarkerConfig(updatedConfig);
     setLoading(false);
     setDistrict(
@@ -138,10 +140,73 @@ const ReviewMeeting: FC = () => {
       })
     );
   };
+  const getBlockAttendanceData = async (district:any) => {
+    setLoading(true);
+    // let data: any = [{}];
+    // const params: any = {
+    //   district: dist,
+    // };
+    // data = await API_SERVICE.getDistrictAttendanceBoundary(params);
+    // const labels = data.data.rows.map((item: any) => {
+    //   return {
+    //     width: 100,
+    //     fontSize: 20,
+    //     color: item.HexCodes,
+    //     fontFamily: "sans-serif",
+    //     fontWeight: "bold",
+    //     padding: 10,
+    //     label: item.district,
+    //   };
+    // });
+    const overlays = [{
+      id: 1,
+      DistrictName: district,
+      color: "#ff55gg",
+      opacity: 0.5,
+      //@ts-ignore
+      geoJson: blockGeo.features.filter((item: any) => {
+        return (
+          item.properties.dtname.toLowerCase() === district.toLowerCase()
+        );
+      })[0].geometry.coordinates[0],
+    }]
+
+    const bounds = districtGeo.features.find((item: any) => {
+      return (
+        item.properties.NAME_2.toLowerCase() === district.toLowerCase()
+      );
+    })?.geometry.coordinates[0];
+
+  
+    
+    const updatedConfig = {
+      map: {
+        zoomControl: false,
+        scrollWheelZoom: false,
+        dragging: false,
+        doubleClickZoom: false,
+      },
+      legend: {
+        display: true,
+        position: "top-left",
+        labels: [],
+      },
+      bounds: {
+        byGeoJson: bounds,
+      },
+      overlays: overlays,
+    };
+    
+    //@ts-ignore
+    setMarkerConfig(updatedConfig);
+    setLoading(false);
+  };
 
   const filterData = (district: any, month: any, year: any) => {
+  
     if (district) {
       console.log(district);
+      getBlockAttendanceData(district);
     }
     if (month) {
       console.log(month);
@@ -150,8 +215,10 @@ const ReviewMeeting: FC = () => {
       console.log(year);
     }
   };
+  
   useEffect(() => {
     getDistrictAttendanceData("District");
+    // getBlockAttendanceData("District");
     const overlays = districts.map((item: any) => {
       return {
         id: 1,
@@ -185,7 +252,7 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">District</h3>
               <Select
-                onSelect={(val) => {
+                onSelect={(val:any) => {                  
                   filterData(val, null, null);
                 }}
                 className="select"
@@ -205,7 +272,7 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Year</h3>
               <Select
-                onSelect={(val) => {
+                onSelect={(val:any) => {
                   filterData(null, val, null);
                 }}
                 placeholder={"Choose Year"}
@@ -224,7 +291,7 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Month</h3>
               <Select
-                onSelect={(val) => {
+                onSelect={(val:any) => {
                   filterData(null, null, val);
                 }}
                 placeholder={"Choose Month"}

@@ -85,6 +85,9 @@ const Attendence: FC = () => (
               allowTransparency
             ></iframe>
           </Col>
+          <Button className="navButtonSelected">
+            District wise Average Monthly Attendance
+          </Button>
           <Col span={24}>
             <iframe
               src="http://167.71.234.32:3000/public/question/3d6db0e4-4923-4a94-8e21-de2b769059a9"
@@ -94,6 +97,9 @@ const Attendence: FC = () => (
               allowTransparency
             ></iframe>
           </Col>
+          <Button className="navButtonSelected">
+            Percentage Schools Recording Attendance on e-Samwad
+          </Button>
         </Row>
         <Row>
           <Col span={24}>
@@ -101,13 +107,13 @@ const Attendence: FC = () => (
               src="http://167.71.234.32:3000/public/question/99432b69-51c2-43b6-a2c6-f3b7d7b7f419"
               frameBorder="0"
               width="100%"
-              height="600"
+              height="580"
               allowTransparency
             ></iframe>
           </Col>
           <Col span={24}>
             <Button className="navButtonSelected">
-            Month wise Average Student Attendance and Compliance
+              Month wise Average Student Attendance and Compliance
             </Button>
           </Col>
           <Col span={24}>
@@ -121,13 +127,10 @@ const Attendence: FC = () => (
           </Col>
           <Col span={24}>
             <Button className="navButtonSelected">
-            Daily Average Student Attendance and Compliance
+              Daily Average Student Attendance and Compliance
             </Button>
           </Col>
         </Row>
-        <Col span={24}>
-          <div className="NIPUNheading">InfraStructure</div>
-        </Col>
       </Col>
     </Content>
   </Layout>
