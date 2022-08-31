@@ -57,9 +57,9 @@ const EducationPortal: FC = () => {
           },
           tooltip: "This is the marker tooltip",
           position: [item.latitude, item.longitude],
-          district : item?.district,
-          block : item?.block,
-          school : item?.school_name,
+          district: item?.district,
+          block: item?.block,
+          school: item?.school_name,
           ...item,
         };
       });
@@ -99,7 +99,7 @@ const EducationPortal: FC = () => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={8}>
+          <Col span={6}>
             <Button
               className={
                 selectedButton == 1 ? "navButtonSelected" : "navButton"
@@ -111,7 +111,7 @@ const EducationPortal: FC = () => {
               Student Assessment Performance (Grade 1-3)
             </Button>
           </Col>
-          <Col span={8}>
+          <Col span={6}>
             <Button
               className={
                 selectedButton == 2 ? "navButtonSelected" : "navButton"
@@ -124,7 +124,7 @@ const EducationPortal: FC = () => {
             </Button>
           </Col>
           <Col
-            span={8}
+            span={6}
             onClick={() => {
               onButtonClick(3);
             }}
@@ -136,6 +136,9 @@ const EducationPortal: FC = () => {
             >
               Administrative Overview
             </Button>
+          </Col>
+          <Col span={4}>
+            <Button>VIEW DETAILED DASHBOARDS</Button>
           </Col>
         </Row>
         <Row>

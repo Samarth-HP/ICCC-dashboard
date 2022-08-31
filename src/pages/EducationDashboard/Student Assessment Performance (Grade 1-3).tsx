@@ -39,7 +39,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
           <Col span={6}>
             <Row>
               <Col span={8}>
-                <Button
+                {/* <Button
                   className={
                     selectedButton == 1 ? "navButtonSelected" : "navButton"
                   }
@@ -48,10 +48,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   }}
                 >
                   Student Assessment Performance (Grade 4-8)
-                </Button>
+                </Button> */}
               </Col>
               <Col span={8}>
-                <Button
+                {/* <Button
                   className={
                     selectedButton == 2 ? "navButtonSelected" : "navButton"
                   }
@@ -60,7 +60,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   }}
                 >
                   Student Assessment Performance (Grade 1-3)
-                </Button>
+                </Button> */}
               </Col>
               <Col
                 span={8}
@@ -68,13 +68,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   onButtonClick(3);
                 }}
               >
-                <Button
+                {/* <Button
                   className={
                     selectedButton == 3 ? "navButtonSelected" : "navButton"
                   }
                 >
                   Administrative Overview
-                </Button>
+                </Button> */}
               </Col>
             </Row>
             <Row>
@@ -230,7 +230,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col span={9}>
                 <Row>
                   <Col>
-                    <Button>VIEW DETAILED DASHBOARDS</Button>
+                    
                   </Col>
                   <Col>
                     <Select defaultValue={"2022-2023"}>
