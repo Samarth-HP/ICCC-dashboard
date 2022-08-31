@@ -12,6 +12,7 @@ import { useEffect, useMemo, useState } from "react";
 // });
 
 const MapOverlays = ({ overlays }) => {
+  console.log(overlays[0].geoJson)
   return (
     <>
       {overlays.map((item) => {

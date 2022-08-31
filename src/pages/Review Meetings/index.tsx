@@ -9,10 +9,48 @@ import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import BreadcrumbItem from "antd/lib/breadcrumb/BreadcrumbItem";
 import config from "./config.json";
 import API_SERVICE from "../../services/api-service";
+import blockGeo from "./blockGeo.json";
+import bounds from "./bounds.json";
+import districtGeo from "./districtGeo.json";
+
+const default_marker_config = {
+  map: {
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+    doubleClickZoom: false,
+  },
+  legend: {
+    display: true,
+    position: "top-left",
+    labels: [],
+  },
+  bounds: {
+    byGeoJson: bounds,
+  },
+  overlays: [],
+};
 
 const ReviewMeeting: FC = () => {
   const monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const yearArr = ["2022-23"];
+  const districts = [
+    "SIRMAUR",
+    "CHAMBA",
+    "UNA",
+    "KULLU",
+    "KANGRA",
+    "MANDI",
+    "SOLAN",
+    "SHIMLA",
+    "HAMIRPUR",
+    "LAHAUL AND SPITI",
+    "BILASPUR",
+    "KINNAUR",
+  ];
+  const [markerConfig, setMarkerConfig] = useState(default_marker_config);
+  const [loading, setLoading] = useState(false);
+
   const [selectedButton, setSelectedButton] = useState(1);
   const [districtValueData, setDistrictValueData] = useState([]);
   const [blockValueData, setBlockValueData] = useState();
@@ -26,8 +64,6 @@ const ReviewMeeting: FC = () => {
     const params: any = {
       district: value,
     };
-    console.log(params,'parm');
-    
     console.log(value);
     districtData = await API_SERVICE.getDistrictAttendanceBoundary(params);
     blockData = await API_SERVICE.getBlockAttendanceBoundary(params);
@@ -41,17 +77,61 @@ const ReviewMeeting: FC = () => {
 
     setSelectedButton(value);
   };
-  console.log(districtValueData,'district');
-  console.log(blockValueData,'block');
+  // console.log(districtValueData, "district");
+  // console.log(blockValueData, "block");
 
   const getDistrictAttendanceData = async (District: any) => {
-    let data: any = [];
+    setLoading(true);
+    let data: any = [{}];
     const params: any = {
       district: "SIRMAUR",
     };
     data = await API_SERVICE.getDistrictAttendanceBoundary(params);
-    //
-    //  console.log(data.data.rows,'ksjfkdj')
+    console.log(data.data);
+    const labels = data.data.rows.map((item: any) => {
+      return {
+        width: 100,
+        fontSize: 20,
+        color: item.HexCodes,
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 10,
+        label: item.district,
+      };
+    });
+    const overlays = data.data.rows.map((item: any) => {
+      return {
+        id: 1,
+        DistrictName: item.district,
+        color: item.HexCodes,
+        opacity: 0.5,
+        geoJson: districtGeo.features.filter((key: any) => {
+          return (
+            key.properties.NAME_2.toLowerCase() === item.district.toLowerCase()
+          );
+        })[0].geometry.coordinates[0],
+      };
+    });
+    const updatedConfig = {
+      map: {
+        zoomControl: false,
+        scrollWheelZoom: false,
+        dragging: false,
+        doubleClickZoom: false,
+      },
+      legend: {
+        display: true,
+        position: "top-left",
+        labels: [],
+      },
+      bounds: {
+        byGeoJson: bounds,
+      },
+      overlays: overlays,
+    };
+    console.log(updatedConfig);
+    setMarkerConfig(updatedConfig);
+    setLoading(false);
     setDistrict(
       data.data.rows.map((item: any) => {
         return item.district;
@@ -59,8 +139,41 @@ const ReviewMeeting: FC = () => {
     );
   };
 
+  const filterData = (district: any, month: any, year: any) => {
+    if (district) {
+      console.log(district);
+    }
+    if (month) {
+      console.log(month);
+    }
+    if (year) {
+      console.log(year);
+    }
+  };
   useEffect(() => {
     getDistrictAttendanceData("District");
+    const overlays = districts.map((item: any) => {
+      return {
+        id: 1,
+        color: "",
+        opacity: 0.5,
+        geoJson: "",
+      };
+    });
+    const updatedConfig = {
+      bounds: {
+        byGeoJson: bounds,
+        overlays: [
+          {
+            id: 1,
+            color: "#00ff00",
+            opacity: 0.5,
+            geoJson: "",
+          },
+        ],
+      },
+    };
+    // bounds.
   }, []);
 
   return (
@@ -72,14 +185,16 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">District</h3>
               <Select
-                onSelect={onDistrictChange}
+                onSelect={(val) => {
+                  filterData(val, null, null);
+                }}
                 className="select"
                 placeholder={"Choose District"}
               >
                 {district.map((obj: any, i: number) => {
                   return (
                     <Select.Option key={i} value={obj}>
-                      {obj}{" "}
+                      {obj}
                     </Select.Option>
                   );
                 })}
@@ -89,11 +204,16 @@ const ReviewMeeting: FC = () => {
           <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Year</h3>
-              <Select onSelect={onDistrictChange} placeholder={"Choose Year"}>
+              <Select
+                onSelect={(val) => {
+                  filterData(null, val, null);
+                }}
+                placeholder={"Choose Year"}
+              >
                 {yearDropdown.map((obj: any, i: number) => {
                   return (
                     <Select.Option key={i} value={obj}>
-                      {obj}{" "}
+                      {obj}
                     </Select.Option>
                   );
                 })}
@@ -103,11 +223,16 @@ const ReviewMeeting: FC = () => {
           <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Month</h3>
-              <Select onSelect={onDistrictChange} placeholder={"Choose Month"}>
+              <Select
+                onSelect={(val) => {
+                  filterData(null, null, val);
+                }}
+                placeholder={"Choose Month"}
+              >
                 {monthDropdown.map((obj: any, i: number) => {
                   return (
                     <Select.Option key={i} value={obj}>
-                      {obj}{" "}
+                      {obj}
                     </Select.Option>
                   );
                 })}
@@ -123,10 +248,13 @@ const ReviewMeeting: FC = () => {
         <Row>
           <Col span={24}>
             <div style={{ width: "100%", border: "1px solid black" }}>
-              <MapComponent
-                config={config}
-                markers={config.markers}
-              ></MapComponent>
+              <Card loading={loading}>
+                <MapComponent
+                  config={markerConfig}
+                  // config={config}
+                  markers={config.markers}
+                ></MapComponent>
+              </Card>
             </div>
           </Col>
         </Row>

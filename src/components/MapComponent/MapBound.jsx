@@ -55,7 +55,7 @@ const MapBound = ({ bounds }) => {
           positions={innerBounds}
           bounds={innerBounds.length ? innerBounds : [[]]}
           eventHandlers={innerHandlers}
-          pathOptions={{ color: "red", stroke: false }}
+          pathOptions={{ color: "blue", stroke: false }}
         />
       ) : (
         <Rectangle
