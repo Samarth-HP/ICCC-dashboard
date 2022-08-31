@@ -5,16 +5,11 @@ import "./index.css";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import { NavLink } from "react-router-dom";
-
-import schools from "../../assets/schools.png";
-import students from "../../assets/students.png";
-import teachers from "../../assets/teachers.png";
-
-import FooterLogo from "../../assets/footer_logo.png";
-import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
+const questions = [4];
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
+import QuestionWithIframe from "../../components/QuestionWIthIframe";
 
 const sample_data = {
   schools: {
@@ -36,7 +31,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
     console.log(id);
     setMarker(id);
   };
-  
+
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
@@ -257,13 +252,15 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
             <Row>
               <Col span={24}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/c17c54f7-ba27-4f0d-83dd-2236bc48fd9a"
-                    frameBorder="0"
-                    width="100%"
-                    height="500"
-                    allowTransparency
-                  ></iframe>
+                  {/*<iframe*/}
+                  {/*  src="http://167.71.234.32:3000/public/question/c17c54f7-ba27-4f0d-83dd-2236bc48fd9a"*/}
+                  {/*  frameBorder="0"*/}
+                  {/*  width="100%"*/}
+                  {/*  height="500"*/}
+                  {/*  allowTransparency*/}
+                  {/*></iframe>*/}
+                  {/*Hello*/}
+                  <QuestionWithIframe questionId={5} width="100%" height="500"/>
                 </div>
               </Col>
             </Row>
