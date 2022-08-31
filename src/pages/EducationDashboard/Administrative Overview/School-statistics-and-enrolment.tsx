@@ -29,11 +29,8 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
     const params = {
       udise: val
     }
-    const data = await API_SERVICE.searchSchoolData(params);
-    console.log('data', data);
-    const params: any = {
-      district: "SIRMAUR",
-    };
+    // const data = await API_SERVICE.searchSchoolData(params);
+    // console.log('data', data);
     // const data = await API_SERVICE.searchSchoolData(params);
     const res = await API_SERVICE.getSchoolMarkerData(params);
     const data = res.data.rows.find((item: any) => {
