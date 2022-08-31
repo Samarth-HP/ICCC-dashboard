@@ -139,6 +139,82 @@ async function getBlockAttendanceBoundary(params: any) {
     return await instance.post('/query/block_attendance_boundary', params)
 }
 
+// Student Assesment 4-8 by vinay maheshwari
+
+async function getStudentAssesmentBlock1(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/block_assessment_4to8", params);
+}
+
+async function getStudentAssesmentBlock2(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/block_sa1_4to8", params);
+}
+async function getStudentAssesmentBlock3(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/block_sa2_4to8", params);
+}
+async function getStudentAssesmentBlock4(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/block_assessment_change_4to8", params);
+}
+async function getStudentAssesmentBlock5(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/block_assessment_gradewise_4to8", params);
+}
+
+async function getStudentAssesmentDistrict1(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/district_assessment_4to8", params);
+}
+
+async function getStudentAssesmentDistrict2(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/district_sa1_4to8", params);
+}
+
+async function getStudentAssesmentDistrict3(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/district_sa2_4to8", params);
+}
+
+async function getStudentAssesmentDistrict4(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/district_assessment_change_4to8", params);
+}
+
+async function getStudentAssesmentDistrict5(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/district_assessment_gradewise_4to8", params);
+}
+
+async function getStudentAssesmentSchool1(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/school_assessment_4to8", params);
+}
+
+async function getStudentAssesmentSchool2(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/school_sa1_4to8", params);
+}
+
+async function getStudentAssesmentSchool3(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/school_sa2_4to8", params);
+}
+
+async function getStudentAssesmentSchool4(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/school_assessment_change_4to8", params);
+}
+
+async function getStudentAssesmentSchool5(params: any) {
+    const instance = getPublicInstance();
+    return instance.post("/query/school_assessment_gradewise_4to8", params);
+}
+
+// vinay end
+
 //auth
 async function login(email: string, password: string) {
     const instance = getPublicInstance();
@@ -170,6 +246,21 @@ const API_SERVICE = {
     getSchoolCWSN,
     getDistrictAttendanceBoundary,
     getBlockAttendanceBoundary,
+    getStudentAssesmentBlock1,
+    getStudentAssesmentBlock2,
+    getStudentAssesmentBlock3,
+    getStudentAssesmentBlock4,
+    getStudentAssesmentBlock5,
+    getStudentAssesmentDistrict1,
+    getStudentAssesmentDistrict2,
+    getStudentAssesmentDistrict3,
+    getStudentAssesmentDistrict4,
+    getStudentAssesmentDistrict5,
+    getStudentAssesmentSchool1,
+    getStudentAssesmentSchool2,
+    getStudentAssesmentSchool3,
+    getStudentAssesmentSchool4,
+    getStudentAssesmentSchool5,
 
     login,
     self,

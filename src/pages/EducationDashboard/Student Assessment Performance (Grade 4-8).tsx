@@ -26,8 +26,9 @@ const sample_data = {
   },
 };
 
-const StudentAssessmentPerformanceGrade4_8: FC = () => {
+const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
+  const [selected, setSelected] = useState("SA1");
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
     console.log(id);
@@ -187,9 +188,13 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
               <Col span={24}>
                 <Row>
                   <Col span={4}>
-                    <Select defaultValue={"SA-1"} style={{ width: "100%" }}>
-                      <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
-                      <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
+                    <Select
+                      onSelect={(e: any) => setSelected(e)}
+                      defaultValue={"SA1"}
+                      style={{ width: "100%" }}
+                    >
+                      <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
+                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
                   <Col span={5}>
@@ -212,30 +217,33 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Blocks");
                         setMarker("Blocks");
                       }}
                     >
                       Blocks
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  {/* <Col span={5}>
                     <Button
                       className={
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Districts");
                         setMarker("Clusters");
                       }}
                     >
                       Clusters
                     </Button>
-                  </Col>
+                  </Col> */}
                   <Col span={5}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Schools");
                         setMarker("Schools");
                       }}
                     >
@@ -247,9 +255,11 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
                       <MapComponent
+                        at={selected}
                         config={config}
-                        markers={undefined}
-                      ></MapComponent>
+                        markers={props.markerData}
+                        type={2}
+                      />
                     </div>
                   </Col>
                 </Row>

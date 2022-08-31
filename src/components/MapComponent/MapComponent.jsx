@@ -22,7 +22,12 @@ import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
 
-export default function MapComponent({ config, markers }) {
+export default function MapComponent({
+  config,
+  markers,
+  type = 1,
+  at = "SA1",
+}) {
   const eventHandlers = () => ({
     click() {
       console.log("CLicked");
@@ -121,38 +126,184 @@ export default function MapComponent({ config, markers }) {
     };
     return await API_SERVICE.getSchoolCWSN(params);
   };
+  // type default 1 end
+
+  const getStudentAssesmentDistrict1 = async (val) => {
+    const params = {
+      district: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict1(params);
+  };
+
+  const getStudentAssesmentDistrict2 = async (val) => {
+    const params = {
+      district: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict2(params);
+  };
+
+  const getStudentAssesmentDistrict3 = async (val) => {
+    const params = {
+      district: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict3(params);
+  };
+
+  const getStudentAssesmentDistrict4 = async (val) => {
+    const params = {
+      district: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict4(params);
+  };
+  const getStudentAssesmentDistrict5 = async (val) => {
+    const params = {
+      district: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict5(params);
+  };
+
+  const getStudentAssesmentBlock1 = async (val) => {
+    const params = {
+      block: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock1(params);
+  };
+  const getStudentAssesmentBlock2 = async (val) => {
+    const params = {
+      block: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock2(params);
+  };
+
+  const getStudentAssesmentBlock3 = async (val) => {
+    const params = {
+      block: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock3(params);
+  };
+  const getStudentAssesmentBlock4 = async (val) => {
+    const params = {
+      block: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock4(params);
+  };
+  const getStudentAssesmentBlock5 = async (val) => {
+    const params = {
+      block: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock5(params);
+  };
+
+  const getStudentAssesmentSchool1 = async (val) => {
+    const params = {
+      school_name: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool1(params);
+  };
+  const getStudentAssesmentSchool2 = async (val) => {
+    const params = {
+      school_name: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool2(params);
+  };
+
+  const getStudentAssesmentSchool3 = async (val) => {
+    const params = {
+      school_name: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool3(params);
+  };
+  const getStudentAssesmentSchool4 = async (val) => {
+    const params = {
+      school_name: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool4(params);
+  };
+  const getStudentAssesmentSchool5 = async (val) => {
+    const params = {
+      school_name: val,
+      assessment_type_v2: at,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool5(params);
+  };
+  // type dynamic 2 end
 
   const getToolTipData = async (district, block, school) => {
     console.log(district, block, school);
     const promiseArray = [];
     if (district) {
-      promiseArray.push(getDistrictAttendance(district));
-      promiseArray.push(getDistrictEnrolment(district));
-      promiseArray.push(getDistrictPTR(district));
-      promiseArray.push(getDistrictCWSN(district));
+      if (type == 2) {
+        promiseArray.push(getStudentAssesmentDistrict1(district));
+        promiseArray.push(getStudentAssesmentDistrict2(district));
+        promiseArray.push(getStudentAssesmentDistrict3(district));
+        promiseArray.push(getStudentAssesmentDistrict4(district));
+        promiseArray.push(getStudentAssesmentDistrict5(district));
+      } else {
+        promiseArray.push(getDistrictAttendance(district));
+        promiseArray.push(getDistrictEnrolment(district));
+        promiseArray.push(getDistrictPTR(district));
+        promiseArray.push(getDistrictCWSN(district));
+      }
     } else if (block) {
-      promiseArray.push(getBlockAttendance(block));
-      promiseArray.push(getBlockEnrolment(block));
-      promiseArray.push(getBlockPTR(block));
-      promiseArray.push(getBlockCWSN(block));
+      if (type == 2) {
+        promiseArray.push(getStudentAssesmentBlock1(block));
+        promiseArray.push(getStudentAssesmentBlock2(block));
+        promiseArray.push(getStudentAssesmentBlock3(block));
+        promiseArray.push(getStudentAssesmentBlock4(block));
+        promiseArray.push(getStudentAssesmentBlock5(block));
+      } else {
+        promiseArray.push(getBlockAttendance(block));
+        promiseArray.push(getBlockEnrolment(block));
+        promiseArray.push(getBlockPTR(block));
+        promiseArray.push(getBlockCWSN(block));
+      }
     } else {
-      promiseArray.push(getSchoolAttendance(school));
-      promiseArray.push(getSchoolEnrolment(school));
-      promiseArray.push(getSchoolCWSN(school));
-      promiseArray.push(getSchoolPTR(school));
+      if (type == 2) {
+        promiseArray.push(getStudentAssesmentSchool1(school));
+        promiseArray.push(getStudentAssesmentSchool2(school));
+        promiseArray.push(getStudentAssesmentSchool3(school));
+        promiseArray.push(getStudentAssesmentSchool4(school));
+        promiseArray.push(getStudentAssesmentSchool5(school));
+      } else {
+        promiseArray.push(getSchoolAttendance(school));
+        promiseArray.push(getSchoolEnrolment(school));
+        promiseArray.push(getSchoolCWSN(school));
+        promiseArray.push(getSchoolPTR(school));
+      }
     }
 
     const resData = await Promise.all(promiseArray);
 
-    const temp = {
-      Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-      Enrolment: resData[1]?.data?.rows[0]?.total_students,
-      PTR: resData[2]?.data?.rows[0]?.Ratio,
-      CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-    };
-    setToolTipData(
-      `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
-    );
+    if (type == 2) {
+      const temp = {
+        Academic_Year: resData[0]?.data?.rows[0]?.academic_year,
+      };
+      setToolTipData(`Academic Year : ${temp.Academic_Year}`);
+    } else {
+      const temp = {
+        Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
+        Enrolment: resData[1]?.data?.rows[0]?.total_students,
+        PTR: resData[2]?.data?.rows[0]?.Ratio,
+        CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
+      };
+      setToolTipData(
+        `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
+      );
+    }
   };
 
   return (
