@@ -57,9 +57,9 @@ const EducationPortal: FC = () => {
           },
           tooltip: "This is the marker tooltip",
           position: [item.latitude, item.longitude],
-          district : item?.district,
-          block : item?.block,
-          school : item?.school,
+          district: item?.district,
+          block: item?.block,
+          school: item?.school,
           ...item,
         };
       });
@@ -112,7 +112,7 @@ const EducationPortal: FC = () => {
             </Button>
           </Col>
           <Col span={8}>
-            <Button 
+            <Button
               className={
                 selectedButton == 2 ? "navButtonSelected" : "navButton"
               }
@@ -149,7 +149,10 @@ const EducationPortal: FC = () => {
           )}
           {selectedButton == 2 && (
             <Col>
-              <StudentAssessmentPerformanceGrade4_8 />
+              <StudentAssessmentPerformanceGrade4_8
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+              />
             </Col>
           )}
           {selectedButton == 3 && (

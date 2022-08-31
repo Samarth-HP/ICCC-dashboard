@@ -25,7 +25,7 @@ const sample_data = {
   },
 };
 
-const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
+const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("district");
   const onButtonClick = (id: any) => {
@@ -36,7 +36,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
     console.log(id);
     setMarker(id);
   };
-  
+
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
@@ -158,7 +158,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                           : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Districts');
+                        props.getMarkerData("Districts");
                         setMarker("Districts");
                       }}
                     >
@@ -171,7 +171,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Blocks');
+                        props.getMarkerData("Blocks");
                         setMarker("Blocks");
                       }}
                     >
@@ -184,7 +184,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Districts');
+                        props.getMarkerData("Districts");
                         setMarker("Clusters");
                       }}
                     >
@@ -197,7 +197,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Schools');
+                        props.getMarkerData("Schools");
                         setMarker("Schools");
                       }}
                     >
@@ -208,7 +208,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={props.markerData}></MapComponent>
+                      <MapComponent
+                        config={config}
+                        markers={props.markerData}
+                      />
                     </div>
                   </Col>
                 </Row>
@@ -445,7 +448,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-1)
                 </Button>
                 <iframe
@@ -495,7 +501,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-1)
                 </Button>
                 <iframe
@@ -538,7 +547,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-2)
                 </Button>
                 <iframe
@@ -548,7 +560,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-2)
                 </Button>
                 <iframe
@@ -558,7 +573,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-3)
                 </Button>
                 <iframe
@@ -568,7 +586,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-3)
                 </Button>
               </Col>

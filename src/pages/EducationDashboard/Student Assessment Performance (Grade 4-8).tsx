@@ -25,7 +25,7 @@ const sample_data = {
   },
 };
 
-const StudentAssessmentPerformanceGrade4_8: FC = () => {
+const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
@@ -169,30 +169,33 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Blocks");
                         setMarker("Blocks");
                       }}
                     >
                       Blocks
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  {/* <Col span={5}>
                     <Button
                       className={
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Districts");
                         setMarker("Clusters");
                       }}
                     >
                       Clusters
                     </Button>
-                  </Col>
+                  </Col> */}
                   <Col span={5}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Schools");
                         setMarker("Schools");
                       }}
                     >
@@ -203,7 +206,11 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={undefined}></MapComponent>
+                      <MapComponent
+                        config={config}
+                        markers={props.markerData}
+                        type={2}
+                      />
                     </div>
                   </Col>
                 </Row>
@@ -440,7 +447,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-1)
                 </Button>
                 <iframe
@@ -490,7 +500,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-1)
                 </Button>
                 <iframe
@@ -533,7 +546,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-2)
                 </Button>
                 <iframe
@@ -543,7 +559,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-2)
                 </Button>
                 <iframe
@@ -553,7 +572,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-3)
                 </Button>
                 <iframe
@@ -563,7 +585,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-3)
                 </Button>
               </Col>
