@@ -1,14 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import "./index.css";
 import { Content } from "antd/es/layout/layout";
-import Title from "antd/es/typography/Title";
 import { NavLink } from "react-router-dom";
 import { Button } from "antd/lib/radio";
+import "./index.css";
+import Title from "antd/es/typography/Title";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
+const questions = [4];
 
 const questions = [4];
 const sample_data = {

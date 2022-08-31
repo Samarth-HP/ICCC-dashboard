@@ -108,7 +108,7 @@ const ReviewMeeting: FC = () => {
           return (
             key.properties.NAME_2.toLowerCase() === item.district.toLowerCase()
           );
-        })[0].geometry.coordinates[0],
+        })[0]?.geometry.coordinates[0],
       };
     });
 

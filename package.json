@@ -27,7 +27,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "craco PORT=3006 && craco start",
+=======
+    "start": "craco start",
+>>>>>>> 6abf8182c3802b49a1523af92ec389102859964c
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject"

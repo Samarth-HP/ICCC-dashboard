@@ -26,12 +26,45 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
   const [markerData, setMarkerData] = useState(props.markerData);
 
   const handleSearchByUDISE = async (val: string) => {
+<<<<<<< HEAD
     const params = {
       udise: val,
     };
     const data = await API_SERVICE.searchSchoolData(params);
     console.log("data", data);
   };
+=======
+    const params: any = {
+      district: "SIRMAUR",
+    };
+    // const data = await API_SERVICE.searchSchoolData(params);
+    const res = await API_SERVICE.getSchoolMarkerData(params);
+    const data = res.data.rows.find((item: any) => {
+      return item?.Udise_Code == val;
+    })
+
+    const formattedData = [
+      {
+        icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+        color: "purple",
+        tooltipCSS: {
+          color: "#ff0000",
+        },
+        tooltip: "This is the marker tooltip",
+        position: [data.latitude, data.longitude],
+        district : data?.district,
+        block : data?.block,
+        school : data?.school_name,
+        ...data,
+      }
+    ]
+
+    setMarkerData({
+      shouldClusterMarkers: true,
+      postions: formattedData,
+    });
+  }
+>>>>>>> 6abf8182c3802b49a1523af92ec389102859964c
 
   useEffect(() => {
     if (props.markerData) {

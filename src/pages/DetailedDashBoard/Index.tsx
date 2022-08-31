@@ -73,7 +73,8 @@ const DetailedDashboard: FC = () => {
                     </Row>
                 </Button>
                 <Button className="DetailsButton">
-                  <Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>
+                  {/*<Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>*/}
+                  <Row onClick={()=>{window.location.href="https://samarthhp-metabase.in/public/dashboard/4ccde962-8c7a-4be6-a5d3-1f5d8ff1b3aa?month=May"}} style={{display:'flex'}}>
                     <Col span={3}><img
                       src={ReviewMeetingScorecards}
                       alt=""

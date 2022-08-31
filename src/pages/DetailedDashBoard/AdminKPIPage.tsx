@@ -85,7 +85,7 @@ const AdminKPIPage: FC = () => {
                   <b className="headingb">Administrative KPIs</b>
                 </div>
 
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/e08ae997-520a-42a7-99e8-96a9483546e7'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={Enrolment}
@@ -94,7 +94,7 @@ const AdminKPIPage: FC = () => {
                     <Col offset={6}>Enrolment</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/7310f340-ba25-44ed-a59f-59400bda2a11?date=2022-08-04'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={StudentAttendance}
@@ -103,7 +103,7 @@ const AdminKPIPage: FC = () => {
                     <Col offset={3}>Student Attendance</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/ccbc316f-e5be-4e95-985d-744511d40884'}}>
                   <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={SchoolMonitoringVisits}
@@ -112,7 +112,7 @@ const AdminKPIPage: FC = () => {
                     <Col offset={2}>School Monitoring Visits</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/81073842-f423-4a7f-b473-93d89ded0e45'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={ReviewMeetingScorecards}
@@ -121,7 +121,7 @@ const AdminKPIPage: FC = () => {
                     <Col offset={4}>Review Meetings</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                {/*<Button className="DetailsButton">
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={Infrastructure}
@@ -129,7 +129,7 @@ const AdminKPIPage: FC = () => {
                     /></Col>
                     <Col offset={6}>Infrastructure</Col>
                     </Row>
-                </Button>
+                </Button>*/}
                 {/* <div className="form-container">
                 <Input
                   className="input"

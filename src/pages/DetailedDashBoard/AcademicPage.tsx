@@ -85,7 +85,7 @@ const AcademicPage: FC = () => {
                   <b className="headingb">Academic KPIs</b>
                 </div>
 
-                <Button className="DetailsButton">
+                {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={Classroom}
@@ -93,8 +93,8 @@ const AcademicPage: FC = () => {
                     /></Col>
                     <Col offset={3}>Classroom Inputs</Col>
                     </Row>
-                </Button>
-                <Button className="DetailsButton">
+                </Button>*/}
+                <Button className="DetailsButton" onClick={()=> {window.location.href='https://samarthhp-metabase.in/public/dashboard/dd1f4b28-7e22-4ed4-ab56-b03be809b261?quarter=3'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={Mentoring}
@@ -103,7 +103,7 @@ const AcademicPage: FC = () => {
                     <Col offset={6}>Mentoring</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/9d384c44-561c-4191-9022-c8ed5397d9a2'}}>
                   <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={TeacherTraining}
@@ -112,7 +112,7 @@ const AcademicPage: FC = () => {
                     <Col offset={4}>Teacher Training</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={TeacherPerformance}
@@ -121,7 +121,7 @@ const AcademicPage: FC = () => {
                     <Col offset={3}>Teacher Performance</Col>
                     </Row>
                 </Button>
-                <Button className="DetailsButton">
+                <Button className="DetailsButton" onClick={() => {window.location.href=''}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={StudentLearning}
@@ -129,7 +129,7 @@ const AcademicPage: FC = () => {
                     /></Col>
                     <Col offset={4}>Student Learning</Col>
                     </Row>
-                </Button>
+                </Button>*/}
                 {/* <div className="form-container">
                 <Input
                   className="input"
