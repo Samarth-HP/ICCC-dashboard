@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import schools from "../../assets/schools.png";
 import students from "../../assets/students.png";
 import teachers from "../../assets/teachers.png";
+import QuestionWithIframe from "../../components/QuestionWIthIframe";
 
 import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
@@ -84,60 +85,102 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
             <Row>
               <Col span={12}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/54d3b5b0-7208-4dfd-bba3-b587962ffbcd"
-                    frameBorder="0"
+                  <QuestionWithIframe
+                    questionId={84}
                     width="100%"
                     height="300"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
               </Col>
-              {/* <Col span={8}>
-                <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/7caa8a88-838e-4db0-922b-4667d8a60d89"
-                    frameBorder="0"
-                    width="100%"
-                    height="300"
-                    allowTransparency
-                  ></iframe>
-                </div>
-              </Col> */}
               <Col span={12}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/772cc6d7-b68e-46af-8737-92d5e56c482c"
-                    frameBorder="0"
+                  <QuestionWithIframe
+                    questionId={85}
                     width="100%"
                     height="300"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
               </Col>
-              {/* <Col span={6}>
+            </Row>
+            <Row>
+              <Col span={12}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/54d3b5b0-7208-4dfd-bba3-b587962ffbcd"
-                    frameBorder="0"
+                  <QuestionWithIframe
+                    questionId={86}
                     width="100%"
                     height="300"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
-              </Col> */}
+              </Col>
+              <Col span={12}>
+                <div>
+                  <QuestionWithIframe
+                    questionId={87}
+                    width="100%"
+                    height="300"
+                  />
+                </div>
+              </Col>
             </Row>
             <Row>
               <Col span={24}>
-                <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/1633059a-6848-46a9-b783-84cc810f3e5b"
-                    frameBorder="0"
-                    width="100%"
-                    height="300"
-                    allowTransparency
-                  ></iframe>
+                <div className="NIPUNheading">
+                  District-wise Assessment Performance (SA 1 & SA2)
                 </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12}>
+                <div>
+                  <QuestionWithIframe
+                    questionId={97}
+                    width="100%"
+                    height="400"
+                  />
+                  <Button className="navButtonSelected">Class-4</Button>
+                </div>
+              </Col>
+              <Col span={12}>
+                <div>
+                  <QuestionWithIframe
+                    questionId={98}
+                    width="100%"
+                    height="400"
+                  />
+                  <Button className="navButtonSelected">Class 5</Button>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12}>
+                <div>
+                  <QuestionWithIframe
+                    questionId={99}
+                    width="100%"
+                    height="400"
+                  />
+                  <Button className="navButtonSelected">Class 6</Button>
+                </div>
+              </Col>
+              <Col span={12}>
+                <div>
+                  <QuestionWithIframe
+                    questionId={100}
+                    width="100%"
+                    height="400"
+                  />
+                  <Button className="navButtonSelected">Class 7</Button>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={101}
+                  width="100%"
+                  height="400"
+                />
+                <Button className="navButtonSelected">Class 8</Button>
               </Col>
             </Row>
             <Row>
@@ -203,7 +246,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={undefined}></MapComponent>
+                      <MapComponent
+                        config={config}
+                        markers={undefined}
+                      ></MapComponent>
                     </div>
                   </Col>
                 </Row>
@@ -440,7 +486,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-1)
                 </Button>
                 <iframe
@@ -490,7 +539,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-1)
                 </Button>
                 <iframe
@@ -533,7 +585,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-2)
                 </Button>
                 <iframe
@@ -543,7 +598,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-2)
                 </Button>
                 <iframe
@@ -553,7 +611,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-3)
                 </Button>
                 <iframe
@@ -563,7 +624,10 @@ const StudentAssessmentPerformanceGrade4_8: FC = () => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-3)
                 </Button>
               </Col>

@@ -5,12 +5,12 @@ import "./index.css";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import { NavLink } from "react-router-dom";
-const questions = [4];
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
 
+const questions = [4];
 const sample_data = {
   schools: {
     GPS: 10601,
@@ -20,7 +20,7 @@ const sample_data = {
   },
 };
 
-const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
+const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("district");
   const onButtonClick = (id: any) => {
@@ -80,48 +80,53 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
             <Row>
               <Col span={12}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/54d3b5b0-7208-4dfd-bba3-b587962ffbcd"
-                    frameBorder="0"
+                  <QuestionWithIframe
+                    questionId={89}
                     width="100%"
                     height="300"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
               </Col>
-              {/* <Col span={8}>
-                <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/7caa8a88-838e-4db0-922b-4667d8a60d89"
-                    frameBorder="0"
-                    width="100%"
-                    height="300"
-                    allowTransparency
-                  ></iframe>
-                </div>
-              </Col> */}
               <Col span={12}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/772cc6d7-b68e-46af-8737-92d5e56c482c"
-                    frameBorder="0"
+                  <QuestionWithIframe
+                    questionId={91}
                     width="100%"
                     height="300"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
               </Col>
-              {/* <Col span={6}>
-                <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/54d3b5b0-7208-4dfd-bba3-b587962ffbcd"
-                    frameBorder="0"
-                    width="100%"
-                    height="300"
-                    allowTransparency
-                  ></iframe>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <div className="NIPUNheading">
+                  District-wise Assessment Performance (SA 1 & SA2)
                 </div>
-              </Col> */}
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={102}
+                  width="100%"
+                  height="400"
+                />
+                <Button className="navButtonSelected">
+                  Districts with highest jump in scores
+                </Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={103}
+                  width="100%"
+                  height="400"
+                />
+                <Button className="navButtonSelected">
+                  Districts with highest fall in scores
+                </Button>
+              </Col>
             </Row>
             <Row>
               <Col span={24}>
@@ -153,7 +158,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                           : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Districts');
+                        props.getMarkerData("Districts");
                         setMarker("Districts");
                       }}
                     >
@@ -166,7 +171,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Blocks');
+                        props.getMarkerData("Blocks");
                         setMarker("Blocks");
                       }}
                     >
@@ -179,7 +184,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Clusters" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Districts');
+                        props.getMarkerData("Districts");
                         setMarker("Clusters");
                       }}
                     >
@@ -192,7 +197,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
                       onClick={() => {
-                        props.getMarkerData('Schools');
+                        props.getMarkerData("Schools");
                         setMarker("Schools");
                       }}
                     >
@@ -203,7 +208,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent config={config} markers={props.markerData}></MapComponent>
+                      <MapComponent
+                        config={config}
+                        markers={props.markerData}
+                      ></MapComponent>
                     </div>
                   </Col>
                 </Row>
@@ -239,14 +247,44 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
             <Row>
               <Col span={24}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/e1d454d3-3424-45ef-aeb5-780595140cb8"
-                    frameBorder="0"
+                  <div className="NIPUNheading">
+                    Class-wise Assessment Performance
+                  </div>
+                  <QuestionWithIframe
+                    questionId={106}
                     width="100%"
                     height="500"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+              <QuestionWithIframe
+                    questionId={104}
+                    width="100%"
+                    height="300"
+                  />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                
               </Col>
             </Row>
             <Row>
@@ -260,7 +298,11 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   {/*  allowTransparency*/}
                   {/*></iframe>*/}
                   {/*Hello*/}
-                  <QuestionWithIframe questionId={5} width="100%" height="500"/>
+                  <QuestionWithIframe
+                    questionId={5}
+                    width="100%"
+                    height="500"
+                  />
                 </div>
               </Col>
             </Row>
@@ -442,7 +484,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-1)
                 </Button>
                 <iframe
@@ -492,7 +537,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-1)
                 </Button>
                 <iframe
@@ -535,7 +583,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                 ></iframe>
               </Col>
               <Col span={6}>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-2)
                 </Button>
                 <iframe
@@ -545,7 +596,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-2)
                 </Button>
                 <iframe
@@ -555,7 +609,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}}className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Top Districts (Class-3)
                 </Button>
                 <iframe
@@ -565,7 +622,10 @@ const StudentAssessmentPerformanceGrade1_3 = (props:any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-                <Button style={{height:'60px'}} className="navButtonSelected">
+                <Button
+                  style={{ height: "60px" }}
+                  className="navButtonSelected"
+                >
                   Bottom Districts (Class-3)
                 </Button>
               </Col>
