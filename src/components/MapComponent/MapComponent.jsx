@@ -22,7 +22,12 @@ import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
 
-export default function MapComponent({ config, markers, type = 1 }) {
+export default function MapComponent({
+  config,
+  markers,
+  type = 1,
+  at = "SA1",
+}) {
   const eventHandlers = () => ({
     click() {
       console.log("CLicked");
@@ -126,6 +131,7 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentDistrict1 = async (val) => {
     const params = {
       district: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentDistrict1(params);
   };
@@ -133,6 +139,7 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentDistrict2 = async (val) => {
     const params = {
       district: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentDistrict2(params);
   };
@@ -140,6 +147,7 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentDistrict3 = async (val) => {
     const params = {
       district: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentDistrict3(params);
   };
@@ -147,12 +155,14 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentDistrict4 = async (val) => {
     const params = {
       district: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentDistrict4(params);
   };
   const getStudentAssesmentDistrict5 = async (val) => {
     const params = {
       district: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentDistrict5(params);
   };
@@ -160,12 +170,14 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentBlock1 = async (val) => {
     const params = {
       block: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentBlock1(params);
   };
   const getStudentAssesmentBlock2 = async (val) => {
     const params = {
       block: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentBlock2(params);
   };
@@ -173,18 +185,21 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentBlock3 = async (val) => {
     const params = {
       block: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentBlock3(params);
   };
   const getStudentAssesmentBlock4 = async (val) => {
     const params = {
       block: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentBlock4(params);
   };
   const getStudentAssesmentBlock5 = async (val) => {
     const params = {
       block: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentBlock5(params);
   };
@@ -192,12 +207,14 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentSchool1 = async (val) => {
     const params = {
       school_name: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentSchool1(params);
   };
   const getStudentAssesmentSchool2 = async (val) => {
     const params = {
       school_name: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentSchool2(params);
   };
@@ -205,18 +222,21 @@ export default function MapComponent({ config, markers, type = 1 }) {
   const getStudentAssesmentSchool3 = async (val) => {
     const params = {
       school_name: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentSchool3(params);
   };
   const getStudentAssesmentSchool4 = async (val) => {
     const params = {
       school_name: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentSchool4(params);
   };
   const getStudentAssesmentSchool5 = async (val) => {
     const params = {
       school_name: val,
+      assessment_type_v2: at,
     };
     return await API_SERVICE.getStudentAssesmentSchool5(params);
   };
@@ -268,16 +288,18 @@ export default function MapComponent({ config, markers, type = 1 }) {
 
     const resData = await Promise.all(promiseArray);
 
-    const temp = {
-      Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-      Enrolment: resData[1]?.data?.rows[0]?.total_students,
-      PTR: resData[2]?.data?.rows[0]?.Ratio,
-      CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-    };
     if (type == 2) {
-      console.log(resData, "hi it's me temp");
-      setToolTipData("not available");
+      const temp = {
+        Academic_Year: resData[0]?.data?.rows[0]?.academic_year,
+      };
+      setToolTipData(`Academic Year : ${temp.Academic_Year}`);
     } else {
+      const temp = {
+        Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
+        Enrolment: resData[1]?.data?.rows[0]?.total_students,
+        PTR: resData[2]?.data?.rows[0]?.Ratio,
+        CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
+      };
       setToolTipData(
         `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
       );
