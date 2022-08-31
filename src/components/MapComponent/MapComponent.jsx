@@ -223,6 +223,7 @@ export default function MapComponent({ config, markers, type = 1 }) {
   // type dynamic 2 end
 
   const getToolTipData = async (district, block, school) => {
+    console.log(district, block, school);
     const promiseArray = [];
     if (district) {
       if (type == 2) {

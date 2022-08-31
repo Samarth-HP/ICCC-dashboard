@@ -1,20 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import "./index.css";
 import { Content } from "antd/es/layout/layout";
-import Title from "antd/es/typography/Title";
 import { NavLink } from "react-router-dom";
-
-import schools from "../../assets/schools.png";
-import students from "../../assets/students.png";
-import teachers from "../../assets/teachers.png";
-
-import FooterLogo from "../../assets/footer_logo.png";
-import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
+import "./index.css";
+import Title from "antd/es/typography/Title";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
+import QuestionWithIframe from "../../components/QuestionWIthIframe";
+const questions = [4];
 
 const sample_data = {
   schools: {
@@ -211,7 +206,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       <MapComponent
                         config={config}
                         markers={props.markerData}
-                      />
+                      ></MapComponent>
                     </div>
                   </Col>
                 </Row>
@@ -260,13 +255,19 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <div>
-                  <iframe
-                    src="http://167.71.234.32:3000/public/question/c17c54f7-ba27-4f0d-83dd-2236bc48fd9a"
-                    frameBorder="0"
+                  {/*<iframe*/}
+                  {/*  src="http://167.71.234.32:3000/public/question/c17c54f7-ba27-4f0d-83dd-2236bc48fd9a"*/}
+                  {/*  frameBorder="0"*/}
+                  {/*  width="100%"*/}
+                  {/*  height="500"*/}
+                  {/*  allowTransparency*/}
+                  {/*></iframe>*/}
+                  {/*Hello*/}
+                  <QuestionWithIframe
+                    questionId={5}
                     width="100%"
                     height="500"
-                    allowTransparency
-                  ></iframe>
+                  />
                 </div>
               </Col>
             </Row>

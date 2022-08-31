@@ -120,7 +120,7 @@ const ReviewAndMonitoring: FC = () => (
               src="http://167.71.234.32:3000/public/question/da660fbb-ca75-49c5-bbe0-5f15a035a094"
               frameBorder="0"
               width="100%"
-              height="400"
+              height="428"
               allowTransparency
             ></iframe>
           </Col>
@@ -129,7 +129,7 @@ const ReviewAndMonitoring: FC = () => (
               src="http://167.71.234.32:3000/public/question/ffe6c4f2-1436-432f-9f92-fceaa44b1af2"
               frameBorder="0"
               width="100%"
-              height="400"
+              height="428"
               allowTransparency
             ></iframe>
           </Col>
