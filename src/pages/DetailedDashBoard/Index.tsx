@@ -6,6 +6,7 @@ import {
   LockOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
+  ArrowLeftOutlined,
 } from "@ant-design/icons";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -18,7 +19,9 @@ import Side_Img from "../../assets/image 135.png";
 
 const DetailedDashboard: FC = () => {
   const history = useHistory();
-
+  const goBack = () => {
+    history.push("/");
+  };
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ backgroundColor: "#FFFFFF" }}>
@@ -48,42 +51,86 @@ const DetailedDashboard: FC = () => {
                 height: "100%",
                 alignItems: "center",
                 flexDirection: "column",
+                // display:'table-caption'
               }}
             >
               <Col>
-                <div className="title">
-                  <b onClick={()=>{
-                     history.push("/");
-                  }} className="headingb">View Detailed Dashboards</b>
+                <div className="goBackArrow2">
+                  <ArrowLeftOutlined
+                    onClick={goBack}
+                    style={{
+                      fontSize: "13px",
+                      marginTop: "4px",
+                      cursor: "pointer",
+                    }}
+                  />
+                  <span
+                    onClick={goBack}
+                    style={{
+                      fontSize: "22px",
+                      textDecoration: "underline",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    {" "}
+                    Go Back
+                  </span>
                 </div>
+                <div className="title">
+                  <b
+                    onClick={() => {
+                      history.push("/");
+                    }}
+                    className="headingb"
+                  >
+                    View Detailed Dashboards
+                  </b>
+                </div>
+                <div style={{display:'flex',flexDirection:'column'}}>
                 <Button className="DetailsButton">
-                  <Row onClick={()=>{history.push('/detailed-academic')}} style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={AcademicKPI}
-                      alt=""
-                    /></Col>
+                  <Row
+                    onClick={() => {
+                      history.push("/detailed-academic");
+                    }}
+                    style={{ display: "flex" }}
+                  >
+                    <Col span={3}>
+                      <img src={AcademicKPI} alt="" />
+                    </Col>
                     <Col offset={4}>Academic KPIs</Col>
-                    </Row>
+                  </Row>
                 </Button>
                 <Button className="DetailsButton">
-                  <Row onClick={()=>{history.push('/detailed-administrative')}} style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={AdministrativeKPI}
-                      alt=""
-                    /></Col>
+                  <Row
+                    onClick={() => {
+                      history.push("/detailed-administrative");
+                    }}
+                    style={{ display: "flex" }}
+                  >
+                    <Col span={3}>
+                      <img src={AdministrativeKPI} alt="" />
+                    </Col>
                     <Col offset={3}> Administrative KPIs</Col>
-                    </Row>
+                  </Row>
                 </Button>
                 <Button className="DetailsButton">
                   {/*<Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>*/}
-                  <Row onClick={()=>{window.location.href="https://samarthhp-metabase.in/public/dashboard/4ccde962-8c7a-4be6-a5d3-1f5d8ff1b3aa?month=May"}} style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={ReviewMeetingScorecards}
-                      alt=""
-                    /></Col>
+                  <Row
+                    onClick={() => {
+                      window.location.href =
+                        "https://samarthhp-metabase.in/public/dashboard/4ccde962-8c7a-4be6-a5d3-1f5d8ff1b3aa?month=May";
+                    }}
+                    style={{ display: "flex" }}
+                  >
+                    <Col span={3}>
+                      <img src={ReviewMeetingScorecards} alt="" />
+                    </Col>
                     <Col offset={1}>Review Meeting Scorecards</Col>
-                    </Row>
+                  </Row>
                 </Button>
+                </div>
                 {/* <div className="form-container">
                 <Input
                   className="input"

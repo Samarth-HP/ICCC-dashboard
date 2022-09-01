@@ -84,7 +84,7 @@ const AdminKPIPage: FC = () => {
                 <div className="title">
                   <b className="headingb">Administrative KPIs</b>
                 </div>
-
+                <div style={{display:'flex',flexDirection:'column'}}>
                 <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/e08ae997-520a-42a7-99e8-96a9483546e7'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
@@ -121,6 +121,7 @@ const AdminKPIPage: FC = () => {
                     <Col offset={4}>Review Meetings</Col>
                     </Row>
                 </Button>
+                </div>
                 {/*<Button className="DetailsButton">
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img

@@ -94,6 +94,7 @@ const AcademicPage: FC = () => {
                     <Col offset={3}>Classroom Inputs</Col>
                     </Row>
                 </Button>*/}
+                 <div style={{display:'flex',flexDirection:'column'}}>
                 <Button className="DetailsButton" onClick={()=> {window.location.href='https://samarthhp-metabase.in/public/dashboard/dd1f4b28-7e22-4ed4-ab56-b03be809b261?quarter=3'}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
@@ -112,6 +113,7 @@ const AcademicPage: FC = () => {
                     <Col offset={4}>Teacher Training</Col>
                     </Row>
                 </Button>
+                </div>
                 {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img

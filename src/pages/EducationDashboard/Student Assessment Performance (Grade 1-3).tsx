@@ -9,6 +9,8 @@ import Title from "antd/es/typography/Title";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
+import boyIcon from "../../assets/boyIcon.svg";
+import girlIcon from "../../assets/girlIcon.svg";
 
 const questions = [4];
 const sample_data = {
@@ -36,7 +38,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={6}>
+          <Col span={5}>
             <Row>
               <Col span={8}>
                 {/* <Button
@@ -127,25 +129,29 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={102}
+                  questionId={120}
                   width="100%"
-                  height="650"
+                  height="350"
                 />
-                <Button className="navButtonSelected">
-                  Districts with highest jump in scores
-                </Button>
+                <Button className="navButtonSelected">Class 1</Button>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={103}
+                  questionId={121}
                   width="100%"
-                  height="650"
+                  height="350"
                 />
-                <Button className="navButtonSelected">
-                  Districts with highest fall in scores
-                </Button>
+                <Button className="navButtonSelected">Class 2</Button>
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={122}
+                  width="100%"
+                  height="350"
+                />
+                <Button className="navButtonSelected">Class 3</Button>
               </Col>
             </Row>
             <Row>
@@ -225,154 +231,127 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
             </Row>
           </Col>
-          <Col span={6}>
+          <Col span={4}>
             <Row>
-              <Col span={9}>
-                <Row>
-                  <Col></Col>
-                  <Col>
-                    <Select defaultValue={"2022-2023"}>
-                      <Select.Option value={"2022-2023"}>
-                        {"2022-2023"}
-                      </Select.Option>
-                    </Select>
-                  </Col>
-                </Row>
+              <Row></Row>
+              <Col style={{ textAlign: "center" }} span={24}>
+                <img src={boyIcon} alt="" />
               </Col>
-              <Col className={"refrences"} span={15}>
-                <Row style={{ justifyContent: "space-evenly" }}>
-                  <Col span={6}>{"Reference - Grade A: >=80%"}</Col>
-                  <Col span={4}>{"Grade B: 65-80%"}</Col>
-                  <Col span={4}>{"Grade C: 50-65%"}</Col>
-                  <Col span={4}>{"Grade D: 35-50%"}</Col>
-                  <Col span={4}>{"Grade E: <35%"}</Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <div>
+              <Row>
+                <Col span={24}>
+                  <QuestionWithIframe
+                    questionId={82}
+                    width="100%"
+                    height="200"
+                  />
+                </Col>
+                <Col style={{ textAlign: "center" }} span={24}>
+                  <img src={girlIcon} alt="" />
+                </Col>
+                <Col span={24}>
+                  <QuestionWithIframe
+                    questionId={83}
+                    width="100%"
+                    height="200"
+                  />
+                </Col>
+                <Col span={24}>
                   <div className="NIPUNheading">
-                    Class-wise Assessment Performance
+                    Districts with highest jump in scores
                   </div>
                   <QuestionWithIframe
-                    questionId={106}
+                    questionId={123}
+                    width="100%"
+                    height="697"
+                  />
+                </Col>
+                <Col>
+                  <div className="NIPUNheading">
+                    Districts with highest fall in scores
+                  </div>
+                  <QuestionWithIframe
+                    questionId={124}
+                    width="100%"
+                    height="697"
+                  />
+                </Col>
+              </Row>
+            </Row>
+          </Col>
+          <Col span={4}>
+            <Row>
+              <Col
+                span={24}
+                style={{ textAlign: "center" }}
+                className={"refrences"}
+              >
+                <div>{"Reference "}</div>
+                <div>{"Grade A: >=80%  Grade B: 65-80%"}</div>
+                <div>{"Grade C: 50-65% Grade D: 35-50%"}</div>
+                <div>{"Grade E: <35%"}</div>
+              </Col>
+
+              <Col span={24}>
+                <div className="NIPUNheading">
+                  Class-wise Assessment Performance
+                </div>
+                <QuestionWithIframe
+                  questionId={125}
+                  width="100%"
+                  height="350"
+                />
+                <div style={{ padding: "10px" }} className="navButtonSelected">
+                  Average Grade-wise Performance distribution (SA-1 & SA-2)
+                </div>
+
+                <Col span={24}>
+                  <QuestionWithIframe
+                    questionId={126}
                     width="100%"
                     height="350"
                   />
-                  <Button className="navButtonSelected">
-                    Average Grade-wise Performance distribution (SA-1 & SA-2)
-                  </Button>
-                  <Col span={24} style={{ display: "flex" }}>
-                    <Col span={12}>
-                      <QuestionWithIframe
-                        questionId={120}
-                        width="100%"
-                        height="350"
-                      />
-                      <Button className="navButtonSelected">Class 1</Button>
-                    </Col>
-                    <Col span={12}>
-                      <QuestionWithIframe
-                        questionId={121}
-                        width="100%"
-                        height="350"
-                      />
-                      <Button className="navButtonSelected">Class 2</Button>
-                    </Col>
-                  </Col>
-                  <Col span={24}>
-                    <QuestionWithIframe
-                      questionId={122}
-                      width="100%"
-                      height="350"
-                    />
-                    <Button className="navButtonSelected">Class 3</Button>
-                  </Col>
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={104}
-                  width="100%"
-                  height="300"
-                />
-                <Button className="navButtonSelected">
-                  Comparative Performance in SA-1 and SA-2 (Class 4)
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={105}
-                  width="100%"
-                  height="300"
-                />
-                <Button className="navButtonSelected">
-                  Comparative Performance in SA-1 and SA-2 (Class 5)
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={107}
-                  width="100%"
-                  height="300"
-                />
-                <Button className="navButtonSelected">
-                  Comparative Performance in SA-1 and SA-2 (Class 6)
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={108}
-                  width="100%"
-                  height="300"
-                />
-                <Button className="navButtonSelected">
-                  Comparative Performance in SA-1 and SA-2 (Class 7)
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={110}
-                  width="100%"
-                  height="300"
-                />
-                <Button className="navButtonSelected">
-                  Comparative Performance in SA-1 and SA-2 (Class 8)
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <div>
-                  {/*<iframe*/}
-                  {/*  src="http://167.71.234.32:3000/public/question/c17c54f7-ba27-4f0d-83dd-2236bc48fd9a"*/}
-                  {/*  frameBorder="0"*/}
-                  {/*  width="100%"*/}
-                  {/*  height="500"*/}
-                  {/*  allowTransparency*/}
-                  {/*></iframe>*/}
-                  {/*Hello*/}
+                  <div
+                    style={{ padding: "10px" }}
+                    className="navButtonSelected"
+                  >
+                    Comparative Performance in SA-1 and SA-2 (Class 1)
+                  </div>
+                </Col>
+                <Col span={24}>
                   <QuestionWithIframe
-                    questionId={5}
+                    questionId={127}
                     width="100%"
-                    height="300"
+                    height="350"
                   />
-                </div>
+                  <div
+                    style={{ padding: "10px" }}
+                    className="navButtonSelected"
+                  >
+                    Comparative Performance in SA-1 and SA-2 (Class 2)
+                  </div>
+                </Col>
+                <Col span={24}>
+                  <QuestionWithIframe
+                    questionId={104}
+                    width="100%"
+                    height="290"
+                  />
+                  <div
+                    style={{ padding: "10px" }}
+                    className="navButtonSelected"
+                  >
+                    Comparative Performance in SA-1 and SA-2 (Class 3)
+                  </div>
+                </Col>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe questionId={5} width="100%" height="500" />
               </Col>
             </Row>
           </Col>
-          <Col span={6}>
+          <Col span={5}>
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
@@ -383,7 +362,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={117}
+                  questionId={129}
                   width="100%"
                   height="560"
                 />
@@ -393,52 +372,32 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={111}
+                  questionId={130}
                   width="100%"
                   height="480"
                 />
                 <Button className="navButtonSelected">
-                  Subject wise average score across SAs (Class 4)
+                Comparative Performance Subject-wise (Class 1)
                 </Button>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={112}
+                  questionId={150}
                   width="100%"
                   height="480"
                 />
                 <Button className="navButtonSelected">
-                  Subject wise average score across SAs (Class 5)
+                Comparative Performance Subject-wise (Class 2)
                 </Button>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
-                  questionId={113}
+                  questionId={132}
                   width="100%"
-                  height="480"
+                  height="490"
                 />
                 <Button className="navButtonSelected">
-                  Subject wise average score across SAs (Class 6)
-                </Button>
-              </Col>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={111}
-                  width="100%"
-                  height="480"
-                />
-                <Button className="navButtonSelected">
-                  Subject wise average score across SAs (Class 7)
-                </Button>
-              </Col>
-              <Col span={24}>
-                <QuestionWithIframe
-                  questionId={115}
-                  width="100%"
-                  height="480"
-                />
-                <Button className="navButtonSelected">
-                  Subject wise average score across SAs (Class 8)
+                Comparative Performance Subject-wise (Class 3)
                 </Button>
               </Col>
             </Row>
@@ -486,32 +445,20 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 {/* <div className="NIPUNheading">
                   Oral Reading Fluency Analysis
                 </div> */}
-                <QuestionWithIframe
-                    questionId={15}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={15} width="100%" height="200" />
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-1)
                 </Button>
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                    questionId={16}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={16} width="100%" height="200" />
 
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-2)
                 </Button>
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                    questionId={16}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={16} width="100%" height="200" />
 
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-3)
@@ -523,7 +470,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   width="100%"
                   height="200"
                 />
-                <div style={{padding:'10px'}} className="navButtonSelected">
+                <div style={{ padding: "10px" }} className="navButtonSelected">
                   Percentage Students NIPUN in Maths(Class-1)
                 </div>
               </Col>
@@ -533,7 +480,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   width="100%"
                   height="200"
                 />
-                <div style={{padding:'10px'}} className="navButtonSelected">
+                <div style={{ padding: "10px" }} className="navButtonSelected">
                   Percentage Students NIPUN in Maths(Class-2)
                 </div>
               </Col>
