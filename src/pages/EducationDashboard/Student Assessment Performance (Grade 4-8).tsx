@@ -42,7 +42,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={7}>
+          <Col span={5}>
             <Row>
               {/* <Col span={8}>
                 <Button
@@ -266,6 +266,59 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               </Col>
             </Row>
           </Col>
+          <Col span={3}>
+            <Row>
+              <Col span={24}>
+                <div className="NIPUNheading">
+                  Districts with highest jump in scores
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={102}
+                  width="100%"
+                  height="560"
+                />
+                <div style={{padding:'20px'}} className="navButtonSelected">
+                  Districts with highest jump in scores
+                </div>
+              </Col>
+              <Col>
+                <QuestionWithIframe
+                  questionId={117}
+                  width="100%"
+                  height="560"
+                />
+                <div style={{padding:'20px'}} className="navButtonSelected">
+                  Subject wise change in average score across SAs
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={103}
+                  width="100%"
+                  height="560"
+                />
+                <div style={{padding:'20px'}} className="navButtonSelected">
+                  Districts with highest fall in scores
+                </div>
+              </Col>
+              <Col>
+                <QuestionWithIframe
+                  questionId={106}
+                  width="100%"
+                  height="700"
+                />
+                <div style={{padding:'20px'}} className="navButtonSelected">
+                  Average Grade-wise Performance distribution (SA-1 & SA-2)
+                </div>
+              </Col>
+            </Row>
+          </Col>
           <Col span={5}>
             <Row>
               {/* <Col span={24}>
@@ -273,14 +326,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   <div className="NIPUNheading">
                     Class-wise Assessment Performance
                   </div>
-                  <QuestionWithIframe
-                    questionId={106}
-                    width="100%"
-                    height="350"
-                  />
-                  <Button className="navButtonSelected">
-                    Average Grade-wise Performance distribution (SA-1 & SA-2)
-                  </Button>
+               
                   <Col span={24} style={{ display: "flex" }}>
                     <Col span={12}>
                       <QuestionWithIframe
@@ -312,16 +358,15 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={24}>
-              <div className="NIPUNheading">
-              Class-wise Assessment Performance
-
+                <div className="NIPUNheading">
+                  Class-wise Assessment Performance
                 </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={104}
                   width="100%"
-                  height="510"
+                  height="500"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 4)
@@ -333,7 +378,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={105}
                   width="100%"
-                  height="510"
+                  height="500"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 5)
@@ -345,7 +390,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={107}
                   width="100%"
-                  height="510"
+                  height="500"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 6)
@@ -357,7 +402,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={108}
                   width="100%"
-                  height="510"
+                  height="500"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 7)
@@ -369,7 +414,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={110}
                   width="100%"
-                  height="510"
+                  height="500"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 8)
@@ -377,7 +422,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               </Col>
             </Row>
           </Col>
-          <Col span={6}>
+          <Col span={5}>
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
@@ -386,34 +431,6 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               </Col>
             </Row>
             <Row>
-              {/* <Col span={24}>
-                <QuestionWithIframe
-                  questionId={117}
-                  width="100%"
-                  height="560"
-                />
-                <Button className="navButtonSelected">
-                  Subject wise change in average score across SAs
-                </Button>
-<<<<<<< HEAD
-=======
-                <iframe
-                  src="http://167.71.234.32:3000/public/question/02e65177-2908-4478-82cf-ebe6e6e8719d"
-                  frameBorder="0"
-                  width="100%"
-                  height="200"
-                  allowTransparency
-                ></iframe>
-              </Col>
-
-              {/* <Col span={6}>
-                <div>
-
-
-
-                </div>
->>>>>>> 86b90921377ab0c05ca9d77b256eebe65be324a8
-              </Col> */}
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={111}
@@ -508,7 +525,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="500"
                 />
                 <Button className="navButtonSelected">
-                Weakest Learning Outcomes (Class 7)
+                  Weakest Learning Outcomes (Class 7)
                 </Button>
               </Col>
               <Col span={24}>
