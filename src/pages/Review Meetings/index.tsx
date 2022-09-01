@@ -23,7 +23,35 @@ const default_marker_config = {
   legend: {
     display: true,
     position: "top-left",
-    labels: [],
+    labels: [
+      {
+        width: 200,
+        fontSize: 20,
+        color: "#FFFF99",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 10,
+        label: ">= 80%",
+      },
+      {
+        width: 200,
+        fontSize: 20,
+        color: "#259EA6",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 10,
+        label: "50% - 80%",
+      },
+      {
+        width: 200,
+        fontSize: 20,
+        color: "#FF0000",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 10,
+        label: "<50%",
+      },
+    ],
   },
   bounds: {
     byGeoJson: bounds,
@@ -44,12 +72,15 @@ const ReviewMeeting: FC = () => {
     "SOLAN",
     "SHIMLA",
     "HAMIRPUR",
-    "LAHAUL AND SPITI",
+    "LAHUL AND SPITI",
     "BILASPUR",
     "KINNAUR",
   ];
   const [markerConfig, setMarkerConfig] = useState(default_marker_config);
   const [loading, setLoading] = useState(false);
+  const [curDistrict, setCurDistrict] = useState("");
+  const [curMonth, setCurMonth] = useState(1);
+  const [curYear, setCurYear] = useState("2022-23");
 
   const [selectedButton, setSelectedButton] = useState(1);
   const [districtValueData, setDistrictValueData] = useState([]);
@@ -64,7 +95,7 @@ const ReviewMeeting: FC = () => {
     const params: any = {
       district: value,
     };
-   
+
     districtData = await API_SERVICE.getDistrictAttendanceBoundary(params);
     blockData = await API_SERVICE.getBlockAttendanceBoundary(params);
 
@@ -80,13 +111,116 @@ const ReviewMeeting: FC = () => {
   // console.log(districtValueData, "district");
   // console.log(blockValueData, "block");
 
-  const getDistrictAttendanceData = async (District: any) => {
+  const getDistrictAttendanceData = async (District: any, Month: any) => {
     setLoading(true);
     let data: any = [{}];
     const params: any = {
       district: "SIRMAUR",
     };
     data = await API_SERVICE.getDistrictAttendanceBoundary(params);
+    //@ts-ignore
+    const monthWiseData = monthArr.map((val) => {
+      return data.data.rows.filter((item: any) => {
+        return item.month == val;
+      });
+    });
+    const overlays = monthWiseData.map((val) => {
+      return val.map((item: any) => {
+        return {
+          id: 1,
+          // Month:
+          DistrictName: item.district,
+          color: item.HexCodes,
+          opacity: 1,
+          geoJson: districtGeo.features.filter((key: any) => {
+            return (
+              key.properties.NAME_2.toLowerCase() ===
+              item.district.toLowerCase()
+            );
+          })[0]?.geometry.coordinates[0],
+        };
+      });
+    });
+    const labels = data.data.rows.map((item: any) => {
+      return {
+        width: 100,
+        fontSize: 20,
+        color: "#ff0000",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 10,
+        label: item.district,
+      };
+    });
+
+    const updatedConfig = {
+      map: {
+        zoomControl: false,
+        scrollWheelZoom: false,
+        dragging: false,
+        doubleClickZoom: false,
+      },
+      legend: {
+        display: true,
+        position: "top-left",
+        labels: [
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#FFFF99",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: ">= 80%",
+          },
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#259EA6",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: "50% - 80%",
+          },
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#FF0000",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: "<50%",
+          },
+        ],
+      },
+      bounds: {
+        byGeoJson: bounds,
+      },
+      overlays: overlays[Month],
+    };
+
+    console.log(updatedConfig.overlays, Month);
+
+    setMarkerConfig(updatedConfig);
+    setLoading(false);
+    setDistrict(
+      data.data.rows.map((item: any) => {
+        return item.district;
+      })
+    );
+  };
+  const getBlockAttendanceData = async (district: any) => {
+    setLoading(true);
+    let data: any = [{}];
+    const params: any = {
+      district: curDistrict,
+    };
+    data = await API_SERVICE.getBlockAttendanceBoundary(params);
+    const monthWiseData = monthArr.map((val) => {
+      return data.data.rows.filter((item: any) => {
+        return item.month == val;
+      });
+    });
     const labels = data.data.rows.map((item: any) => {
       return {
         width: 100,
@@ -98,87 +232,45 @@ const ReviewMeeting: FC = () => {
         label: item.district,
       };
     });
-    const overlays = data.data.rows.map((item: any) => {
-      return {
-        id: 1,
-        DistrictName: item.district,
-        color: item.HexCodes,
-        opacity: 0.5,
-        geoJson: districtGeo.features.filter((key: any) => {
-          return (
-            key.properties.NAME_2.toLowerCase() === item.district.toLowerCase()
-          );
-        })[0]?.geometry.coordinates[0],
-      };
+    const overlays = districts
+      .filter((key) => {
+        return key.toLowerCase() == curDistrict.toLowerCase();
+      })
+      .map((key) => {
+        //@ts-ignore
+        return blockGeo.features
+          .filter((item: any) => {
+            return item.properties.dtname.toLowerCase() === key.toLowerCase();
+          })
+          .map((item: any) => {
+            return {
+              id: 1,
+              DistrictName: key,
+              BlockName: item.properties.sdtname,
+              // color: monthWiseData[curMonth-1].block,
+              color: "#ff0000",
+              opacity: 1,
+              //@ts-ignore
+              geoJson: item.geometry.coordinates[0],
+            };
+          });
+      })[0];
+
+    console.log(monthWiseData[curMonth - 1]);
+
+    overlays.forEach((key: any) => {
+      const temp = monthWiseData[curMonth - 1].filter((item: any) => {
+        return item.block.toLowerCase() == key.BlockName.toLowerCase();
+      });
+      console.log(temp);
     });
 
-  
-    
-    const updatedConfig = {
-      map: {
-        zoomControl: false,
-        scrollWheelZoom: false,
-        dragging: false,
-        doubleClickZoom: false,
-      },
-      legend: {
-        display: true,
-        position: "top-left",
-        labels: [],
-      },
-      bounds: {
-        byGeoJson: bounds,
-      },
-      overlays: overlays,
-    };
- 
-    setMarkerConfig(updatedConfig);
-    setLoading(false);
-    setDistrict(
-      data.data.rows.map((item: any) => {
-        return item.district;
-      })
-    );
-  };
-  const getBlockAttendanceData = async (district:any) => {
-    setLoading(true);
-    // let data: any = [{}];
-    // const params: any = {
-    //   district: dist,
-    // };
-    // data = await API_SERVICE.getDistrictAttendanceBoundary(params);
-    // const labels = data.data.rows.map((item: any) => {
-    //   return {
-    //     width: 100,
-    //     fontSize: 20,
-    //     color: item.HexCodes,
-    //     fontFamily: "sans-serif",
-    //     fontWeight: "bold",
-    //     padding: 10,
-    //     label: item.district,
-    //   };
-    // });
-    const overlays = [{
-      id: 1,
-      DistrictName: district,
-      color: "#ff55gg",
-      opacity: 0.5,
-      //@ts-ignore
-      geoJson: blockGeo.features.filter((item: any) => {
-        return (
-          item.properties.dtname.toLowerCase() === district.toLowerCase()
-        );
-      })[0].geometry.coordinates[0],
-    }]
+    console.log(overlays);
 
     const bounds = districtGeo.features.find((item: any) => {
-      return (
-        item.properties.NAME_2.toLowerCase() === district.toLowerCase()
-      );
+      return item.properties.NAME_2.toLowerCase() === curDistrict.toLowerCase();
     })?.geometry.coordinates[0];
 
-  
-    
     const updatedConfig = {
       map: {
         zoomControl: false,
@@ -189,21 +281,50 @@ const ReviewMeeting: FC = () => {
       legend: {
         display: true,
         position: "top-left",
-        labels: [],
+        labels: [
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#FFFF99",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: ">= 80%",
+          },
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#259EA6",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: "50% - 80%",
+          },
+          {
+            width: 200,
+            fontSize: 20,
+            color: "#FF0000",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            padding: 10,
+            label: "<50%",
+          },
+        ],
       },
       bounds: {
         byGeoJson: bounds,
       },
       overlays: overlays,
     };
-    
+
+    console.log(updatedConfig);
+
     //@ts-ignore
     setMarkerConfig(updatedConfig);
     setLoading(false);
   };
 
   const filterData = (district: any, month: any, year: any) => {
-  
     if (district) {
       console.log(district);
       getBlockAttendanceData(district);
@@ -215,33 +336,14 @@ const ReviewMeeting: FC = () => {
       console.log(year);
     }
   };
-  
+
   useEffect(() => {
-    getDistrictAttendanceData("District");
-    // getBlockAttendanceData("District");
-    const overlays = districts.map((item: any) => {
-      return {
-        id: 1,
-        color: "",
-        opacity: 0.5,
-        geoJson: "",
-      };
-    });
-    const updatedConfig = {
-      bounds: {
-        byGeoJson: bounds,
-        overlays: [
-          {
-            id: 1,
-            color: "#00ff00",
-            opacity: 0.5,
-            geoJson: "",
-          },
-        ],
-      },
-    };
-    // bounds.
-  }, []);
+    if (!curDistrict) {
+      getDistrictAttendanceData("District", curMonth - 1);
+    } else {
+      getBlockAttendanceData("District");
+    }
+  }, [curMonth, curDistrict]);
 
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
@@ -252,13 +354,13 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">District</h3>
               <Select
-                onSelect={(val:any) => {                  
-                  filterData(val, null, null);
+                onSelect={(val: any) => {
+                  setCurDistrict(val);
                 }}
                 className="select"
                 placeholder={"Choose District"}
               >
-                {district.map((obj: any, i: number) => {
+                {districts.map((obj: any, i: number) => {
                   return (
                     <Select.Option key={i} value={obj}>
                       {obj}
@@ -272,8 +374,9 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Year</h3>
               <Select
-                onSelect={(val:any) => {
+                onSelect={(val: any) => {
                   filterData(null, val, null);
+                  setCurYear(val);
                 }}
                 placeholder={"Choose Year"}
               >
@@ -291,8 +394,8 @@ const ReviewMeeting: FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h3 className="h3">Month</h3>
               <Select
-                onSelect={(val:any) => {
-                  filterData(null, null, val);
+                onSelect={(val: any) => {
+                  setCurMonth(val);
                 }}
                 placeholder={"Choose Month"}
               >
@@ -315,7 +418,7 @@ const ReviewMeeting: FC = () => {
         <Row>
           <Col span={24}>
             <div style={{ width: "100%", border: "1px solid black" }}>
-              <Card loading={loading}>
+              <Card style={{height : "500px"}} loading={loading}>
                 <MapComponent
                   config={markerConfig}
                   // config={config}
@@ -363,43 +466,6 @@ const ReviewMeeting: FC = () => {
           <Image src={FooterRightLogo} height={"50px"} />
         </Row> */}
     </Layout>
-  );
-};
-
-const Tile: FC = (props: any) => {
-  return (
-    <Card hoverable bordered className="card">
-      <Row gutter={20} align="middle">
-        <Col>
-          <img alt={"broken"} src={props.thumbnail} className="thumbnail" />
-        </Col>
-        <Col>
-          <Title level={3}>
-            {props.titleEN}
-            <div className="subtitle">{props.titleHI}</div>
-          </Title>
-        </Col>
-      </Row>
-      <Divider dashed className="divider" />
-      <Title level={2}>
-        <div className="count">{props.count}</div>
-      </Title>
-      <Row gutter={20} justify="space-between">
-        {Object.keys(props.data).map((i, index) => (
-          //@ts-ignore
-          <Col key={index} align="middle">
-            <b>{i}</b>
-            <div>{props.data[i]}</div>
-          </Col>
-        ))}
-      </Row>
-      <br />
-      <Row justify="end">
-        <NavLink to="/education-dashboard">
-          <u>View More</u> <ArrowRightOutlined />
-        </NavLink>
-      </Row>
-    </Card>
   );
 };
 

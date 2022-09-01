@@ -47,7 +47,7 @@ const EducationPortal: FC = () => {
 
   const formatMarkerData = (data: any) => {
     const formattedData = data
-      .filter((item: any, index: number) => index <= 200)
+      // .filter((item: any, index: number) => index <= 20000)
       .map((item: any, index: number) => {
         return {
           icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",

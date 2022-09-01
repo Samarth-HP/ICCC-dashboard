@@ -301,7 +301,9 @@ export default function MapComponent({
         CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
       };
       setToolTipData(
-        `Attendence:${temp.Attendance}\n CWSN:${temp.CWSN}\n Enrolment:${temp.Enrolment}\n PTR:${temp.PTR}`
+        `Attendence:${temp.Attendance || "NA"}\n CWSN:${
+          temp.CWSN || "NA"
+        }\n Enrolment:${temp.Enrolment || "NA"}\n PTR:${temp.PTR || "NA"}`
       );
     }
   };
