@@ -431,7 +431,17 @@ export default function MapComponent({
                           </p>
                         </div>
                       ) : (
-                        <p>{toolTipData}</p>
+                        <>
+                          <div>
+                            {item.district || item.block || item.school}
+                          </div>
+                          <div>
+                            Attendence: {toolTipData.Attendance || "NA"}
+                          </div>
+                          <div>CWSN: {toolTipData.CWSN || "NA"}</div>
+                          <div>Enrollment: {toolTipData.Enrolment || "NA"}</div>
+                          <div>PTR: {toolTipData.PTR || "NA"}</div>
+                        </>
                       )}
                     </Popup>
                   </Marker>
