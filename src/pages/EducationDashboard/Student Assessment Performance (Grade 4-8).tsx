@@ -395,6 +395,24 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <Button className="navButtonSelected">
                   Subject wise change in average score across SAs
                 </Button>
+<<<<<<< HEAD
+=======
+                <iframe
+                  src="http://167.71.234.32:3000/public/question/02e65177-2908-4478-82cf-ebe6e6e8719d"
+                  frameBorder="0"
+                  width="100%"
+                  height="200"
+                  allowTransparency
+                ></iframe>
+              </Col>
+
+              {/* <Col span={6}>
+                <div>
+
+
+
+                </div>
+>>>>>>> 86b90921377ab0c05ca9d77b256eebe65be324a8
               </Col> */}
               <Col span={24}>
                 <QuestionWithIframe

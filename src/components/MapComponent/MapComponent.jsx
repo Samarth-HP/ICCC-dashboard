@@ -22,6 +22,13 @@ import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
 
+const default_toolTipData = {
+  Attendance: "NA",
+  Enrolment: "NA",
+  PTR: "NA",
+  CWSN: "NA",
+};
+
 export default function MapComponent({
   config,
   markers,
@@ -38,7 +45,7 @@ export default function MapComponent({
   const center = markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
-  const [toolTipData, setToolTipData] = useState("");
+  const [toolTipData, setToolTipData] = useState(default_toolTipData);
 
   const tempBounds = [
     [76.715049743652401, 31.588310241699446],
@@ -51,7 +58,6 @@ export default function MapComponent({
       <div>Download PNG Image</div>
     </div>
   );
-
   const getDistrictAttendance = async (val) => {
     const params = {
       district: val,
@@ -300,11 +306,7 @@ export default function MapComponent({
         PTR: resData[2]?.data?.rows[0]?.Ratio,
         CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
       };
-      setToolTipData(
-        `Attendence:${temp.Attendance || "NA"}\n CWSN:${
-          temp.CWSN || "NA"
-        }\n Enrolment:${temp.Enrolment || "NA"}\n PTR:${temp.PTR || "NA"}`
-      );
+      setToolTipData({ ...temp });
     }
   };
 
@@ -370,11 +372,16 @@ export default function MapComponent({
                 return (
                   <Marker position={item.position} icon={iconPerson}>
                     <Popup
+                    style
                       onOpen={() => {
                         getToolTipData(item.district, item.block, item.school);
                       }}
                     >
-                      {toolTipData}
+                      <div>{item.district || item.block || item.school}</div>
+                      <div>Attendence: {toolTipData.Attendance || "NA"}</div>
+                      <div>CWSN: {toolTipData.CWSN || "NA"}</div>
+                      <div>Enrollment: {toolTipData.Enrolment || "NA"}</div>
+                      <div>PTR: {toolTipData.PTR || "NA"}</div>
                     </Popup>
                   </Marker>
                 );
