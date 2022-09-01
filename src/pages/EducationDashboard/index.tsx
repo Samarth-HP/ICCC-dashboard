@@ -138,7 +138,7 @@ const EducationPortal: FC = () => {
             </Button>
           </Col>
           <Col span={4}>
-            <Button>VIEW DETAILED DASHBOARDS</Button>
+            <Button style={{background: "#014C3D", color:"white"}}>VIEW DETAILED DASHBOARDS</Button>
           </Col>
         </Row>
         <Row>

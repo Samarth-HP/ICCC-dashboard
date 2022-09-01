@@ -44,7 +44,7 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24} style={{ display: "flex" }}>
-            <QuestionWithIframe questionId={55} width="50%" height="200" />
+            <QuestionWithIframe questionId={55} width="50%" height="200"/>
             <QuestionWithIframe questionId={57} width="50%" height="200" />
           </Col>
         </Row>
