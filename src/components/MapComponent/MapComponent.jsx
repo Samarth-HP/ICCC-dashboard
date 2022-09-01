@@ -27,6 +27,7 @@ export default function MapComponent({
   markers,
   type = 1,
   at = "SA1",
+  ay = "2022-2023",
 }) {
   const eventHandlers = () => ({
     click() {
@@ -289,10 +290,37 @@ export default function MapComponent({
     const resData = await Promise.all(promiseArray);
 
     if (type == 2) {
-      const temp = {
-        Academic_Year: resData[0]?.data?.rows[0]?.academic_year,
-      };
-      setToolTipData(`Academic Year : ${temp.Academic_Year}`);
+      if (resData) {
+        console.log(resData);
+        resData.forEach((item) => {
+          const processArray = async () => {
+            if (item?.data?.rows?.length) {
+              const filtered = await item?.data?.rows.filter(
+                (item) => item.academic_year === ay
+              );
+              return filtered[0];
+            }
+          };
+          const temp = processArray();
+          temp.then((data) => {
+            if (data) {
+              console.log(data);
+              const { per_AverageScore, district, academic_year } = data;
+
+              setToolTipData({
+                type: 2,
+                academic_year: { label: "Academic Year", value: academic_year },
+                percentage_average: {
+                  label: "Percentage Average",
+                  value: per_AverageScore,
+                },
+                district: { label: "District", value: district },
+                assesment_type: { label: "Assesment Type", value: at },
+              });
+            }
+          });
+        });
+      }
     } else {
       const temp = {
         Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
@@ -370,11 +398,34 @@ export default function MapComponent({
                 return (
                   <Marker position={item.position} icon={iconPerson}>
                     <Popup
+                      className="tooltip-popup"
                       onOpen={() => {
                         getToolTipData(item.district, item.block, item.school);
                       }}
                     >
-                      {toolTipData}
+                      {toolTipData.type == 2 ? (
+                        <div>
+                          <p>
+                            <span> {toolTipData.academic_year.label}</span> :{" "}
+                            <span>{toolTipData.academic_year.value}</span>
+                          </p>
+                          <p>
+                            <span>{toolTipData.assesment_type.label}</span> :{" "}
+                            <span>{toolTipData.assesment_type.value}</span>
+                          </p>
+                          <p>
+                            <span>{toolTipData.district.label}</span> :{" "}
+                            <span>{toolTipData.district.value}</span>
+                          </p>
+                          <p>
+                            <span>{toolTipData.percentage_average.label}</span>{" "}
+                            :{" "}
+                            <span>{toolTipData.percentage_average.value}</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <p>{toolTipData}</p>
+                      )}
                     </Popup>
                   </Marker>
                 );

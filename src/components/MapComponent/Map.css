@@ -2,3 +2,9 @@
   background: #fff;
   outline: 0;
 }
+
+
+.tooltip-popup  .leaflet-popup-content-wrapper {
+  background-color: #014C3D;
+  color: white;
+}

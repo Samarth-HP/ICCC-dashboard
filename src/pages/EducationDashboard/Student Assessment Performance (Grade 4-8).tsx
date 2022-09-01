@@ -30,6 +30,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [selected, setSelected] = useState("SA1");
   const [marker, setMarker] = useState("Districts");
+  const [academicYear, setAcademicYear] = useState("2022-2023");
   const onButtonClick = (id: any) => {
     console.log(id);
     setSelectedButton(id);
@@ -254,9 +255,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
+                      {/* at = assesment type  for ex SA1 */}
+                      {/* ay = academic year for ex 2022-2023*/}
                       <MapComponent
                         at={selected}
                         config={config}
+                        ay={academicYear}
                         markers={props.markerData}
                         type={2}
                       />
@@ -274,9 +278,13 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                     <Button>VIEW DETAILED DASHBOARDS</Button>
                   </Col>
                   <Col>
-                    <Select defaultValue={"2022-2023"}>
-                      <Select.Option value={"2022-2023"}>
-                        {"2022-2023"}
+                    {/* Academic */}
+                    <Select
+                      onSelect={(e: any) => setAcademicYear(e)}
+                      defaultValue={academicYear}
+                    >
+                      <Select.Option value={academicYear}>
+                        {academicYear}
                       </Select.Option>
                     </Select>
                   </Col>
