@@ -10,6 +10,8 @@ import schools from "../../assets/schools.png";
 import students from "../../assets/students.png";
 import teachers from "../../assets/teachers.png";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
+import boyIcon from "../../assets/boyIcon.svg";
+import girlIcon from "../../assets/girlIcon.svg";
 
 import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
@@ -275,28 +277,26 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
               </Col>
             </Row>
+            <Col style={{textAlign:'center'}} span={24}>
+              <img src={boyIcon} alt="" />
+            </Col>
             <Row>
               <Col span={24}>
-                <QuestionWithIframe
-                  questionId={89}
-                  width="100%"
-                  height="200"
-                />
+                <QuestionWithIframe questionId={89} width="100%" height="200" />
+              </Col>
+              <Col style={{textAlign:'center'}} span={24}>
+                <img src={girlIcon} alt="" />
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                  questionId={91}
-                  width="100%"
-                  height="200"
-                />
+                <QuestionWithIframe questionId={91} width="100%" height="200" />
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={102}
                   width="100%"
-                  height="560"
+                  height="450"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Districts with highest jump in scores
                 </div>
               </Col>
@@ -304,9 +304,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={117}
                   width="100%"
-                  height="560"
+                  height="450"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Subject wise change in average score across SAs
                 </div>
               </Col>
@@ -316,9 +316,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={103}
                   width="100%"
-                  height="510"
+                  height="450"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Districts with highest fall in scores
                 </div>
               </Col>
@@ -326,9 +326,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={106}
                   width="100%"
-                  height="350"
+                  height="320"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Average Grade-wise Performance distribution (SA-1 & SA-2)
                 </div>
               </Col>

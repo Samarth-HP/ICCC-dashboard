@@ -139,7 +139,7 @@ const EducationPortal: FC = () => {
               Administrative Overview
             </Button>
           </Col>
-          <Col style={{ display: "flex" }} span={6}>
+          <Col style={{ display: "flex" }} span={4}>
             <div>
               <Button
                 style={{ backgroundColor: "#014C3D",color:'white',textDecoration:'underline' }}
@@ -151,12 +151,12 @@ const EducationPortal: FC = () => {
               </Button>
             </div>
 
-            <div style={{ marginLeft: "25px" }}>
+          </Col>
+          <Col span={2}>
               <Select defaultValue={"2022-2023"}>
                 <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
               </Select>
-            </div>
-          </Col>
+            </Col>
         </Row>
         <Row>
           {selectedButton == 1 && (
