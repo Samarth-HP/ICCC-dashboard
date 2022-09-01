@@ -229,9 +229,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={9}>
                 <Row>
-                  <Col>
-                    
-                  </Col>
+                  <Col></Col>
                   <Col>
                     <Select defaultValue={"2022-2023"}>
                       <Select.Option value={"2022-2023"}>
@@ -260,7 +258,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <QuestionWithIframe
                     questionId={106}
                     width="100%"
-                    height="250"
+                    height="350"
                   />
                   <Button className="navButtonSelected">
                     Average Grade-wise Performance distribution (SA-1 & SA-2)
@@ -270,7 +268,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       <QuestionWithIframe
                         questionId={120}
                         width="100%"
-                        height="250"
+                        height="350"
                       />
                       <Button className="navButtonSelected">Class 1</Button>
                     </Col>
@@ -278,7 +276,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       <QuestionWithIframe
                         questionId={121}
                         width="100%"
-                        height="250"
+                        height="350"
                       />
                       <Button className="navButtonSelected">Class 2</Button>
                     </Col>
@@ -287,7 +285,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                     <QuestionWithIframe
                       questionId={122}
                       width="100%"
-                      height="250"
+                      height="350"
                     />
                     <Button className="navButtonSelected">Class 3</Button>
                   </Col>
@@ -299,7 +297,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={104}
                   width="100%"
-                  height="250"
+                  height="300"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 4)
@@ -311,7 +309,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={105}
                   width="100%"
-                  height="250"
+                  height="300"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 5)
@@ -323,7 +321,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={107}
                   width="100%"
-                  height="250"
+                  height="300"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 6)
@@ -335,7 +333,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={108}
                   width="100%"
-                  height="250"
+                  height="300"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 7)
@@ -347,7 +345,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={110}
                   width="100%"
-                  height="250"
+                  height="300"
                 />
                 <Button className="navButtonSelected">
                   Comparative Performance in SA-1 and SA-2 (Class 8)
@@ -387,7 +385,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={117}
                   width="100%"
-                  height="460"
+                  height="560"
                 />
                 <Button className="navButtonSelected">
                   Subject wise change in average score across SAs
@@ -397,7 +395,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={111}
                   width="100%"
-                  height="400"
+                  height="480"
                 />
                 <Button className="navButtonSelected">
                   Subject wise average score across SAs (Class 4)
@@ -407,7 +405,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={112}
                   width="100%"
-                  height="400"
+                  height="480"
                 />
                 <Button className="navButtonSelected">
                   Subject wise average score across SAs (Class 5)
@@ -417,7 +415,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={113}
                   width="100%"
-                  height="400"
+                  height="480"
                 />
                 <Button className="navButtonSelected">
                   Subject wise average score across SAs (Class 6)
@@ -427,7 +425,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={111}
                   width="100%"
-                  height="400"
+                  height="480"
                 />
                 <Button className="navButtonSelected">
                   Subject wise average score across SAs (Class 7)
@@ -437,7 +435,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <QuestionWithIframe
                   questionId={115}
                   width="100%"
-                  height="400"
+                  height="480"
                 />
                 <Button className="navButtonSelected">
                   Subject wise average score across SAs (Class 8)
@@ -462,39 +460,32 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
             </Row>
             <Row>
-              <Col style={{ display: "flex" }}>
-                <Col span={7}>
-                <QuestionWithIframe questionId={138} width="100%" height="400" />
-                  <div className="Districtwice">
-                    District wise students practising atleast once a month
-                  </div>
-                </Col>
-                <Col span={7}>
-                <QuestionWithIframe questionId={137} width="100%" height="400" />
-                  <div style={{ padding: "19.1px" }} className="Districtwice">
-                    District wise NIPUN Students
-                  </div>
-                </Col>
-                <Col span={10}>
-                <QuestionWithIframe questionId={139} width="100%" height="400" />
-                  <Button className="navButtonSelected">
-                    Class-wise NIPUN Students
-                  </Button>
-                  <Col offset={10} span={14}>
-                    <div className="District-wise-div">
-                      District wise trends
-                    </div>
-                    <QuestionWithIframe questionId={143} width="100%" height="200" />
-                  </Col>
-
-                </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={138}
+                  width="100%"
+                  height="400"
+                />
+                <Button className="navButtonSelected">
+                  District wise students practising atleast once a month
+                </Button>
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={137}
+                  width="100%"
+                  height="250"
+                />
+                <Button className="navButtonSelected">
+                  District wise NIPUN Students
+                </Button>
               </Col>
             </Row>
-            <Row style={{ display: "inlineGrid" }}>
-              <Col span={9}>
-                <div className="District-wise-div">
+            <Row style={{ display: "flex" }}>
+              <Col span={12}>
+                {/* <div className="NIPUNheading">
                   Oral Reading Fluency Analysis
-                </div>
+                </div> */}
                 <iframe
                   src="http://167.71.234.32:3000/public/question/76b143a0-9def-4b74-ae45-5db83b69b754"
                   frameBorder="0"
@@ -502,32 +493,11 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-              </Col>
-              <Col span={9}>
-                <div
-                  style={{ padding: "22.6px" }}
-                  className="District-wise-div"
-                >
-                  Numeracy Analysis
-                </div>
-                <QuestionWithIframe questionId={140} width="100%" height="180" />
-              </Col>
-              <Col span={6}>
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Top Districts (Class-1)
+                <Button className="navButtonSelected">
+                  Word Bucket Performance (Class-1)
                 </Button>
-                <QuestionWithIframe questionId={144} width="100%" height="200" />
               </Col>
-              <Col span={9}>
-                <div
-                  style={{ padding: "22.6px" }}
-                  className="navButtonSelected"
-                >
-                  Oral Reading Fluency Analysis
-                </div>
+              <Col span={12}>
                 <iframe
                   src="http://167.71.234.32:3000/public/question/76264e81-566f-4f0f-8553-aa84a7d9bc3c"
                   frameBorder="0"
@@ -535,33 +505,11 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
-              </Col>
-              <Col span={9}>
-                <div
-                  style={{ padding: "22.6px" }}
-                  className="navButtonSelected"
-                >
-                  Numeracy Analysis
-                </div>
-                <QuestionWithIframe questionId={141} width="100%" height="200" />
-              </Col>
-              <Col span={6}>
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Bottom Districts (Class-1)
+                <Button className="navButtonSelected">
+                  Word Bucket Performance (Class-2)
                 </Button>
-                <QuestionWithIframe questionId={145} width="100%" height="200" />
               </Col>
-
-              <Col span={9}>
-                <div
-                  style={{ padding: "22.6px" }}
-                  className="navButtonSelected"
-                >
-                  Oral Reading Fluency Analysis
-                </div>
+              <Col span={24}>
                 <iframe
                   src="http://167.71.234.32:3000/public/question/c69907f9-ba78-4aa1-86e8-4c90e121be95"
                   frameBorder="0"
@@ -569,44 +517,118 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   height="200"
                   allowTransparency
                 ></iframe>
+                <Button className="navButtonSelected">
+                  Word Bucket Performance (Class-3)
+                </Button>
               </Col>
-              <Col span={9}>
-                <div
-                  style={{ padding: "22.6px" }}
-                  className="navButtonSelected"
-                >
-                  Numeracy Analysis
+              <Col span={12}>
+                <QuestionWithIframe
+                  questionId={140}
+                  width="100%"
+                  height="200"
+                />
+                <div style={{padding:'10px'}} className="navButtonSelected">
+                  Percentage Students NIPUN in Maths(Class-1)
                 </div>
-                <QuestionWithIframe questionId={142} width="100%" height="200" />
               </Col>
-              <Col span={6}>
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Top Districts (Class-2)
+              <Col span={12}>
+                <QuestionWithIframe
+                  questionId={141}
+                  width="100%"
+                  height="200"
+                />
+                <div style={{padding:'10px'}} className="navButtonSelected">
+                  Percentage Students NIPUN in Maths(Class-2)
+                </div>
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={142}
+                  width="100%"
+                  height="200"
+                />
+                <Button className="navButtonSelected">
+                  Percentage Students NIPUN in Maths(Class-3)
                 </Button>
-                <QuestionWithIframe questionId={146} width="100%" height="200" />
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Bottom Districts (Class-2)
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={139}
+                  width="100%"
+                  height="300"
+                />
+                <Button className="navButtonSelected">
+                  Class-wise NIPUN Students
                 </Button>
-                <QuestionWithIframe questionId={148} width="100%" height="200" />
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Top Districts (Class-3)
-                </Button>
-                <QuestionWithIframe questionId={149} width="100%" height="200" />
-                <Button
-                  style={{ height: "60px" }}
-                  className="navButtonSelected"
-                >
-                  Bottom Districts (Class-3)
-                </Button>
+              </Col>
+              <Col span={24}>
+                <div className="NIPUNheading">District wise trends</div>
+              </Col>
+              <Col style={{ display: "flex" }} span={24}>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={143}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Top Districts (Class-1)
+                  </Button>
+                </Col>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={144}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Bottom Districts (Class-1)
+                  </Button>
+                </Col>
+              </Col>
+              <Col style={{ display: "flex" }} span={24}>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={145}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Top Districts (Class-2)
+                  </Button>
+                </Col>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={146}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Bottom Districts (Class-2)
+                  </Button>
+                </Col>
+              </Col>
+              <Col style={{ display: "flex" }} span={24}>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={148}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Top Districts (Class-3)
+                  </Button>
+                </Col>
+                <Col>
+                  <QuestionWithIframe
+                    questionId={149}
+                    width="100%"
+                    height="200"
+                  />
+                  <Button className="navButtonSelected">
+                    Bottom Districts (Class-3)
+                  </Button>
+                </Col>
               </Col>
             </Row>
           </Col>
