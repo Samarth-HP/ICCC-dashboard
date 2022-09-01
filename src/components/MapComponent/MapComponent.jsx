@@ -22,6 +22,13 @@ import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
 
+const default_toolTipData = {
+  Attendance: "NA",
+  Enrolment: "NA",
+  PTR: "NA",
+  CWSN: "NA",
+};
+
 export default function MapComponent({
   config,
   markers,
@@ -39,7 +46,7 @@ export default function MapComponent({
   const center = markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
-  const [toolTipData, setToolTipData] = useState("");
+  const [toolTipData, setToolTipData] = useState(default_toolTipData);
 
   const tempBounds = [
     [76.715049743652401, 31.588310241699446],
