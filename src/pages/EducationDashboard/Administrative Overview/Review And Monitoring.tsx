@@ -24,7 +24,7 @@ const ReviewAndMonitoring: FC = () => (
         </Row>
         <Row>
           <Col span={24} style={{ display: "flex" }}>
-            <QuestionWithIframe questionId={62} width="33%" height="200" />
+            <QuestionWithIframe questionId={62} width="33%" height="200" nonDownloadable={false}/>
 
             <QuestionWithIframe questionId={64} width="34%" height="200" />
 

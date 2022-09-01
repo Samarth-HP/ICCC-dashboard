@@ -72,7 +72,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={29} width="100%" height="200" />
+                <QuestionWithIframe questionId={29} width="100%" height="200" nonDownloadable={true} />
               </Col>
               <Col span={12}>
               <QuestionWithIframe questionId={33} width="100%" height="200" />

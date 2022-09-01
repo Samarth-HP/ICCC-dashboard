@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f659f80.chunk.css",
-    "main.js": "/static/js/main.47f389ba.chunk.js",
-    "main.js.map": "/static/js/main.47f389ba.chunk.js.map",
+    "main.css": "/static/css/main.2000c4b1.chunk.css",
+    "main.js": "/static/js/main.15034fe5.chunk.js",
+    "main.js.map": "/static/js/main.15034fe5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.efb947c3.js",
     "runtime-main.js.map": "/static/js/runtime-main.efb947c3.js.map",
     "static/css/2.b2c61319.chunk.css": "/static/css/2.b2c61319.chunk.css",
-    "static/js/2.4e4f8215.chunk.js": "/static/js/2.4e4f8215.chunk.js",
-    "static/js/2.4e4f8215.chunk.js.map": "/static/js/2.4e4f8215.chunk.js.map",
+    "static/js/2.0451470b.chunk.js": "/static/js/2.0451470b.chunk.js",
+    "static/js/2.0451470b.chunk.js.map": "/static/js/2.0451470b.chunk.js.map",
     "static/js/3.e496a7fd.chunk.js": "/static/js/3.e496a7fd.chunk.js",
     "static/js/3.e496a7fd.chunk.js.map": "/static/js/3.e496a7fd.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b2c61319.chunk.css.map": "/static/css/2.b2c61319.chunk.css.map",
-    "static/css/main.8f659f80.chunk.css.map": "/static/css/main.8f659f80.chunk.css.map",
-    "static/js/2.4e4f8215.chunk.js.LICENSE.txt": "/static/js/2.4e4f8215.chunk.js.LICENSE.txt",
+    "static/css/main.2000c4b1.chunk.css.map": "/static/css/main.2000c4b1.chunk.css.map",
+    "static/js/2.0451470b.chunk.js.LICENSE.txt": "/static/js/2.0451470b.chunk.js.LICENSE.txt",
     "static/media/50 years.b136f407.png": "/static/media/50 years.b136f407.png",
     "static/media/AcademicKPI.b1350668.svg": "/static/media/AcademicKPI.b1350668.svg",
     "static/media/AdministrativeKPI.8cea602f.svg": "/static/media/AdministrativeKPI.8cea602f.svg",
@@ -31,8 +31,10 @@
     "static/media/SchoolMonitoringVisits.01a36658.svg": "/static/media/SchoolMonitoringVisits.01a36658.svg",
     "static/media/StudentAttendance.00b83e95.svg": "/static/media/StudentAttendance.00b83e95.svg",
     "static/media/TeacherTraining.2e402a90.svg": "/static/media/TeacherTraining.2e402a90.svg",
+    "static/media/boyIcon.4f7e7cee.svg": "/static/media/boyIcon.4f7e7cee.svg",
     "static/media/footer_Samarth_Himachal_logo.84f3d740.png": "/static/media/footer_Samarth_Himachal_logo.84f3d740.png",
     "static/media/footer_logo.7691614a.png": "/static/media/footer_logo.7691614a.png",
+    "static/media/girlIcon.f99decbb.svg": "/static/media/girlIcon.f99decbb.svg",
     "static/media/header_Himachal_Pradesh_seal.5a807be1.png": "/static/media/header_Himachal_Pradesh_seal.5a807be1.png",
     "static/media/image 135.ee7d5ba9.png": "/static/media/image 135.ee7d5ba9.png",
     "static/media/schools.63622560.png": "/static/media/schools.63622560.png",
@@ -44,8 +46,8 @@
   "entrypoints": [
     "static/js/runtime-main.efb947c3.js",
     "static/css/2.b2c61319.chunk.css",
-    "static/js/2.4e4f8215.chunk.js",
-    "static/css/main.8f659f80.chunk.css",
-    "static/js/main.47f389ba.chunk.js"
+    "static/js/2.0451470b.chunk.js",
+    "static/css/main.2000c4b1.chunk.css",
+    "static/js/main.15034fe5.chunk.js"
   ]
 }
