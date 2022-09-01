@@ -482,41 +482,37 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
             </Row>
             <Row style={{ display: "flex" }}>
-              <Col span={12}>
+              <Col span={24}>
                 {/* <div className="NIPUNheading">
                   Oral Reading Fluency Analysis
                 </div> */}
-                <iframe
-                  src="http://167.71.234.32:3000/public/question/76b143a0-9def-4b74-ae45-5db83b69b754"
-                  frameBorder="0"
-                  width="100%"
-                  height="200"
-                  allowTransparency
-                ></iframe>
+                <QuestionWithIframe
+                    questionId={15}
+                    width="100%"
+                    height="200"
+                />
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-1)
                 </Button>
               </Col>
-              <Col span={12}>
-                <iframe
-                  src="http://167.71.234.32:3000/public/question/76264e81-566f-4f0f-8553-aa84a7d9bc3c"
-                  frameBorder="0"
-                  width="100%"
-                  height="200"
-                  allowTransparency
-                ></iframe>
+              <Col span={24}>
+                <QuestionWithIframe
+                    questionId={16}
+                    width="100%"
+                    height="200"
+                />
+
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-2)
                 </Button>
               </Col>
               <Col span={24}>
-                <iframe
-                  src="http://167.71.234.32:3000/public/question/c69907f9-ba78-4aa1-86e8-4c90e121be95"
-                  frameBorder="0"
-                  width="100%"
-                  height="200"
-                  allowTransparency
-                ></iframe>
+                <QuestionWithIframe
+                    questionId={16}
+                    width="100%"
+                    height="200"
+                />
+
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-3)
                 </Button>
