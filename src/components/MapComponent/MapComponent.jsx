@@ -32,7 +32,7 @@ const default_toolTipData = {
 export default function MapComponent({
   config,
   markers,
-  type = 1,
+  type = 0,
   at = "SA1",
   ay = "2022-2023",
 }) {
@@ -251,7 +251,7 @@ export default function MapComponent({
 
   const getStudentAssesmentBlock1Grade13 = async (val) => {
     const params = {
-      block: val,
+      assessment_type_v2: val,
     };
     return await API_SERVICE.getStudentAssesmentBlock1Grade13(params);
   };
@@ -268,9 +268,21 @@ export default function MapComponent({
     };
     return await API_SERVICE.getStudentAssesmentBlock3Grade13(params);
   };
+  const getStudentAssesmentBlock4Grade13 = async (val) => {
+    const params = {
+      block: val,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock4Grade13(params);
+  };
+  const getStudentAssesmentBlock5Grade13 = async (val) => {
+    const params = {
+      block: val,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock5Grade13(params);
+  };
   const getStudentAssesmentDistrict1Grade13 = async (val) => {
     const params = {
-      district: val,
+      assessment_type_v2: val,
     };
     return await API_SERVICE.getStudentAssesmentDistrict1Grade13(params);
   };
@@ -287,10 +299,22 @@ export default function MapComponent({
     };
     return await API_SERVICE.getStudentAssesmentDistrict3Grade13(params);
   };
+  const getStudentAssesmentDistrict4Grade13 = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict4Grade13(params);
+  };
+  const getStudentAssesmentDistrict5Grade13 = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict5Grade13(params);
+  };
 
   const getStudentAssesmentSchool1Grade13 = async (val) => {
     const params = {
-      school_name: val,
+      assessment_type_v2: val,
     };
     return await API_SERVICE.getStudentAssesmentSchool1Grade13(params);
   };
@@ -306,69 +330,85 @@ export default function MapComponent({
     };
     return await API_SERVICE.getStudentAssesmentSchool3Grade13(params);
   };
+  const getStudentAssesmentSchool4Grade13 = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool4Grade13(params);
+  };
+  const getStudentAssesmentSchool5Grade13 = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool5Grade13(params);
+  };
   // type dynamic 2 end
 
   const getToolTipData = async (district, block, school) => {
     console.log(district, block, school);
     const promiseArray = [];
     if (district) {
-      if (type == 2) {
+      if (type === 2) {
         promiseArray.push(getStudentAssesmentDistrict1Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict2Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict4Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict5Grade48(district));
-      } else {
-        promiseArray.push(getStudentAssesmentDistrict1Grade13(district));
+      } else if (type === 1) {
+        promiseArray.push(getStudentAssesmentDistrict1Grade13(at));
         promiseArray.push(getStudentAssesmentDistrict2Grade13(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade13(district));
+        promiseArray.push(getStudentAssesmentDistrict4Grade13(district));
+        promiseArray.push(getStudentAssesmentDistrict5Grade13(district));
       }
     } else if (block) {
-      if (type == 2) {
+      if (type === 2) {
         promiseArray.push(getStudentAssesmentBlock1Grade48(block));
         promiseArray.push(getStudentAssesmentBlock2Grade48(block));
         promiseArray.push(getStudentAssesmentBlock3Grade48(block));
         promiseArray.push(getStudentAssesmentBlock4Grade48(block));
         promiseArray.push(getStudentAssesmentBlock5Grade48(block));
-      } else {
-        promiseArray.push(getStudentAssesmentBlock1Grade13(district));
-        promiseArray.push(getStudentAssesmentBlock2Grade13(district));
-        promiseArray.push(getStudentAssesmentBlock3Grade13(district));
+      } else if (type === 1) {
+        promiseArray.push(getStudentAssesmentBlock1Grade13(at));
+        promiseArray.push(getStudentAssesmentBlock2Grade13(block));
+        promiseArray.push(getStudentAssesmentBlock3Grade13(block));
+        promiseArray.push(getStudentAssesmentBlock4Grade13(block));
+        promiseArray.push(getStudentAssesmentBlock5Grade13(block));
       }
     } else {
-      if (type == 2) {
+      if (type === 2) {
         promiseArray.push(getStudentAssesmentSchool1Grade48(school));
         promiseArray.push(getStudentAssesmentSchool2Grade48(school));
         promiseArray.push(getStudentAssesmentSchool3Grade48(school));
         promiseArray.push(getStudentAssesmentSchool4Grade48(school));
         promiseArray.push(getStudentAssesmentSchool5Grade48(school));
-      } else {
-        promiseArray.push(getStudentAssesmentSchool1Grade13(district));
-        promiseArray.push(getStudentAssesmentSchool2Grade13(district));
-        promiseArray.push(getStudentAssesmentSchool3Grade13(district));
+      } else if (type === 1) {
+        promiseArray.push(getStudentAssesmentSchool1Grade13(at));
+        promiseArray.push(getStudentAssesmentSchool2Grade13(school));
+        promiseArray.push(getStudentAssesmentSchool3Grade13(school));
+        promiseArray.push(getStudentAssesmentSchool4Grade13(school));
+        promiseArray.push(getStudentAssesmentSchool5Grade13(school));
       }
     }
 
     const resData = await Promise.all(promiseArray);
 
-    if (type == 2) {
-      if (resData) {
-        console.log(resData);
-        resData.forEach((item) => {
-          const processArray = async () => {
-            if (item?.data?.rows?.length) {
-              const filtered = await item?.data?.rows.filter(
-                (item) => item.academic_year === ay
-              );
-              return filtered[0];
-            }
-          };
-          const temp = processArray();
-          temp.then((data) => {
-            if (data) {
-              console.log(data);
-              const { per_AverageScore, district, academic_year } = data;
+    if (resData) {
+      resData.forEach((item) => {
+        const processArray = async () => {
+          if (item?.data?.rows?.length) {
+            const filtered = await item?.data?.rows.filter(
+              (item) => item.academic_year === ay
+            );
+            return filtered[0];
+          }
+        };
+        const temp = processArray();
+        temp.then((data) => {
+          if (data) {
+            const { per_AverageScore, district, academic_year } = data;
 
+            if (type === 2) {
               setToolTipData({
                 type: 2,
                 academic_year: { label: "Academic Year", value: academic_year },
@@ -379,18 +419,12 @@ export default function MapComponent({
                 district: { label: "District", value: district },
                 assesment_type: { label: "Assesment Type", value: at },
               });
+            } else if (type === 1) {
+              console.log(data, "this is data ");
             }
-          });
+          }
         });
-      }
-    } else {
-      console.log(resData, "this is 1-3");
-      // setToolTipData({
-      //   Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-      //   Enrolment: resData[1]?.data?.rows[0]?.total_students,
-      //   PTR: resData[2]?.data?.rows[0]?.Ratio,
-      //   CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-      // });
+      });
     }
   };
 

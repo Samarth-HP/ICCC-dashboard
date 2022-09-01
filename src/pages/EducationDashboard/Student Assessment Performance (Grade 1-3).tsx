@@ -217,6 +217,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                     <div style={{ width: "100%" }}>
                       <MapComponent
                         config={config}
+                        type={1}
                         markers={props.markerData}
                       ></MapComponent>
                     </div>
@@ -486,32 +487,20 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 {/* <div className="NIPUNheading">
                   Oral Reading Fluency Analysis
                 </div> */}
-                <QuestionWithIframe
-                    questionId={15}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={15} width="100%" height="200" />
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-1)
                 </Button>
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                    questionId={16}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={16} width="100%" height="200" />
 
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-2)
                 </Button>
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                    questionId={16}
-                    width="100%"
-                    height="200"
-                />
+                <QuestionWithIframe questionId={16} width="100%" height="200" />
 
                 <Button className="navButtonSelected">
                   Word Bucket Performance (Class-3)
@@ -523,7 +512,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   width="100%"
                   height="200"
                 />
-                <div style={{padding:'10px'}} className="navButtonSelected">
+                <div style={{ padding: "10px" }} className="navButtonSelected">
                   Percentage Students NIPUN in Maths(Class-1)
                 </div>
               </Col>
@@ -533,7 +522,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   width="100%"
                   height="200"
                 />
-                <div style={{padding:'10px'}} className="navButtonSelected">
+                <div style={{ padding: "10px" }} className="navButtonSelected">
                   Percentage Students NIPUN in Maths(Class-2)
                 </div>
               </Col>
