@@ -52,7 +52,9 @@ const DetailedDashboard: FC = () => {
             >
               <Col>
                 <div className="title">
-                  <b className="headingb">View Detailed Dashboards</b>
+                  <b onClick={()=>{
+                     history.push("/");
+                  }} className="headingb">View Detailed Dashboards</b>
                 </div>
                 <Button className="DetailsButton">
                   <Row onClick={()=>{history.push('/detailed-academic')}} style={{display:'flex'}}>

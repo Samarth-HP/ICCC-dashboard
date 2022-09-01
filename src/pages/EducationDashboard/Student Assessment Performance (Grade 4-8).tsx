@@ -16,6 +16,7 @@ import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
 import config from "./config.json";
+import { useHistory } from "react-router-dom";
 
 const sample_data = {
   schools: {
@@ -277,6 +278,20 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             <Row>
               <Col span={24}>
                 <QuestionWithIframe
+                  questionId={89}
+                  width="100%"
+                  height="200"
+                />
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
+                  questionId={91}
+                  width="100%"
+                  height="200"
+                />
+              </Col>
+              <Col span={24}>
+                <QuestionWithIframe
                   questionId={102}
                   width="100%"
                   height="560"
@@ -301,7 +316,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={103}
                   width="100%"
-                  height="560"
+                  height="510"
                 />
                 <div style={{padding:'20px'}} className="navButtonSelected">
                   Districts with highest fall in scores
@@ -311,7 +326,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={106}
                   width="100%"
-                  height="700"
+                  height="350"
                 />
                 <div style={{padding:'20px'}} className="navButtonSelected">
                   Average Grade-wise Performance distribution (SA-1 & SA-2)

@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
+import { Card, Col, Layout, Row, Divider, Image, Select, Form } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -19,6 +19,7 @@ import API_SERVICE from "../../services/api-service";
 import AdministrativeOverview from "./Administrative Overview";
 import StudentAssessmentPerformanceGrade1_3 from "./Student Assessment Performance (Grade 1-3)";
 import StudentAssessmentPerformanceGrade4_8 from "./Student Assessment Performance (Grade 4-8)";
+import { useHistory } from "react-router-dom";
 
 const sample_data = {
   schools: {
@@ -30,6 +31,7 @@ const sample_data = {
 };
 
 const EducationPortal: FC = () => {
+  const history = useHistory();
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
   const [markerData, setMarkerData] = useState({
@@ -137,8 +139,23 @@ const EducationPortal: FC = () => {
               Administrative Overview
             </Button>
           </Col>
-          <Col span={4}>
-            <Button>VIEW DETAILED DASHBOARDS</Button>
+          <Col style={{ display: "flex" }} span={6}>
+            <div>
+              <Button
+                style={{ backgroundColor: "#014C3D",color:'white',textDecoration:'underline' }}
+                onClick={() => {
+                  history.push("/detailed-dashboard");
+                }}
+              >
+                VIEW DETAILED DASHBOARDS
+              </Button>
+            </div>
+
+            <div style={{ marginLeft: "25px" }}>
+              <Select defaultValue={"2022-2023"}>
+                <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
+              </Select>
+            </div>
           </Col>
         </Row>
         <Row>
