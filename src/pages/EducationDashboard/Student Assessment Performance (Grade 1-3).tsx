@@ -495,13 +495,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <div className="District-wise-div">
                   Oral Reading Fluency Analysis
                 </div>
-                {/*<iframe*/}
-                {/*  src="http://167.71.234.32:3000/public/question/76b143a0-9def-4b74-ae45-5db83b69b754"*/}
-                {/*  frameBorder="0"*/}
-                {/*  width="100%"*/}
-                {/*  height="200"*/}
-                {/*  allowTransparency*/}
-                {/*></iframe>*/}
+                <iframe
+                  src="http://167.71.234.32:3000/public/question/76b143a0-9def-4b74-ae45-5db83b69b754"
+                  frameBorder="0"
+                  width="100%"
+                  height="200"
+                  allowTransparency
+                ></iframe>
               </Col>
               <Col span={9}>
                 <div
@@ -528,13 +528,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 >
                   Oral Reading Fluency Analysis
                 </div>
-                {/*<iframe*/}
-                {/*  src="http://167.71.234.32:3000/public/question/76264e81-566f-4f0f-8553-aa84a7d9bc3c"*/}
-                {/*  frameBorder="0"*/}
-                {/*  width="100%"*/}
-                {/*  height="200"*/}
-                {/*  allowTransparency*/}
-                {/*></iframe>*/}
+                <iframe
+                  src="http://167.71.234.32:3000/public/question/76264e81-566f-4f0f-8553-aa84a7d9bc3c"
+                  frameBorder="0"
+                  width="100%"
+                  height="200"
+                  allowTransparency
+                ></iframe>
               </Col>
               <Col span={9}>
                 <div
@@ -562,13 +562,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 >
                   Oral Reading Fluency Analysis
                 </div>
-                {/*<iframe*/}
-                {/*  src="http://167.71.234.32:3000/public/question/c69907f9-ba78-4aa1-86e8-4c90e121be95"*/}
-                {/*  frameBorder="0"*/}
-                {/*  width="100%"*/}
-                {/*  height="200"*/}
-                {/*  allowTransparency*/}
-                {/*></iframe>*/}
+                <iframe
+                  src="http://167.71.234.32:3000/public/question/c69907f9-ba78-4aa1-86e8-4c90e121be95"
+                  frameBorder="0"
+                  width="100%"
+                  height="200"
+                  allowTransparency
+                ></iframe>
               </Col>
               <Col span={9}>
                 <div
