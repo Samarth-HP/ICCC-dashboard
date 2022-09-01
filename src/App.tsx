@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import {
     BrowserRouter as Router,
@@ -18,28 +18,45 @@ import AcademicPage from './pages/DetailedDashBoard/AcademicPage';
 import AdminKPIPage from './pages/DetailedDashBoard/AdminKPIPage';
 import ReviewMeeting from './pages/Review Meetings';
 
-const App: FC = () => (
-    <div className="App">
-        <Router>
-            {/*<Header/>*/}
-            {<DashboardHeader />}
-            <Switch>
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/education-dashboard" component={EducationDashboard}/>
-                <Route exact path="/detailed-dashboard" component={DetailedDashboard}/>
-                <Route exact path="/detailed-academic" component={AcademicPage}/>
-                <Route exact path="/detailed-administrative" component={AdminKPIPage}/>
-                <Route exact path="/administrative-kpis/review-meetings" component={ReviewMeeting}/>
-                <Route exact path="/" component={EducationPortal}/>
-                <LayoutWithSidebar path={'/'} component={DesktopLayout}/>
-                <Redirect
-                    to={{
-                        pathname: '/login',
-                    }}
-                />
-            </Switch>
-        </Router>
+export const IframeContextContext = React.createContext({
+    updateHasFirstIframeLoaded: null,
+    hasFirstIframeLoaded: null
+} as any);
+
+const App: FC = () => {
+    const [hasFirstIframeLoaded, setHasFirstIframeLoaded] = useState(false);
+    useEffect(() => {
+        localStorage.removeItem('hasFirstIframeLoaded');
+    }, [])
+
+
+    function updateHasFirstIframeLoaded(v: boolean) {
+        setHasFirstIframeLoaded(v);
+    }
+
+    return <div className="App">
+        <IframeContextContext.Provider value={{hasFirstIframeLoaded, updateHasFirstIframeLoaded}}>
+            <Router>
+                {/*<Header/>*/}
+                {<DashboardHeader/>}
+                <Switch>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/education-dashboard" component={EducationDashboard}/>
+                    <Route exact path="/detailed-dashboard" component={DetailedDashboard}/>
+                    <Route exact path="/detailed-academic" component={AcademicPage}/>
+                    <Route exact path="/detailed-administrative" component={AdminKPIPage}/>
+                    <Route exact path="/administrative-kpis/review-meetings" component={ReviewMeeting}/>
+                    <Route exact path="/" component={EducationPortal}/>
+                    <LayoutWithSidebar path={'/'} component={DesktopLayout}/>
+                    <Redirect
+                        to={{
+                            pathname: '/login',
+                        }}
+                    />
+                </Switch>
+            </Router>
+        </IframeContextContext.Provider>
     </div>
-);
+};
 
 export default App;

@@ -513,9 +513,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
 
               {/* <Col span={6}>
                 <div>
-            
-             
-       
+
+
+
                 </div>
               </Col> */}
               <Col span={9}>
