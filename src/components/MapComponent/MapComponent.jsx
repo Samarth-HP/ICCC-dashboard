@@ -136,117 +136,175 @@ export default function MapComponent({
   };
   // type default 1 end
 
-  const getStudentAssesmentDistrict1 = async (val) => {
+  const getStudentAssesmentDistrict1Grade48 = async (val) => {
     const params = {
       district: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentDistrict1(params);
+    return await API_SERVICE.getStudentAssesmentDistrict1Grade48(params);
   };
 
-  const getStudentAssesmentDistrict2 = async (val) => {
+  const getStudentAssesmentDistrict2Grade48 = async (val) => {
     const params = {
       district: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentDistrict2(params);
+    return await API_SERVICE.getStudentAssesmentDistrict2Grade48(params);
   };
 
-  const getStudentAssesmentDistrict3 = async (val) => {
+  const getStudentAssesmentDistrict3Grade48 = async (val) => {
     const params = {
       district: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentDistrict3(params);
+    return await API_SERVICE.getStudentAssesmentDistrict3Grade48(params);
   };
 
-  const getStudentAssesmentDistrict4 = async (val) => {
+  const getStudentAssesmentDistrict4Grade48 = async (val) => {
     const params = {
       district: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentDistrict4(params);
+    return await API_SERVICE.getStudentAssesmentDistrict4Grade48(params);
   };
-  const getStudentAssesmentDistrict5 = async (val) => {
+  const getStudentAssesmentDistrict5Grade48 = async (val) => {
     const params = {
       district: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentDistrict5(params);
+    return await API_SERVICE.getStudentAssesmentDistrict5Grade48(params);
   };
 
-  const getStudentAssesmentBlock1 = async (val) => {
+  const getStudentAssesmentBlock1Grade48 = async (val) => {
     const params = {
       block: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentBlock1(params);
+    return await API_SERVICE.getStudentAssesmentBlock1Grade48(params);
   };
-  const getStudentAssesmentBlock2 = async (val) => {
+  const getStudentAssesmentBlock2Grade48 = async (val) => {
     const params = {
       block: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentBlock2(params);
+    return await API_SERVICE.getStudentAssesmentBlock2Grade48(params);
   };
 
-  const getStudentAssesmentBlock3 = async (val) => {
+  const getStudentAssesmentBlock3Grade48 = async (val) => {
     const params = {
       block: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentBlock3(params);
+    return await API_SERVICE.getStudentAssesmentBlock3Grade48(params);
   };
-  const getStudentAssesmentBlock4 = async (val) => {
+  const getStudentAssesmentBlock4Grade48 = async (val) => {
     const params = {
       block: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentBlock4(params);
+    return await API_SERVICE.getStudentAssesmentBlock4Grade48(params);
   };
-  const getStudentAssesmentBlock5 = async (val) => {
+  const getStudentAssesmentBlock5Grade48 = async (val) => {
     const params = {
       block: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentBlock5(params);
+    return await API_SERVICE.getStudentAssesmentBlock5Grade48(params);
   };
 
-  const getStudentAssesmentSchool1 = async (val) => {
+  const getStudentAssesmentSchool1Grade48 = async (val) => {
     const params = {
       school_name: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentSchool1(params);
+    return await API_SERVICE.getStudentAssesmentSchool1Grade48(params);
   };
-  const getStudentAssesmentSchool2 = async (val) => {
+  const getStudentAssesmentSchool2Grade48 = async (val) => {
     const params = {
       school_name: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentSchool2(params);
+    return await API_SERVICE.getStudentAssesmentSchool2Grade48(params);
   };
 
-  const getStudentAssesmentSchool3 = async (val) => {
+  const getStudentAssesmentSchool3Grade48 = async (val) => {
     const params = {
       school_name: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentSchool3(params);
+    return await API_SERVICE.getStudentAssesmentSchool3Grade48(params);
   };
-  const getStudentAssesmentSchool4 = async (val) => {
+  const getStudentAssesmentSchool4Grade48 = async (val) => {
     const params = {
       school_name: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentSchool4(params);
+    return await API_SERVICE.getStudentAssesmentSchool4Grade48(params);
   };
-  const getStudentAssesmentSchool5 = async (val) => {
+  const getStudentAssesmentSchool5Grade48 = async (val) => {
     const params = {
       school_name: val,
       assessment_type_v2: at,
     };
-    return await API_SERVICE.getStudentAssesmentSchool5(params);
+    return await API_SERVICE.getStudentAssesmentSchool5Grade48(params);
+  };
+
+  const getStudentAssesmentBlock1Grade13 = async (val) => {
+    const params = {
+      block: val,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock1Grade13(params);
+  };
+  const getStudentAssesmentBlock2Grade13 = async (val) => {
+    const params = {
+      block: val,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock2Grade13(params);
+  };
+
+  const getStudentAssesmentBlock3Grade13 = async (val) => {
+    const params = {
+      block: val,
+    };
+    return await API_SERVICE.getStudentAssesmentBlock3Grade13(params);
+  };
+  const getStudentAssesmentDistrict1Grade13 = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict1Grade13(params);
+  };
+
+  const getStudentAssesmentDistrict2Grade13 = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict2Grade13(params);
+  };
+  const getStudentAssesmentDistrict3Grade13 = async (val) => {
+    const params = {
+      district: val,
+    };
+    return await API_SERVICE.getStudentAssesmentDistrict3Grade13(params);
+  };
+
+  const getStudentAssesmentSchool1Grade13 = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool1Grade13(params);
+  };
+  const getStudentAssesmentSchool2Grade13 = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool2Grade13(params);
+  };
+  const getStudentAssesmentSchool3Grade13 = async (val) => {
+    const params = {
+      school_name: val,
+    };
+    return await API_SERVICE.getStudentAssesmentSchool3Grade13(params);
   };
   // type dynamic 2 end
 
@@ -255,42 +313,39 @@ export default function MapComponent({
     const promiseArray = [];
     if (district) {
       if (type == 2) {
-        promiseArray.push(getStudentAssesmentDistrict1(district));
-        promiseArray.push(getStudentAssesmentDistrict2(district));
-        promiseArray.push(getStudentAssesmentDistrict3(district));
-        promiseArray.push(getStudentAssesmentDistrict4(district));
-        promiseArray.push(getStudentAssesmentDistrict5(district));
+        promiseArray.push(getStudentAssesmentDistrict1Grade48(district));
+        promiseArray.push(getStudentAssesmentDistrict2Grade48(district));
+        promiseArray.push(getStudentAssesmentDistrict3Grade48(district));
+        promiseArray.push(getStudentAssesmentDistrict4Grade48(district));
+        promiseArray.push(getStudentAssesmentDistrict5Grade48(district));
       } else {
-        promiseArray.push(getDistrictAttendance(district));
-        promiseArray.push(getDistrictEnrolment(district));
-        promiseArray.push(getDistrictPTR(district));
-        promiseArray.push(getDistrictCWSN(district));
+        promiseArray.push(getStudentAssesmentDistrict1Grade13(district));
+        promiseArray.push(getStudentAssesmentDistrict2Grade13(district));
+        promiseArray.push(getStudentAssesmentDistrict3Grade13(district));
       }
     } else if (block) {
       if (type == 2) {
-        promiseArray.push(getStudentAssesmentBlock1(block));
-        promiseArray.push(getStudentAssesmentBlock2(block));
-        promiseArray.push(getStudentAssesmentBlock3(block));
-        promiseArray.push(getStudentAssesmentBlock4(block));
-        promiseArray.push(getStudentAssesmentBlock5(block));
+        promiseArray.push(getStudentAssesmentBlock1Grade48(block));
+        promiseArray.push(getStudentAssesmentBlock2Grade48(block));
+        promiseArray.push(getStudentAssesmentBlock3Grade48(block));
+        promiseArray.push(getStudentAssesmentBlock4Grade48(block));
+        promiseArray.push(getStudentAssesmentBlock5Grade48(block));
       } else {
-        promiseArray.push(getBlockAttendance(block));
-        promiseArray.push(getBlockEnrolment(block));
-        promiseArray.push(getBlockPTR(block));
-        promiseArray.push(getBlockCWSN(block));
+        promiseArray.push(getStudentAssesmentBlock1Grade13(district));
+        promiseArray.push(getStudentAssesmentBlock2Grade13(district));
+        promiseArray.push(getStudentAssesmentBlock3Grade13(district));
       }
     } else {
       if (type == 2) {
-        promiseArray.push(getStudentAssesmentSchool1(school));
-        promiseArray.push(getStudentAssesmentSchool2(school));
-        promiseArray.push(getStudentAssesmentSchool3(school));
-        promiseArray.push(getStudentAssesmentSchool4(school));
-        promiseArray.push(getStudentAssesmentSchool5(school));
+        promiseArray.push(getStudentAssesmentSchool1Grade48(school));
+        promiseArray.push(getStudentAssesmentSchool2Grade48(school));
+        promiseArray.push(getStudentAssesmentSchool3Grade48(school));
+        promiseArray.push(getStudentAssesmentSchool4Grade48(school));
+        promiseArray.push(getStudentAssesmentSchool5Grade48(school));
       } else {
-        promiseArray.push(getSchoolAttendance(school));
-        promiseArray.push(getSchoolEnrolment(school));
-        promiseArray.push(getSchoolCWSN(school));
-        promiseArray.push(getSchoolPTR(school));
+        promiseArray.push(getStudentAssesmentSchool1Grade13(district));
+        promiseArray.push(getStudentAssesmentSchool2Grade13(district));
+        promiseArray.push(getStudentAssesmentSchool3Grade13(district));
       }
     }
 
@@ -329,18 +384,13 @@ export default function MapComponent({
         });
       }
     } else {
-      const temp = {
-        Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-        Enrolment: resData[1]?.data?.rows[0]?.total_students,
-        PTR: resData[2]?.data?.rows[0]?.Ratio,
-        CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-      };
-      setToolTipData({
-        Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-        Enrolment: resData[1]?.data?.rows[0]?.total_students,
-        PTR: resData[2]?.data?.rows[0]?.Ratio,
-        CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-      });
+      console.log(resData, "this is 1-3");
+      // setToolTipData({
+      //   Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
+      //   Enrolment: resData[1]?.data?.rows[0]?.total_students,
+      //   PTR: resData[2]?.data?.rows[0]?.Ratio,
+      //   CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
+      // });
     }
   };
 
