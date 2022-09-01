@@ -74,7 +74,9 @@ const ReviewAndMonitoring: FC = () => (
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={75} width="100%" height="359" />
+            <QuestionWithIframe questionId={75} width="100%" height="359" params={{"Quarter": [
+              3
+              ]}}/>
             <Button className="navButtonSelected">
               District-wise BRCC Visits
             </Button>
