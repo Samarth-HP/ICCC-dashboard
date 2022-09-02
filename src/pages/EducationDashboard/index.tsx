@@ -39,15 +39,16 @@ const EducationPortal: FC = () => {
     postions: [],
   });
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
 
   const formatMarkerData = (data: any) => {
+    //
     const formattedData = data
       // .filter((item: any, index: number) => index <= 20000)
       .map((item: any, index: number) => {
@@ -142,7 +143,11 @@ const EducationPortal: FC = () => {
           <Col style={{ display: "flex" }} span={6}>
             <div>
               <Button
-                style={{ backgroundColor: "#014C3D",color:'white',textDecoration:'underline' }}
+                style={{
+                  backgroundColor: "#014C3D",
+                  color: "white",
+                  textDecoration: "underline",
+                }}
                 onClick={() => {
                   history.push("/detailed-dashboard");
                 }}

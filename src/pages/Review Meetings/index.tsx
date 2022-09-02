@@ -199,7 +199,7 @@ const ReviewMeeting: FC = () => {
       overlays: overlays[Month],
     };
 
-    console.log(updatedConfig.overlays, Month);
+    // console.log(updatedConfig.overlays, Month);
 
     setMarkerConfig(updatedConfig);
     setLoading(false);
@@ -256,16 +256,16 @@ const ReviewMeeting: FC = () => {
           });
       })[0];
 
-    console.log(monthWiseData[curMonth - 1]);
+    // console.log(monthWiseData[curMonth - 1]);
 
     overlays.forEach((key: any) => {
       const temp = monthWiseData[curMonth - 1].filter((item: any) => {
         return item.block.toLowerCase() == key.BlockName.toLowerCase();
       });
-      console.log(temp);
+      // console.log(temp);
     });
 
-    console.log(overlays);
+    // console.log(overlays);
 
     const bounds = districtGeo.features.find((item: any) => {
       return item.properties.NAME_2.toLowerCase() === curDistrict.toLowerCase();
@@ -317,7 +317,7 @@ const ReviewMeeting: FC = () => {
       overlays: overlays,
     };
 
-    console.log(updatedConfig);
+    // console.log(updatedConfig);
 
     //@ts-ignore
     setMarkerConfig(updatedConfig);
@@ -326,14 +326,14 @@ const ReviewMeeting: FC = () => {
 
   const filterData = (district: any, month: any, year: any) => {
     if (district) {
-      console.log(district);
+      // console.log(district);
       getBlockAttendanceData(district);
     }
     if (month) {
-      console.log(month);
+      // console.log(month);
     }
     if (year) {
-      console.log(year);
+      // console.log(year);
     }
   };
 
@@ -418,7 +418,7 @@ const ReviewMeeting: FC = () => {
         <Row>
           <Col span={24}>
             <div style={{ width: "100%", border: "1px solid black" }}>
-              <Card style={{height : "500px"}} loading={loading}>
+              <Card style={{ height: "500px" }} loading={loading}>
                 <MapComponent
                   config={markerConfig}
                   // config={config}

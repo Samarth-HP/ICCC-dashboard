@@ -22,15 +22,21 @@ const sample_data = {
 
 const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
-  const [marker, setMarker] = useState("district");
+  const [marker, setMarker] = useState("Districts");
+  const [selected, setSelected] = useState("SA1");
+  const [academicYear, setAcademicYear] = useState("2021-2022");
+  // const [academicYear, setAcademicYear] = useState("2022-23");
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
+  useEffect(() => {
+    props.getMarkerData("Districts");
+  }, []);
 
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
@@ -152,9 +158,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={4}>
-                    <Select defaultValue={"SA-1"} style={{ width: "100%" }}>
-                      <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
-                      <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
+                    <Select
+                      onSelect={(e: any) => setSelected(e)}
+                      defaultValue={"SA1"}
+                      style={{ width: "100%" }}
+                    >
+                      <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
+                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
                   <Col span={5}>
@@ -185,19 +195,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       Blocks
                     </Button>
                   </Col>
-                  <Col span={5}>
-                    <Button
-                      className={
-                        marker == "Clusters" ? "navButtonSelected" : "navButton"
-                      }
-                      onClick={() => {
-                        props.getMarkerData("Districts");
-                        setMarker("Clusters");
-                      }}
-                    >
-                      Clusters
-                    </Button>
-                  </Col>
+
                   <Col span={5}>
                     <Button
                       className={
@@ -216,9 +214,11 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
                       <MapComponent
+                        at={selected}
                         config={config}
                         type={1}
-                        markers={props.markerData}
+                        ay={academicYear}
+                        markers={props?.markerData}
                       ></MapComponent>
                     </div>
                   </Col>
@@ -232,9 +232,12 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 <Row>
                   <Col></Col>
                   <Col>
-                    <Select defaultValue={"2022-2023"}>
-                      <Select.Option value={"2022-2023"}>
-                        {"2022-2023"}
+                    <Select
+                      onSelect={(e: any) => setAcademicYear(e)}
+                      defaultValue={academicYear}
+                    >
+                      <Select.Option value={academicYear}>
+                        {academicYear}
                       </Select.Option>
                     </Select>
                   </Col>

@@ -28,7 +28,7 @@ const QuestionWithIframeProtected = ({
       exp: Math.round(Date.now() / 1000) + 10 * 60, // 10 minute expiration
     };
     if (questionId == 75) {
-      console.log(payload);
+      // console.log(payload);.ś
     }
     const token = jwt.sign(payload, METABASE_SECRET_KEY);
 
@@ -83,7 +83,7 @@ const QuestionWithIframeProtected = ({
           updateHasFirstIframeLoaded(true);
         }, 300);
       }}
-      style={{margin: "1px"}}
+      style={{ margin: "1px" }}
       frameBorder="0"
       width={width || "100%"}
       height={height || "300px"}

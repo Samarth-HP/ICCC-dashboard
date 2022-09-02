@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -32,58 +32,21 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selected, setSelected] = useState("SA1");
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
+  useEffect(() => {
+    props.getMarkerData("Districts");
+  }, []);
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
           <Col span={5}>
-            <Row>
-              {/* <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 1 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(1);
-                  }}
-                >
-                  Student Assessment Performance (Grade 4-8)
-                </Button>
-              </Col>
-              <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 2 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(2);
-                  }}
-                >
-                  Student Assessment Performance (Grade 1-3)
-                </Button>
-              </Col>
-              <Col
-                span={8}
-                onClick={() => {
-                  onButtonClick(3);
-                }}
-              >
-                <Button
-                  className={
-                    selectedButton == 3 ? "navButtonSelected" : "navButton"
-                  }
-                >
-                  Administrative Overview
-                </Button>
-              </Col> */}
-            </Row>
             <Row>
               <Col span={12}>
                 <div>
@@ -149,6 +112,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                     width="100%"
                     height="400"
                   />
+
                   <Button className="navButtonSelected">Class 5</Button>
                 </div>
               </Col>
@@ -225,19 +189,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       Blocks
                     </Button>
                   </Col>
-                  {/* <Col span={5}>
-                    <Button
-                      className={
-                        marker == "Clusters" ? "navButtonSelected" : "navButton"
-                      }
-                      onClick={() => {
-                        props.getMarkerData("Districts");
-                        setMarker("Clusters");
-                      }}
-                    >
-                      Clusters
-                    </Button>
-                  </Col> */}
+
                   <Col span={5}>
                     <Button
                       className={
@@ -258,7 +210,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       <MapComponent
                         at={selected}
                         config={config}
-                        markers={props.markerData}
+                        markers={props?.markerData}
                         type={2}
                       />
                     </div>
@@ -277,18 +229,10 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={24}>
-                <QuestionWithIframe
-                  questionId={89}
-                  width="100%"
-                  height="200"
-                />
+                <QuestionWithIframe questionId={89} width="100%" height="200" />
               </Col>
               <Col span={24}>
-                <QuestionWithIframe
-                  questionId={91}
-                  width="100%"
-                  height="200"
-                />
+                <QuestionWithIframe questionId={91} width="100%" height="200" />
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
@@ -296,7 +240,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="560"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Districts with highest jump in scores
                 </div>
               </Col>
@@ -306,7 +250,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="560"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Subject wise change in average score across SAs
                 </div>
               </Col>
@@ -318,7 +262,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="510"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Districts with highest fall in scores
                 </div>
               </Col>
@@ -328,7 +272,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="350"
                 />
-                <div style={{padding:'20px'}} className="navButtonSelected">
+                <div style={{ padding: "20px" }} className="navButtonSelected">
                   Average Grade-wise Performance distribution (SA-1 & SA-2)
                 </div>
               </Col>

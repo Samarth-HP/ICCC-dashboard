@@ -34,20 +34,21 @@ export default function MapComponent({
   markers,
   type = 0,
   at = "SA1",
-  ay = "2022-2023",
+  ay = "2021-2022",
 }) {
   const eventHandlers = () => ({
     click() {
-      console.log("CLicked");
+      // console.log("CLicked");
       getToolTipData();
     },
   });
 
-  const center = markers?.postions[0]?.position || [28.7041, 77.1025];
+  const center = config.markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
   const [toolTipData, setToolTipData] = useState(default_toolTipData);
 
+  console.log(markers, "markers");
   const tempBounds = [
     [76.715049743652401, 31.588310241699446],
     [76.716567993164119, 31.585119247436467],
@@ -345,7 +346,6 @@ export default function MapComponent({
   // type dynamic 2 end
 
   const getToolTipData = async (district, block, school) => {
-    console.log(district, block, school);
     const promiseArray = [];
     if (district) {
       if (type === 2) {
@@ -394,37 +394,102 @@ export default function MapComponent({
     const resData = await Promise.all(promiseArray);
 
     if (resData) {
-      resData.forEach((item) => {
-        const processArray = async () => {
-          if (item?.data?.rows?.length) {
-            const filtered = await item?.data?.rows.filter(
-              (item) => item.academic_year === ay
-            );
-            return filtered[0];
-          }
-        };
-        const temp = processArray();
-        temp.then((data) => {
-          if (data) {
-            const { per_AverageScore, district, academic_year } = data;
-
-            if (type === 2) {
-              setToolTipData({
-                type: 2,
-                academic_year: { label: "Academic Year", value: academic_year },
-                percentage_average: {
-                  label: "Percentage Average",
-                  value: per_AverageScore,
-                },
-                district: { label: "District", value: district },
-                assesment_type: { label: "Assesment Type", value: at },
-              });
-            } else if (type === 1) {
-              console.log(data, "this is data ");
+      const processArray = async () => {
+        return resData.filter(
+          (item) => item?.data?.rows[0]?.academic_year === ay
+        );
+      };
+      const processed = await processArray();
+      if (processed) {
+        if (type === 1) {
+          var data;
+          processed.forEach((item) => {
+            if (item.data.rows.length === 1) {
+              data = item?.data?.rows[0];
             }
-          }
-        });
-      });
+          });
+          setToolTipData({
+            color: "",
+            type: 1,
+            district: { label: "District", value: data?.district },
+            totalStudentEnrolled: {
+              label: "Total Student Enrolled",
+              value: null,
+            },
+            SA1: { label: "SA 1 Result", value: null },
+            gradeWiseAvgResult: {
+              label: "Grade Wise Average Results",
+              grade1: { label: "Grade 1", value: null },
+              grade2: { label: "Grade 3", value: null },
+              grade3: { label: "Grade 4", value: null },
+            },
+            nipunStudent: {
+              label: "Number of Nipun Students",
+              value: null,
+            },
+            gradeWiseNipunStudent: {
+              label: "Grade Wise Nipun Students",
+              grade1: { label: "Grade 1", value: null },
+              grade2: { label: "Grade 3", value: null },
+              grade3: { label: "Grade 4", value: null },
+            },
+          });
+        } else if (type === 2) {
+          var obj = {
+            HexCodes: "#259EA6",
+            academic_year: "2021-2022",
+            assessment_type_v2: "SA1",
+            district: [],
+            per_AverageScore: [],
+          };
+          var data;
+          processed.forEach((item) => {
+            if (item.data.rows.length > 1) {
+              data = item?.data?.rows;
+            }
+          });
+
+          data.forEach((item) => {
+            obj = {
+              ...obj,
+              HexCodes: item?.HexCodes,
+              academic_year: item?.academic_year,
+              assessment_type_v2: item?.assessment_type_v2,
+              district: [...obj.district, item?.district],
+              per_AverageScore: [
+                ...obj.per_AverageScore,
+                item?.per_AverageScore,
+              ],
+            };
+          });
+
+          setToolTipData({
+            type: 2,
+            academic_year: {
+              label: "Academic Year",
+              value: obj?.academic_year,
+            },
+            percentage_average: {
+              label: "Percentage Average",
+              value: obj?.per_AverageScore[0],
+            },
+            SA1: { label: "SA1 Result", valaue: null },
+            district: { label: "District", value: obj?.district },
+            assesment_type: {
+              label: "Assesment Type",
+              value: obj?.assessment_type_v2,
+            },
+            GradeWiseavgResult: {
+              label: "Grade Wise Average Result",
+              grade1: { label: "Grade 1", value: null },
+              grade2: { label: "Grade 2", value: null },
+              grade3: { label: "Grade 3", value: null },
+              grade4: { label: "Grade 4", value: null },
+              grade5: { label: "Grade 5", value: null },
+            },
+          });
+        }
+      }
     }
   };
 
@@ -488,33 +553,177 @@ export default function MapComponent({
                   // className: "leaflet-div-icon",
                 });
                 return (
-                  <Marker position={item.position} icon={iconPerson}>
+                  <Marker position={item?.position} icon={iconPerson}>
                     <Popup
                       className="tooltip-popup"
                       onOpen={() => {
-                        getToolTipData(item.district, item.block, item.school);
+                        getToolTipData(
+                          item?.district,
+                          item?.block,
+                          item?.school
+                        );
                       }}
                     >
                       {toolTipData.type == 2 ? (
+                        //         ype: 2,
+                        // academic_year: {
+                        //   label: "Academic Year",
+                        //   value: obj?.academic_year,
+                        // },
+                        // percentage_average: {
+                        //   label: "Percentage Average",
+                        //   value: obj?.per_AverageScore[0],
+                        // },
+                        // SA1: { label: "SA1 Result", valaue: null },
+                        // district: { label: "District", value: obj?.district },
+                        // assesment_type: {
+                        //   label: "Assesment Type",
+                        //   value: obj?.assessment_type_v2,
+                        // },
+                        // GradeWiseavgResult: {
+                        //   label: "Grade Wise Average Result",
+                        //   grade1: { label: "Grade 1", value: null },
+                        //   grade2: { label: "Grade 2", value: null },
+                        //   grade3: { label: "Grade 3", value: null },
+                        //   grade4: { label: "Grade 4", value: null },
+
                         <div>
                           <p>
-                            <span> {toolTipData.academic_year.label}</span> :{" "}
-                            <span>{toolTipData.academic_year.value}</span>
+                            <span>
+                              {toolTipData?.district.value[0] || "NA"}
+                            </span>
                           </p>
                           <p>
-                            <span>{toolTipData.assesment_type.label}</span> :{" "}
-                            <span>{toolTipData.assesment_type.value}</span>
+                            <span> {toolTipData?.SA1?.label}</span> :{" "}
+                            <span>
+                              {toolTipData?.percentage_average?.value}
+                            </span>
                           </p>
-                          <p>
-                            <span>{toolTipData.district.label}</span> :{" "}
-                            <span>{toolTipData.district.value}</span>
-                          </p>
-                          <p>
-                            <span>{toolTipData.percentage_average.label}</span>{" "}
-                            :{" "}
-                            <span>{toolTipData.percentage_average.value}</span>
-                          </p>
+                          <p>{toolTipData?.GradeWiseavgResult?.label}</p>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade1?.label}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade1?.value ||
+                              "NA"}
+                          </span>{" "}
+                          |
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade2?.label}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade2?.value ||
+                              "NA"}
+                          </span>{" "}
+                          |
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade3?.label}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade3?.value ||
+                              "NA"}
+                          </span>{" "}
+                          |
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade4?.label}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade4?.value ||
+                              "NA"}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade5?.label}
+                          </span>
+                          <span>
+                            {toolTipData?.GradeWiseavgResult?.grade5?.value ||
+                              "NA"}
+                          </span>
                         </div>
+                      ) : toolTipData.type == 1 ? (
+                        <>
+                          <div>
+                            <p>{toolTipData?.district?.value}</p>
+                            <p>
+                              <span>
+                                {toolTipData?.totalStudentEnrolled?.label}
+                              </span>{" "}
+                              :{" "}
+                              <span>
+                                {toolTipData?.totalStudentEnrolled?.value ||
+                                  "NA"}
+                              </span>
+                            </p>
+                            <p>
+                              <span>{toolTipData?.SA1?.label}</span> :{" "}
+                              <span>{toolTipData?.SA1?.value || "NA"}</span>
+                            </p>
+                            <p
+                              style={{
+                                textDecoration: "underline",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {toolTipData?.gradeWiseAvgResult.label}
+                            </p>
+                            <span>
+                              {toolTipData?.gradeWiseAvgResult?.grade1?.label} :{" "}
+                              {toolTipData?.gradeWiseAvgResult?.grade1?.value ||
+                                "NA"}
+                            </span>{" "}
+                            <span>
+                              {toolTipData?.gradeWiseAvgResult?.grade2?.label}:{" "}
+                              {toolTipData?.gradeWiseAvgResult?.grade2?.value ||
+                                "NA"}
+                            </span>{" "}
+                            <span>
+                              {toolTipData?.gradeWiseAvgResult?.grade3?.label}:{" "}
+                              {toolTipData?.gradeWiseAvgResult?.grade3?.value ||
+                                "NA"}
+                            </span>
+                            <p>
+                              <span>{toolTipData?.nipunStudent?.label}</span> :{" "}
+                              <span>
+                                {toolTipData?.nipunStudent?.value || "NA"}
+                              </span>
+                            </p>
+                            <p
+                              style={{
+                                textDecoration: "underline",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {toolTipData?.gradeWiseNipunStudent.label}
+                            </p>
+                            <span>
+                              {
+                                toolTipData?.gradeWiseNipunStudent?.grade1
+                                  ?.label
+                              }
+                              :{" "}
+                              {toolTipData?.gradeWiseNipunStudent?.grade1
+                                ?.value || "NA"}
+                            </span>
+                            <span>
+                              {
+                                toolTipData?.gradeWiseNipunStudent?.grade2
+                                  ?.label
+                              }
+                              :{" "}
+                              {toolTipData?.gradeWiseNipunStudent?.grade2
+                                ?.value || "NA"}
+                            </span>
+                            <span>
+                              {
+                                toolTipData?.gradeWiseNipunStudent?.grade3
+                                  ?.label
+                              }
+                              :
+                              {toolTipData?.gradeWiseNipunStudent?.grade3
+                                ?.value || "NA"}
+                            </span>
+                            <p></p>
+                          </div>
+                        </>
                       ) : (
                         <>
                           <div>
