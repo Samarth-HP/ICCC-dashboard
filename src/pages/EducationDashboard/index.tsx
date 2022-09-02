@@ -32,7 +32,7 @@ const sample_data = {
 
 const EducationPortal: FC = () => {
   const history = useHistory();
-  const [selectedButton, setSelectedButton] = useState(1);
+  const [selectedButton, setSelectedButton] = useState(2);
   const [marker, setMarker] = useState("Districts");
   const [markerData, setMarkerData] = useState({
     shouldClusterMarkers: true,
@@ -104,25 +104,27 @@ const EducationPortal: FC = () => {
           <Col span={6}>
             <Button
               className={
-                selectedButton == 1 ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                onButtonClick(1);
-              }}
-            >
-              Student Assessment Performance (Grade 1-3)
-            </Button>
-          </Col>
-          <Col span={6}>
-            <Button
-              className={
                 selectedButton == 2 ? "navButtonSelected" : "navButton"
               }
               onClick={() => {
                 onButtonClick(2);
               }}
+              style={{ fontSize: "16px",fontWeight:'bold'}}
             >
               Student Assessment Performance (Grade 4-8)
+            </Button>
+          </Col>
+          <Col span={6}>
+            <Button
+              className={
+                selectedButton == 1 ? "navButtonSelected" : "navButton"
+              }
+              onClick={() => {
+                onButtonClick(1);
+              }}
+              style={{ fontSize: "16px",fontWeight:'bold'}}
+            >
+              Student Assessment Performance (Grade 1-3)
             </Button>
           </Col>
           <Col
@@ -135,14 +137,22 @@ const EducationPortal: FC = () => {
               className={
                 selectedButton == 3 ? "navButtonSelected" : "navButton"
               }
+              style={{ fontSize: "16px",fontWeight:'bold'}}
             >
               Administrative Overview
             </Button>
           </Col>
-          <Col style={{ display: "flex" }} span={4}>
+          <Col style={{ display: "flex" }} span={6}>
             <div>
               <Button
-                style={{ backgroundColor: "#014C3D",color:'white',textDecoration:'underline' }}
+                style={{
+                  backgroundColor: "#014C3D",
+                  color: "white",
+                  textDecoration: "underline",
+                  fontSize: "14px",
+                  marginRight: "10px",
+                  fontWeight:'bold'
+                }}
                 onClick={() => {
                   history.push("/detailed-dashboard");
                 }}
@@ -150,13 +160,12 @@ const EducationPortal: FC = () => {
                 VIEW DETAILED DASHBOARDS
               </Button>
             </div>
-
+        
+            <Select className="forSelect" defaultValue={"2022-2023"}>
+              <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
+            </Select>
+    
           </Col>
-          <Col span={2}>
-              <Select defaultValue={"2022-2023"}>
-                <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
-              </Select>
-            </Col>
         </Row>
         <Row>
           {selectedButton == 1 && (

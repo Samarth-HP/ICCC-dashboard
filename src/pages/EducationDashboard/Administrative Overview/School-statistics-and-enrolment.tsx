@@ -75,15 +75,15 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 <QuestionWithIframe questionId={29} width="100%" height="200" nonDownloadable={true} />
               </Col>
               <Col span={12}>
-              <QuestionWithIframe questionId={33} width="100%" height="200" />
+              <QuestionWithIframe questionId={33} width="100%" height="200" nonDownloadable={true} />
               </Col>
             </Row>
             <Row>
               <Col span={12}>
-              <QuestionWithIframe questionId={40} width="100%" height="200" />
+              <QuestionWithIframe questionId={40} width="100%" height="200" nonDownloadable={true} />
               </Col>
               <Col span={12}>
-              <QuestionWithIframe questionId={34} width="100%" height="200" />
+              <QuestionWithIframe questionId={34} width="100%" height="200" nonDownloadable={true} />
               </Col>
             </Row>
           </Col>
@@ -101,13 +101,13 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={12}>
           <QuestionWithIframe questionId={30} width="100%" height="200" />
             <Button className="navButtonSelected">
-              Category Wise Number of Schools
+              <p>Category Wise Number of Schools</p>
             </Button>
           </Col>
           <Col span={12}>
           <QuestionWithIframe questionId={32} width="100%" height="200" />
             <Button className="navButtonSelected">
-              Session wise Number of Schools
+            <p>Session wise Number of Schools</p>
             </Button>
           </Col>
         </Row>
@@ -115,7 +115,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
           <QuestionWithIframe questionId={61} width="100%" height="200" />
             <Button className="navButtonSelected">
-              District wise, Category wise, Number of Schools
+            <p>District wise, Category wise, Number of Schools</p>
             </Button>
           </Col>
         </Row>
@@ -123,7 +123,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
           <QuestionWithIframe questionId={72} width="100%" height="200" />
             <Button className="navButtonSelected">
-              Month-wise Review Meeting Compliance
+            <p>Month-wise Review Meeting Compliance</p>
             </Button>
           </Col>
         </Row>
@@ -135,39 +135,39 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         <Row>
           <Col span={12}>
           <QuestionWithIframe questionId={38} width="100%" height="200" />
-            <Button className="navButtonSelected">
+            <div className="navButtonSelected">
               {/* Enrolment slab wise school distribution */}
-              District-wise Enrolment by Level of Education
-            </Button>
+              <p>District-wise Enrolment by Level of Education</p>
+            </div>
           </Col>
 
           <Col span={12}>
           <QuestionWithIframe questionId={35} width="100%" height="200" />
-            <Button className="navButtonSelected">
-              Student Enrolment by Level of Education
-            </Button>
+            <div className="navButtonSelected">
+            <p>Student Enrolment by Level of Education</p>
+            </div>
           </Col>
         </Row>
 
         <Row style={{ display: "flex" }}>
           <Col span={12}>
-          <QuestionWithIframe questionId={36} width="100%" height="200" />
+          <QuestionWithIframe questionId={36} width="100%" height="200" nonDownloadable={true}  />
           </Col>
           <Col span={12}>
-          <QuestionWithIframe questionId={37} width="100%" height="200" />
+          <QuestionWithIframe questionId={37} width="100%" height="200" nonDownloadable={true}/>
           </Col>
         </Row>
         <Row style={{ display: "flex" }}>
           <Col span={12}>
           <QuestionWithIframe questionId={43} width="100%" height="300" />
-            <Button className="navButtonSelected">
-              Pupil-Teacher ratio across level of education
-            </Button>
+            <div className="navButtonSelected">
+            <p>Pupil-Teacher ratio across level of education</p>
+            </div>
           </Col>
           <Col span={12}>
           <QuestionWithIframe questionId={53} width="100%" height="300" />
             <Button className="navButtonSelected">
-              Grade-wise Enrolment distribution
+            <p>Grade-wise Enrolment distribution</p>
             </Button>
           </Col>
         </Row>
@@ -175,7 +175,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
           <QuestionWithIframe questionId={54} width="100%" height="200" />
             <Button className="navButtonSelected">
-              Stream-wise Enrolment distribution
+            <p>Stream-wise Enrolment distribution</p>
             </Button>
           </Col>
         </Row>
@@ -196,7 +196,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 setMarker("Districts");
               }}
             >
-              Districts
+              <p>Districts</p>
             </Button>
           </Col>
           <Col span={6}>
@@ -207,7 +207,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 setMarker("Blocks");
               }}
             >
-              Blocks
+              <p>Blocks</p>
             </Button>
           </Col>
           {/* <Col span={5}>
@@ -233,7 +233,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 setMarker("Schools");
               }}
             >
-              Schools
+              <p>Schools</p>
             </Button>
           </Col>
           <Col span={6}>

@@ -24,11 +24,26 @@ const ReviewAndMonitoring: FC = () => (
         </Row>
         <Row>
           <Col span={24} style={{ display: "flex" }}>
-            <QuestionWithIframe questionId={62} width="33%" height="200" nonDownloadable={false}/>
+            <QuestionWithIframe
+              questionId={62}
+              width="33%"
+              height="200"
+              nonDownloadable={true}
+            />
 
-            <QuestionWithIframe questionId={64} width="34%" height="200" />
+            <QuestionWithIframe
+              questionId={64}
+              width="34%"
+              height="200"
+              nonDownloadable={true}
+            />
 
-            <QuestionWithIframe questionId={70} width="33%" height="200" />
+            <QuestionWithIframe
+              questionId={70}
+              width="33%"
+              height="200"
+              nonDownloadable={true}
+            />
           </Col>
         </Row>
 
@@ -37,21 +52,21 @@ const ReviewAndMonitoring: FC = () => (
             <div>
               <QuestionWithIframe questionId={63} width="100%" height="400" />
               <Button className="navButtonSelected">
-                District-wise DRM Compliance
+              <p>District-wise DRM Compliance</p>
               </Button>
             </div>
 
             <div>
               <QuestionWithIframe questionId={69} width="100%" height="400" />
               <Button className="navButtonSelected">
-                District-wise BRM Compliance
+              <p>District-wise BRM Compliance</p>
               </Button>
             </div>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={71} width="100%" height="400" />
             <Button className="navButtonSelected">
-              District-wise CRM Compliance
+            <p>District-wise CRM Compliance</p>
             </Button>
           </Col>
         </Row>
@@ -59,32 +74,35 @@ const ReviewAndMonitoring: FC = () => (
           <Col span={24}>
             <QuestionWithIframe questionId={72} width="100%" height="400" />
             <Button className="navButtonSelected">
-              Month-wise Review Meeting Compliance
+            <p>Month-wise Review Meeting Compliance</p>
             </Button>
           </Col>
         </Row>
         <Row></Row>
         <Row>
           <Col span={12}>
-            <QuestionWithIframe questionId={73} width="100%" height="200" />
+            <QuestionWithIframe questionId={73} width="100%" height="200" nonDownloadable={true}/>
           </Col>
           <Col span={12}>
-            <QuestionWithIframe questionId={76} width="100%" height="200" />
+            <QuestionWithIframe questionId={76} width="100%" height="200" nonDownloadable={true}/>
           </Col>
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={75} width="100%" height="359" params={{"Quarter": [
-              3
-              ]}}/>
+            <QuestionWithIframe
+              questionId={75}
+              width="100%"
+              height="359"
+              params={{ Quarter: [3] }}
+            />
             <Button className="navButtonSelected">
-              District-wise BRCC Visits
+            <p>District-wise BRCC Visits</p>
             </Button>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={77} width="100%" height="359" />
             <Button className="navButtonSelected">
-              District-wise CRCC Visits
+            <p>District-wise CRCC Visits</p>
             </Button>
           </Col>
         </Row>

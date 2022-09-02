@@ -44,8 +44,8 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24} style={{ display: "flex" }}>
-            <QuestionWithIframe questionId={55} width="50%" height="200"/>
-            <QuestionWithIframe questionId={57} width="50%" height="200" />
+            <QuestionWithIframe questionId={55} width="50%" height="200" nonDownloadable={true}/>
+            <QuestionWithIframe questionId={57} width="50%" height="200" nonDownloadable={true}/>
           </Col>
         </Row>
         <Row>
@@ -53,13 +53,13 @@ const Attendence: FC = () => (
             <QuestionWithIframe questionId={56} width="100%" height="580" />
           </Col>
           <Button className="navButtonSelected">
-            District wise Average Monthly Attendance
+          <p>District wise Average Monthly Attendance</p>
           </Button>
           <Col span={24}>
             <QuestionWithIframe questionId={58} width="100%" height="600" />
           </Col>
           <Button className="navButtonSelected">
-            Percentage Schools Recording Attendance on e-Samwad
+          <p>Percentage Schools Recording Attendance on e-Samwad</p>
           </Button>
         </Row>
         <Row>
@@ -67,16 +67,16 @@ const Attendence: FC = () => (
             <QuestionWithIframe questionId={59} width="100%" height="580" />
           </Col>
           <Col span={24}>
-            <Button className="navButtonSelected">
-              Month wise Average Student Attendance and Compliance
-            </Button>
+            <div className="navButtonSelected">
+            <p>Month wise Average Student Attendance and Compliance</p>
+            </div>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={60} width="100%" height="400" />
           </Col>
           <Col span={24}>
             <Button className="navButtonSelected">
-              Daily Average Student Attendance and Compliance
+            <p>Daily Average Student Attendance and Compliance</p>
             </Button>
           </Col>
         </Row>
