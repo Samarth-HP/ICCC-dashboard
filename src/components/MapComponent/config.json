@@ -16,7 +16,7 @@
         "fontFamily": "sans-serif",
         "fontWeight": "bold",
         "padding": 10,
-        "label": "Legend1"
+        "label": "Average Score: <50%"
       },
       {
         "width": 100,
@@ -25,7 +25,7 @@
         "fontFamily": "sans-serif",
         "fontWeight": "bold",
         "padding": 10,
-        "label": "Legend2"
+        "label": "Average Score: 50 -80%"
       },
       {
         "width": 100,
@@ -34,7 +34,7 @@
         "fontFamily": "sans-serif",
         "fontWeight": "bold",
         "padding": 10,
-        "label": "Legend3"
+        "label": "Average Score: >=80%"
       }
     ]
   },

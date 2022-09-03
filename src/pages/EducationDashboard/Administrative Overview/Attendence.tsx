@@ -50,13 +50,13 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={56} width="100%" height="580" />
+            <QuestionWithIframe questionId={56} width="100%" height="700" />
           </Col>
           <Button className="navButtonSelected">
           <p>District wise Average Monthly Attendance</p>
           </Button>
           <Col span={24}>
-            <QuestionWithIframe questionId={58} width="100%" height="600" />
+            <QuestionWithIframe questionId={58} width="100%" height="700" />
           </Col>
           <Button className="navButtonSelected">
           <p>Percentage Schools Recording Attendance on e-Samwad</p>
@@ -64,7 +64,7 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={59} width="100%" height="580" />
+            <QuestionWithIframe questionId={59} width="100%" height="595" />
           </Col>
           <Col span={24}>
             <div className="navButtonSelected">
@@ -72,7 +72,7 @@ const Attendence: FC = () => (
             </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={60} width="100%" height="400" />
+            <QuestionWithIframe questionId={60} width="100%" height="600" />
           </Col>
           <Col span={24}>
             <Button className="navButtonSelected">

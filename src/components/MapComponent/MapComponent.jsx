@@ -546,6 +546,8 @@ export default function MapComponent({
           style={{
             display: config.legend.display ? "flex" : "none",
             width: "100%",
+            marginTop:'10px',
+            flexDirection: "column",
             justifyContent:
               config.legend.position.split("-")[1] == "right"
                 ? "flex-end"
@@ -563,9 +565,11 @@ export default function MapComponent({
                 <div
                   style={{
                     display: "flex",
+
                     width: "50px",
                     height: 20,
                     backgroundColor: item.color,
+                    padding: "0px",
                   }}
                 />
                 <label style={{ ...item, color: "black" }}>{item.label}</label>
@@ -573,7 +577,7 @@ export default function MapComponent({
             );
           })}
 
-          <div
+          {/* <div
             style={{
               display: "flex",
               alignItems: "center",
@@ -586,7 +590,7 @@ export default function MapComponent({
             <Popover placement="bottom" content={content} trigger="click">
               <MenuOutlined />
             </Popover>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

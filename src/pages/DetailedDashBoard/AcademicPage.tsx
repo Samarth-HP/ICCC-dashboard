@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Button, Col, Layout, Row, Input, Divider, Image } from "antd";
 import {
   UserOutlined,
@@ -17,6 +17,7 @@ import TeacherPerformance from "../../assets/TeacherPerformance.svg";
 import StudentLearning from "../../assets/StudentLearning.svg";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import Login_Img from "../../assets/Login_Img.png";
+import MentoringPage from "./iframeLink";
 import Side_Img from "../../assets/image 135.png";
 import { useHistory } from "react-router-dom";
 
@@ -53,7 +54,7 @@ const AcademicPage: FC = () => {
               style={{
                 justifyContent: "center",
                 height: "100%",
-                alignItems: "center",
+                // alignItems: "center",
                 flexDirection: "column",
               }}
             >
@@ -93,15 +94,19 @@ const AcademicPage: FC = () => {
                     /></Col>
                     <Col offset={3}>Classroom Inputs</Col>
                     </Row>
-                </Button>*/}
+                    
+                    {window.location.href=''}}
+               
+               
+               </Button>*/}
                  <div style={{display:'flex',flexDirection:'column'}}>
-                <Button className="DetailsButton" onClick={()=> {window.location.href='https://samarthhp-metabase.in/public/dashboard/dd1f4b28-7e22-4ed4-ab56-b03be809b261?quarter=3'}}>
+                <Button className="DetailsButton" onClick={()=>history.push('/mentoring')} >
                    <Row style={{display:'flex'}}>
                     <Col span={3}><img
                       src={Mentoring}
                       alt=""
                     /></Col>
-                    <Col offset={6}>Mentoring</Col>
+                    <Col className="responsiveHeader" offset={6}>Mentoring</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/9d384c44-561c-4191-9022-c8ed5397d9a2'}}>
@@ -110,7 +115,7 @@ const AcademicPage: FC = () => {
                       src={TeacherTraining}
                       alt=""
                     /></Col>
-                    <Col offset={4}>Teacher Training</Col>
+                    <Col className="responsiveHeader" offset={4}>Teacher Training</Col>
                     </Row>
                 </Button>
                 </div>

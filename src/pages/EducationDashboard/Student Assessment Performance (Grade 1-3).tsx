@@ -162,13 +162,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <Row>
-                  <Col span={4}>
-                    <Select defaultValue={"SA-1"} style={{ width: "100%" }}>
+                  <Col span={6}>
+                    <Select className="forSelect" defaultValue={"SA-1"} style={{ width: "100%" }}>
                       <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
                       <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Districts"
@@ -183,7 +183,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       Districts
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
@@ -196,20 +196,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       Blocks
                     </Button>
                   </Col>
-                  <Col span={5}>
-                    <Button
-                      className={
-                        marker == "Clusters" ? "navButtonSelected" : "navButton"
-                      }
-                      onClick={() => {
-                        props.getMarkerData("Districts");
-                        setMarker("Clusters");
-                      }}
-                    >
-                      Clusters
-                    </Button>
-                  </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"

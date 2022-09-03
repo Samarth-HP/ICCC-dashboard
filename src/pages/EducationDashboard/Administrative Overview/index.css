@@ -62,3 +62,6 @@
   text-decoration: underline;
   cursor: pointer;
 }
+.ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
+  border-radius: 80px;
+}

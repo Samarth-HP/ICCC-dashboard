@@ -45,7 +45,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={5}>
+          <Col span={9}>
             <Row>
               {/* <Col span={8}>
                 <Button
@@ -87,48 +87,32 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               </Col> */}
             </Row>
             <Row>
-              <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={84}
-                    width="100%"
-                    height="300"
-                    nonDownloadable={true}
-                  />
-                </div>
-              </Col>
-              <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={85}
-                    width="100%"
-                    height="300"
-                    nonDownloadable={true}
-                  />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={86}
-                    width="100%"
-                    height="300"
-                    nonDownloadable={true}
-                  />
-                </div>
-              </Col>
-              <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={87}
-                    width="100%"
-                    height="300"
-                    nonDownloadable={true}
-                  />
-                </div>
-              </Col>
+              <div style={{ display: "flex" }}>
+                <QuestionWithIframe
+                  questionId={84}
+                  width="45%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={85}
+                  width="15%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={86}
+                  width="20%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={87}
+                  width="20%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+              </div>
             </Row>
             <Row>
               <Col span={24}>
@@ -139,45 +123,33 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={97}
-                    width="100%"
-                    height="400"
-                  />
-                  <Button className="navButtonSelected"><p>Class-4</p></Button>
+                <QuestionWithIframe questionId={97} width="100%" height="630" />
+                <div className="navButtonSelected">
+                  <p>Class-4</p>
                 </div>
               </Col>
               <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={98}
-                    width="100%"
-                    height="400"
-                  />
-                  <Button className="navButtonSelected"><p>Class 5</p></Button>
+                <QuestionWithIframe questionId={98} width="100%" height="620" />
+                <div className="navButtonSelected">
+                  <p>Class 5</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={99}
-                    width="100%"
-                    height="400"
-                  />
-                  <Button className="navButtonSelected"><p>Class 6</p></Button>
+                <QuestionWithIframe questionId={99} width="100%" height="630" />
+                <div className="navButtonSelected">
+                  <p>Class 6</p>
                 </div>
               </Col>
               <Col span={12}>
-                <div>
-                  <QuestionWithIframe
-                    questionId={100}
-                    width="100%"
-                    height="400"
-                  />
-                  <Button className="navButtonSelected"><p>Class 7</p></Button>
+                <QuestionWithIframe
+                  questionId={100}
+                  width="100%"
+                  height="630"
+                />
+                <div className="navButtonSelected">
+                  <p>Class 7</p>
                 </div>
               </Col>
             </Row>
@@ -186,16 +158,19 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={101}
                   width="100%"
-                  height="400"
+                  height="630"
                 />
-                <Button className="navButtonSelected"><p>Class 8</p></Button>
+                <div className="navButtonSelected">
+                  <p>Class 8</p>
+                </div>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
                 <Row>
-                  <Col span={4}>
+                  <Col span={6}>
                     <Select
+                      className="forSelect"
                       onSelect={(e: any) => setSelected(e)}
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
@@ -204,7 +179,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Districts"
@@ -218,7 +193,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       Districts
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
@@ -244,7 +219,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       Clusters
                     </Button>
                   </Col> */}
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
@@ -273,7 +248,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               </Col>
             </Row>
           </Col>
-          <Col span={3}>
+          <Col span={4}>
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
@@ -281,37 +256,47 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
               </Col>
             </Row>
-            <Col style={{textAlign:'center'}} span={24}>
+            <Col style={{ textAlign: "center" }} span={24}>
               <img src={boyIcon} alt="" />
             </Col>
             <Row>
               <Col span={24}>
-                <QuestionWithIframe questionId={89} width="100%" height="200" nonDownloadable={true}/>
+                <QuestionWithIframe
+                  questionId={89}
+                  width="100%"
+                  height="200"
+                  nonDownloadable={true}
+                />
               </Col>
-              <Col style={{textAlign:'center'}} span={24}>
+              <Col style={{ textAlign: "center" }} span={24}>
                 <img src={girlIcon} alt="" />
               </Col>
               <Col span={24}>
-                <QuestionWithIframe questionId={91} width="100%" height="200" nonDownloadable={true}/>
+                <QuestionWithIframe
+                  questionId={91}
+                  width="100%"
+                  height="200"
+                  nonDownloadable={true}
+                />
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={102}
                   width="100%"
-                  height="450"
+                  height="923"
                 />
-                <div style={{ padding: "20px" }} className="navButtonSelected">
-                <p>Districts with highest jump in scores</p>
+                <div className="navButtonSelected">
+                  <p>Districts with highest jump in scores</p>
                 </div>
               </Col>
-              <Col>
+              <Col span={24}>
                 <QuestionWithIframe
                   questionId={117}
                   width="100%"
-                  height="450"
+                  height="631"
                 />
-                <div style={{ padding: "20px" }} className="navButtonSelected">
-                <p>Subject wise change in average score across SAs</p>
+                <div className="navButtonSelected">
+                  <p>Subject wise change in average score across SAs</p>
                 </div>
               </Col>
             </Row>
@@ -320,25 +305,27 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={103}
                   width="100%"
-                  height="450"
+                  height="629"
                 />
-                <div style={{ padding: "20px" }} className="navButtonSelected">
-                <p>Districts with highest fall in scores</p>
+                <div className="navButtonSelected">
+                  <p>Districts with highest fall in scores</p>
                 </div>
               </Col>
               <Col>
                 <QuestionWithIframe
                   questionId={106}
                   width="100%"
-                  height="320"
+                  height="630"
                 />
-                <div style={{ padding: "20px" }} className="navButtonSelected">
-                <p>Average Grade-wise Performance distribution (SA-1 & SA-2)</p>
+                <div className="navButtonSelected">
+                  <p>
+                    Average Grade-wise Performance distribution (SA-1 & SA-2)
+                  </p>
                 </div>
               </Col>
             </Row>
           </Col>
-          <Col span={5}>
+          <Col span={3}>
             <Row>
               {/* <Col span={24}>
                 <div>
@@ -388,7 +375,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="500"
                 />
                 <div className="navButtonSelected">
-                <p>Comparative Performance in SA-1 and SA-2 (Class 4)</p>
+                  <p>Comparative Performance in SA-1 and SA-2 (Class 4)</p>
                 </div>
               </Col>
             </Row>
@@ -400,7 +387,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="500"
                 />
                 <div className="navButtonSelected">
-                <p>Comparative Performance in SA-1 and SA-2 (Class 5)</p>
+                  <p>Comparative Performance in SA-1 and SA-2 (Class 5)</p>
                 </div>
               </Col>
             </Row>
@@ -409,10 +396,10 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={107}
                   width="100%"
-                  height="500"
+                  height="503"
                 />
                 <div className="navButtonSelected">
-                <p>Comparative Performance in SA-1 and SA-2 (Class 6)</p>
+                  <p>Comparative Performance in SA-1 and SA-2 (Class 6)</p>
                 </div>
               </Col>
             </Row>
@@ -421,10 +408,10 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={108}
                   width="100%"
-                  height="500"
+                  height="630"
                 />
                 <div className="navButtonSelected">
-                <p>Comparative Performance in SA-1 and SA-2 (Class 7)</p>
+                  <p>Comparative Performance in SA-1 and SA-2 (Class 7)</p>
                 </div>
               </Col>
             </Row>
@@ -433,15 +420,15 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={110}
                   width="100%"
-                  height="500"
+                  height="630"
                 />
                 <div className="navButtonSelected">
-                <p>Comparative Performance in SA-1 and SA-2 (Class 8)</p>
+                  <p>Comparative Performance in SA-1 and SA-2 (Class 8)</p>
                 </div>
               </Col>
             </Row>
           </Col>
-          <Col span={5}>
+          <Col span={4}>
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
@@ -457,7 +444,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="500"
                 />
                 <div className="navButtonSelected">
-                <p>Subject wise average score across SAs (Class 4)</p>
+                  <p>Subject wise average score across SAs (Class 4)</p>
                 </div>
               </Col>
               <Col span={24}>
@@ -467,42 +454,42 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="500"
                 />
                 <div className="navButtonSelected">
-                <p>Subject wise average score across SAs (Class 5)</p>
+                  <p>Subject wise average score across SAs (Class 5)</p>
                 </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={113}
                   width="100%"
-                  height="500"
+                  height="503"
                 />
                 <div className="navButtonSelected">
-                <p>Subject wise average score across SAs (Class 6)</p>
+                  <p>Subject wise average score across SAs (Class 6)</p>
                 </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={111}
                   width="100%"
-                  height="500"
+                  height="630"
                 />
                 <div className="navButtonSelected">
-                <p>Subject wise average score across SAs (Class 7)</p>
+                  <p>Subject wise average score across SAs (Class 7)</p>
                 </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={115}
                   width="100%"
-                  height="500"
+                  height="630"
                 />
                 <div className="navButtonSelected">
-                <p>Subject wise average score across SAs (Class 8)</p>
+                  <p>Subject wise average score across SAs (Class 8)</p>
                 </div>
               </Col>
             </Row>
           </Col>
-          <Col span={6}>
+          <Col span={4}>
             <Col span={24}>
               <div className="NIPUNheading">
                 Class-wise weakest Learning Outcomes across SAs
@@ -513,9 +500,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="500"
                 />
-                <Button className="navButtonSelected">
-                <p>Weakest Learning Outcomes (Class 4)</p>
-                </Button>
+                <div className="navButtonSelected">
+                  <p>Weakest Learning Outcomes (Class 4)</p>
+                </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
@@ -523,39 +510,39 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   width="100%"
                   height="500"
                 />
-                <Button className="navButtonSelected">
-                <p>Weakest Learning Outcomes (Class 5)</p>
-                </Button>
+                <div className="navButtonSelected">
+                  <p>Weakest Learning Outcomes (Class 5)</p>
+                </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={154}
                   width="100%"
-                  height="500"
+                  height="502"
                 />
-                <Button className="navButtonSelected">
-                <p>Weakest Learning Outcomes (Class 6)</p>
-                </Button>
+                <div className="navButtonSelected">
+                  <p>Weakest Learning Outcomes (Class 6)</p>
+                </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={155}
                   width="100%"
-                  height="500"
+                  height="631"
                 />
-                <Button className="navButtonSelected">
-                <p>Weakest Learning Outcomes (Class 7)</p>
-                </Button>
+                <div className="navButtonSelected">
+                  <p>Weakest Learning Outcomes (Class 7)</p>
+                </div>
               </Col>
               <Col span={24}>
                 <QuestionWithIframe
                   questionId={156}
                   width="100%"
-                  height="500"
+                  height="630"
                 />
-                <Button className="navButtonSelected">
-                <p>Weakest Learning Outcomes (Class 8)</p>
-                </Button>
+                <div className="navButtonSelected">
+                  <p>Weakest Learning Outcomes (Class 8)</p>
+                </div>
               </Col>
             </Col>
           </Col>

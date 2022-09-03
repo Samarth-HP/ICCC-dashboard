@@ -48,43 +48,51 @@ const ReviewAndMonitoring: FC = () => (
         </Row>
 
         <Row>
-          <Col span={24} style={{ display: "flex" }}>
-            <div>
-              <QuestionWithIframe questionId={63} width="100%" height="400" />
-              <Button className="navButtonSelected">
+          <Col span={24}>
+            <QuestionWithIframe questionId={63} width="100%" height="400" />
+            <Button className="navButtonSelected">
               <p>District-wise DRM Compliance</p>
-              </Button>
-            </div>
-
-            <div>
-              <QuestionWithIframe questionId={69} width="100%" height="400" />
-              <Button className="navButtonSelected">
+            </Button>
+          </Col>
+          <Col span={24}>
+            <QuestionWithIframe questionId={69} width="100%" height="400" />
+            <Button className="navButtonSelected">
               <p>District-wise BRM Compliance</p>
-              </Button>
-            </div>
+            </Button>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={71} width="100%" height="400" />
             <Button className="navButtonSelected">
-            <p>District-wise CRM Compliance</p>
+              <p>District-wise CRM Compliance</p>
             </Button>
           </Col>
         </Row>
+
         <Row>
           <Col span={24}>
             <QuestionWithIframe questionId={72} width="100%" height="400" />
             <Button className="navButtonSelected">
-            <p>Month-wise Review Meeting Compliance</p>
+              <p>Month-wise Review Meeting Compliance</p>
             </Button>
           </Col>
         </Row>
         <Row></Row>
         <Row>
           <Col span={12}>
-            <QuestionWithIframe questionId={73} width="100%" height="200" nonDownloadable={true}/>
+            <QuestionWithIframe
+              questionId={73}
+              width="100%"
+              height="200"
+              nonDownloadable={true}
+            />
           </Col>
           <Col span={12}>
-            <QuestionWithIframe questionId={76} width="100%" height="200" nonDownloadable={true}/>
+            <QuestionWithIframe
+              questionId={76}
+              width="100%"
+              height="200"
+              nonDownloadable={true}
+            />
           </Col>
         </Row>
         <Row>
@@ -96,13 +104,13 @@ const ReviewAndMonitoring: FC = () => (
               params={{ Quarter: [3] }}
             />
             <Button className="navButtonSelected">
-            <p>District-wise BRCC Visits</p>
+              <p>District-wise BRCC Visits</p>
             </Button>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={77} width="100%" height="359" />
             <Button className="navButtonSelected">
-            <p>District-wise CRCC Visits</p>
+              <p>District-wise CRCC Visits</p>
             </Button>
           </Col>
         </Row>
