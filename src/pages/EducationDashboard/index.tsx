@@ -39,15 +39,16 @@ const EducationPortal: FC = () => {
     postions: [],
   });
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
 
   const formatMarkerData = (data: any) => {
+    //
     const formattedData = data
       // .filter((item: any, index: number) => index <= 20000)
       .map((item: any, index: number) => {
@@ -160,11 +161,11 @@ const EducationPortal: FC = () => {
                 VIEW DETAILED DASHBOARDS
               </Button>
             </div>
-        
+
             <Select className="forSelect" defaultValue={"2022-2023"}>
               <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
             </Select>
-    
+
           </Col>
         </Row>
         <Row>

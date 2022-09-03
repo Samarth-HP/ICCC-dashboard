@@ -241,7 +241,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               //@ts-ignore
               onSearch={(val: any) => {
                 handleSearchByUDISE(val);
-                console.log(val);
+                // console.log(val);
                 setMarker("Schools");
               }}
               placeholder="Search UDISE"
