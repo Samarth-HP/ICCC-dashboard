@@ -17,8 +17,8 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import { useHistory } from "react-router-dom";
+import parameters from "../../services/parameters";
 
 const sample_data = {
   schools: {
@@ -33,6 +33,29 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [selected, setSelected] = useState("SA1");
   const [marker, setMarker] = useState("Districts");
+  const [config, setConfig] = useState([]);
+  const getConfig = () => {
+    if (config.length) {
+      return
+    }
+
+    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+    )
+        .then(function (response) {
+
+          return response.json();
+        })
+        .then(function (configJson) {
+          setConfig(configJson)
+        });
+
+  }
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
@@ -42,6 +65,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
     setMarker(id);
   };
   useEffect(() => {
+    getConfig();
     props.getMarkerData("Districts");
   }, []);
   return (

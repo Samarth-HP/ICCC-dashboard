@@ -43,7 +43,7 @@ export default function MapComponent({
     },
   });
 
-  const center = config.markers?.postions[0]?.position || [28.7041, 77.1025];
+  const center = config?.markers?.postions[0]?.position || [28.7041, 77.1025];
   const byGeoJson = config.bounds?.byGeoJson?.length;
   const byBbox = config.bounds?.byBbox?.length;
   const [toolTipData, setToolTipData] = useState(default_toolTipData);
@@ -493,13 +493,15 @@ export default function MapComponent({
     }
   };
 
+  if(!config || config &&!config.legend) return (<div>Loading..</div>)
+
   return (
     <div
       style={{
         display: "flex",
         width: "100%",
-        flexDirection:
-          config.legend.position.split("-")[0] == "bottom"
+        flexDirection:(config && config.legend && config.legend.position &&
+            config.legend.position.split("-")[0] == "bottom")
             ? "column"
             : "column-reverse",
       }}

@@ -14,7 +14,6 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import API_SERVICE from "../../services/api-service";
 import AdministrativeOverview from "./Administrative Overview";
 import StudentAssessmentPerformanceGrade1_3 from "./Student Assessment Performance (Grade 1-3)";

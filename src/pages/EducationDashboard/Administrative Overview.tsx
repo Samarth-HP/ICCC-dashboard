@@ -14,7 +14,6 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import Attendence from "./Administrative Overview/Attendence";
 import ReviewAndMonitoring from "./Administrative Overview/Review And Monitoring";
 import SchoolStatisticsAndEnrolment from "./Administrative Overview/School-statistics-and-enrolment";

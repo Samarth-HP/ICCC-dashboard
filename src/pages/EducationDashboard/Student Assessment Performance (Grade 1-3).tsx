@@ -7,10 +7,10 @@ import { Button } from "antd/lib/radio";
 import "./index.css";
 import Title from "antd/es/typography/Title";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
 import boyIcon from "../../assets/boyIcon.svg";
 import girlIcon from "../../assets/girlIcon.svg";
+import parameters from "../../services/parameters";
 
 const questions = [4];
 const sample_data = {
@@ -28,15 +28,39 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   const [selected, setSelected] = useState("SA1");
   const [academicYear, setAcademicYear] = useState("2021-2022");
   // const [academicYear, setAcademicYear] = useState("2022-23");
+  const [config, setConfig] = useState([]);
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
   };
+  const getConfig = () => {
+    if (config.length) {
+      return
+    }
+
+    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+    )
+        .then(function (response) {
+
+          return response.json();
+        })
+        .then(function (configJson) {
+          setConfig(configJson)
+        });
+
+  }
   const onSetMarker = (id: any) => {
     // console.log(id);
     setMarker(id);
   };
   useEffect(() => {
+    getConfig();
     props.getMarkerData("Districts");
   }, []);
 

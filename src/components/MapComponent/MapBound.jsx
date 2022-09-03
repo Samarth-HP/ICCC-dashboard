@@ -1,7 +1,6 @@
 // import { Map } from "leaflet";
 import { useMap, Rectangle, Polygon } from "react-leaflet";
 import { useEffect, useMemo, useState } from "react";
-// import { bounds } from "./config.json";
 
 let innerBounds = [
   [50.505, -29.09],
