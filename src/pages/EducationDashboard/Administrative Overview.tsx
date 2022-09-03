@@ -42,7 +42,7 @@ const AdministrativeOverview: FC = (props: any) => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={9}>
+          <Col span={11}>
             <SchoolStatisticsAndEnrolment
               //@ts-ignore
               markerData={props.markerData}
@@ -52,7 +52,7 @@ const AdministrativeOverview: FC = (props: any) => {
           <Col span={7}>
             <Attendence></Attendence>
           </Col>
-          <Col span={8}>
+          <Col span={6}>
             <ReviewAndMonitoring />
           </Col>
         </Row>

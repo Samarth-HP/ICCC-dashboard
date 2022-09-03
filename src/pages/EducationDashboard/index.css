@@ -26,6 +26,9 @@
 .subtitle {
   font-weight: 400;
 }
+.ant-layout{
+  background-color: white;
+}
 .count {
   text-align: center;
   color: #6e642e;

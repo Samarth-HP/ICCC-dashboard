@@ -49,7 +49,7 @@ const DetailedDashboard: FC = () => {
               style={{
                 justifyContent: "center",
                 height: "100%",
-                alignItems: "center",
+                // alignItems: "center",
                 flexDirection: "column",
                 // display:'table-caption'
               }}
@@ -99,7 +99,7 @@ const DetailedDashboard: FC = () => {
                     <Col span={3}>
                       <img src={AcademicKPI} alt="" />
                     </Col>
-                    <Col offset={4}>Academic KPIs</Col>
+                    <Col className="responsiveHeader" offset={4}>Academic KPIs</Col>
                   </Row>
                 </Button>
                 <Button className="DetailsButton">
@@ -112,7 +112,7 @@ const DetailedDashboard: FC = () => {
                     <Col span={3}>
                       <img src={AdministrativeKPI} alt="" />
                     </Col>
-                    <Col offset={3}> Administrative KPIs</Col>
+                    <Col className="responsiveHeader" offset={3}> Administrative KPIs</Col>
                   </Row>
                 </Button>
                 <Button className="DetailsButton">
@@ -127,7 +127,7 @@ const DetailedDashboard: FC = () => {
                     <Col span={3}>
                       <img src={ReviewMeetingScorecards} alt="" />
                     </Col>
-                    <Col offset={1}>Review Meeting Scorecards</Col>
+                    <Col className="responsiveHeader" offset={1}>Review Meeting Scorecards</Col>
                   </Row>
                 </Button>
                 </div>

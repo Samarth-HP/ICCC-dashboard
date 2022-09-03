@@ -53,7 +53,7 @@ const AdminKPIPage: FC = () => {
               style={{
                 justifyContent: "center",
                 height: "100%",
-                alignItems: "center",
+                // alignItems: "center",
                 flexDirection: "column",
               }}
             >
@@ -91,7 +91,7 @@ const AdminKPIPage: FC = () => {
                       src={Enrolment}
                       alt=""
                     /></Col>
-                    <Col offset={6}>Enrolment</Col>
+                    <Col className="responsiveHeader" offset={6}>Enrolment</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/7310f340-ba25-44ed-a59f-59400bda2a11?date=2022-08-04'}}>
@@ -100,7 +100,7 @@ const AdminKPIPage: FC = () => {
                       src={StudentAttendance}
                       alt=""
                     /></Col>
-                    <Col offset={3}>Student Attendance</Col>
+                    <Col className="responsiveHeader" offset={3}>Student Attendance</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/ccbc316f-e5be-4e95-985d-744511d40884'}}>
@@ -109,7 +109,7 @@ const AdminKPIPage: FC = () => {
                       src={SchoolMonitoringVisits}
                       alt=""
                     /></Col>
-                    <Col offset={2}>School Monitoring Visits</Col>
+                    <Col className="responsiveHeader" offset={2}>School Monitoring Visits</Col>
                     </Row>
                 </Button>
                 <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/81073842-f423-4a7f-b473-93d89ded0e45'}}>
@@ -118,7 +118,7 @@ const AdminKPIPage: FC = () => {
                       src={ReviewMeetingScorecards}
                       alt=""
                     /></Col>
-                    <Col offset={4}>Review Meetings</Col>
+                    <Col className="responsiveHeader" offset={4}>Review Meetings</Col>
                     </Row>
                 </Button>
                 </div>

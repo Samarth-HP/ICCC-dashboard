@@ -192,7 +192,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <Row>
-                  <Col span={4}>
+                  <Col span={6}>
                     <Select
                       onSelect={(e: any) => setSelected(e)}
                       defaultValue={"SA1"}
@@ -202,7 +202,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Districts"
@@ -217,7 +217,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       Districts
                     </Button>
                   </Col>
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
@@ -230,8 +230,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       Blocks
                     </Button>
                   </Col>
-
-                  <Col span={5}>
+                  <Col span={6}>
                     <Button
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
