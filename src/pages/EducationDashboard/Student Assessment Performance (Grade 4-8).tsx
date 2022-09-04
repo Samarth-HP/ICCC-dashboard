@@ -198,7 +198,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                                     <Col span={6}>
                                         <Select
                                             className="forSelect"
-                                            onSelect={(e: any) => setSelected(e)}
+                                            onSelect={(e: any) => {setSelected(e); props.setSelectedAssessment(e)}}
                                             defaultValue={"SA1"}
                                             style={{ width: "100%" }}
                                         >

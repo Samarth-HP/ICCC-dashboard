@@ -33,6 +33,7 @@ const EducationPortal: FC = () => {
   const history = useHistory();
   const [selectedButton, setSelectedButton] = useState(2);
   const [marker, setMarker] = useState("Districts");
+  const [selectedAssessment, setSelectedAssessment] = useState("SA1");
   const [markerData, setMarkerData] = useState({
     shouldClusterMarkers: true,
     postions: [],
@@ -72,30 +73,91 @@ const EducationPortal: FC = () => {
   };
   const getMarkerData = async (marker: any) => {
     let data: any = [];
+    let dataWithHexCode = [];
     const params: any = {
       district: "SIRMAUR",
     };
     if (marker === "Districts") {
       data = await API_SERVICE.getDistrictMarkerData(params);
+      if(selectedButton == 2) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentDistrict1Grade48({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.district === item.district})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }
+      else if(selectedButton == 1) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentDistrict1Grade13({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.district === item.district})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }
     }
 
     if (marker === "Blocks") {
       data = await API_SERVICE.getBlockMarkerData(params);
+      if(selectedButton == 2) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentBlock1Grade48({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.block === item.block})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }
+      else if(selectedButton == 1) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentBlock1Grade13({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.block === item.block})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }
     }
 
     if (marker === "Schools") {
       data = await API_SERVICE.getSchoolMarkerData(params);
+      if(selectedButton == 2) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentSchool1Grade48({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.school_name === item.school_name})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }else if(selectedButton == 1) {
+        const assessmentData = await API_SERVICE.getStudentAssesmentSchool1Grade13({"assessment_type_v2":selectedAssessment});
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.school_name === item.school_name})?.HexCodes;
+          if(filteredColor){
+            return {...item, HexCodes: filteredColor}
+          }
+          return {...item, HexCodes: ''}
+        })
+      }
     }
 
     if (marker === "Search") {
       data = await API_SERVICE.getSchoolMarkerData(params);
     }
-    formatMarkerData(data.data.rows);
+    // formatMarkerData(data.data.rows);
+    formatMarkerData(dataWithHexCode);
   };
 
   useEffect(() => {
     getMarkerData("Districts");
-  }, []);
+  }, [selectedAssessment]);
 
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
@@ -181,6 +243,7 @@ const EducationPortal: FC = () => {
               <StudentAssessmentPerformanceGrade4_8
                 markerData={markerData}
                 getMarkerData={getMarkerData}
+                setSelectedAssessment={setSelectedAssessment}
               />
             </Col>
           )}
