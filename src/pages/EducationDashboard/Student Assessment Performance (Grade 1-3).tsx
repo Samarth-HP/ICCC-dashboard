@@ -7,10 +7,10 @@ import { Button } from "antd/lib/radio";
 import "./index.css";
 import Title from "antd/es/typography/Title";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import QuestionWithIframe from "../../components/QuestionWIthIframe";
 import boyIcon from "../../assets/boyIcon.svg";
 import girlIcon from "../../assets/girlIcon.svg";
+import parameters from "../../services/parameters";
 
 const questions = [4];
 const sample_data = {
@@ -24,15 +24,45 @@ const sample_data = {
 
 const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
-  const [marker, setMarker] = useState("district");
+  const [marker, setMarker] = useState("Districts");
+  const [selected, setSelected] = useState("SA1");
+  const [academicYear, setAcademicYear] = useState("2021-2022");
+  // const [academicYear, setAcademicYear] = useState("2022-23");
+  const [config, setConfig] = useState([]);
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
+  const getConfig = () => {
+    if (config.length) {
+      return
+    }
+
+    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+    )
+        .then(function (response) {
+
+          return response.json();
+        })
+        .then(function (configJson) {
+          setConfig(configJson)
+        });
+
+  }
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
+  useEffect(() => {
+    getConfig();
+    props.getMarkerData("Districts");
+  }, []);
 
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
@@ -88,7 +118,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                     height="300"
                     nonDownloadable={true}
                   />
-                  
+
                 </div>
               </Col>
               <Col span={12}>
@@ -163,9 +193,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={6}>
-                    <Select className="forSelect" defaultValue={"SA-1"} style={{ width: "100%" }}>
-                      <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
-                      <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
+                    <Select
+                      onSelect={(e: any) => setSelected(e)}
+                      defaultValue={"SA1"}
+                      style={{ width: "100%" }}
+                    >
+                      <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
+                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
                     </Select>
                   </Col>
                   <Col span={6}>
@@ -214,8 +248,11 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
                       <MapComponent
+                        at={selected}
                         config={config}
-                        markers={props.markerData}
+                        type={1}
+                        ay={academicYear}
+                        markers={props?.markerData}
                       ></MapComponent>
                     </div>
                   </Col>
@@ -229,6 +266,17 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col style={{ textAlign: "center" }} span={24}>
                 <img src={boyIcon} alt="" />
               </Col>
+                <Col></Col>
+                <Col>
+                    <Select
+                        onSelect={(e: any) => setAcademicYear(e)}
+                        defaultValue={academicYear}
+                    >
+                        <Select.Option value={academicYear}>
+                            {academicYear}
+                        </Select.Option>
+                    </Select>
+                </Col>
               <Row>
                 <Col span={24}>
                   <QuestionWithIframe

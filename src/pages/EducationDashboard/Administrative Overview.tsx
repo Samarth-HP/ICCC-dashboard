@@ -14,7 +14,6 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import Attendence from "./Administrative Overview/Attendence";
 import ReviewAndMonitoring from "./Administrative Overview/Review And Monitoring";
 import SchoolStatisticsAndEnrolment from "./Administrative Overview/School-statistics-and-enrolment";
@@ -32,11 +31,11 @@ const AdministrativeOverview: FC = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [marker, setMarker] = useState("Districts");
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
   return (
@@ -45,7 +44,7 @@ const AdministrativeOverview: FC = (props: any) => {
         <Row>
           <Col span={11}>
             <SchoolStatisticsAndEnrolment
-            //@ts-ignore
+              //@ts-ignore
               markerData={props.markerData}
               getMarkerData={props.getMarkerData}
             />
