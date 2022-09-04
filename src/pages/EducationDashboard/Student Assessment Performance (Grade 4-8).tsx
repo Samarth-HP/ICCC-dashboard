@@ -123,13 +123,13 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={97} width="100%" height="630" />
+                <QuestionWithIframe questionId={97} width="100%" height="1607" />
                 <div className="navButtonSelected">
                   <p>Class-4</p>
                 </div>
               </Col>
               <Col span={12}>
-                <QuestionWithIframe questionId={98} width="100%" height="620" />
+                <QuestionWithIframe questionId={98} width="100%" height="1607" />
                 <div className="navButtonSelected">
                   <p>Class 5</p>
                 </div>
@@ -137,7 +137,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={99} width="100%" height="630" />
+                <QuestionWithIframe questionId={99} width="100%" height="1380" />
                 <div className="navButtonSelected">
                   <p>Class 6</p>
                 </div>
@@ -146,7 +146,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={100}
                   width="100%"
-                  height="630"
+                  height="1380"
                 />
                 <div className="navButtonSelected">
                   <p>Class 7</p>
@@ -158,7 +158,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={101}
                   width="100%"
-                  height="630"
+                  height="1300"
                 />
                 <div className="navButtonSelected">
                   <p>Class 8</p>
@@ -283,7 +283,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={102}
                   width="100%"
-                  height="923"
+                  height="1231"
                 />
                 <div className="navButtonSelected">
                   <p>Districts with highest jump in scores</p>
@@ -305,7 +305,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={103}
                   width="100%"
-                  height="629"
+                  height="700"
                 />
                 <div className="navButtonSelected">
                   <p>Districts with highest fall in scores</p>
@@ -315,7 +315,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={106}
                   width="100%"
-                  height="630"
+                  height="1300"
                 />
                 <div className="navButtonSelected">
                   <p>
@@ -372,7 +372,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={104}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Comparative Performance in SA-1 and SA-2 (Class 4)</p>
@@ -384,7 +384,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={105}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Comparative Performance in SA-1 and SA-2 (Class 5)</p>
@@ -396,7 +396,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={107}
                   width="100%"
-                  height="503"
+                  height="650"
                 />
                 <div className="navButtonSelected">
                   <p>Comparative Performance in SA-1 and SA-2 (Class 6)</p>
@@ -420,7 +420,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={110}
                   width="100%"
-                  height="630"
+                  height="702"
                 />
                 <div className="navButtonSelected">
                   <p>Comparative Performance in SA-1 and SA-2 (Class 8)</p>
@@ -441,7 +441,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={111}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Subject wise average score across SAs (Class 4)</p>
@@ -451,7 +451,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={112}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Subject wise average score across SAs (Class 5)</p>
@@ -461,7 +461,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={113}
                   width="100%"
-                  height="503"
+                  height="650"
                 />
                 <div className="navButtonSelected">
                   <p>Subject wise average score across SAs (Class 6)</p>
@@ -481,7 +481,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={115}
                   width="100%"
-                  height="630"
+                  height="702"
                 />
                 <div className="navButtonSelected">
                   <p>Subject wise average score across SAs (Class 8)</p>
@@ -498,7 +498,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={152}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Weakest Learning Outcomes (Class 4)</p>
@@ -508,7 +508,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={153}
                   width="100%"
-                  height="500"
+                  height="580"
                 />
                 <div className="navButtonSelected">
                   <p>Weakest Learning Outcomes (Class 5)</p>
@@ -518,7 +518,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={154}
                   width="100%"
-                  height="502"
+                  height="650"
                 />
                 <div className="navButtonSelected">
                   <p>Weakest Learning Outcomes (Class 6)</p>
@@ -538,7 +538,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={156}
                   width="100%"
-                  height="630"
+                  height="701"
                 />
                 <div className="navButtonSelected">
                   <p>Weakest Learning Outcomes (Class 8)</p>

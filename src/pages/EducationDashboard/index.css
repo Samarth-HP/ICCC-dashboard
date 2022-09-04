@@ -1,6 +1,9 @@
 .container > * {
   color: #205140;
 }
+.forZoom {
+  zoom: 50%;
+}
 
 .card {
   background-color: #fbfcf7;
@@ -26,7 +29,7 @@
 .subtitle {
   font-weight: 400;
 }
-.ant-layout{
+.ant-layout {
   background-color: white;
 }
 .count {
@@ -34,9 +37,9 @@
   color: #6e642e;
   font-weight: bold;
 }
-.forSelect.ant-select:not(.ant-select-customize-input) .ant-select-selector{
-color: black;
-background-color: white;
+.forSelect.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  color: black;
+  background-color: white;
 }
 .tile {
   width: 220px;
@@ -54,13 +57,12 @@ background-color: white;
   width: 100%;
   text-align: center;
   cursor: pointer;
-  
 }
 .navButtonSelected {
   background-color: #252c68;
   color: #fff;
 }
-.navButtonSelected p{
+.navButtonSelected p {
   font-size: 16px;
 }
 .refrences {
@@ -69,23 +71,21 @@ background-color: white;
   font-weight: 700;
   font-family: "Mukta";
 }
-.NIPUNheading{
+.NIPUNheading {
   text-align: center;
   padding: 12px;
   background-color: rgba(196, 196, 196, 0.15);
-  color:#014c3d;
+  color: #014c3d;
   font-weight: 700;
-  font-size: 17px;
-
- 
+  font-size: 20px;
 }
-.District-wise-div{
+.District-wise-div {
   text-align: center;
   padding: 12px;
   background-color: rgba(196, 196, 196, 0.15);
   font-weight: bold;
 }
-.Districtwice{
+.Districtwice {
   text-align: center;
   padding: 12px;
   background-color: rgba(196, 196, 196, 0.15);
@@ -95,3 +95,4 @@ background-color: white;
   font-size: 9px;
   margin-right: 5px;
 }
+

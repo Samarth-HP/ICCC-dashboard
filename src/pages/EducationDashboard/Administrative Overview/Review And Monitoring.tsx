@@ -49,19 +49,19 @@ const ReviewAndMonitoring: FC = () => (
 
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={63} width="100%" height="400" />
+            <QuestionWithIframe questionId={63} width="100%" height="1200" />
             <Button className="navButtonSelected">
               <p>District-wise DRM Compliance</p>
             </Button>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={69} width="100%" height="400" />
+            <QuestionWithIframe questionId={69} width="100%" height="1200" />
             <Button className="navButtonSelected">
               <p>District-wise BRM Compliance</p>
             </Button>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={71} width="100%" height="400" />
+            <QuestionWithIframe questionId={71} width="100%" height="1508" />
             <Button className="navButtonSelected">
               <p>District-wise CRM Compliance</p>
             </Button>
@@ -70,7 +70,7 @@ const ReviewAndMonitoring: FC = () => (
 
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={72} width="100%" height="400" />
+            <QuestionWithIframe questionId={72} width="100%" height="600" />
             <Button className="navButtonSelected">
               <p>Month-wise Review Meeting Compliance</p>
             </Button>
@@ -100,7 +100,7 @@ const ReviewAndMonitoring: FC = () => (
             <QuestionWithIframe
               questionId={75}
               width="100%"
-              height="359"
+              height="1200"
               params={{ Quarter: [3] }}
             />
             <Button className="navButtonSelected">
@@ -108,7 +108,7 @@ const ReviewAndMonitoring: FC = () => (
             </Button>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={77} width="100%" height="359" />
+            <QuestionWithIframe questionId={77} width="100%" height="1200" />
             <Button className="navButtonSelected">
               <p>District-wise CRCC Visits</p>
             </Button>

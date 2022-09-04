@@ -98,6 +98,7 @@ const EducationPortal: FC = () => {
   }, []);
 
   return (
+    <div className="forZoom">
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
@@ -109,7 +110,7 @@ const EducationPortal: FC = () => {
               onClick={() => {
                 onButtonClick(2);
               }}
-              style={{ fontSize: "16px",fontWeight:'bold'}}
+              style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
             >
               Student Assessment Performance (Grade 4-8)
             </Button>
@@ -122,7 +123,7 @@ const EducationPortal: FC = () => {
               onClick={() => {
                 onButtonClick(1);
               }}
-              style={{ fontSize: "16px",fontWeight:'bold'}}
+               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
             >
               Student Assessment Performance (Grade 1-3)
             </Button>
@@ -137,7 +138,7 @@ const EducationPortal: FC = () => {
               className={
                 selectedButton == 3 ? "navButtonSelected" : "navButton"
               }
-              style={{ fontSize: "16px",fontWeight:'bold'}}
+               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
             >
               Administrative Overview
             </Button>
@@ -149,9 +150,11 @@ const EducationPortal: FC = () => {
                   backgroundColor: "#014C3D",
                   color: "white",
                   textDecoration: "underline",
-                  fontSize: "14px",
+                  fontSize: "25px",
                   marginRight: "10px",
-                  fontWeight:'bold'
+                  fontWeight:'bold',
+                  height:'4rem',
+                  lineHeight:'2'
                 }}
                 onClick={() => {
                   history.push("/detailed-dashboard");
@@ -160,10 +163,12 @@ const EducationPortal: FC = () => {
                 VIEW DETAILED DASHBOARDS
               </Button>
             </div>
-        
+              <div>
+
             <Select className="forSelect" defaultValue={"2022-2023"}>
               <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
             </Select>
+              </div>
     
           </Col>
         </Row>
@@ -196,6 +201,7 @@ const EducationPortal: FC = () => {
         </Row>
       </Content>
     </Layout>
+    </div>
   );
 };
 export default EducationPortal;
