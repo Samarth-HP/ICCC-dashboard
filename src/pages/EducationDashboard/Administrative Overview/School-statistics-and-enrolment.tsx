@@ -131,9 +131,9 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={61} width="100%" height="500" />
+            <QuestionWithIframe questionId={61} width="100%" height="626" />
             <div className="navButtonSelected">
-              <p>District wise, Category wise, Number of Schools</p>
+              <p style={{lineHeight:'2.6'}}>District wise, Category wise, Number of Schools</p>
             </div>
           </Col>
         </Row>
@@ -195,7 +195,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row style={{ display: "flex" }}>
           <Col span={12}>
-            <QuestionWithIframe questionId={43} width="100%" height="600" />
+            <QuestionWithIframe questionId={43} width="100%" height="1200" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Pupil-Teacher ratio across level of education
@@ -203,7 +203,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             </div>
           </Col>
           <Col span={12}>
-            <QuestionWithIframe questionId={53} width="100%" height="600" />
+            <QuestionWithIframe questionId={53} width="100%" height="1200" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Grade-wise Enrolment distribution

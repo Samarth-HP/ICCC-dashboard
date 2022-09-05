@@ -50,13 +50,13 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={56} width="100%" height="1251" />
+            <QuestionWithIframe questionId={56} width="100%" height="2000" />
           <div className="navButtonSelected">
           <p style={{lineHeight:'2.6'}}>District wise Average Monthly Attendance</p>
           </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={58} width="100%" height="1270" />
+            <QuestionWithIframe questionId={58} width="100%" height="2050" />
           <div className="navButtonSelected">
           <p style={{lineHeight:'2.5'}}>Percentage Schools Recording Attendance on e-Samwad</p>
           </div>
@@ -64,7 +64,7 @@ const Attendence: FC = () => (
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={59} width="100%" height="650" />
+            <QuestionWithIframe questionId={59} width="100%" height="808" />
           </Col>
           <Col span={24}>
             <div className="navButtonSelected">
@@ -72,11 +72,17 @@ const Attendence: FC = () => (
             </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={60} width="100%" height="808" />
+            <QuestionWithIframe questionId={60} width="100%" height="600" />
           </Col>
           <Col span={24}>
             <div className="navButtonSelected">
             <p style={{lineHeight:'2.5'}}>Daily Average Student Attendance and Compliance</p>
+            </div>
+          </Col>
+          <Col span={24}>
+            <QuestionWithIframe questionId={77} width="100%" height="1170" />
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>District-wise CRCC Visits</p>
             </div>
           </Col>
         </Row>

@@ -61,7 +61,7 @@ const ReviewAndMonitoring: FC = () => (
             </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={71} width="100%" height="1578" />
+            <QuestionWithIframe questionId={71} width="100%" height="1409" />
             <div className="navButtonSelected">
               <p style={{lineHeight:'2.5'}}>District-wise CRM Compliance</p>
             </div>
@@ -70,7 +70,7 @@ const ReviewAndMonitoring: FC = () => (
 
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={72} width="100%" height="600" />
+            <QuestionWithIframe questionId={72} width="100%" height="808" />
             <div className="navButtonSelected">
               <p style={{lineHeight:'2.5'}}>Month-wise Review Meeting Compliance</p>
             </div>
@@ -100,17 +100,11 @@ const ReviewAndMonitoring: FC = () => (
             <QuestionWithIframe
               questionId={75}
               width="100%"
-              height="1200"
+              height="1682"
               params={{ Quarter: [3] }}
             />
             <div className="navButtonSelected">
               <p style={{lineHeight:'2.5'}}>District-wise BRCC Visits</p>
-            </div>
-          </Col>
-          <Col span={24}>
-            <QuestionWithIframe questionId={77} width="100%" height="1200" />
-            <div className="navButtonSelected">
-              <p style={{lineHeight:'2.5'}}>District-wise CRCC Visits</p>
             </div>
           </Col>
         </Row>

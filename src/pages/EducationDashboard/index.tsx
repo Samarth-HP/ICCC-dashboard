@@ -99,112 +99,136 @@ const EducationPortal: FC = () => {
 
   return (
     <div className="forZoom">
-    <Layout className={"layout-wrapper home-wrapper"}>
-      <Content style={{ padding: "10px" }}>
-        <Row>
-          <Col span={6}>
-            <Button
-              className={
-                selectedButton == 2 ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                onButtonClick(2);
-              }}
-              style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Student Assessment Performance (Grade 4-8)
-            </Button>
-          </Col>
-          <Col span={6}>
-            <Button
-              className={
-                selectedButton == 1 ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                onButtonClick(1);
-              }}
-               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Student Assessment Performance (Grade 1-3)
-            </Button>
-          </Col>
-          <Col
-            span={6}
-            onClick={() => {
-              onButtonClick(3);
-            }}
-          >
-            <Button
-              className={
-                selectedButton == 3 ? "navButtonSelected" : "navButton"
-              }
-               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Administrative Overview
-            </Button>
-          </Col>
-          <Col style={{ display: "flex" }} span={6}>
-            <div>
+      <Layout className={"layout-wrapper home-wrapper"}>
+        <Content style={{ padding: "10px" }}>
+          <Row>
+            <Col span={6}>
               <Button
-                style={{
-                  backgroundColor: "#014C3D",
-                  color: "white",
-                  textDecoration: "underline",
-                  fontSize: "25px",
-                  marginRight: "10px",
-                  fontWeight:'bold',
-                  height:'4rem',
-                  lineHeight:'2'
-                }}
+                className={
+                  selectedButton == 2 ? "navButtonSelected" : "navButton"
+                }
                 onClick={() => {
-                  history.push("/detailed-dashboard");
+                  onButtonClick(2);
+                }}
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
                 }}
               >
-                VIEW DETAILED DASHBOARDS
+                Student Assessment Performance (Grade 4-8)
               </Button>
-            </div>
+            </Col>
+            <Col span={6}>
+              <Button
+                className={
+                  selectedButton == 1 ? "navButtonSelected" : "navButton"
+                }
+                onClick={() => {
+                  onButtonClick(1);
+                }}
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
+                }}
+              >
+                Student Assessment Performance (Grade 1-3)
+              </Button>
+            </Col>
+            <Col
+              span={6}
+              onClick={() => {
+                onButtonClick(3);
+              }}
+            >
+              <Button
+                className={
+                  selectedButton == 3 ? "navButtonSelected" : "navButton"
+                }
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
+                }}
+              >
+                Administrative Overview
+              </Button>
+            </Col>
+            <Col style={{ display: "flex" }} span={6}>
               <div>
-
-            <Select className="forSelect" defaultValue={"2022-2023"}>
-              <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
-            </Select>
+                <Button
+                  style={{
+                    backgroundColor: "#014C3D",
+                    color: "white",
+                    textDecoration: "underline",
+                    fontSize: "25px",
+                    marginRight: "10px",
+                    fontWeight: "bold",
+                    height: "4rem",
+                    lineHeight: "2",
+                  }}
+                  onClick={() => {
+                    history.push("/detailed-dashboard");
+                  }}
+                >
+                  VIEW DETAILED DASHBOARDS
+                </Button>
               </div>
-              <div style={{marginLeft:'42px'}}>
-                <Button style={{height:'40px',cursor:'pointer'}} onClick={()=>{
-                  history.push('/login')
-                }}><span style={{fontSize:'25px'}}>Log Out</span></Button>
+              <div>
+                {/* <Select className="forSelect" defaultValue={"2022-2023"}>
+                  <Select.Option value={"2022-2023"}>
+                    {"2022-2023"}
+                  </Select.Option>
+                </Select> */}
+                <select className="forSelect" defaultValue={"2022-2023"}>
+                  <option value={"2022-2023"}>2022-2023</option>
+                </select>
               </div>
-          </Col>
-        </Row>
-        <Row>
-          {selectedButton == 1 && (
-            <Col>
-              <StudentAssessmentPerformanceGrade1_3
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-              />
+              <div style={{ marginLeft: "55px" }}>
+                <Button
+                  style={{ height: "40px", cursor: "pointer" }}
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                >
+                  <span style={{ fontSize: "25px" }}>Log Out</span>
+                </Button>
+              </div>
             </Col>
-          )}
-          {selectedButton == 2 && (
-            <Col>
-              <StudentAssessmentPerformanceGrade4_8
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-              />
-            </Col>
-          )}
-          {selectedButton == 3 && (
-            <Col>
-              <AdministrativeOverview
-                //@ts-ignore
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-              />
-            </Col>
-          )}
-        </Row>
-      </Content>
-    </Layout>
+          </Row>
+          <Row>
+            {selectedButton == 1 && (
+              <Col>
+                <StudentAssessmentPerformanceGrade1_3
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                />
+              </Col>
+            )}
+            {selectedButton == 2 && (
+              <Col>
+                <StudentAssessmentPerformanceGrade4_8
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                />
+              </Col>
+            )}
+            {selectedButton == 3 && (
+              <Col>
+                <AdministrativeOverview
+                  //@ts-ignore
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                />
+              </Col>
+            )}
+          </Row>
+        </Content>
+      </Layout>
     </div>
   );
 };
