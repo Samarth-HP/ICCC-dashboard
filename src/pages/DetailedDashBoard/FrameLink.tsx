@@ -64,8 +64,7 @@ const IframeLink = (showLink: any) => {
         height="100%"
       ></iframe>
     );
-  } 
-  else if (params.name === "ReviewMeetings") {
+  } else if (params.name === "ReviewMeetings") {
     return (
       <iframe
         src="https://samarthhp-metabase.in/public/dashboard/81073842-f423-4a7f-b473-93d89ded0e45"
@@ -73,8 +72,7 @@ const IframeLink = (showLink: any) => {
         height="100%"
       ></iframe>
     );
-  }
-  else if (params.name === "ReviewMeetingsScorecards") {
+  } else if (params.name === "ReviewMeetingsScorecards") {
     return (
       <iframe
         src="https://samarthhp-metabase.in/public/dashboard/4ccde962-8c7a-4be6-a5d3-1f5d8ff1b3aa?month=May"

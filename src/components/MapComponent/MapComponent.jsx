@@ -385,12 +385,7 @@ export default function MapComponent({
       }
     } else {
       console.log(resData, "this is 1-3");
-      // setToolTipData({
-      //   Attendance: resData[0]?.data?.rows[0]?.PercAttendance,
-      //   Enrolment: resData[1]?.data?.rows[0]?.total_students,
-      //   PTR: resData[2]?.data?.rows[0]?.Ratio,
-      //   CWSN: resData[3]?.data?.rows[0]?.total_cwsn_students,
-      // });
+    
     }
   };
 
