@@ -169,7 +169,11 @@ const EducationPortal: FC = () => {
               <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
             </Select>
               </div>
-    
+              <div style={{marginLeft:'42px'}}>
+                <Button style={{height:'40px',cursor:'pointer'}} onClick={()=>{
+                  history.push('/login')
+                }}><span style={{fontSize:'25px'}}>Log Out</span></Button>
+              </div>
           </Col>
         </Row>
         <Row>

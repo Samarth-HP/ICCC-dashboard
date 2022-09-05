@@ -123,33 +123,51 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={97} width="100%" height="1607" />
-                <div className="navButtonSelected">
+                <QuestionWithIframe
+                  questionId={97}
+                  width="100%"
+                  height="1835"
+                />
+                <div
+                  style={{ lineHeight: "3.1" }}
+                  className="navButtonSelected"
+                >
                   <p>Class-4</p>
                 </div>
               </Col>
               <Col span={12}>
-                <QuestionWithIframe questionId={98} width="100%" height="1607" />
-                <div className="navButtonSelected">
+                <QuestionWithIframe
+                  questionId={98}
+                  width="100%"
+                  height="1835"
+                />
+                <div
+                  style={{ lineHeight: "3.1" }}
+                  className="navButtonSelected"
+                >
                   <p>Class 5</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={99} width="100%" height="1380" />
+                <QuestionWithIframe
+                  questionId={99}
+                  width="100%"
+                  height="1476"
+                />
                 <div className="navButtonSelected">
-                  <p>Class 6</p>
+                  <p style={{ lineHeight: "3.1" }}>Class 6</p>
                 </div>
               </Col>
               <Col span={12}>
                 <QuestionWithIframe
                   questionId={100}
                   width="100%"
-                  height="1380"
+                  height="1476"
                 />
                 <div className="navButtonSelected">
-                  <p>Class 7</p>
+                  <p style={{ lineHeight: "3.1" }}>Class 7</p>
                 </div>
               </Col>
             </Row>
@@ -161,7 +179,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   height="1300"
                 />
                 <div className="navButtonSelected">
-                  <p>Class 8</p>
+                  <p style={{ lineHeight: "3.1" }}>Class 8</p>
                 </div>
               </Col>
             </Row>
@@ -174,13 +192,16 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       onSelect={(e: any) => setSelected(e)}
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
-                    >
+                    > 
+                    
                       <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
                       <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
+                
                     </Select>
                   </Col>
                   <Col span={6}>
                     <Button
+                      style={{ height: "50px" }}
                       className={
                         marker == "Districts"
                           ? "navButtonSelected"
@@ -190,11 +211,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                         setMarker("Districts");
                       }}
                     >
-                      Districts
+                      <p style={{ lineHeight: "1.2" }}>Districts</p>
                     </Button>
                   </Col>
                   <Col span={6}>
                     <Button
+                      style={{ height: "50px" }}
                       className={
                         marker == "Blocks" ? "navButtonSelected" : "navButton"
                       }
@@ -203,7 +225,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                         setMarker("Blocks");
                       }}
                     >
-                      <p>Blocks</p>
+                      <p style={{ lineHeight: "1.2" }}>Blocks</p>
                     </Button>
                   </Col>
                   {/* <Col span={5}>
@@ -221,6 +243,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   </Col> */}
                   <Col span={6}>
                     <Button
+                      style={{ height: "50px" }}
                       className={
                         marker == "Schools" ? "navButtonSelected" : "navButton"
                       }
@@ -229,13 +252,13 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                         setMarker("Schools");
                       }}
                     >
-                      Schools
+                      <p style={{ lineHeight: "1.2" }}>Schools</p>
                     </Button>
                   </Col>
                 </Row>
                 <Row>
                   <Col span={24}>
-                    <div style={{ width: "100%" }}>
+                    <div style={{ width: "100%"}}>
                       <MapComponent
                         at={selected}
                         config={config}
@@ -283,7 +306,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={102}
                   width="100%"
-                  height="1231"
+                  height="1412"
                 />
                 <div className="navButtonSelected">
                   <p>Districts with highest jump in scores</p>
@@ -305,10 +328,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <QuestionWithIframe
                   questionId={103}
                   width="100%"
-                  height="700"
+                  height="703"
                 />
                 <div className="navButtonSelected">
-                  <p>Districts with highest fall in scores</p>
+                  <p style={{ lineHeight: "3.1" }}>
+                    Districts with highest fall in scores
+                  </p>
                 </div>
               </Col>
               <Col>

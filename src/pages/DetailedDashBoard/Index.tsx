@@ -88,48 +88,54 @@ const DetailedDashboard: FC = () => {
                     View Detailed Dashboards
                   </b>
                 </div>
-                <div style={{display:'flex',flexDirection:'column'}}>
-                <Button className="DetailsButton">
-                  <Row
-                    onClick={() => {
-                      history.push("/detailed-academic");
-                    }}
-                    style={{ display: "flex" }}
-                  >
-                    <Col span={3}>
-                      <img src={AcademicKPI} alt="" />
-                    </Col>
-                    <Col className="responsiveHeader" offset={4}>Academic KPIs</Col>
-                  </Row>
-                </Button>
-                <Button className="DetailsButton">
-                  <Row
-                    onClick={() => {
-                      history.push("/detailed-administrative");
-                    }}
-                    style={{ display: "flex" }}
-                  >
-                    <Col span={3}>
-                      <img src={AdministrativeKPI} alt="" />
-                    </Col>
-                    <Col className="responsiveHeader" offset={3}> Administrative KPIs</Col>
-                  </Row>
-                </Button>
-                <Button className="DetailsButton">
-                  {/*<Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>*/}
-                  <Row
-                    onClick={() => {
-                      window.location.href =
-                        "https://samarthhp-metabase.in/public/dashboard/4ccde962-8c7a-4be6-a5d3-1f5d8ff1b3aa?month=May";
-                    }}
-                    style={{ display: "flex" }}
-                  >
-                    <Col span={3}>
-                      <img src={ReviewMeetingScorecards} alt="" />
-                    </Col>
-                    <Col className="responsiveHeader" offset={1}>Review Meeting Scorecards</Col>
-                  </Row>
-                </Button>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Button className="DetailsButton">
+                    <Row
+                      onClick={() => {
+                        history.push("/detailed-academic");
+                      }}
+                      style={{ display: "flex" }}
+                    >
+                      <Col span={3}>
+                        <img src={AcademicKPI} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={4}>
+                        Academic KPIs
+                      </Col>
+                    </Row>
+                  </Button>
+                  <Button className="DetailsButton">
+                    <Row
+                      onClick={() => {
+                        history.push("/detailed-administrative");
+                      }}
+                      style={{ display: "flex" }}
+                    >
+                      <Col span={3}>
+                        <img src={AdministrativeKPI} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={3}>
+                        {" "}
+                        Administrative KPIs
+                      </Col>
+                    </Row>
+                  </Button>
+                  <Button className="DetailsButton">
+                    {/*<Row onClick={()=>{history.push('/administrative-kpis/review-meetings')}} style={{display:'flex'}}>*/}
+                    <Row
+                      onClick={() =>
+                        history.push("/link/ReviewMeetingsScorecards")
+                      }
+                      style={{ display: "flex" }}
+                    >
+                      <Col span={3}>
+                        <img src={ReviewMeetingScorecards} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={1}>
+                        Review Meeting Scorecards
+                      </Col>
+                    </Row>
+                  </Button>
                 </div>
                 {/* <div className="form-container">
                 <Input

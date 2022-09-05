@@ -49,31 +49,31 @@ const ReviewAndMonitoring: FC = () => (
 
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={63} width="100%" height="1200" />
-            <Button className="navButtonSelected">
-              <p>District-wise DRM Compliance</p>
-            </Button>
+            <QuestionWithIframe questionId={63} width="100%" height="1251" />
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.6'}}>District-wise DRM Compliance</p>
+            </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={69} width="100%" height="1200" />
-            <Button className="navButtonSelected">
-              <p>District-wise BRM Compliance</p>
-            </Button>
+            <QuestionWithIframe questionId={69} width="100%" height="1270" />
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>District-wise BRM Compliance</p>
+            </div>
           </Col>
           <Col span={24}>
-            <QuestionWithIframe questionId={71} width="100%" height="1508" />
-            <Button className="navButtonSelected">
-              <p>District-wise CRM Compliance</p>
-            </Button>
+            <QuestionWithIframe questionId={71} width="100%" height="1578" />
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>District-wise CRM Compliance</p>
+            </div>
           </Col>
         </Row>
 
         <Row>
           <Col span={24}>
             <QuestionWithIframe questionId={72} width="100%" height="600" />
-            <Button className="navButtonSelected">
-              <p>Month-wise Review Meeting Compliance</p>
-            </Button>
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>Month-wise Review Meeting Compliance</p>
+            </div>
           </Col>
         </Row>
         <Row></Row>
@@ -103,15 +103,15 @@ const ReviewAndMonitoring: FC = () => (
               height="1200"
               params={{ Quarter: [3] }}
             />
-            <Button className="navButtonSelected">
-              <p>District-wise BRCC Visits</p>
-            </Button>
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>District-wise BRCC Visits</p>
+            </div>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={77} width="100%" height="1200" />
-            <Button className="navButtonSelected">
-              <p>District-wise CRCC Visits</p>
-            </Button>
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.5'}}>District-wise CRCC Visits</p>
+            </div>
           </Col>
         </Row>
       </Col>

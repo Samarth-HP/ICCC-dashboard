@@ -64,4 +64,6 @@
 }
 .ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
   border-radius: 80px;
+  height: 50px;
+  font-size: 25px;
 }

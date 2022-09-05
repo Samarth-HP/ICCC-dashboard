@@ -17,7 +17,7 @@ import DetailedDashboard from './pages/DetailedDashBoard/Index';
 import AcademicPage from './pages/DetailedDashBoard/AcademicPage';
 import AdminKPIPage from './pages/DetailedDashBoard/AdminKPIPage';
 import ReviewMeeting from './pages/Review Meetings';
-import Mentoring from './pages/DetailedDashBoard/iframeLink';
+import IframeLink from './pages/DetailedDashBoard/IframeLink';
 
 export const IframeContextContext = React.createContext({
     updateHasFirstIframeLoaded: null,
@@ -44,7 +44,7 @@ const App: FC = () => {
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/education-dashboard" component={EducationDashboard}/>
                     <Route exact path="/detailed-dashboard" component={DetailedDashboard}/>
-                    <Route exact path="/mentoring" component={Mentoring}/>
+                    <Route exact path="/link/:name" component={IframeLink}/>
                     <Route exact path="/detailed-academic" component={AcademicPage}/>
                     <Route exact path="/detailed-administrative" component={AdminKPIPage}/>
                     <Route exact path="/administrative-kpis/review-meetings" component={ReviewMeeting}/>

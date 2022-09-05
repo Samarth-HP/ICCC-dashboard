@@ -411,7 +411,7 @@ export default function MapComponent({
         center={center}
         zoom={8}
         maxZoom={18}
-        style={{ height: "40vh" }}
+        style={{ width:'100%',height: "100vh" }}
         zoomControl={config.map.zoomControl}
         scrollWheelZoom={config.map.scrollWheelZoom}
         dragging={config.map.dragging}
@@ -547,7 +547,7 @@ export default function MapComponent({
             display: config.legend.display ? "flex" : "none",
             width: "100%",
             marginTop:'10px',
-            flexDirection: "column",
+            // flexDirection: "column",
             justifyContent:
               config.legend.position.split("-")[1] == "right"
                 ? "flex-end"
@@ -565,14 +565,13 @@ export default function MapComponent({
                 <div
                   style={{
                     display: "flex",
-
                     width: "50px",
-                    height: 20,
+                    height: 25,
                     backgroundColor: item.color,
                     padding: "0px",
                   }}
                 />
-                <label style={{ ...item, color: "black" }}>{item.label}</label>
+                <label style={{ ...item, color: "black",fontSize:'30px' }}>{item.label}</label>
               </div>
             );
           })}
