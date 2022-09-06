@@ -141,120 +141,148 @@ async function getBlockAttendanceBoundary(params: any) {
 
 async function getStudentAssesmentBlock1Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_assessment_4to8", params);
+  return await instance.post("/query/block_assessment_4to8", params);
 }
 
 async function getStudentAssesmentBlock2Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_sa1_4to8", params);
+  return await instance.post("/query/block_sa1_4to8", params);
 }
 async function getStudentAssesmentBlock3Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_sa2_4to8", params);
+  return await instance.post("/query/block_sa2_4to8", params);
 }
 async function getStudentAssesmentBlock4Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_assessment_change_4to8", params);
+  return await instance.post("/query/block_assessment_change_4to8", params);
 }
 async function getStudentAssesmentBlock5Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_assessment_gradewise_4to8", params);
+  return await instance.post("/query/block_assessment_gradewise_4to8", params);
 }
 
 async function getStudentAssesmentDistrict1Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_assessment_4to8", params);
+  return await instance.post("/query/district_assessment_4to8", params);
 }
 
 async function getStudentAssesmentDistrict2Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_sa1_4to8", params);
+  return await instance.post("/query/district_sa1_4to8", params);
 }
 
 async function getStudentAssesmentDistrict3Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_sa2_4to8", params);
+  return await instance.post("/query/district_sa2_4to8", params);
 }
 
 async function getStudentAssesmentDistrict4Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_assessment_change_4to8", params);
+  return await instance.post("/query/district_assessment_change_4to8", params);
 }
 
 async function getStudentAssesmentDistrict5Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_assessment_gradewise_4to8", params);
+  return await instance.post(
+    "/query/district_assessment_gradewise_4to8",
+    params
+  );
 }
 
 async function getStudentAssesmentSchool1Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_assessment_4to8", params);
+  return await instance.post("/query/school_assessment_4to8", params);
 }
 
 async function getStudentAssesmentSchool2Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_sa1_4to8", params);
+  return await instance.post("/query/school_sa1_4to8", params);
 }
 
 async function getStudentAssesmentSchool3Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_sa2_4to8", params);
+  return await instance.post("/query/school_sa2_4to8", params);
 }
 
 async function getStudentAssesmentSchool4Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_assessment_change_4to8", params);
+  return await instance.post("/query/school_assessment_change_4to8", params);
 }
 
 async function getStudentAssesmentSchool5Grade48(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_assessment_gradewise_4to8", params);
+  return await instance.post("/query/school_assessment_gradewise_4to8", params);
 }
 // 4-8 end
 
 // 1-3 start
 async function getStudentAssesmentBlock1Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_enrolment_1to3", params);
+  return await instance.post("/query/block_assessment_1to3", params);
 }
 
 async function getStudentAssesmentBlock2Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/block_nipun", params);
+  return await instance.post("/query/block_enrolment_1to3", params);
 }
 async function getStudentAssesmentBlock3Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_grade_nipun", params);
+  return await instance.post("/query/block_sa1_1to3", params);
+}
+async function getStudentAssesmentBlock4Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/block_sa2_1to3", params);
+}
+async function getStudentAssesmentBlock5Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/block_nipun", params);
 }
 
 async function getStudentAssesmentDistrict1Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_enrolment_1to3", params);
+  return await instance.post("/query/district_assessment_1to3", params);
 }
 
 async function getStudentAssesmentDistrict2Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_nipun", params);
+  return await instance.post("/query/district_enrolment_1to3", params);
 }
 
 async function getStudentAssesmentDistrict3Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/district_grade_nipun", params);
+  return await instance.post("/query/district_sa1_1to3", params);
+}
+async function getStudentAssesmentDistrict4Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/district_sa2_1to3", params);
+}
+
+async function getStudentAssesmentDistrict5Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/district_nipun", params);
 }
 
 async function getStudentAssesmentSchool1Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_enrolment_1to3", params);
+  return await instance.post("/query/school_assessment_1to3", params);
 }
 
 async function getStudentAssesmentSchool2Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_nipun", params);
+  return await instance.post("/query/school_enrolment_1to3", params);
 }
 
 async function getStudentAssesmentSchool3Grade13(params: any) {
   const instance = getPublicInstance();
-  return instance.post("/query/school_grade_nipun", params);
+  return await instance.post("/query/school_sa1_1to3", params);
+}
+async function getStudentAssesmentSchool4Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/school_sa2_1to3", params);
+}
+async function getStudentAssesmentSchool5Grade13(params: any) {
+  const instance = getPublicInstance();
+  return await instance.post("/query/school_nipun", params);
 }
 
 // 1-3 end
@@ -309,12 +337,18 @@ const API_SERVICE = {
   getStudentAssesmentBlock1Grade13,
   getStudentAssesmentBlock2Grade13,
   getStudentAssesmentBlock3Grade13,
+  getStudentAssesmentBlock4Grade13,
+  getStudentAssesmentBlock5Grade13,
   getStudentAssesmentDistrict1Grade13,
   getStudentAssesmentDistrict2Grade13,
   getStudentAssesmentDistrict3Grade13,
+  getStudentAssesmentDistrict4Grade13,
+  getStudentAssesmentDistrict5Grade13,
   getStudentAssesmentSchool1Grade13,
   getStudentAssesmentSchool2Grade13,
   getStudentAssesmentSchool3Grade13,
+  getStudentAssesmentSchool4Grade13,
+  getStudentAssesmentSchool5Grade13,
 
   login,
   self,

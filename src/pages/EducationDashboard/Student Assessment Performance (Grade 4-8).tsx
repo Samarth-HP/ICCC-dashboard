@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Divider, Image, Select } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -17,8 +17,8 @@ import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import { Button } from "antd/lib/radio";
 import MapComponent from "../../components/MapComponent/MapComponent.jsx";
-import config from "./config.json";
 import { useHistory } from "react-router-dom";
+import parameters from "../../services/parameters";
 
 const sample_data = {
   schools: {
@@ -33,59 +33,42 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [selected, setSelected] = useState("SA1");
   const [marker, setMarker] = useState("Districts");
+  const [config, setConfig] = useState([]);
+  const getConfig = () => {
+    if (config.length) {
+      return;
+    }
+
+    fetch(parameters?.BaseUrl + "educationDashboardConfig.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (configJson) {
+        setConfig(configJson);
+      });
+  };
   const onButtonClick = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setSelectedButton(id);
   };
   const onSetMarker = (id: any) => {
-    console.log(id);
+    // console.log(id);
     setMarker(id);
   };
+  useEffect(() => {
+    getConfig();
+    props.getMarkerData("Districts");
+  }, []);
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
           <Col span={9}>
-            <Row>
-              {/* <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 1 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(1);
-                  }}
-                >
-                  Student Assessment Performance (Grade 4-8)
-                </Button>
-              </Col>
-              <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 2 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(2);
-                  }}
-                >
-                  Student Assessment Performance (Grade 1-3)
-                </Button>
-              </Col>
-              <Col
-                span={8}
-                onClick={() => {
-                  onButtonClick(3);
-                }}
-              >
-                <Button
-                  className={
-                    selectedButton == 3 ? "navButtonSelected" : "navButton"
-                  }
-                >
-                  Administrative Overview
-                </Button>
-              </Col> */}
-            </Row>
             <Row>
               <div style={{ display: "flex" }}>
                 <QuestionWithIframe
@@ -187,37 +170,30 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={3}>
-                    {/* <Select
-                      className="forSelect"
-                      onSelect={(e: any) => setSelected(e)}
-                      defaultValue={"SA1"}
-                      style={{ width: "100%" }}
-                    > 
-                    
+                    <Select
+                        className="forSelect"
+                        onSelect={(e: any) => {
+                          setSelected(e);
+                          props.setSelectedAssessment(e);
+                        }}
+                        defaultValue={"SA1"}
+                        style={{ width: "100%" }}
+                    >
                       <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
                       <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
-                
-                    </Select> */}
-                    <select
-                      className="forSelect"
-                      onSelect={(e: any) => setSelected(e)}
-                      defaultValue={"SA1"}
-                    >
-                      <option value={"SA1"}>{"SA-1"}</option>
-                      <option value={"SA2"}>{"SA-2"}</option>
-                    </select>
+                    </Select>
                   </Col>
-                  <Col span={7}>
+                  <Col span={6}>
                     <Button
-                      style={{ height: "50px" }}
-                      className={
-                        marker == "Districts"
-                          ? "navButtonSelected"
-                          : "navButton"
-                      }
-                      onClick={() => {
-                        setMarker("Districts");
-                      }}
+                        className={
+                          marker == "Districts"
+                              ? "navButtonSelected"
+                              : "navButton"
+                        }
+                        onClick={() => {
+                          props.getMarkerData("Districts");
+                          setMarker("Districts");
+                        }}
                     >
                       <p style={{ lineHeight: "1.2" }}>Districts</p>
                     </Button>
@@ -225,13 +201,13 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   <Col span={7}>
                     <Button
                       style={{ height: "50px" }}
-                      className={
-                        marker == "Blocks" ? "navButtonSelected" : "navButton"
-                      }
-                      onClick={() => {
-                        props.getMarkerData("Blocks");
-                        setMarker("Blocks");
-                      }}
+                        className={
+                          marker == "Blocks" ? "navButtonSelected" : "navButton"
+                        }
+                        onClick={() => {
+                          props.getMarkerData("Blocks");
+                          setMarker("Blocks");
+                        }}
                     >
                       <p style={{ lineHeight: "1.2" }}>Blocks</p>
                     </Button>
