@@ -144,25 +144,27 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         <Row>
           <Col span={24}>
             <QuestionWithIframe questionId={30} width="100%" height="550" />
-            <Button className="navButtonSelected">
+            <div className="navButtonSelected">
               <p>Category Wise Number of Schools</p>
-            </Button>
-          </Col>
-        </Row>
-        <Row>
-        <Col span={24}>
-            <QuestionWithIframe questionId={32} width="100%" height="610" />
-            <Button className="navButtonSelected">
-              <p>Session wise Number of Schools</p>
-            </Button>
+            </div>
           </Col>
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={61} width="100%" height="500" />
-            <Button className="navButtonSelected">
-              <p>District wise, Category wise, Number of Schools</p>
-            </Button>
+            <QuestionWithIframe questionId={32} width="100%" height="610" />
+            <div className="navButtonSelected">
+              <p style={{ lineHeight: "2.6" }}>
+                Session wise Number of Schools
+              </p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <QuestionWithIframe questionId={61} width="100%" height="626" />
+            <div className="navButtonSelected">
+              <p style={{lineHeight:'2.6'}}>District wise, Category wise, Number of Schools</p>
+            </div>
           </Col>
         </Row>
         <Row style={{ display: "flex" }}>
@@ -172,25 +174,29 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={38} width="100%" height="608" />
+            <QuestionWithIframe questionId={38} width="100%" height="609" />
             <div className="navButtonSelected">
               {/* Enrolment slab wise school distribution */}
-              <p>District-wise Enrolment by Level of Education</p>
+              <p style={{ lineHeight: "2.5" }}>
+                District-wise Enrolment by Level of Education
+              </p>
             </div>
           </Col>
         </Row>
         <Row>
           <Col span={24}>
-            <QuestionWithIframe questionId={35} width="100%" height="638" />
+            <QuestionWithIframe questionId={35} width="100%" height="650" />
             <div className="navButtonSelected">
-              <p>Student Enrolment by Level of Education</p>
+              <p style={{ lineHeight: "2.5" }}>
+                Student Enrolment by Level of Education
+              </p>
             </div>
           </Col>
         </Row>
 
         <Row style={{ display: "flex" }}>
           <Col style={{ display: "flex" }} span={12}>
-            <Col >
+            <Col>
               <img src={boyIcon} alt="" />
             </Col>
             <Col span={18}>
@@ -202,7 +208,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               />
             </Col>
           </Col>
-          <Col style={{ display: "flex"}} span={12}>
+          <Col style={{ display: "flex" }} span={12}>
             <Col>
               <img src={girlIcon} alt="" />
             </Col>
@@ -219,24 +225,30 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row style={{ display: "flex" }}>
           <Col span={12}>
-            <QuestionWithIframe questionId={43} width="100%" height="600" />
-            <Button className="navButtonSelected">
-              <p>Pupil-Teacher ratio across level of education</p>
-            </Button>
+            <QuestionWithIframe questionId={43} width="100%" height="1200" />
+            <div className="navButtonSelected">
+              <p style={{ lineHeight: "2.5" }}>
+                Pupil-Teacher ratio across level of education
+              </p>
+            </div>
           </Col>
           <Col span={12}>
-            <QuestionWithIframe questionId={53} width="100%" height="600" />
-            <Button className="navButtonSelected">
-              <p>Grade-wise Enrolment distribution</p>
-            </Button>
+            <QuestionWithIframe questionId={53} width="100%" height="1200" />
+            <div className="navButtonSelected">
+              <p style={{ lineHeight: "2.5" }}>
+                Grade-wise Enrolment distribution
+              </p>
+            </div>
           </Col>
         </Row>
         <Row>
           <Col span={24}>
             <QuestionWithIframe questionId={54} width="100%" height="600" />
-            <Button className="navButtonSelected">
-              <p>Stream-wise Enrolment distribution</p>
-            </Button>
+            <div className="navButtonSelected">
+              <p style={{ lineHeight: "2.5" }}>
+                Stream-wise Enrolment distribution
+              </p>
+            </div>
           </Col>
         </Row>
         <Row>
@@ -248,6 +260,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           </Col> */}
           <Col span={6}>
             <Button
+              style={{ height: "50px" }}
               className={
                 marker == "Districts" ? "navButtonSelected" : "navButton"
               }
@@ -256,18 +269,19 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 setMarker("Districts");
               }}
             >
-              Districts
+              <p style={{ lineHeight: "1.2" }}>Districts</p>
             </Button>
           </Col>
           <Col span={6}>
             <Button
+              style={{ height: "50px" }}
               className={marker == "Blocks" ? "navButtonSelected" : "navButton"}
               onClick={() => {
                 props.getMarkerData("Blocks");
                 setMarker("Blocks");
               }}
             >
-              Blocks
+              <p style={{ lineHeight: "1.2" }}>Blocks</p>
             </Button>
           </Col>
           {/* <Col span={5}>
@@ -285,6 +299,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           </Col> */}
           <Col span={6}>
             <Button
+              style={{ height: "50px" }}
               className={
                 marker == "Schools" ? "navButtonSelected" : "navButton"
               }
@@ -293,11 +308,12 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 setMarker("Schools");
               }}
             >
-              Schools
+              <p style={{ lineHeight: "1.2" }}>Schools</p>
             </Button>
           </Col>
           <Col span={6}>
             <Search
+             
               //@ts-ignore
               onSearch={(val: any) => {
                 handleSearchByUDISE(val);

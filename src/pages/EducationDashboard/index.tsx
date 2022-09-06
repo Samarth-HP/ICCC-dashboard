@@ -48,7 +48,6 @@ const EducationPortal: FC = () => {
   };
 
   const formatMarkerData = (data: any) => {
-    //
     const formattedData = data
       // .filter((item: any, index: number) => index <= 20000)
       .map((item: any, index: number) => {
@@ -331,11 +330,24 @@ const EducationPortal: FC = () => {
                 </Button>
               </div>
               <div>
-                <Select className="forSelect" defaultValue={"2022-2023"}>
+                {/* <Select className="forSelect" defaultValue={"2022-2023"}>
                   <Select.Option value={"2022-2023"}>
                     {"2022-2023"}
                   </Select.Option>
-                </Select>
+                </Select> */}
+                <select className="forSelect" defaultValue={"2022-2023"}>
+                  <option value={"2022-2023"}>2022-2023</option>
+                </select>
+              </div>
+              <div style={{ marginLeft: "55px" }}>
+                <Button
+                  style={{ height: "40px", cursor: "pointer" }}
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                >
+                  <span style={{ fontSize: "25px" }}>Log Out</span>
+                </Button>
               </div>
             </Col>
           </Row>
@@ -353,7 +365,6 @@ const EducationPortal: FC = () => {
                 <StudentAssessmentPerformanceGrade4_8
                   markerData={markerData}
                   getMarkerData={getMarkerData}
-                  setSelectedAssessment={setSelectedAssessment}
                 />
               </Col>
             )}

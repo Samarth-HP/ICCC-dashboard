@@ -11,17 +11,17 @@ import DesktopLayout from "./components/layouts/DesktopLayout";
 import LayoutWithSidebar from "./components/layouts/LayoutWithSidebar";
 import DashboardHeader from './components/layouts/DashboardHeader';
 import Login from "./pages/Login";
-import EducationPortal from './pages/EducationDashboard';
-import EducationDashboard from './pages/EducationDashboard/dashboard';
-import DetailedDashboard from './pages/DetailedDashBoard/Index';
-import AcademicPage from './pages/DetailedDashBoard/AcademicPage';
-import AdminKPIPage from './pages/DetailedDashBoard/AdminKPIPage';
-import ReviewMeeting from './pages/Review Meetings';
-import Mentoring from './pages/DetailedDashBoard/iframeLink';
+import EducationPortal from "./pages/EducationDashboard";
+import EducationDashboard from "./pages/EducationDashboard/dashboard";
+import DetailedDashboard from "./pages/DetailedDashBoard/Index";
+import AcademicPage from "./pages/DetailedDashBoard/AcademicPage";
+import AdminKPIPage from "./pages/DetailedDashBoard/AdminKPIPage";
+import ReviewMeeting from "./pages/Review Meetings";
+import FrameLink from "./pages/DetailedDashBoard/FrameLink";
 
 export const IframeContextContext = React.createContext({
-    updateHasFirstIframeLoaded: null,
-    hasFirstIframeLoaded: null
+  updateHasFirstIframeLoaded: null,
+  hasFirstIframeLoaded: null
 } as any);
 
 const App: FC = () => {
@@ -34,7 +34,7 @@ const App: FC = () => {
                     const registration = await navigator.serviceWorker.register("/sw.js", {
                         scope: "/",
                     });
-        
+
                     if (registration.installing) {
                         console.log("Service worker installing");
                     } else if (registration.waiting) {
@@ -56,31 +56,51 @@ const App: FC = () => {
         setHasFirstIframeLoaded(v);
     }
 
-    return <div className="App">
-        <IframeContextContext.Provider value={{hasFirstIframeLoaded, updateHasFirstIframeLoaded}}>
-            <Router>
-                {/*<Header/>*/}
-                {<DashboardHeader/>}
-                <Switch>
-                    <Route exact path="/login" component={Login}/>
-                    <Route exact path="/education-dashboard" component={EducationDashboard}/>
-                    <Route exact path="/detailed-dashboard" component={DetailedDashboard}/>
-                    <Route exact path="/mentoring" component={Mentoring}/>
-                    <Route exact path="/detailed-academic" component={AcademicPage}/>
-                    <Route exact path="/detailed-administrative" component={AdminKPIPage}/>
-                    <Route exact path="/administrative-kpis/review-meetings" component={ReviewMeeting}/>
-                    
-                    <Route exact path="/" component={EducationPortal}/>
-                    <LayoutWithSidebar path={'/'} component={DesktopLayout}/>
-                    <Redirect
-                        to={{
-                            pathname: '/login',
-                        }}
-                    />
-                </Switch>
-            </Router>
-        </IframeContextContext.Provider>
+  return (
+    <div className="App">
+      <IframeContextContext.Provider
+        value={{ hasFirstIframeLoaded, updateHasFirstIframeLoaded }}
+      >
+        <Router>
+          {/*<Header/>*/}
+          {<DashboardHeader />}
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route
+              exact
+              path="/education-dashboard"
+              component={EducationDashboard}
+            />
+            <Route
+              exact
+              path="/detailed-dashboard"
+              component={DetailedDashboard}
+            />
+            <Route exact path="/link/:name" component={FrameLink} />
+            <Route exact path="/detailed-academic" component={AcademicPage} />
+            <Route
+              exact
+              path="/detailed-administrative"
+              component={AdminKPIPage}
+            />
+            <Route
+              exact
+              path="/administrative-kpis/review-meetings"
+              component={ReviewMeeting}
+            />
+
+            <Route exact path="/" component={EducationPortal} />
+            <LayoutWithSidebar path={"/"} component={DesktopLayout} />
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          </Switch>
+        </Router>
+      </IframeContextContext.Provider>
     </div>
+  );
 };
 
 export default App;

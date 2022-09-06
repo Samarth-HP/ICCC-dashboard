@@ -17,7 +17,7 @@ import TeacherPerformance from "../../assets/TeacherPerformance.svg";
 import StudentLearning from "../../assets/StudentLearning.svg";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import Login_Img from "../../assets/Login_Img.png";
-import MentoringPage from "./iframeLink";
+import IframeLink from "./FrameLink";
 import Side_Img from "../../assets/image 135.png";
 import { useHistory } from "react-router-dom";
 
@@ -26,6 +26,7 @@ const AcademicPage: FC = () => {
   const goBack = () => {
     history.push("/detailed-dashboard");
   };
+  const [showLink, setShowLink] = useState(0);
   return (
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ backgroundColor: "#FFFFFF" }}>
@@ -99,25 +100,35 @@ const AcademicPage: FC = () => {
                
                
                </Button>*/}
-                 <div style={{display:'flex',flexDirection:'column'}}>
-                <Button className="DetailsButton" onClick={()=>history.push('/mentoring')} >
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={Mentoring}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={6}>Mentoring</Col>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/mentoring")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={Mentoring} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={6}>
+                        Mentoring
+                      </Col>
                     </Row>
-                </Button>
-                <Button className="DetailsButton" onClick={() => {window.location.href='https://samarthhp-metabase.in/public/dashboard/9d384c44-561c-4191-9022-c8ed5397d9a2'}}>
-                  <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={TeacherTraining}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={4}>Teacher Training</Col>
+                  </Button>
+
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/teacherTraining")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={TeacherTraining} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={4}>
+                        Teacher Training
+                      </Col>
                     </Row>
-                </Button>
+                  </Button>
                 </div>
                 {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
                    <Row style={{display:'flex'}}>

@@ -37,9 +37,24 @@
   color: #6e642e;
   font-weight: bold;
 }
-.forSelect.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+/* .forSelect.ant-select:not(.ant-select-customize-input) .ant-select-selector {
   color: black;
   background-color: white;
+  height: 47px;
+} */
+.forSelect{
+  color: black;
+  background-color: white;
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.ant-select-selection-item{
+  font-size: 25px;
+  margin-top: 6px;
 }
 .tile {
   width: 220px;
@@ -51,6 +66,7 @@
   height: 100px;
   width: 100px;
 }
+
 .navButton,
 .navButtonSelected {
   font-size: 10px;
@@ -63,7 +79,10 @@
   color: #fff;
 }
 .navButtonSelected p {
-  font-size: 16px;
+  font-size: 32px;
+}
+.navButton p {
+  font-size: 32px;
 }
 .refrences {
   color: #014c3d;
@@ -77,9 +96,9 @@
   background-color: rgba(196, 196, 196, 0.15);
   color: #014c3d;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
 }
-.District-wise-div {
+/* .District-wise-div {
   text-align: center;
   padding: 12px;
   background-color: rgba(196, 196, 196, 0.15);
@@ -94,5 +113,7 @@
   color: #fff;
   font-size: 9px;
   margin-right: 5px;
-}
+} */
+
+
 
