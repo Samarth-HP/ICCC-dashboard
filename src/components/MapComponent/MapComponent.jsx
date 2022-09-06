@@ -618,35 +618,36 @@ export default function MapComponent({
                           <p>{toolTipData?.GradeWiseavgResult?.label}</p>
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade1?.label}
-                          </span>
+                          </span>{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade1?.value ||
                               "NA"}
                           </span>{" "}
-                          |
+                          |{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade2?.label}
-                          </span>
+                          </span>{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade2?.value ||
                               "NA"}
                           </span>{" "}
-                          |
+                          |{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade3?.label}
-                          </span>
+                          </span>{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade3?.value ||
                               "NA"}
                           </span>{" "}
-                          |
+                          |{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade4?.label}
-                          </span>
+                          </span>{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade4?.value ||
                               "NA"}
-                          </span>
+                          </span>{" "}
+                          |{" "}
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade5?.label}
                           </span>

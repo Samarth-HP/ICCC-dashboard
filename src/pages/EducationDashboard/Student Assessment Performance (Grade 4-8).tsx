@@ -185,6 +185,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                           : "navButton"
                       }
                       onClick={() => {
+                        props.getMarkerData("Districts");
                         setMarker("Districts");
                       }}
                     >
