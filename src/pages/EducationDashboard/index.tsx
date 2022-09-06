@@ -242,7 +242,7 @@ const EducationPortal: FC = () => {
     // formatMarkerData(data.data.rows);
     formatMarkerData(dataWithHexCode);
 
-    console.log(dataWithHexCode, "data with hex");
+    // console.log(dataWithHexCode, "data with hex");
   };
 
   useEffect(() => {

@@ -1,14 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  Polygon,
-  SVGOverlay,
-  Circle,
-} from "react-leaflet";
-import { MenuOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
 import MapBound from "./MapBound";
@@ -20,8 +11,8 @@ import blue_marker from "../../assets/Map_marker_blue.svg";
 import purple_marker from "../../assets/Map_marker_purple.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
 import district_marker from "../../assets/Map_Marker_District.svg";
-import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
+import { Spin } from "antd";
 
 const default_toolTipData = {
   Attendance: "NA",
@@ -39,7 +30,6 @@ export default function MapComponent({
 }) {
   const eventHandlers = () => ({
     click() {
-      // console.log("CLicked");
       getToolTipData();
     },
   });
@@ -49,7 +39,6 @@ export default function MapComponent({
   const byBbox = config.bounds?.byBbox?.length;
   const [toolTipData, setToolTipData] = useState(default_toolTipData);
 
-  console.log(markers, "markers");
   const tempBounds = [
     [76.715049743652401, 31.588310241699446],
     [76.716567993164119, 31.585119247436467],
@@ -138,14 +127,6 @@ export default function MapComponent({
   };
   // type default 1 end
 
-  const getStudentAssesmentDistrict1Grade48 = async (val) => {
-    const params = {
-      district: val,
-      assessment_type_v2: at,
-    };
-    return await API_SERVICE.getStudentAssesmentDistrict1Grade48(params);
-  };
-
   const getStudentAssesmentDistrict2Grade48 = async (val) => {
     const params = {
       district: val,
@@ -177,13 +158,6 @@ export default function MapComponent({
     return await API_SERVICE.getStudentAssesmentDistrict5Grade48(params);
   };
 
-  const getStudentAssesmentBlock1Grade48 = async (val) => {
-    const params = {
-      block: val,
-      assessment_type_v2: at,
-    };
-    return await API_SERVICE.getStudentAssesmentBlock1Grade48(params);
-  };
   const getStudentAssesmentBlock2Grade48 = async (val) => {
     const params = {
       block: val,
@@ -214,13 +188,6 @@ export default function MapComponent({
     return await API_SERVICE.getStudentAssesmentBlock5Grade48(params);
   };
 
-  const getStudentAssesmentSchool1Grade48 = async (val) => {
-    const params = {
-      school_name: val,
-      assessment_type_v2: at,
-    };
-    return await API_SERVICE.getStudentAssesmentSchool1Grade48(params);
-  };
   const getStudentAssesmentSchool2Grade48 = async (val) => {
     const params = {
       school_name: val,
@@ -251,12 +218,6 @@ export default function MapComponent({
     return await API_SERVICE.getStudentAssesmentSchool5Grade48(params);
   };
 
-  const getStudentAssesmentBlock1Grade13 = async (val) => {
-    const params = {
-      assessment_type_v2: val,
-    };
-    return await API_SERVICE.getStudentAssesmentBlock1Grade13(params);
-  };
   const getStudentAssesmentBlock2Grade13 = async (val) => {
     const params = {
       block: val,
@@ -281,12 +242,6 @@ export default function MapComponent({
       block: val,
     };
     return await API_SERVICE.getStudentAssesmentBlock5Grade13(params);
-  };
-  const getStudentAssesmentDistrict1Grade13 = async (val) => {
-    const params = {
-      assessment_type_v2: val,
-    };
-    return await API_SERVICE.getStudentAssesmentDistrict1Grade13(params);
   };
 
   const getStudentAssesmentDistrict2Grade13 = async (val) => {
@@ -346,9 +301,10 @@ export default function MapComponent({
   };
   // type dynamic 2 end
 
-  const getToolTipData = async (district, block, school) => {
+  const getToolTipData = async (district, block, school, ay, at) => {
     const promiseArray = [];
     if (district) {
+      console.log(district);
       if (type === 2) {
         promiseArray.push(getStudentAssesmentDistrict2Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade48(district));
@@ -373,6 +329,7 @@ export default function MapComponent({
         promiseArray.push(getStudentAssesmentBlock5Grade13(block));
       }
     } else {
+      console.log(school);
       if (type === 2) {
         promiseArray.push(getStudentAssesmentSchool2Grade48(school));
         promiseArray.push(getStudentAssesmentSchool3Grade48(school));
@@ -389,31 +346,39 @@ export default function MapComponent({
     const resData = await Promise.all(promiseArray);
 
     if (resData) {
-      console.log(resData, "this is response data");
-      const processArray = async () => {
-        return resData.filter(
-          (item) => item?.data?.rows[0]?.academic_year === ay
-        );
+      const getProcessed = async () => {
+        return resData.filter((item) => item.data.rows.length)[0]?.data
+          ?.rows[0];
       };
-      const processed = await processArray();
-      if (processed) {
-        console.log(processed, "processed");
+
+      const data = await getProcessed();
+
+      if (data) {
+        console.log(data);
         if (type === 1) {
-          var data;
-          processed.forEach((item) => {
-            if (item.data.rows.length === 1) {
-              data = item?.data?.rows[0];
-            }
-          });
+          const {
+            per_AverageScore,
+            block,
+            school_name,
+            district,
+            total_students,
+          } = data;
           setToolTipData({
             color: "",
             type: 1,
-            district: { label: "District", value: data?.district },
+            district: { label: "District", value: district },
+            block: { label: "Block", value: block },
+            school: { label: "School", value: school_name },
+            per_AverageScore: {
+              label: "Percentage Average",
+              value: Math.round(per_AverageScore),
+            },
             totalStudentEnrolled: {
               label: "Total Student Enrolled",
-              value: null,
+              value: total_students,
             },
             SA1: { label: "SA 1 Result", value: null },
+            SA2: { label: "SA 2 Result", value: null },
             gradeWiseAvgResult: {
               label: "Grade Wise Average Results",
               grade1: { label: "Grade 1", value: null },
@@ -432,49 +397,25 @@ export default function MapComponent({
             },
           });
         } else if (type === 2) {
-          var obj = {
-            HexCodes: "#259EA6",
-            academic_year: "2021-2022",
-            assessment_type_v2: "SA1",
-            district: [],
-            per_AverageScore: [],
-          };
-          var data;
-          processed.forEach((item) => {
-            if (item.data.rows.length > 1) {
-              data = item?.data?.rows;
-            }
-          });
-
-          data.forEach((item) => {
-            obj = {
-              ...obj,
-              HexCodes: item?.HexCodes,
-              academic_year: item?.academic_year,
-              assessment_type_v2: item?.assessment_type_v2,
-              district: [...obj.district, item?.district],
-              per_AverageScore: [
-                ...obj.per_AverageScore,
-                item?.per_AverageScore,
-              ],
-            };
-          });
-
+          const { per_AverageScore, block, school_name, district } = data;
           setToolTipData({
             type: 2,
             academic_year: {
               label: "Academic Year",
-              value: obj?.academic_year,
+              value: ay,
             },
             percentage_average: {
               label: "Percentage Average",
-              value: obj?.per_AverageScore[0],
+              value: Math.round(per_AverageScore),
             },
             SA1: { label: "SA1 Result", valaue: null },
-            district: { label: "District", value: obj?.district },
+            SA2: { label: "SA2 Result", valaue: null },
+            district: { label: "District", value: district },
+            block: { label: "Block", value: block },
+            school: { label: "School", value: school_name },
             assesment_type: {
               label: "Assesment Type",
-              value: obj?.assessment_type_v2,
+              value: at,
             },
             GradeWiseavgResult: {
               label: "Grade Wise Average Result",
@@ -568,47 +509,41 @@ export default function MapComponent({
                         getToolTipData(
                           item?.district,
                           item?.block,
-                          item?.school
+                          item?.school,
+                          item?.ay,
+                          item?.at
                         );
                       }}
                     >
-                      {toolTipData.type == 2 ? (
-                        //         ype: 2,
-                        // academic_year: {
-                        //   label: "Academic Year",
-                        //   value: obj?.academic_year,
-                        // },
-                        // percentage_average: {
-                        //   label: "Percentage Average",
-                        //   value: obj?.per_AverageScore[0],
-                        // },
-                        // SA1: { label: "SA1 Result", valaue: null },
-                        // district: { label: "District", value: obj?.district },
-                        // assesment_type: {
-                        //   label: "Assesment Type",
-                        //   value: obj?.assessment_type_v2,
-                        // },
-                        // GradeWiseavgResult: {
-                        //   label: "Grade Wise Average Result",
-                        //   grade1: { label: "Grade 1", value: null },
-                        //   grade2: { label: "Grade 2", value: null },
-                        //   grade3: { label: "Grade 3", value: null },
-                        //   grade4: { label: "Grade 4", value: null },
-
+                      {toolTipData?.type == 2 ? (
                         <div>
                           <p>
-                            <span>
-                              {toolTipData?.district.value[0] || "NA"}
-                            </span>
+                            {toolTipData?.district.value ||
+                              toolTipData?.block.value ||
+                              toolTipData?.school.value ||
+                              "NA"}
                           </p>
-                          <p>
-                            <span> {toolTipData?.SA1?.label}</span> :{" "}
-                            <span>
-                              {toolTipData?.percentage_average?.value}
-                            </span>
-                          </p>
-                          <p>{toolTipData?.GradeWiseavgResult?.label}</p>
+                          <br />
                           <span>
+                            <span> {toolTipData?.SA1?.label}</span> :{" "}
+                            {toolTipData?.SA1?.value || "NA"}
+                          </span>
+                          <br />
+                          <span>
+                            <span> {toolTipData?.SA2?.label}</span> :{" "}
+                            {toolTipData?.SA2?.value || "NA"}
+                          </span>
+                          <br />
+                          <span>
+                            <span
+                              style={{
+                                fontWeight: "bold",
+                                textDecoration: "underline",
+                              }}
+                            >
+                              {toolTipData?.GradeWiseavgResult?.label}
+                            </span>
+                            <br />
                             {toolTipData?.GradeWiseavgResult?.grade1?.label}
                           </span>{" "}
                           <span>
@@ -630,8 +565,8 @@ export default function MapComponent({
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade3?.value ||
                               "NA"}
-                          </span>{" "}
-                          |{" "}
+                          </span>
+                          <br />
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade4?.label}
                           </span>{" "}
@@ -648,85 +583,110 @@ export default function MapComponent({
                               "NA"}
                           </span>
                         </div>
-                      ) : toolTipData.type == 1 ? (
+                      ) : toolTipData?.type == 1 ? (
                         <>
                           <div>
-                            <p>{toolTipData?.district?.value}</p>
-                            <p>
+                            <span>
+                              {toolTipData?.district?.value ||
+                                toolTipData?.block?.value ||
+                                toolTipData?.school?.value}
+                            </span>
+                            <br />
+                            <span>
                               <span>
                                 {toolTipData?.totalStudentEnrolled?.label}
                               </span>{" "}
                               :{" "}
-                              <span>
-                                {toolTipData?.totalStudentEnrolled?.value ||
-                                  "NA"}
-                              </span>
-                            </p>
-                            <p>
-                              <span>{toolTipData?.SA1?.label}</span> :{" "}
-                              <span>{toolTipData?.SA1?.value || "NA"}</span>
-                            </p>
-                            <p
+                              {toolTipData?.totalStudentEnrolled?.value || "NA"}
+                            </span>
+                            <br />
+                            <span>
+                              <span>{toolTipData?.SA1?.label} </span> :{" "}
+                              {" " + toolTipData?.SA1?.value || "NA"}
+                            </span>
+                            <br />
+                            <span>
+                              <span>{toolTipData?.SA2?.label} </span> :{" "}
+                              {" " + toolTipData?.SA2?.value || "NA"}
+                            </span>
+                            <br />
+                            <span
                               style={{
                                 textDecoration: "underline",
                                 fontWeight: "bold",
                               }}
                             >
                               {toolTipData?.gradeWiseAvgResult.label}
-                            </p>
+                            </span>
+                            <br />
                             <span>
                               {toolTipData?.gradeWiseAvgResult?.grade1?.label} :{" "}
                               {toolTipData?.gradeWiseAvgResult?.grade1?.value ||
                                 "NA"}
                             </span>{" "}
+                            |{" "}
                             <span>
                               {toolTipData?.gradeWiseAvgResult?.grade2?.label}:{" "}
                               {toolTipData?.gradeWiseAvgResult?.grade2?.value ||
                                 "NA"}
                             </span>{" "}
+                            |{" "}
                             <span>
                               {toolTipData?.gradeWiseAvgResult?.grade3?.label}:{" "}
                               {toolTipData?.gradeWiseAvgResult?.grade3?.value ||
                                 "NA"}
                             </span>
-                            <p>
-                              <span>{toolTipData?.nipunStudent?.label}</span> :{" "}
+                            <br />
+                            <span>
+                              <span
+                                style={{
+                                  textDecoration: "underline",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                {toolTipData?.nipunStudent?.label}
+                              </span>{" "}
+                              :{" "}
                               <span>
                                 {toolTipData?.nipunStudent?.value || "NA"}
                               </span>
-                            </p>
-                            <p
+                            </span>
+                            <br />
+                            <span
                               style={{
                                 textDecoration: "underline",
                                 fontWeight: "bold",
                               }}
                             >
                               {toolTipData?.gradeWiseNipunStudent.label}
-                            </p>
+                            </span>
+                            <br />
                             <span>
                               {
                                 toolTipData?.gradeWiseNipunStudent?.grade1
                                   ?.label
-                              }
+                              }{" "}
                               :{" "}
                               {toolTipData?.gradeWiseNipunStudent?.grade1
                                 ?.value || "NA"}
-                            </span>
+                            </span>{" "}
+                            |{" "}
                             <span>
                               {
                                 toolTipData?.gradeWiseNipunStudent?.grade2
                                   ?.label
-                              }
+                              }{" "}
                               :{" "}
                               {toolTipData?.gradeWiseNipunStudent?.grade2
                                 ?.value || "NA"}
-                            </span>
+                            </span>{" "}
+                            |{" "}
                             <span>
                               {
                                 toolTipData?.gradeWiseNipunStudent?.grade3
                                   ?.label
-                              }
-                              :
+                              }{" "}
+                              :{" "}
                               {toolTipData?.gradeWiseNipunStudent?.grade3
                                 ?.value || "NA"}
                             </span>
@@ -735,7 +695,7 @@ export default function MapComponent({
                         </>
                       ) : (
                         <>
-                          <div>
+                          {/* <div>
                             {item.district || item.block || item.school}
                           </div>
                           <div>
@@ -743,7 +703,10 @@ export default function MapComponent({
                           </div>
                           <div>CWSN: {toolTipData.CWSN || "NA"}</div>
                           <div>Enrollment: {toolTipData.Enrolment || "NA"}</div>
-                          <div>PTR: {toolTipData.PTR || "NA"}</div>
+                          <div>PTR: {toolTipData.PTR || "NA"}</div> */}
+                          <div>
+                            <Spin style={{ margin: "auto" }} />
+                          </div>
                         </>
                       )}
                     </Popup>
@@ -828,21 +791,6 @@ export default function MapComponent({
               </div>
             );
           })}
-
-          {/* <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "row-reverse",
-              width: "100%",
-              marginRight: "5px",
-              cursor: "pointer",
-            }}
-          >
-            <Popover placement="bottom" content={content} trigger="click">
-              <MenuOutlined />
-            </Popover>
-          </div> */}
         </div>
       )}
     </div>
