@@ -301,7 +301,12 @@ export default function MapComponent({
   };
   // type dynamic 2 end
 
+  const emptyToolTip = async () => {
+    setToolTipData(default_toolTipData);
+  };
+
   const getToolTipData = async (district, block, school, ay, at) => {
+    await emptyToolTip();
     const promiseArray = [];
     if (district) {
       console.log(district);
