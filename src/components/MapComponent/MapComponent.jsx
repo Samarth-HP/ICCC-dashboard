@@ -402,6 +402,7 @@ export default function MapComponent({
       };
       const processed = await processArray();
       if (processed) {
+        console.log(processed, "processed");
         if (type === 1) {
           var data;
           processed.forEach((item) => {
@@ -548,14 +549,14 @@ export default function MapComponent({
                 } else if (item.color == "purple") {
                   markerColor = purple_marker;
                 } else if (item.color == "district_marker") {
-                  console.log(item, "district color applied");
-                  markerColor = district_marker;
+                  // markerColor = district_marker;
+                  markerColor = red_marker;
                 } else if (item.color == "block_marker") {
-                  console.log(item, "block color applied");
-                  markerColor = district_marker;
+                  // markerColor = district_marker;
+                  markerColor = yellow_marker;
                 } else if (item.color == "school_marker") {
-                  console.log(item, "school color applied");
-                  markerColor = district_marker;
+                  // markerColor = district_marker;
+                  markerColor = green_marker;
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
