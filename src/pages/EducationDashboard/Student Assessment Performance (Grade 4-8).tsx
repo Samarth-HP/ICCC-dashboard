@@ -205,19 +205,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       <p>Blocks</p>
                     </Button>
                   </Col>
-                  {/* <Col span={5}>
-                    <Button
-                      className={
-                        marker == "Clusters" ? "navButtonSelected" : "navButton"
-                      }
-                      onClick={() => {
-                        props.getMarkerData("Districts");
-                        setMarker("Clusters");
-                      }}
-                    >
-                      Clusters
-                    </Button>
-                  </Col> */}
+
                   <Col span={6}>
                     <Button
                       className={

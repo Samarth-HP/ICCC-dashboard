@@ -54,7 +54,7 @@ const EducationPortal: FC = () => {
       .map((item: any, index: number) => {
         return {
           icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-          color: "purple",
+          color: item?.color ? item.color : "purple",
           tooltipCSS: {
             color: "#ff0000",
           },
@@ -85,17 +85,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.district === item.district;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "district_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       } else if (selectedButton == 1) {
         const assessmentData =
@@ -103,17 +109,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.district === item.district;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "district_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       }
     }
@@ -126,17 +138,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.block === item.block;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "block_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       } else if (selectedButton == 1) {
         const assessmentData =
@@ -144,17 +162,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.block === item.block;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "block_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       }
     }
@@ -167,17 +191,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.school_name === item.school_name;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "school_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       } else if (selectedButton == 1) {
         const assessmentData =
@@ -185,17 +215,23 @@ const EducationPortal: FC = () => {
             assessment_type_v2: selectedAssessment,
           });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.school_name === item.school_name;
-          })?.HexCodes;
-          if (filteredColor) {
-            if (filteredColor === "#259EA6") {
-              return { ...item, color: "school_marker" };
-            } else if (filteredColor === "#ff0000") {
-              return { ...item, color: "red" };
-            }
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
           }
-          return { ...item, color: "purple" };
+
+          return {
+            ...item,
+            color: "purple",
+          };
         });
       }
     }
@@ -205,6 +241,8 @@ const EducationPortal: FC = () => {
     }
     // formatMarkerData(data.data.rows);
     formatMarkerData(dataWithHexCode);
+
+    console.log(dataWithHexCode, "data with hex");
   };
 
   useEffect(() => {

@@ -350,13 +350,11 @@ export default function MapComponent({
     const promiseArray = [];
     if (district) {
       if (type === 2) {
-        promiseArray.push(getStudentAssesmentDistrict1Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict2Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict4Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict5Grade48(district));
       } else if (type === 1) {
-        promiseArray.push(getStudentAssesmentDistrict1Grade13(at));
         promiseArray.push(getStudentAssesmentDistrict2Grade13(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade13(district));
         promiseArray.push(getStudentAssesmentDistrict4Grade13(district));
@@ -364,13 +362,11 @@ export default function MapComponent({
       }
     } else if (block) {
       if (type === 2) {
-        promiseArray.push(getStudentAssesmentBlock1Grade48(block));
         promiseArray.push(getStudentAssesmentBlock2Grade48(block));
         promiseArray.push(getStudentAssesmentBlock3Grade48(block));
         promiseArray.push(getStudentAssesmentBlock4Grade48(block));
         promiseArray.push(getStudentAssesmentBlock5Grade48(block));
       } else if (type === 1) {
-        promiseArray.push(getStudentAssesmentBlock1Grade13(at));
         promiseArray.push(getStudentAssesmentBlock2Grade13(block));
         promiseArray.push(getStudentAssesmentBlock3Grade13(block));
         promiseArray.push(getStudentAssesmentBlock4Grade13(block));
@@ -378,13 +374,11 @@ export default function MapComponent({
       }
     } else {
       if (type === 2) {
-        promiseArray.push(getStudentAssesmentSchool1Grade48(school));
         promiseArray.push(getStudentAssesmentSchool2Grade48(school));
         promiseArray.push(getStudentAssesmentSchool3Grade48(school));
         promiseArray.push(getStudentAssesmentSchool4Grade48(school));
         promiseArray.push(getStudentAssesmentSchool5Grade48(school));
       } else if (type === 1) {
-        promiseArray.push(getStudentAssesmentSchool1Grade13(at));
         promiseArray.push(getStudentAssesmentSchool2Grade13(school));
         promiseArray.push(getStudentAssesmentSchool3Grade13(school));
         promiseArray.push(getStudentAssesmentSchool4Grade13(school));
@@ -395,6 +389,7 @@ export default function MapComponent({
     const resData = await Promise.all(promiseArray);
 
     if (resData) {
+      console.log(resData, "this is response data");
       const processArray = async () => {
         return resData.filter(
           (item) => item?.data?.rows[0]?.academic_year === ay
@@ -548,15 +543,12 @@ export default function MapComponent({
                   markerColor = green_marker;
                 } else if (item.color == "purple") {
                   markerColor = purple_marker;
-                } else if (item.color == "district_marker") {
-                  // markerColor = district_marker;
+                } else if (item.color == "#259EA6" || item.color == "#259ea6") {
+                  markerColor = district_marker;
+                } else if (item.color == "#FF0000" || item.color == "#ff0000") {
                   markerColor = red_marker;
-                } else if (item.color == "block_marker") {
-                  // markerColor = district_marker;
+                } else {
                   markerColor = yellow_marker;
-                } else if (item.color == "school_marker") {
-                  // markerColor = district_marker;
-                  markerColor = green_marker;
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
