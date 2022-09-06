@@ -36,26 +36,22 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
   const [config, setConfig] = useState([]);
   const getConfig = () => {
     if (config.length) {
-      return
+      return;
     }
 
-    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
-        , {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        }
-    )
-        .then(function (response) {
-
-          return response.json();
-        })
-        .then(function (configJson) {
-          setConfig(configJson)
-        });
-
-  }
+    fetch(parameters?.BaseUrl + "educationDashboardConfig.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (configJson) {
+        setConfig(configJson);
+      });
+  };
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
@@ -68,95 +64,63 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
     getConfig();
     props.getMarkerData("Districts");
   }, []);
-    return (
-        <Layout className={"layout-wrapper home-wrapper"}>
-            <Content style={{ padding: "10px" }}>
-                <Row>
-                    <Col span={9}>
-                        <Row>
-                            {/* <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 1 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(1);
-                  }}
-                >
-                  Student Assessment Performance (Grade 4-8)
-                </Button>
+  return (
+    <Layout className={"layout-wrapper home-wrapper"}>
+      <Content style={{ padding: "10px" }}>
+        <Row>
+          <Col span={9}>
+            <Row>
+              <div style={{ display: "flex" }}>
+                <QuestionWithIframe
+                  questionId={84}
+                  width="45%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={85}
+                  width="15%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={86}
+                  width="20%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={87}
+                  width="20%"
+                  height="300"
+                  nonDownloadable={true}
+                />
+              </div>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <div className="NIPUNheading">
+                  District-wise Assessment Performance (SA 1 & SA2)
+                </div>
               </Col>
-              <Col span={8}>
-                <Button
-                  className={
-                    selectedButton == 2 ? "navButtonSelected" : "navButton"
-                  }
-                  onClick={() => {
-                    onButtonClick(2);
-                  }}
-                >
-                  Student Assessment Performance (Grade 1-3)
-                </Button>
-              </Col>
-              <Col
-                span={8}
-                onClick={() => {
-                  onButtonClick(3);
-                }}
-              >
-                <Button
-                  className={
-                    selectedButton == 3 ? "navButtonSelected" : "navButton"
-                  }
-                >
-                  Administrative Overview
-                </Button>
-              </Col> */}
-                        </Row>
-                        <Row>
-                            <div style={{ display: "flex" }}>
-                                <QuestionWithIframe
-                                    questionId={84}
-                                    width="45%"
-                                    height="300"
-                                    nonDownloadable={true}
-                                />
-                                <QuestionWithIframe
-                                    questionId={85}
-                                    width="15%"
-                                    height="300"
-                                    nonDownloadable={true}
-                                />
-                                <QuestionWithIframe
-                                    questionId={86}
-                                    width="20%"
-                                    height="300"
-                                    nonDownloadable={true}
-                                />
-                                <QuestionWithIframe
-                                    questionId={87}
-                                    width="20%"
-                                    height="300"
-                                    nonDownloadable={true}
-                                />
-                            </div>
-                        </Row>
-                        <Row>
-                            <Col span={24}>
-                                <div className="NIPUNheading">
-                                    District-wise Assessment Performance (SA 1 & SA2)
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col span={12}>
-                <QuestionWithIframe questionId={97} width="100%" height="1607" />
+            </Row>
+            <Row>
+              <Col span={12}>
+                <QuestionWithIframe
+                  questionId={97}
+                  width="100%"
+                  height="1607"
+                />
                 <div className="navButtonSelected">
                   <p>Class-4</p>
                 </div>
               </Col>
               <Col span={12}>
-                <QuestionWithIframe questionId={98} width="100%" height="1607" />
+                <QuestionWithIframe
+                  questionId={98}
+                  width="100%"
+                  height="1607"
+                />
                 <div className="navButtonSelected">
                   <p>Class 5</p>
                 </div>
@@ -164,7 +128,11 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={12}>
-                <QuestionWithIframe questionId={99} width="100%" height="1380" />
+                <QuestionWithIframe
+                  questionId={99}
+                  width="100%"
+                  height="1380"
+                />
                 <div className="navButtonSelected">
                   <p>Class 6</p>
                 </div>
@@ -198,7 +166,10 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   <Col span={6}>
                     <Select
                       className="forSelect"
-                                            onSelect={(e: any) => {setSelected(e); props.setSelectedAssessment(e)}}
+                      onSelect={(e: any) => {
+                        setSelected(e);
+                        props.setSelectedAssessment(e);
+                      }}
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
                     >
@@ -604,40 +575,40 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
 };
 
 const Tile: FC = (props: any) => {
-    return (
-        <Card hoverable bordered className="card">
-            <Row gutter={20} align="middle">
-                <Col>
-                    <img alt={"broken"} src={props.thumbnail} className="thumbnail" />
-                </Col>
-                <Col>
-                    <Title level={3}>
-                        {props.titleEN}
-                        <div className="subtitle">{props.titleHI}</div>
-                    </Title>
-                </Col>
-            </Row>
-            <Divider dashed className="divider" />
-            <Title level={2}>
-                <div className="count">{props.count}</div>
-            </Title>
-            <Row gutter={20} justify="space-between">
-                {Object.keys(props.data).map((i, index) => (
-                    //@ts-ignore
-                    <Col key={index} align="middle">
-                        <b>{i}</b>
-                        <div>{props.data[i]}</div>
-                    </Col>
-                ))}
-            </Row>
-            <br />
-            <Row justify="end">
-                <NavLink to="/education-dashboard">
-                    <u>View More</u> <ArrowRightOutlined />
-                </NavLink>
-            </Row>
-        </Card>
-    );
+  return (
+    <Card hoverable bordered className="card">
+      <Row gutter={20} align="middle">
+        <Col>
+          <img alt={"broken"} src={props.thumbnail} className="thumbnail" />
+        </Col>
+        <Col>
+          <Title level={3}>
+            {props.titleEN}
+            <div className="subtitle">{props.titleHI}</div>
+          </Title>
+        </Col>
+      </Row>
+      <Divider dashed className="divider" />
+      <Title level={2}>
+        <div className="count">{props.count}</div>
+      </Title>
+      <Row gutter={20} justify="space-between">
+        {Object.keys(props.data).map((i, index) => (
+          //@ts-ignore
+          <Col key={index} align="middle">
+            <b>{i}</b>
+            <div>{props.data[i]}</div>
+          </Col>
+        ))}
+      </Row>
+      <br />
+      <Row justify="end">
+        <NavLink to="/education-dashboard">
+          <u>View More</u> <ArrowRightOutlined />
+        </NavLink>
+      </Row>
+    </Card>
+  );
 };
 
 export default StudentAssessmentPerformanceGrade4_8;

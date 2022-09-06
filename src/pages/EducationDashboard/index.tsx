@@ -79,72 +79,124 @@ const EducationPortal: FC = () => {
     };
     if (marker === "Districts") {
       data = await API_SERVICE.getDistrictMarkerData(params);
-      if(selectedButton == 2) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentDistrict1Grade48({"assessment_type_v2":selectedAssessment});
+      if (selectedButton == 2) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentDistrict1Grade48({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.district === item.district})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.district === item.district;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "district_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
-      }
-      else if(selectedButton == 1) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentDistrict1Grade13({"assessment_type_v2":selectedAssessment});
+          return { ...item, color: "purple" };
+        });
+      } else if (selectedButton == 1) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentDistrict1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.district === item.district})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.district === item.district;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "district_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
+          return { ...item, color: "purple" };
+        });
       }
     }
 
     if (marker === "Blocks") {
       data = await API_SERVICE.getBlockMarkerData(params);
-      if(selectedButton == 2) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentBlock1Grade48({"assessment_type_v2":selectedAssessment});
+      if (selectedButton == 2) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentBlock1Grade48({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.block === item.block})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.block === item.block;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "block_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
-      }
-      else if(selectedButton == 1) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentBlock1Grade13({"assessment_type_v2":selectedAssessment});
+          return { ...item, color: "purple" };
+        });
+      } else if (selectedButton == 1) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentBlock1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.block === item.block})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.block === item.block;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "block_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
+          return { ...item, color: "purple" };
+        });
       }
     }
 
     if (marker === "Schools") {
       data = await API_SERVICE.getSchoolMarkerData(params);
-      if(selectedButton == 2) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentSchool1Grade48({"assessment_type_v2":selectedAssessment});
+      if (selectedButton == 2) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentSchool1Grade48({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.school_name === item.school_name})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.school_name === item.school_name;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "school_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
-      }else if(selectedButton == 1) {
-        const assessmentData = await API_SERVICE.getStudentAssesmentSchool1Grade13({"assessment_type_v2":selectedAssessment});
+          return { ...item, color: "purple" };
+        });
+      } else if (selectedButton == 1) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentSchool1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
         dataWithHexCode = data.data.rows.map((item: any) => {
-          const filteredColor = assessmentData.data.rows.find((row: any) => {return row.school_name === item.school_name})?.HexCodes;
-          if(filteredColor){
-            return {...item, HexCodes: filteredColor}
+          const filteredColor = assessmentData.data.rows.find((row: any) => {
+            return row.school_name === item.school_name;
+          })?.HexCodes;
+          if (filteredColor) {
+            if (filteredColor === "#259EA6") {
+              return { ...item, color: "school_marker" };
+            } else if (filteredColor === "#ff0000") {
+              return { ...item, color: "red" };
+            }
           }
-          return {...item, HexCodes: ''}
-        })
+          return { ...item, color: "purple" };
+        });
       }
     }
 
@@ -161,109 +213,124 @@ const EducationPortal: FC = () => {
 
   return (
     <div className="forZoom">
-    <Layout className={"layout-wrapper home-wrapper"}>
-      <Content style={{ padding: "10px" }}>
-        <Row>
-          <Col span={6}>
-            <Button
-              className={
-                selectedButton == 2 ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                onButtonClick(2);
-              }}
-              style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Student Assessment Performance (Grade 4-8)
-            </Button>
-          </Col>
-          <Col span={6}>
-            <Button
-              className={
-                selectedButton == 1 ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                onButtonClick(1);
-              }}
-               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Student Assessment Performance (Grade 1-3)
-            </Button>
-          </Col>
-          <Col
-            span={6}
-            onClick={() => {
-              onButtonClick(3);
-            }}
-          >
-            <Button
-              className={
-                selectedButton == 3 ? "navButtonSelected" : "navButton"
-              }
-               style={{ fontSize: "30px",fontWeight:'bold',height:'4rem',lineHeight:'1.8'}}
-            >
-              Administrative Overview
-            </Button>
-          </Col>
-          <Col style={{ display: "flex" }} span={6}>
-            <div>
+      <Layout className={"layout-wrapper home-wrapper"}>
+        <Content style={{ padding: "10px" }}>
+          <Row>
+            <Col span={6}>
               <Button
-                style={{
-                  backgroundColor: "#014C3D",
-                  color: "white",
-                  textDecoration: "underline",
-                  fontSize: "25px",
-                  marginRight: "10px",
-                  fontWeight:'bold',
-                  height:'4rem',
-                  lineHeight:'2'
-                }}
+                className={
+                  selectedButton == 2 ? "navButtonSelected" : "navButton"
+                }
                 onClick={() => {
-                  history.push("/detailed-dashboard");
+                  onButtonClick(2);
+                }}
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
                 }}
               >
-                VIEW DETAILED DASHBOARDS
+                Student Assessment Performance (Grade 4-8)
               </Button>
-            </div>
+            </Col>
+            <Col span={6}>
+              <Button
+                className={
+                  selectedButton == 1 ? "navButtonSelected" : "navButton"
+                }
+                onClick={() => {
+                  onButtonClick(1);
+                }}
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
+                }}
+              >
+                Student Assessment Performance (Grade 1-3)
+              </Button>
+            </Col>
+            <Col
+              span={6}
+              onClick={() => {
+                onButtonClick(3);
+              }}
+            >
+              <Button
+                className={
+                  selectedButton == 3 ? "navButtonSelected" : "navButton"
+                }
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                  height: "4rem",
+                  lineHeight: "1.8",
+                }}
+              >
+                Administrative Overview
+              </Button>
+            </Col>
+            <Col style={{ display: "flex" }} span={6}>
               <div>
-
-            <Select className="forSelect" defaultValue={"2022-2023"}>
-              <Select.Option value={"2022-2023"}>{"2022-2023"}</Select.Option>
-            </Select>
+                <Button
+                  style={{
+                    backgroundColor: "#014C3D",
+                    color: "white",
+                    textDecoration: "underline",
+                    fontSize: "25px",
+                    marginRight: "10px",
+                    fontWeight: "bold",
+                    height: "4rem",
+                    lineHeight: "2",
+                  }}
+                  onClick={() => {
+                    history.push("/detailed-dashboard");
+                  }}
+                >
+                  VIEW DETAILED DASHBOARDS
+                </Button>
               </div>
-
-          </Col>
-        </Row>
-        <Row>
-          {selectedButton == 1 && (
-            <Col>
-              <StudentAssessmentPerformanceGrade1_3
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-              />
+              <div>
+                <Select className="forSelect" defaultValue={"2022-2023"}>
+                  <Select.Option value={"2022-2023"}>
+                    {"2022-2023"}
+                  </Select.Option>
+                </Select>
+              </div>
             </Col>
-          )}
-          {selectedButton == 2 && (
-            <Col>
-              <StudentAssessmentPerformanceGrade4_8
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-                setSelectedAssessment={setSelectedAssessment}
-              />
-            </Col>
-          )}
-          {selectedButton == 3 && (
-            <Col>
-              <AdministrativeOverview
-                //@ts-ignore
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-              />
-            </Col>
-          )}
-        </Row>
-      </Content>
-    </Layout>
+          </Row>
+          <Row>
+            {selectedButton == 1 && (
+              <Col>
+                <StudentAssessmentPerformanceGrade1_3
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                />
+              </Col>
+            )}
+            {selectedButton == 2 && (
+              <Col>
+                <StudentAssessmentPerformanceGrade4_8
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                  setSelectedAssessment={setSelectedAssessment}
+                />
+              </Col>
+            )}
+            {selectedButton == 3 && (
+              <Col>
+                <AdministrativeOverview
+                  //@ts-ignore
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                />
+              </Col>
+            )}
+          </Row>
+        </Content>
+      </Layout>
     </div>
   );
 };

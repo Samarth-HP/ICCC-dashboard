@@ -19,6 +19,7 @@ import green_marker from "../../assets/Map_marker_green.svg";
 import blue_marker from "../../assets/Map_marker_blue.svg";
 import purple_marker from "../../assets/Map_marker_purple.svg";
 import yellow_marker from "../../assets/Map_marker_yellow.svg";
+import district_marker from "../../assets/Map_Marker_District.svg";
 import { Button, Col, Popover, Tooltip } from "antd";
 import API_SERVICE from "../../services/api-service";
 
@@ -493,15 +494,18 @@ export default function MapComponent({
     }
   };
 
-  if(!config || config &&!config.legend) return (<div>Loading..</div>)
+  if (!config || (config && !config.legend)) return <div>Loading..</div>;
 
   return (
     <div
       style={{
         display: "flex",
         width: "100%",
-        flexDirection:(config && config.legend && config.legend.position &&
-            config.legend.position.split("-")[0] == "bottom")
+        flexDirection:
+          config &&
+          config.legend &&
+          config.legend.position &&
+          config.legend.position.split("-")[0] == "bottom"
             ? "column"
             : "column-reverse",
       }}
@@ -543,6 +547,15 @@ export default function MapComponent({
                   markerColor = green_marker;
                 } else if (item.color == "purple") {
                   markerColor = purple_marker;
+                } else if (item.color == "district_marker") {
+                  console.log(item, "district color applied");
+                  markerColor = district_marker;
+                } else if (item.color == "block_marker") {
+                  console.log(item, "block color applied");
+                  markerColor = district_marker;
+                } else if (item.color == "school_marker") {
+                  console.log(item, "school color applied");
+                  markerColor = district_marker;
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
@@ -791,7 +804,7 @@ export default function MapComponent({
           style={{
             display: config.legend.display ? "flex" : "none",
             width: "100%",
-            marginTop:'10px',
+            marginTop: "10px",
             flexDirection: "column",
             justifyContent:
               config.legend.position.split("-")[1] == "right"
