@@ -35,26 +35,22 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   };
   const getConfig = () => {
     if (config.length) {
-      return
+      return;
     }
 
-    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
-        , {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        }
-    )
-        .then(function (response) {
-
-          return response.json();
-        })
-        .then(function (configJson) {
-          setConfig(configJson)
-        });
-
-  }
+    fetch(parameters.BaseUrl + "educationDashboardConfig.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (configJson) {
+        setConfig(configJson);
+      });
+  };
   const onSetMarker = (id: any) => {
     // console.log(id);
     setMarker(id);
@@ -269,17 +265,17 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col style={{ textAlign: "center" }} span={24}>
                 <img src={boyIcon} alt="" />
               </Col>
-                <Col></Col>
-                <Col>
-                    <Select
-                        onSelect={(e: any) => setAcademicYear(e)}
-                        defaultValue={academicYear}
-                    >
-                        <Select.Option value={academicYear}>
-                            {academicYear}
-                        </Select.Option>
-                    </Select>
-                </Col>
+              <Col></Col>
+              <Col>
+                <Select
+                  onSelect={(e: any) => setAcademicYear(e)}
+                  defaultValue={academicYear}
+                >
+                  <Select.Option value={academicYear}>
+                    {academicYear}
+                  </Select.Option>
+                </Select>
+              </Col>
               <Row>
                 <Col span={24}>
                   <QuestionWithIframe
