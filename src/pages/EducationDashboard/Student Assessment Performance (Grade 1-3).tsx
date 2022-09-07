@@ -38,19 +38,23 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
       return;
     }
 
-    fetch(parameters.BaseUrl + "educationDashboardConfig.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (configJson) {
-        setConfig(configJson);
-      });
-  };
+    fetch('/educationDashboardConfig.json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+    )
+        .then(function (response) {
+
+          return response.json();
+        })
+        .then(function (configJson) {
+          setConfig(configJson)
+        });
+
+  }
   const onSetMarker = (id: any) => {
     // console.log(id);
     setMarker(id);

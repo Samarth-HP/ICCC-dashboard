@@ -39,7 +39,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
       return;
     }
 
-    fetch(parameters?.BaseUrl + "educationDashboardConfig.json", {
+    fetch("/educationDashboardConfig.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

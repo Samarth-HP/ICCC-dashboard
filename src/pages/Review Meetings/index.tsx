@@ -95,7 +95,7 @@ const ReviewMeeting: FC = () => {
             return
         }
 
-        fetch(parameters.BaseUrl + 'reviewConfig.json'
+        fetch('/reviewConfig.json'
             , {
                 headers: {
                     'Content-Type': 'application/json',
@@ -366,7 +366,7 @@ const ReviewMeeting: FC = () => {
     };
     const getBlockGeoJson = (callback: any) => {
 
-        fetch(parameters.BaseUrl + 'blockGeo.json'
+        fetch('/blockGeo.json'
             , {
                 headers: {
                     'Content-Type': 'application/json',
@@ -382,7 +382,7 @@ const ReviewMeeting: FC = () => {
 
     }
     const getBoundGeoJson = (callback: any) => {
-        fetch(parameters.BaseUrl + 'bounds.json'
+        fetch('/bounds.json'
             , {
                 headers: {
                     'Content-Type': 'application/json',
@@ -399,7 +399,7 @@ const ReviewMeeting: FC = () => {
     }
     const getDistrictGeoJson = (callback: any) => {
 
-        fetch(parameters.BaseUrl + 'districtGeo.json'
+        fetch('/districtGeo.json'
             , {
                 headers: {
                     'Content-Type': 'application/json',
