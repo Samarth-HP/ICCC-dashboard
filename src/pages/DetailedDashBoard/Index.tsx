@@ -137,42 +137,11 @@ const DetailedDashboard: FC = () => {
                     </Row>
                   </Button>
                 </div>
-                {/* <div className="form-container">
-                <Input
-                  className="input"
-                  size="large"
-                  placeholder="dhe_office"
-                  prefix={<UserOutlined className="icon" />}
-                />
-                <Input.Password
-                  className="input"
-                  placeholder="password"
-                  prefix={<LockOutlined className="icon" />}
-                  iconRender={(visible) =>
-                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                  }
-                />
-                <Button className="button" size="large" type="primary" block>
-                  Click to Login
-                </Button>
-                <div style={{ display: "flex" }}>
-                  <Button type="link" className="link">
-                    Forgot Password
-                  </Button>
-                  <Button type="link" className="link">
-                    <u>Click Here to Reset Password</u>
-                  </Button>
-                </div>
-              </div> */}
               </Col>
             </Row>
           </Col>
         </Row>
       </Content>
-      {/* <Row align="middle" justify="space-between" className="footer">
-          <Image src={FooterLogo} height={"50px"} />
-          <Image src={FooterRightLogo} height={"50px"} />
-        </Row> */}
     </Layout>
   );
 };

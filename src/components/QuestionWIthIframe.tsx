@@ -3,7 +3,7 @@ import { IframeContextContext } from "../App";
 
 const jwt = require("jsonwebtoken");
 
-const METABASE_SITE_URL = "http://167.71.234.32:3000";
+const METABASE_SITE_URL = "https://vskhp.in/metabase";
 const METABASE_SECRET_KEY =
   "68a529116afd75d19c1d625133ea50207a6571d5e786a25a24c14f61555886b5";
 const QuestionWithIframeProtected = ({

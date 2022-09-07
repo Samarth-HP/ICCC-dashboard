@@ -202,17 +202,6 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={3}>
-                    {/* <Select
-                      className="forSelect"
-                      onSelect={(e: any) => {
-                        setSelected(e);
-                        props.setSelectedAssessment(e);
-                      }}
-                      defaultValue={"SA1"}
-                      style={{ width: "100%" }}
-                    > */}
-                    {/* <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
-                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option> */}
                     <select
                       className="forSelect"
                       onSelect={(e: any) => {

@@ -57,13 +57,26 @@
   margin-bottom: 25px;
   align-items: center;
 }
-.headingb{
+.headingb {
   font-size: 18px;
   text-decoration: underline;
   cursor: pointer;
 }
-.ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
+.ant-input-group > .ant-input:first-child,
+.ant-input-group-addon:first-child {
   border-radius: 80px;
   height: 50px;
   font-size: 25px;
+}
+
+.quarterfilter {
+  outline: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.monthfilter {
+  outline: none;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
