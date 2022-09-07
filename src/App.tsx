@@ -1,15 +1,15 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from "react";
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
 } from "react-router-dom";
-import './App.less';
+import "./App.less";
 import DesktopLayout from "./components/layouts/DesktopLayout";
 import LayoutWithSidebar from "./components/layouts/LayoutWithSidebar";
-import DashboardHeader from './components/layouts/DashboardHeader';
+import DashboardHeader from "./components/layouts/DashboardHeader";
 import Login from "./pages/Login";
 import EducationPortal from "./pages/EducationDashboard";
 import EducationDashboard from "./pages/EducationDashboard/dashboard";
@@ -18,43 +18,46 @@ import AcademicPage from "./pages/DetailedDashBoard/AcademicPage";
 import AdminKPIPage from "./pages/DetailedDashBoard/AdminKPIPage";
 import ReviewMeeting from "./pages/Review Meetings";
 import FrameLink from "./pages/DetailedDashBoard/FrameLink";
+import PrivateRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 export const IframeContextContext = React.createContext({
   updateHasFirstIframeLoaded: null,
-  hasFirstIframeLoaded: null
+  hasFirstIframeLoaded: null,
 } as any);
 
 const App: FC = () => {
-    const [hasFirstIframeLoaded, setHasFirstIframeLoaded] = useState(false);
-    useEffect(() => {
-        localStorage.removeItem('hasFirstIframeLoaded');
-        const registerServiceWorker = async () => {
-            if ("serviceWorker" in navigator) {
-                try {
-                    const registration = await navigator.serviceWorker.register("/sw.js", {
-                        scope: "/",
-                    });
-
-                    if (registration.installing) {
-                        console.log("Service worker installing");
-                    } else if (registration.waiting) {
-                        console.log("Service worker installed");
-                        window.location.reload();
-                    } else if (registration.active) {
-                        console.log("Service worker active");
-                    }
-                } catch (error) {
-                    console.error(`Registration failed with ${error}`);
-                }
+  const [hasFirstIframeLoaded, setHasFirstIframeLoaded] = useState(false);
+  useEffect(() => {
+    localStorage.removeItem("hasFirstIframeLoaded");
+    const registerServiceWorker = async () => {
+      if ("serviceWorker" in navigator) {
+        try {
+          const registration = await navigator.serviceWorker.register(
+            "/sw.js",
+            {
+              scope: "/",
             }
-        };
-        registerServiceWorker();
-    }, [])
+          );
 
+          if (registration.installing) {
+            console.log("Service worker installing");
+          } else if (registration.waiting) {
+            console.log("Service worker installed");
+            window.location.reload();
+          } else if (registration.active) {
+            console.log("Service worker active");
+          }
+        } catch (error) {
+          console.error(`Registration failed with ${error}`);
+        }
+      }
+    };
+    registerServiceWorker();
+  }, []);
 
-    function updateHasFirstIframeLoaded(v: boolean) {
-        setHasFirstIframeLoaded(v);
-    }
+  function updateHasFirstIframeLoaded(v: boolean) {
+    setHasFirstIframeLoaded(v);
+  }
 
   return (
     <div className="App">
@@ -66,16 +69,15 @@ const App: FC = () => {
           {<DashboardHeader />}
           <Switch>
             <Route exact path="/login" component={Login} />
+
             <Route
               exact
               path="/education-dashboard"
               component={EducationDashboard}
             />
-            <Route
-              exact
-              path="/detailed-dashboard"
-              component={DetailedDashboard}
-            />
+            <PrivateRoute exact path="/detailed-dashboard">
+              <DetailedDashboard />
+            </PrivateRoute>
             <Route exact path="/link/:name" component={FrameLink} />
             <Route exact path="/detailed-academic" component={AcademicPage} />
             <Route
@@ -90,12 +92,13 @@ const App: FC = () => {
             />
 
             <Route exact path="/" component={EducationPortal} />
+
             <LayoutWithSidebar path={"/"} component={DesktopLayout} />
-            <Redirect
+            {/* <Redirect
               to={{
                 pathname: "/login",
               }}
-            />
+            /> */}
           </Switch>
         </Router>
       </IframeContextContext.Provider>

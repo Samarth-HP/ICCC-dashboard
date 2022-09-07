@@ -12,12 +12,14 @@ const QuestionWithIframeProtected = ({
   width,
   nonDownloadable,
   params,
+  loadCallback,
 }: {
   questionId: any;
   height?: string;
   width?: string;
   nonDownloadable?: boolean;
   params?: any;
+  loadCallback?: any;
 }) => {
   const { hasFirstIframeLoaded, updateHasFirstIframeLoaded } =
     useContext(IframeContextContext);
@@ -77,9 +79,11 @@ const QuestionWithIframeProtected = ({
   return (
     <iframe
       src={url}
-      onLoad={() => {
+      title={url[0]}
+      onLoad={(e) => {
         setTimeout(() => {
           updateHasFirstIframeLoaded(true);
+          loadCallback();
         }, 300);
       }}
       style={{ margin: "1px" }}
@@ -96,12 +100,14 @@ const QuestionWithIframe = ({
   width,
   nonDownloadable,
   params,
+  handleLoadCounter = () => console.log("no call back"),
 }: {
   questionId: any;
   height?: string;
   width?: string;
   nonDownloadable?: boolean;
   params?: any;
+  handleLoadCounter?: any;
 }) => {
   return (
     <QuestionWithIframeProtected
@@ -110,7 +116,7 @@ const QuestionWithIframe = ({
       width={width}
       nonDownloadable={nonDownloadable}
       params={params}
-      
+      loadCallback={handleLoadCounter}
     />
   );
 };
