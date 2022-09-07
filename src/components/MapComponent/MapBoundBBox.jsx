@@ -24,7 +24,7 @@ const MapBound = () => {
             return
         }
 
-        fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
+        fetch( '/educationDashboardConfig.json'
             , {
                 headers: {
                     'Content-Type': 'application/json',

@@ -15,6 +15,9 @@ const MapOverlays = ({ overlays }) => {
   return (
     <>
       {overlays.map((item) => {
+        if(!item.geoJson){
+          return <></>
+        }
         return (
           //   <SVGOverlay
           //     bounds={item.geoJson.map((item) => {

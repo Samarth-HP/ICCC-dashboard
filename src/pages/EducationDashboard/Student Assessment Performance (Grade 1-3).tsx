@@ -38,7 +38,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
       return
     }
 
-    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
+    fetch('/educationDashboardConfig.json'
         , {
           headers: {
             'Content-Type': 'application/json',
