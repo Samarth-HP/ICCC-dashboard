@@ -311,7 +311,7 @@ const EducationPortal: FC = () => {
             </Col>
             <Col style={{ display: "flex" }} span={6}>
               <div>
-                <Button
+                <div
                   style={{
                     backgroundColor: "#014C3D",
                     color: "white",
@@ -319,15 +319,17 @@ const EducationPortal: FC = () => {
                     fontSize: "25px",
                     marginRight: "10px",
                     fontWeight: "bold",
-                    height: "4rem",
-                    lineHeight: "2",
+                     textAlign:'center',
+                    // lineHeight: "2.5",
+                    padding:'11px',
+                    cursor:'pointer'
                   }}
                   onClick={() => {
                     history.push("/detailed-dashboard");
                   }}
                 >
                   VIEW DETAILED DASHBOARDS
-                </Button>
+                </div>
               </div>
               <div>
                 {/* <Select className="forSelect" defaultValue={"2022-2023"}>

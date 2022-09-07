@@ -170,7 +170,18 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={3}>
-                    <Select
+                    {/* <Select
+                      className="forSelect"
+                      onSelect={(e: any) => {
+                        setSelected(e);
+                        props.setSelectedAssessment(e);
+                      }}
+                      defaultValue={"SA1"}
+                      style={{ width: "100%" }}
+                    > */}
+                      {/* <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
+                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option> */}
+                      <select
                         className="forSelect"
                         onSelect={(e: any) => {
                           setSelected(e);
@@ -178,22 +189,24 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                         }}
                         defaultValue={"SA1"}
                         style={{ width: "100%" }}
-                    >
-                      <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
-                      <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
-                    </Select>
+                      >
+                        <option value={"SA1"}>{"SA-1"}</option>
+                        <option value={"SA2"}>{"SA-2"}</option>
+                      </select>
+                   
                   </Col>
                   <Col span={6}>
                     <Button
-                        className={
-                          marker == "Districts"
-                              ? "navButtonSelected"
-                              : "navButton"
-                        }
-                        onClick={() => {
-                          props.getMarkerData("Districts");
-                          setMarker("Districts");
-                        }}
+                      style={{ height: "50px" }}
+                      className={
+                        marker == "Districts"
+                          ? "navButtonSelected"
+                          : "navButton"
+                      }
+                      onClick={() => {
+                        props.getMarkerData("Districts");
+                        setMarker("Districts");
+                      }}
                     >
                       <p style={{ lineHeight: "1.2" }}>Districts</p>
                     </Button>
@@ -201,13 +214,13 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   <Col span={7}>
                     <Button
                       style={{ height: "50px" }}
-                        className={
-                          marker == "Blocks" ? "navButtonSelected" : "navButton"
-                        }
-                        onClick={() => {
-                          props.getMarkerData("Blocks");
-                          setMarker("Blocks");
-                        }}
+                      className={
+                        marker == "Blocks" ? "navButtonSelected" : "navButton"
+                      }
+                      onClick={() => {
+                        props.getMarkerData("Blocks");
+                        setMarker("Blocks");
+                      }}
                     >
                       <p style={{ lineHeight: "1.2" }}>Blocks</p>
                     </Button>

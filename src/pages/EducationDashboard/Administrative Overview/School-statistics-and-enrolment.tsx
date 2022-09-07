@@ -1,8 +1,8 @@
-import React, {FC, useEffect, useState} from "react";
-import {Card, Col, Layout, Row, Image, Button, Select, Input} from "antd";
+import React, { FC, useEffect, useState } from "react";
+import { Card, Col, Layout, Row, Image, Button, Select, Input } from "antd";
 
 import "./index.css";
-import {Content} from "antd/es/layout/layout";
+import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import schools from "../../assets/schools.png";
 import statistics from "../../assets/thumb_stats.png";
@@ -21,81 +21,75 @@ import parameters from "../../../services/parameters";
 import boyIcon from "../../../assets/boyIcon.svg";
 import girlIcon from "../../../assets/girlIcon.svg";
 
-const {Search} = Input;
+const { Search } = Input;
 
 const SchoolStatisticsAndEnrolment: FC = (props: any) => {
-    const [marker, setMarker] = useState("Districts");
-    const [markerData, setMarkerData] = useState(props.markerData);
-    const [config, setConfig] = useState([]);
+  const [marker, setMarker] = useState("Districts");
+  const [markerData, setMarkerData] = useState(props.markerData);
+  const [config, setConfig] = useState([]);
 
-    const [loading,setLoading]=useState(true);
+  const [loading, setLoading] = useState(true);
 
-
-
-    const handleSearchByUDISE = async (val: string) => {
-        const params = {
-            udise: val,
-        };
-        // const data = await API_SERVICE.searchSchoolData(params);
-        // console.log('data', data);
-        // const data = await API_SERVICE.searchSchoolData(params);
-        const res = await API_SERVICE.getSchoolMarkerData(params);
-        const data = res.data.rows.find((item: any) => {
-            return item?.Udise_Code == val;
-        });
-
-        const formattedData = [
-            {
-                icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-                color: "purple",
-                tooltipCSS: {
-                    color: "#ff0000",
-                },
-                tooltip: "This is the marker tooltip",
-                position: [data.latitude, data.longitude],
-                district: data?.district,
-                block: data?.block,
-                school: data?.school_name,
-                ...data,
-            },
-        ];
-
-        setMarkerData({
-            shouldClusterMarkers: true,
-            postions: formattedData,
-        });
+  const handleSearchByUDISE = async (val: string) => {
+    const params = {
+      udise: val,
     };
-    const getConfig = () => {
-        if (config.length) {
-            return
-        }
+    // const data = await API_SERVICE.searchSchoolData(params);
+    // console.log('data', data);
+    // const data = await API_SERVICE.searchSchoolData(params);
+    const res = await API_SERVICE.getSchoolMarkerData(params);
+    const data = res.data.rows.find((item: any) => {
+      return item?.Udise_Code == val;
+    });
 
-        fetch(parameters.BaseUrl + 'adminOverviewConfig.json'
-            , {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function (response) {
+    const formattedData = [
+      {
+        icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
+        color: "purple",
+        tooltipCSS: {
+          color: "#ff0000",
+        },
+        tooltip: "This is the marker tooltip",
+        position: [data.latitude, data.longitude],
+        district: data?.district,
+        block: data?.block,
+        school: data?.school_name,
+        ...data,
+      },
+    ];
 
-                return response.json();
-            })
-            .then(function (configJson) {
-                setLoading(false);
-                setConfig(configJson)
-            });
-
+    setMarkerData({
+      shouldClusterMarkers: true,
+      postions: formattedData,
+    });
+  };
+  const getConfig = () => {
+    if (config.length) {
+      return;
     }
 
-    useEffect(() => {
-        getConfig();
-        if (props.markerData) {
-            setMarkerData(props.markerData);
-        }
-    }, [props.markerData]);
-    if (loading) return (<>Loading</>);
+    fetch(parameters.BaseUrl + "adminOverviewConfig.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (configJson) {
+        setLoading(false);
+        setConfig(configJson);
+      });
+  };
+
+  useEffect(() => {
+    getConfig();
+    if (props.markerData) {
+      setMarkerData(props.markerData);
+    }
+  }, [props.markerData]);
+  if (loading) return <>Loading</>;
 
   return (
     <Layout>
@@ -163,7 +157,9 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
             <QuestionWithIframe questionId={61} width="100%" height="626" />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.6'}}>District wise, Category wise, Number of Schools</p>
+              <p style={{ lineHeight: "2.6" }}>
+                District wise, Category wise, Number of Schools
+              </p>
             </div>
           </Col>
         </Row>
@@ -313,7 +309,6 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           </Col>
           <Col span={6}>
             <Search
-             
               //@ts-ignore
               onSearch={(val: any) => {
                 handleSearchByUDISE(val);

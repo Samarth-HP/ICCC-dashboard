@@ -29,7 +29,6 @@ const AdminKPIPage: FC = () => {
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ backgroundColor: "#FFFFFF" }}>
         <Row>
-          {/*@ts-ignore*/}
           <Col span={14} style={{ height: "90vh" }}>
             {/* <div style={{ display: "flex", height: "fit-content" }}> */}
             <img

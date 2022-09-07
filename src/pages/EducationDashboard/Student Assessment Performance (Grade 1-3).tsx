@@ -35,26 +35,22 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
   };
   const getConfig = () => {
     if (config.length) {
-      return
+      return;
     }
 
-    fetch(parameters.BaseUrl + 'educationDashboardConfig.json'
-        , {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        }
-    )
-        .then(function (response) {
-
-          return response.json();
-        })
-        .then(function (configJson) {
-          setConfig(configJson)
-        });
-
-  }
+    fetch(parameters.BaseUrl + "educationDashboardConfig.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (configJson) {
+        setConfig(configJson);
+      });
+  };
   const onSetMarker = (id: any) => {
     // console.log(id);
     setMarker(id);
@@ -194,14 +190,26 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col span={24}>
                 <Row>
                   <Col span={6}>
-                    <Select
+                    {/* <Select
                       onSelect={(e: any) => setSelected(e)}
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
                     >
                       <Select.Option value={"SA1"}>{"SA-1"}</Select.Option>
                       <Select.Option value={"SA2"}>{"SA-2"}</Select.Option>
-                    </Select>
+                    </Select> */}
+                    <select
+                      className="forSelect"
+                      onSelect={(e: any) => {
+                        setSelected(e);
+                        props.setSelectedAssessment(e);
+                      }}
+                      defaultValue={"SA1"}
+                      style={{ width: "100%" }}
+                    >
+                      <option value={"SA1"}>{"SA-1"}</option>
+                      <option value={"SA2"}>{"SA-2"}</option>
+                    </select>
                   </Col>
                   <Col span={6}>
                     <Button
@@ -269,8 +277,8 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col style={{ textAlign: "center" }} span={24}>
                 <img src={boyIcon} alt="" />
               </Col>
-                <Col></Col>
-                <Col>
+
+              {/* <Col>
                     <Select
                         onSelect={(e: any) => setAcademicYear(e)}
                         defaultValue={academicYear}
@@ -279,7 +287,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                             {academicYear}
                         </Select.Option>
                     </Select>
-                </Col>
+                </Col> */}
               <Row>
                 <Col span={24}>
                   <QuestionWithIframe
