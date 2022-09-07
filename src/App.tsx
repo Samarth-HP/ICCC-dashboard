@@ -92,6 +92,7 @@ const App: FC = () => {
             />
 
             <Route exact path="/" component={EducationPortal} />
+
             <LayoutWithSidebar path={"/"} component={DesktopLayout} />
             {/* <Redirect
               to={{
