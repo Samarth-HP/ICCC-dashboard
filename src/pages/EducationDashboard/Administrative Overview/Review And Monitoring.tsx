@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Card, Col, Layout, Row, Image, Button } from "antd";
+import { Card, Col, Layout, Row, Image, Button, Input } from "antd";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
@@ -20,6 +20,26 @@ const ReviewAndMonitoring: FC = () => (
         <Row>
           <Col span={24}>
             <div className="NIPUNheading">Review and Monitoring</div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={8} style={{ display: "flex" }}>
+            {" "}
+            <Input />{" "}
+          </Col>
+          <Col span={8} style={{ display: "flex" }}>
+            <select
+              onSelect={(e) => console.log(e, "val")}
+              className="forSelect"
+            >
+              <option value={""} selected>
+                Quarter
+              </option>
+              <option value={"1"}>1</option>
+              <option value={"1"}>2</option>
+              <option value={"1"}>3</option>
+              <option value={"1"}>4</option>
+            </select>
           </Col>
         </Row>
         <Row>
@@ -51,19 +71,19 @@ const ReviewAndMonitoring: FC = () => (
           <Col span={24}>
             <QuestionWithIframe questionId={63} width="100%" height="1251" />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.6'}}>District-wise DRM Compliance</p>
+              <p style={{ lineHeight: "2.6" }}>District-wise DRM Compliance</p>
             </div>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={69} width="100%" height="1270" />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.5'}}>District-wise BRM Compliance</p>
+              <p style={{ lineHeight: "2.5" }}>District-wise BRM Compliance</p>
             </div>
           </Col>
           <Col span={24}>
             <QuestionWithIframe questionId={71} width="100%" height="1409" />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.5'}}>District-wise CRM Compliance</p>
+              <p style={{ lineHeight: "2.5" }}>District-wise CRM Compliance</p>
             </div>
           </Col>
         </Row>
@@ -72,7 +92,9 @@ const ReviewAndMonitoring: FC = () => (
           <Col span={24}>
             <QuestionWithIframe questionId={72} width="100%" height="808" />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.5'}}>Month-wise Review Meeting Compliance</p>
+              <p style={{ lineHeight: "2.5" }}>
+                Month-wise Review Meeting Compliance
+              </p>
             </div>
           </Col>
         </Row>
@@ -104,7 +126,7 @@ const ReviewAndMonitoring: FC = () => (
               params={{ Quarter: [3] }}
             />
             <div className="navButtonSelected">
-              <p style={{lineHeight:'2.5'}}>District-wise BRCC Visits</p>
+              <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
             </div>
           </Col>
         </Row>
