@@ -1,4 +1,5 @@
-import AXIOS from "axios";
+import axios from "axios";
+import AXIOS, { Axios } from "axios";
 import Parameters from "./parameters";
 
 function getPublicInstance() {
@@ -12,6 +13,18 @@ function getPublicInstance() {
     },
   });
 }
+
+const getLoginInstance = () => {
+  return AXIOS.create({
+    // @ts-ignore
+    accept: "application/json",
+    baseURL: "http://us-edb.samagra.io",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+};
 
 function getProtectedInstance() {
   let user = localStorage.getItem("user") as string;
@@ -286,7 +299,6 @@ async function getStudentAssesmentSchool5Grade13(params: any) {
 }
 
 // 1-3 end
-
 // vinay end
 
 //auth
@@ -299,6 +311,22 @@ async function self() {
   const instance = getProtectedInstance();
   return await instance.get("/api/self");
 }
+
+// Login start
+// By Vinay Mahshwari
+async function Login(params: any) {
+  const instance = getLoginInstance();
+  console.log({
+    ...params,
+    applicationId: Parameters.applicationId,
+  });
+
+  return await instance.post("/user/login", {
+    ...params,
+    applicationId: Parameters.applicationId,
+  });
+}
+// Login end
 
 const API_SERVICE = {
   getDistrictMarkerData,
@@ -350,7 +378,8 @@ const API_SERVICE = {
   getStudentAssesmentSchool4Grade13,
   getStudentAssesmentSchool5Grade13,
 
-  login,
+  // login,
+  Login,
   self,
   handleErrors,
 };
