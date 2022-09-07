@@ -28,14 +28,13 @@ const ReviewAndMonitoring: FC = () => (
             <Input />{" "}
           </Col>
           <Col span={8} style={{ display: "flex" }}>
-            <select
-              onSelect={(e) => console.log(e, "val")}
-              className="forSelect"
-            >
+            <select className="forSelect" defaultValue={""}>
               <option value={""} selected>
                 Quarter
               </option>
-              <option value={"1"}>1</option>
+              <option onSelect={(e) => console.log(e)} value={"1"}>
+                1
+              </option>
               <option value={"1"}>2</option>
               <option value={"1"}>3</option>
               <option value={"1"}>4</option>
