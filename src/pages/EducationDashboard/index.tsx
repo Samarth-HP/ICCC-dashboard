@@ -39,8 +39,8 @@ const EducationPortal: FC = () => {
     postions: [],
   });
   const handleLogout = () => {
-    localStorage.removeItem("userData");
-    sessionStorage.removeItem("userData");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     history.push("/login");
   };
   const onButtonClick = (id: any) => {

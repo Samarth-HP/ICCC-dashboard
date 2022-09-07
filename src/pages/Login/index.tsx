@@ -14,8 +14,10 @@ import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
 import Login_Img from "../../assets/Login_Img.png";
 import Side_Img from "../../assets/image 135.png";
 import API_SERVICE from "../../services/api-service";
+import { useHistory } from "react-router-dom";
 
 const Login: FC = () => {
+  const history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,15 +31,16 @@ const Login: FC = () => {
     const res = await API_SERVICE.Login(params);
     const { user, refreshToken, token } = res?.data?.result?.data?.user;
 
-    localStorage.setItem("userData", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
 
     sessionStorage.setItem(
-      "userData",
+      "user",
       JSON.stringify({
         refreshToken,
         token,
       })
     );
+    history.push("");
   };
 
   return (
