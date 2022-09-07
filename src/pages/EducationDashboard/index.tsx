@@ -38,6 +38,9 @@ const EducationPortal: FC = () => {
     shouldClusterMarkers: true,
     postions: [],
   });
+  const handleLogout = () => {
+    history.push("/login");
+  };
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
@@ -330,11 +333,6 @@ const EducationPortal: FC = () => {
                 </Button>
               </div>
               <div>
-                {/* <Select className="forSelect" defaultValue={"2022-2023"}>
-                  <Select.Option value={"2022-2023"}>
-                    {"2022-2023"}
-                  </Select.Option>
-                </Select> */}
                 <select className="forSelect" defaultValue={"2022-2023"}>
                   <option value={"2022-2023"}>2022-2023</option>
                 </select>
@@ -342,9 +340,7 @@ const EducationPortal: FC = () => {
               <div style={{ marginLeft: "55px" }}>
                 <Button
                   style={{ height: "40px", cursor: "pointer" }}
-                  onClick={() => {
-                    history.push("/login");
-                  }}
+                  onClick={handleLogout}
                 >
                   <span style={{ fontSize: "25px" }}>Log Out</span>
                 </Button>
