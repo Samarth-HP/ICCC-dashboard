@@ -14,7 +14,7 @@ import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import FooterLogo from "../../assets/footer_logo.png";
 
 const ReviewAndMonitoring: FC = () => {
-  const [selectedMonth, setSelectedMonth] = useState({});
+  const [selectedMonth, setSelectedMonth] = useState({ month: "" });
   const [selectedQuarter, setSelectedQuarter] = useState({ Quarter: [3] });
   const [ml, setMl] = useState([
     "January",
@@ -69,29 +69,56 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={24} style={{ display: "flex" }}>
-              <QuestionWithIframe
-                questionId={62}
-                width="33%"
-                height="200"
-                params={selectedMonth}
-                nonDownloadable={true}
-              />
+              {selectedMonth?.month.length ? (
+                <>
+                  <QuestionWithIframe
+                    questionId={62}
+                    width="33%"
+                    height="200"
+                    params={selectedMonth}
+                    nonDownloadable={true}
+                  />
 
-              <QuestionWithIframe
-                questionId={64}
-                width="34%"
-                height="200"
-                nonDownloadable={true}
-                params={selectedMonth}
-              />
+                  <QuestionWithIframe
+                    questionId={64}
+                    width="34%"
+                    height="200"
+                    nonDownloadable={true}
+                    params={selectedMonth}
+                  />
 
-              <QuestionWithIframe
-                questionId={70}
-                width="33%"
-                height="200"
-                nonDownloadable={true}
-                params={selectedMonth}
-              />
+                  <QuestionWithIframe
+                    questionId={70}
+                    width="33%"
+                    height="200"
+                    nonDownloadable={true}
+                    params={selectedMonth}
+                  />
+                </>
+              ) : (
+                <>
+                  <QuestionWithIframe
+                    questionId={62}
+                    width="33%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+
+                  <QuestionWithIframe
+                    questionId={64}
+                    width="34%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+
+                  <QuestionWithIframe
+                    questionId={70}
+                    width="33%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+                </>
+              )}
             </Col>
           </Row>
 
