@@ -24,6 +24,7 @@ const QuestionWithIframeProtected = ({
   const { hasFirstIframeLoaded, updateHasFirstIframeLoaded } =
     useContext(IframeContextContext);
   const [load, setLoad] = useState(false);
+  const [random, setRandom] = useState(0);
   const [url, setUrl] = useState("");
   const generateUrl = () => {
     const payload = {
