@@ -15,7 +15,7 @@ import FooterLogo from "../../assets/footer_logo.png";
 
 const ReviewAndMonitoring: FC = () => {
   const [selectedMonth, setSelectedMonth] = useState({});
-  const [selectedQuarter, setSelectedQuarter] = useState({});
+  const [selectedQuarter, setSelectedQuarter] = useState({ Quarter: [3] });
   const [ml, setMl] = useState([
     "January",
     "February",
@@ -30,6 +30,7 @@ const ReviewAndMonitoring: FC = () => {
     "November",
     "December",
   ]);
+
   return (
     <Layout>
       <Content>
@@ -54,7 +55,7 @@ const ReviewAndMonitoring: FC = () => {
             <Col span={8} style={{ display: "flex" }}>
               <select
                 onChange={(e) =>
-                  setSelectedQuarter({ Quarter: e.target.value })
+                  setSelectedQuarter({ Quarter: [parseInt(e.target.value)] })
                 }
                 className="forSelect"
                 defaultValue={""}
@@ -96,7 +97,12 @@ const ReviewAndMonitoring: FC = () => {
 
           <Row>
             <Col span={24}>
-              <QuestionWithIframe questionId={63} width="100%" height="1251" />
+              <QuestionWithIframe
+                params={selectedMonth}
+                questionId={63}
+                width="100%"
+                height="1251"
+              />
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.6" }}>
                   District-wise DRM Compliance
@@ -104,7 +110,12 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe questionId={69} width="100%" height="1270" />
+              <QuestionWithIframe
+                params={selectedMonth}
+                questionId={69}
+                width="100%"
+                height="1270"
+              />
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   District-wise BRM Compliance
@@ -112,7 +123,12 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe questionId={71} width="100%" height="1409" />
+              <QuestionWithIframe
+                params={selectedMonth}
+                questionId={71}
+                width="100%"
+                height="1409"
+              />
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   District-wise CRM Compliance
@@ -135,6 +151,7 @@ const ReviewAndMonitoring: FC = () => {
           <Row>
             <Col span={12}>
               <QuestionWithIframe
+                params={selectedQuarter}
                 questionId={73}
                 width="100%"
                 height="200"
@@ -143,6 +160,7 @@ const ReviewAndMonitoring: FC = () => {
             </Col>
             <Col span={12}>
               <QuestionWithIframe
+                params={selectedQuarter}
                 questionId={76}
                 width="100%"
                 height="200"
@@ -152,15 +170,15 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={24}>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
+              </div>
               <QuestionWithIframe
                 questionId={75}
                 width="100%"
                 height="1682"
-                params={{ Quarter: [3] }}
+                params={selectedQuarter}
               />
-              <div className="navButtonSelected">
-                <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
-              </div>
             </Col>
           </Row>
         </Col>
