@@ -14,6 +14,22 @@ import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import FooterLogo from "../../assets/footer_logo.png";
 
 const ReviewAndMonitoring: FC = () => {
+  const [selectedMonth, setSelectedMonth] = useState({ month: "" });
+  const [selectedQuarter, setSelectedQuarter] = useState({ Quarter: [3] });
+  const [ml, setMl] = useState([
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]);
   const [loadCount, setLoadCount] = useState(0);
   const handleSetLoad = () => {
     // setLoadCount(loadCount + 1);
@@ -181,17 +197,33 @@ const ReviewAndMonitoring: FC = () => {
                   />
                 )}
               </div>
+              <QuestionWithIframe
+                params={selectedQuarter}
+                questionId={73}
+                width="100%"
+                height="200"
+                nonDownloadable={true}
+              />
+            </Col>
+            <Col span={12}>
+              <QuestionWithIframe
+                params={selectedQuarter}
+                questionId={76}
+                width="100%"
+                height="200"
+                nonDownloadable={true}
+              />
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <div style={{ height: "1682px" }}>
+              <div style={{ height: "1266px" }}>
                 {loadCount > 8 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={75}
                     width="100%"
-                    height="1682"
+                    height="1266"
                     params={{ Quarter: [3] }}
                   />
                 )}

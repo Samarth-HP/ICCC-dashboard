@@ -8,6 +8,9 @@
   border-color: var(--theme_green);
   height: 30px;
 }
+.View .ant-col {
+  width: 100%;
+}
 
 .title {
   max-width: 400px;
