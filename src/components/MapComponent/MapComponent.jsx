@@ -563,7 +563,7 @@ export default function MapComponent({
                             {toolTipData?.GradeWiseavgResult?.grade2?.value ||
                               "NA"}
                           </span>{" "}
-                          |{" "}
+                          | <br />
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade3?.label}
                           </span>{" "}

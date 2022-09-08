@@ -39,7 +39,6 @@ const AdministrativeOverview: FC = (props: any) => {
     setMarker(id);
   };
   return (
-    <div className="View">
     <Layout className={"layout-wrapper home-wrapper"}>
       <Content style={{ padding: "10px" }}>
         <Row>
@@ -59,7 +58,6 @@ const AdministrativeOverview: FC = (props: any) => {
         </Row>
       </Content>
     </Layout>
-    </div>
   );
 };
 

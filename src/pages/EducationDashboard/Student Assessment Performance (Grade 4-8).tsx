@@ -78,40 +78,42 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
         <Row>
           <Col span={9}>
             <Row>
-              <div style={{ display: "flex" }}>
-                <QuestionWithIframe
-                  questionId={84}
-                  width="45%"
-                  height="300"
-                  nonDownloadable={true}
-                  handleLoadCounter={handleSetLoad}
-                />
-                <QuestionWithIframe
-                  questionId={85}
-                  width="15%"
-                  height="300"
-                  nonDownloadable={true}
-                  handleLoadCounter={handleSetLoad}
-                />
-                {loadCount > 1 && (
-                  <>
-                    <QuestionWithIframe
-                      questionId={86}
-                      width="20%"
-                      height="300"
-                      nonDownloadable={true}
-                      handleLoadCounter={handleSetLoad}
-                    />
-                    <QuestionWithIframe
-                      questionId={87}
-                      width="20%"
-                      height="300"
-                      nonDownloadable={true}
-                      handleLoadCounter={handleSetLoad}
-                    />
-                  </>
-                )}
-              </div>
+              <Col span={24}>
+                <div style={{ display: "flex" }}>
+                  <QuestionWithIframe
+                    questionId={84}
+                    width="46%"
+                    height="300"
+                    nonDownloadable={true}
+                    handleLoadCounter={handleSetLoad}
+                  />
+                  <QuestionWithIframe
+                    questionId={85}
+                    width="24%"
+                    height="300"
+                    nonDownloadable={true}
+                    handleLoadCounter={handleSetLoad}
+                  />
+                  {loadCount > 1 && (
+                    <>
+                      <QuestionWithIframe
+                        questionId={86}
+                        width="15%"
+                        height="300"
+                        nonDownloadable={true}
+                        handleLoadCounter={handleSetLoad}
+                      />
+                      <QuestionWithIframe
+                        questionId={87}
+                        width="15%"
+                        height="300"
+                        nonDownloadable={true}
+                        handleLoadCounter={handleSetLoad}
+                      />
+                    </>
+                  )}
+                </div>
+              </Col>
             </Row>
             <Row>
               <Col span={24}>
@@ -393,12 +395,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
               </Col>
               <Col span={24}>
-                <div style={{ height: "704px" }}>
+                <div style={{ height: "864px" }}>
                   {loadCount > 23 && (
                     <QuestionWithIframe
                       questionId={106}
                       width="100%"
-                      height="704"
+                      height="864"
                       handleLoadCounter={handleSetLoad}
                     />
                   )}
@@ -543,12 +545,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             </Row>
             <Row>
               <Col span={24}>
-                <div style={{ height: "704px" }}>
+                <div style={{ height: "864px" }}>
                   {loadCount > 25 && (
                     <QuestionWithIframe
                       questionId={110}
                       width="100%"
-                      height="704"
+                      height="864"
                       handleLoadCounter={handleSetLoad}
                     />
                   )}
@@ -639,12 +641,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
               </Col>
               <Col span={24}>
-                <div style={{ height: "704px" }}>
+                <div style={{ height: "864px" }}>
                   {loadCount > 25 && (
                     <QuestionWithIframe
                       questionId={115}
                       width="100%"
-                      height="704"
+                      height="864"
                       handleLoadCounter={handleSetLoad}
                     />
                   )}
@@ -734,12 +736,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
               </Col>
               <Col span={24}>
-                <div style={{ height: "704px" }}>
+                <div style={{ height: "864px" }}>
                   {loadCount > 27 && (
                     <QuestionWithIframe
                       questionId={156}
                       width="100%"
-                      height="704"
+                      height="864"
                       handleLoadCounter={handleSetLoad}
                     />
                   )}

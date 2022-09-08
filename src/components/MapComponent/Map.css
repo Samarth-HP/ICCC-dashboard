@@ -6,6 +6,7 @@
 .tooltip-popup .leaflet-popup-content-wrapper {
   background-color: #014c3d;
   color: white;
+  font-size: 19px;
 }
 
 .marker-cluster-small {

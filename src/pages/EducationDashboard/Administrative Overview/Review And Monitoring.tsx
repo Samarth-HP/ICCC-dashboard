@@ -170,7 +170,6 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
           </Row>
-          <Row></Row>
           <Row>
             <Col span={12}>
               <div style={{ height: "200px" }}>
@@ -197,6 +196,8 @@ const ReviewAndMonitoring: FC = () => {
                   />
                 )}
               </div>
+            </Col>
+            <Col span={12}>
               <QuestionWithIframe
                 params={selectedQuarter}
                 questionId={73}
@@ -217,13 +218,13 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={24}>
-              <div style={{ height: "1266px" }}>
+              <div style={{ height: "1474px" }}>
                 {loadCount > 8 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={75}
                     width="100%"
-                    height="1266"
+                    height="1474"
                     params={{ Quarter: [3] }}
                   />
                 )}
