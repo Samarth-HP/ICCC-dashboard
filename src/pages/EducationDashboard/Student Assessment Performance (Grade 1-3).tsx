@@ -62,7 +62,6 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
     props.getMarkerData("Districts");
   }, []);
   const handleSetLoad = () => {
-    console.log(loadCount, "shiv");
     // setLoadCount(loadCount + 1);
     setLoadCount((prev: any) => {
       return ++prev;
@@ -79,7 +78,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 {/* <Button
                   className={
                     selectedButton == 1 ? "navButtonSelected" : "navButton"
-                  }
+                  } 
                   onClick={() => {
                     onButtonClick(1);
                   }}
@@ -125,21 +124,19 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 />
               </Col>
               <Col span={8}>
-                {loadCount > 0 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={81}
-                    width="100%"
-                    height="330"
-                    nonDownloadable={true}
-                  />
-                )}
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={81}
+                  width="100%"
+                  height="330"
+                  nonDownloadable={true}
+                />
               </Col>
             </Row>
             <Row>
               <Col span={12}>
                 <div>
-                  {loadCount > 6 && (
+                  {loadCount > 7 && (
                     <QuestionWithIframe
                       handleLoadCounter={handleSetLoad}
                       questionId={118}
@@ -167,20 +164,22 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
-                  District-wise Assessment Performance (SA 1 & SA2)
+                  District-wise Assessment Performance (SA 1 <br /> & SA2)
                 </div>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
-                {loadCount > 13 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={120}
-                    width="100%"
-                    height="2100"
-                  />
-                )}
+                <div style={{ height: "2100px" }}>
+                  {loadCount > 13 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={120}
+                      width="100%"
+                      height="2100"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Class 1</p>
                 </div>
@@ -188,27 +187,31 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             </Row>
             <Row>
               <Col span={24}>
-                {loadCount > 18 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={121}
-                    width="100%"
-                    height="2100"
-                  />
-                )}
+                <div style={{ height: "2100px" }}>
+                  {loadCount > 21 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={121}
+                      width="100%"
+                      height="2100"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Class 2</p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 23 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={122}
-                    width="100%"
-                    height="2100"
-                  />
-                )}
+                <div style={{ height: "2100px" }}>
+                  {loadCount > 27 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={122}
+                      width="100%"
+                      height="2100"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Class 3</p>
                 </div>
@@ -305,7 +308,6 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               <Col style={{ textAlign: "center" }} span={24}>
                 <img src={boyIcon} alt="" />
               </Col>
-
               {/* <Col>
                 <Select
                   onSelect={(e: any) => setAcademicYear(e)}
@@ -333,7 +335,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <img src={girlIcon} alt="" />
                 </Col>
                 <Col span={24}>
-                  {loadCount > 8 && (
+                  {loadCount > 1 && (
                     <QuestionWithIframe
                       handleLoadCounter={handleSetLoad}
                       questionId={83}
@@ -347,27 +349,31 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <div className="NIPUNheading">
                     Districts with highest <br /> jump in scores
                   </div>
-                  {loadCount > 14 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={123}
-                      width="100%"
-                      height="550"
-                    />
-                  )}
+                  <div style={{ height: "550px" }}>
+                    {loadCount > 9 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={123}
+                        width="100%"
+                        height="550"
+                      />
+                    )}
+                  </div>
                 </Col>
                 <Col>
                   <div className="NIPUNheading">
                     Districts with highest fall in scores
                   </div>
-                  {loadCount > 19 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={124}
-                      width="100%"
-                      height="697"
-                    />
-                  )}
+                  <div style={{ height: "697px" }}>
+                    {loadCount > 15 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={124}
+                        width="100%"
+                        height="697"
+                      />
+                    )}
+                  </div>
                 </Col>
               </Row>
             </Row>
@@ -387,59 +393,76 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
 
               <Col span={24}>
                 <div className="NIPUNheading">
-                  Class-wise Assessment Performance
+                  Class-wise Assessment <br />
+                  Performance
                 </div>
-                {loadCount > 2 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={125}
-                    width="100%"
-                    height="553"
-                  />
-                )}
+                <div style={{ height: "600px" }}>
+                  {loadCount > 3 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={125}
+                      width="100%"
+                      height="600"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>
-                    Average Grade-wise Performance distribution (SA-1 & SA-2)
+                    Average Grade-wise Performance <br /> distribution (SA-1 &
+                    SA-2)
                   </p>
                 </div>
 
                 <Col span={24}>
-                  {loadCount > 9 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={126}
-                      width="100%"
-                      height="545"
-                    />
-                  )}
+                  <div style={{ height: "545px" }}>
+                    {loadCount > 9 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={126}
+                        width="100%"
+                        height="545"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
-                    <p> Comparative Performance in SA-1 and SA-2 (Class 1)</p>
+                    <p>
+                      {" "}
+                      Comparative Performance in SA-1 <br /> and SA-2 (Class 1)
+                    </p>
                   </div>
                 </Col>
                 <Col span={24}>
-                  {loadCount > 15 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={127}
-                      width="100%"
-                      height="480"
-                    />
-                  )}
+                  <div style={{ height: "480px" }}>
+                    {loadCount > 17 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={127}
+                        width="100%"
+                        height="480"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
-                    <p>Comparative Performance in SA-1 and SA-2 (Class 2)</p>
+                    <p>
+                      Comparative Performance in SA-1 <br /> and SA-2 (Class 2)
+                    </p>
                   </div>
                 </Col>
                 <Col span={24}>
-                  {loadCount > 20 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={104}
-                      width="100%"
-                      height="490"
-                    />
-                  )}
+                  <div style={{ height: "490px" }}>
+                    {loadCount > 19 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={104}
+                        width="100%"
+                        height="490"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
-                    <p>Comparative Performance in SA-1 and SA-2 (Class 3)</p>
+                    <p>
+                      Comparative Performance in SA-1 <br /> and SA-2 (Class 3)
+                    </p>
                   </div>
                 </Col>
               </Col>
@@ -455,116 +478,149 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
-                  Subject-wise Assessment Performance
+                  Subject-wise Assessment <br /> Performance
                 </div>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
-                {loadCount > 3 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={129}
-                    width="100%"
-                    height="600"
-                  />
-                )}
+                <div style={{ height: "600px" }}>
+                  {loadCount > 3 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={129}
+                      width="100%"
+                      height="600"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Subject wise change in average score across SAs</p>
+                  <p>
+                    Subject wise change in average score across <br /> SAs
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 10 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={130}
-                    width="100%"
-                    height="545"
-                  />
-                )}
+                <div style={{ height: "545px" }}>
+                  {loadCount > 11 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={130}
+                      width="100%"
+                      height="545"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Comparative Performance Subject-wise (Class 1)</p>
+                  <p>
+                    Comparative Performance Subject-wise <br /> (Class 1)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 16 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={150}
-                    width="100%"
-                    height="480"
-                  />
-                )}
+                <div style={{ height: "480px" }}>
+                  {loadCount > 17 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={150}
+                      width="100%"
+                      height="480"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Comparative Performance Subject-wise (Class 2)</p>
+                  <p>
+                    Comparative Performance Subject-wise <br /> (Class 2)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 21 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={132}
-                    width="100%"
-                    height="490"
-                  />
-                )}
+                <div style={{ height: "490px" }}>
+                  {loadCount > 19 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={132}
+                      width="100%"
+                      height="490"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Comparative Performance Subject-wise (Class 3)</p>
+                  <p>
+                    Comparative Performance Subject-wise <br /> (Class 3)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
                 <div className="NIPUNheading">NIPUN Lakshya Analysis</div>
               </Col>
               <Col span={24}>
-                {loadCount > 22 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={139}
-                    width="100%"
-                    height="450"
-                  />
-                )}
+                <div style={{ height: "450px" }}>
+                  {loadCount > 21 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={139}
+                      width="100%"
+                      height="450"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Class-wise NIPUN Students</p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 23 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={140}
-                    width="100%"
-                    height="450"
-                  />
-                )}
+                <div style={{ height: "450px" }}>
+                  {loadCount > 23 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={140}
+                      width="100%"
+                      height="450"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Percentage Students NIPUN in Maths(Class-1)</p>
+                  <p>
+                    Percentage Students NIPUN in Maths(Class- <br />
+                    1)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 24 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={141}
-                    width="100%"
-                    height="450"
-                  />
-                )}
+                <div style={{ height: "450px" }}>
+                  {loadCount > 23 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={141}
+                      width="100%"
+                      height="450"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Percentage Students NIPUN in Maths(Class-2)</p>
+                  <p>
+                    Percentage Students NIPUN in Maths(Class- <br />
+                    2)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 25 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={142}
-                    width="100%"
-                    height="450"
-                  />
-                )}
+                <div style={{ height: "450px" }}>
+                  {loadCount > 25 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={142}
+                      width="100%"
+                      height="450"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>Percentage Students NIPUN in Maths(Class-3)</p>
+                  <p>
+                    Percentage Students NIPUN in Maths(Class- <br />
+                    3)
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
@@ -572,27 +628,31 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
               <Col span={24}>
                 <Col span={24}>
-                  {loadCount > 26 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={143}
-                      width="100%"
-                      height="510"
-                    />
-                  )}
+                  <div style={{ height: "510px" }}>
+                    {loadCount > 25 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={143}
+                        width="100%"
+                        height="510"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
                     <p>Top Districts (Class-1)</p>
                   </div>
                 </Col>
                 <Col span={24}>
-                  {loadCount > 28 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={144}
-                      width="100%"
-                      height="528"
-                    />
-                  )}
+                  <div style={{ height: "528px" }}>
+                    {loadCount > 29 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={144}
+                        width="100%"
+                        height="528"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
                     <p>Bottom Districts (Class-1)</p>
                   </div>
@@ -600,27 +660,31 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
               <Col span={24}>
                 <Col span={24}>
-                  {loadCount > 30 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={145}
-                      width="100%"
-                      height="550"
-                    />
-                  )}
+                  <div style={{ height: "550px" }}>
+                    {loadCount > 31 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={145}
+                        width="100%"
+                        height="550"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
                     <p>Top Districts (Class-2)</p>
                   </div>
                 </Col>
                 <Col span={24}>
-                  {loadCount > 32 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={146}
-                      width="100%"
-                      height="550"
-                    />
-                  )}
+                  <div style={{ height: "550px" }}>
+                    {loadCount > 33 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={146}
+                        width="100%"
+                        height="550"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
                     <p>Bottom Districts (Class-2)</p>
                   </div>
@@ -628,14 +692,16 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
               </Col>
               <Col span={24}>
                 <Col span={24}>
-                  {loadCount > 34 && (
-                    <QuestionWithIframe
-                      handleLoadCounter={handleSetLoad}
-                      questionId={148}
-                      width="100%"
-                      height="550"
-                    />
-                  )}
+                  <div style={{ height: "550px" }}>
+                    {loadCount > 35 && (
+                      <QuestionWithIframe
+                        handleLoadCounter={handleSetLoad}
+                        questionId={148}
+                        width="100%"
+                        height="550"
+                      />
+                    )}
+                  </div>
                   <div className="navButtonSelected">
                     <p>Top Districts (Class-3)</p>
                   </div>
@@ -646,12 +712,14 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
           <Col span={6}>
             <Row>
               <Col span={24}>
-                <div className="NIPUNheading">NIPUN Lakshya Analysis</div>
+                <div className="NIPUNheading">
+                  NIPUN Lakshya <br /> Analysis
+                </div>
               </Col>
             </Row>
             <Row>
               <Col span={24} style={{ display: "flex" }}>
-                {loadCount > 4 && (
+                {loadCount > 5 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={133}
@@ -680,7 +748,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                     nonDownloadable={true}
                   />
                 )}
-                {loadCount > 12 && (
+                {loadCount > 13 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={135}
@@ -693,27 +761,34 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             </Row>
             <Row>
               <Col span={24}>
-                {loadCount > 17 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={138}
-                    width="100%"
-                    height="3766"
-                  />
-                )}
+                <div style={{ height: "3717px" }}>
+                  {loadCount > 15 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={138}
+                      width="100%"
+                      height="3717"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
-                  <p>District wise students practising atleast once a month</p>
+                  <p>
+                    District wise students practising atleast once a <br />
+                    month
+                  </p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 27 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={137}
-                    width="100%"
-                    height="1171"
-                  />
-                )}
+                <div style={{ height: "1163px" }}>
+                  {loadCount > 27 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={137}
+                      width="100%"
+                      height="1163"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>District wise NIPUN Students</p>
                 </div>
@@ -724,54 +799,62 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 {/* <div className="NIPUNheading">
                   Oral Reading Fluency Analysis
                 </div> */}
-                {loadCount > 29 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={15}
-                    width="100%"
-                    height="528"
-                  />
-                )}
+                <div style={{ height: "528px" }}>
+                  {loadCount > 29 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={15}
+                      width="100%"
+                      height="528"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Word Bucket Performance (Class-1)</p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 31 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={16}
-                    width="100%"
-                    height="549"
-                  />
-                )}
+                <div style={{ height: "551px" }}>
+                  {loadCount > 31 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={16}
+                      width="100%"
+                      height="551"
+                    />
+                  )}
+                </div>
 
                 <div className="navButtonSelected">
                   <p>Word Bucket Performance (Class-2)</p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 33 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={16}
-                    width="100%"
-                    height="551"
-                  />
-                )}
+                <div style={{ height: "551px" }}>
+                  {loadCount > 33 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={16}
+                      width="100%"
+                      height="551"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Word Bucket Performance (Class-3)</p>
                 </div>
               </Col>
               <Col span={24}>
-                {loadCount > 35 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={149}
-                    width="100%"
-                    height="550"
-                  />
-                )}
+                <div style={{ height: "549px" }}>
+                  {loadCount > 35 && (
+                    <QuestionWithIframe
+                      handleLoadCounter={handleSetLoad}
+                      questionId={149}
+                      width="100%"
+                      height="549"
+                    />
+                  )}
+                </div>
                 <div className="navButtonSelected">
                   <p>Bottom Districts (Class-3)</p>
                 </div>

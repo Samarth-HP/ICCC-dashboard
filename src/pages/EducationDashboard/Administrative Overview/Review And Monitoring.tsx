@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Card, Col, Layout, Row, Image, Button, Input } from "antd";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -13,126 +13,199 @@ import assessments from "../../assets/thumb_assessments.png";
 import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import FooterLogo from "../../assets/footer_logo.png";
 
-const ReviewAndMonitoring: FC = () => (
-  <Layout>
-    <Content>
-      <Col span={24}>
-        <Row>
-          <Col span={24}>
-            <div className="NIPUNheading">Review and Monitoring</div>
-          </Col>
-        </Row>
-        <Row>
-          <Col span={8} style={{ display: "flex" }}>
-            {" "}
-            <Input />{" "}
-          </Col>
-          <Col span={8} style={{ display: "flex" }}>
-            <select className="forSelect" defaultValue={""}>
-              <option value={""} selected>
-                Quarter
-              </option>
-              <option onSelect={(e) => console.log(e)} value={"1"}>
-                1
-              </option>
-              <option value={"1"}>2</option>
-              <option value={"1"}>3</option>
-              <option value={"1"}>4</option>
-            </select>
-          </Col>
-        </Row>
-        <Row>
-          <Col span={24} style={{ display: "flex" }}>
-            <QuestionWithIframe
-              questionId={62}
-              width="33%"
-              height="200"
-              nonDownloadable={true}
-            />
+const ReviewAndMonitoring: FC = () => {
+  const [loadCount, setLoadCount] = useState(0);
+  const handleSetLoad = () => {
+    // setLoadCount(loadCount + 1);
+    setLoadCount((prev: any) => {
+      return ++prev;
+    });
+  };
+  return (
+    <Layout>
+      <Content>
+        <Col span={24}>
+          <Row>
+            <Col span={24}>
+              <div className="NIPUNheading">Review and Monitoring</div>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={8} style={{ display: "flex" }}>
+              {" "}
+              <Input />{" "}
+            </Col>
+            <Col span={8} style={{ display: "flex" }}>
+              <select className="forSelect" defaultValue={""}>
+                <option value={""} selected>
+                  Quarter
+                </option>
+                <option onSelect={(e) => console.log(e)} value={"1"}>
+                  1
+                </option>
+                <option value={"1"}>2</option>
+                <option value={"1"}>3</option>
+                <option value={"1"}>4</option>
+              </select>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24} style={{ display: "flex" }}>
+              <QuestionWithIframe
+                handleLoadCounter={handleSetLoad}
+                questionId={62}
+                width="33%"
+                height="200"
+                nonDownloadable={true}
+              />
 
-            <QuestionWithIframe
-              questionId={64}
-              width="34%"
-              height="200"
-              nonDownloadable={true}
-            />
+              {loadCount > 0 && (
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={64}
+                  width="34%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+              )}
 
-            <QuestionWithIframe
-              questionId={70}
-              width="33%"
-              height="200"
-              nonDownloadable={true}
-            />
-          </Col>
-        </Row>
+              {loadCount > 1 && (
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={70}
+                  width="33%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+              )}
+            </Col>
+          </Row>
 
-        <Row>
-          <Col span={24}>
-            <QuestionWithIframe questionId={63} width="100%" height="1251" />
-            <div className="navButtonSelected">
-              <p style={{ lineHeight: "2.6" }}>District-wise DRM Compliance</p>
-            </div>
-          </Col>
-          <Col span={24}>
-            <QuestionWithIframe questionId={69} width="100%" height="1270" />
-            <div className="navButtonSelected">
-              <p style={{ lineHeight: "2.5" }}>District-wise BRM Compliance</p>
-            </div>
-          </Col>
-          <Col span={24}>
-            <QuestionWithIframe questionId={71} width="100%" height="1409" />
-            <div className="navButtonSelected">
-              <p style={{ lineHeight: "2.5" }}>District-wise CRM Compliance</p>
-            </div>
-          </Col>
-        </Row>
+          <Row>
+            <Col span={24}>
+              <div style={{ height: "1251px" }}>
+                {loadCount > 2 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={63}
+                    width="100%"
+                    height="1251"
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.6" }}>
+                  District-wise DRM Compliance
+                </p>
+              </div>
+            </Col>
+            <Col span={24}>
+              <div style={{ height: "1270px" }}>
+                {loadCount > 3 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={69}
+                    width="100%"
+                    height="1270"
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>
+                  District-wise BRM Compliance
+                </p>
+              </div>
+            </Col>
+            <Col span={24}>
+              <div style={{ height: "1350px" }}>
+                {loadCount > 4 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={71}
+                    width="100%"
+                    height="1350"
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>
+                  District-wise CRM Compliance
+                </p>
+              </div>
+            </Col>
+          </Row>
 
-        <Row>
-          <Col span={24}>
-            <QuestionWithIframe questionId={72} width="100%" height="808" />
-            <div className="navButtonSelected">
-              <p style={{ lineHeight: "2.5" }}>
-                Month-wise Review Meeting Compliance
-              </p>
-            </div>
-          </Col>
-        </Row>
-        <Row></Row>
-        <Row>
-          <Col span={12}>
-            <QuestionWithIframe
-              questionId={73}
-              width="100%"
-              height="200"
-              nonDownloadable={true}
-            />
-          </Col>
-          <Col span={12}>
-            <QuestionWithIframe
-              questionId={76}
-              width="100%"
-              height="200"
-              nonDownloadable={true}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={24}>
-            <QuestionWithIframe
-              questionId={75}
-              width="100%"
-              height="1682"
-              params={{ Quarter: [3] }}
-            />
-            <div className="navButtonSelected">
-              <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
-            </div>
-          </Col>
-        </Row>
-      </Col>
-    </Content>
-  </Layout>
-);
+          <Row>
+            <Col span={24}>
+              <div style={{ height: "808px" }}>
+                {loadCount > 5 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={72}
+                    width="100%"
+                    height="808"
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>
+                  Month-wise Review Meeting Compliance
+                </p>
+              </div>
+            </Col>
+          </Row>
+          <Row></Row>
+          <Row>
+            <Col span={12}>
+              <div style={{ height: "200px" }}>
+                {loadCount > 6 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={73}
+                    width="100%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+                )}
+              </div>
+            </Col>
+            <Col span={12}>
+              <div style={{ height: "200px" }}>
+                {loadCount > 7 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={76}
+                    width="100%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+                )}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <div style={{ height: "1682px" }}>
+                {loadCount > 8 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={75}
+                    width="100%"
+                    height="1682"
+                    params={{ Quarter: [3] }}
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
+              </div>
+            </Col>
+          </Row>
+        </Col>
+      </Content>
+    </Layout>
+  );
+};
 
 const NavItem: FC = (props: any) => {
   return (

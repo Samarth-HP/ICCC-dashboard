@@ -101,6 +101,7 @@ const QuestionWithIframe = ({
   nonDownloadable,
   params,
   handleLoadCounter = () => console.log("no call back"),
+  
 }: {
   questionId: any;
   height?: string;

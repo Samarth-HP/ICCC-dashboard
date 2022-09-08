@@ -1,4 +1,4 @@
-import React, { FC, Suspense, lazy } from "react";
+import React, { FC, Suspense, lazy, useState } from "react";
 import { Card, Col, Layout, Row, Image } from "antd";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -34,6 +34,13 @@ const sample_data = {
 };
 
 const Attendence = () => {
+  const [loadCount, setLoadCount] = useState(0);
+  const handleSetLoad = () => {
+    // setLoadCount(loadCount + 1);
+    setLoadCount((prev: any) => {
+      return ++prev;
+    });
+  };
   return (
     <Layout>
       <Content>
@@ -46,23 +53,35 @@ const Attendence = () => {
           <Row>
             <Col span={24} style={{ display: "flex" }}>
               <QuestionWithIframe
+                handleLoadCounter={handleSetLoad}
                 questionId={55}
                 width="50%"
                 height="200"
                 nonDownloadable={true}
               />
-
-              <QuestionWithIframe
-                questionId={57}
-                width="50%"
-                height="200"
-                nonDownloadable={true}
-              />
+              {loadCount > 0 && (
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={57}
+                  width="50%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+              )}
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <QuestionWithIframe questionId={56} width="100%" height="2000" />
+              <div style={{ height: "1983px" }}>
+                {loadCount > 1 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={56}
+                    width="100%"
+                    height="1983"
+                  />
+                )}
+              </div>
 
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.6" }}>
@@ -71,7 +90,16 @@ const Attendence = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe questionId={58} width="100%" height="2050" />
+              <div style={{ height: "2050px" }}>
+                {loadCount > 2 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={58}
+                    width="100%"
+                    height="2050"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   Percentage Schools Recording Attendance on e-Samwad
@@ -81,7 +109,16 @@ const Attendence = () => {
           </Row>
           <Row>
             <Col span={24}>
-              <QuestionWithIframe questionId={59} width="100%" height="808" />
+              <div style={{ height: "808px" }}>
+                {loadCount > 3 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={59}
+                    width="100%"
+                    height="808"
+                  />
+                )}
+              </div>
             </Col>
             <Col span={24}>
               <div className="navButtonSelected">
@@ -91,7 +128,16 @@ const Attendence = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe questionId={60} width="100%" height="600" />
+              <div style={{ height: "600px" }}>
+                {loadCount > 4 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={60}
+                    width="100%"
+                    height="600"
+                  />
+                )}
+              </div>
             </Col>
             <Col span={24}>
               <div className="navButtonSelected">
@@ -101,7 +147,16 @@ const Attendence = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe questionId={77} width="100%" height="1170" />
+              <div style={{ height: "1170px" }}>
+                {loadCount > 5 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={77}
+                    width="100%"
+                    height="1170"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>District-wise CRCC Visits</p>
               </div>
