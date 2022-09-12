@@ -25,7 +25,6 @@ const { Search } = Input;
 
 const SchoolStatisticsAndEnrolment: FC = (props: any) => {
   const [marker, setMarker] = useState("Districts");
-  const [loadCount, setLoadCount] = useState(0);
   const [markerData, setMarkerData] = useState(props.markerData);
   const [config, setConfig] = useState([]);
 
@@ -91,12 +90,6 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
     }
   }, [props.markerData]);
   if (loading) return <>Loading</>;
-  const handleSetLoad = () => {
-    // setLoadCount(loadCount + 1);
-    setLoadCount((prev: any) => {
-      return ++prev;
-    });
-  };
 
   return (
     <Layout>
@@ -106,40 +99,29 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             <Row>
               <Col style={{ display: "flex" }} span={24}>
                 <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
                   questionId={29}
-                  width="17%"
+                  width="20%"
                   height="200"
                   nonDownloadable={true}
                 />
-                {loadCount > 0 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={33}
-                    width="40%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-
-                {loadCount > 1 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={40}
-                    width="23%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-                {loadCount > 2 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={34}
-                    width="20%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
+                <QuestionWithIframe
+                  questionId={33}
+                  width="40%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={40}
+                  width="20%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+                <QuestionWithIframe
+                  questionId={34}
+                  width="20%"
+                  height="200"
+                  nonDownloadable={true}
+                />
               </Col>
             </Row>
           </Col>
@@ -155,16 +137,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "550px" }}>
-              {loadCount > 3 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={30}
-                  width="100%"
-                  height="550"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={30} width="100%" height="550" />
             <div className="navButtonSelected">
               <p>Category Wise Number of Schools</p>
             </div>
@@ -172,16 +145,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "610px" }}>
-              {loadCount > 4 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={32}
-                  width="100%"
-                  height="610"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={32} width="100%" height="610" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.6" }}>
                 Session wise Number of Schools
@@ -191,16 +155,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "626px" }}>
-              {loadCount > 5 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={61}
-                  width="100%"
-                  height="626"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={61} width="100%" height="626" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.6" }}>
                 District wise, Category wise, Number of Schools
@@ -215,16 +170,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "609px" }}>
-              {loadCount > 6 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={38}
-                  width="100%"
-                  height="609"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={38} width="100%" height="609" />
             <div className="navButtonSelected">
               {/* Enrolment slab wise school distribution */}
               <p style={{ lineHeight: "2.5" }}>
@@ -235,16 +181,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "650px" }}>
-              {loadCount > 7 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={35}
-                  width="100%"
-                  height="650"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={35} width="100%" height="650" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Student Enrolment by Level of Education
@@ -259,17 +196,12 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               <img src={boyIcon} alt="" />
             </Col>
             <Col span={18}>
-              <div style={{ height: "200px" }}>
-                {loadCount > 8 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={36}
-                    width="100%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-              </div>
+              <QuestionWithIframe
+                questionId={36}
+                width="100%"
+                height="200"
+                nonDownloadable={true}
+              />
             </Col>
           </Col>
           <Col style={{ display: "flex" }} span={12}>
@@ -277,33 +209,19 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               <img src={girlIcon} alt="" />
             </Col>
             <Col span={18}>
-              <div style={{ height: "200px" }}>
-                {loadCount > 9 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={37}
-                    width="100%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-              </div>
+              <QuestionWithIframe
+                questionId={37}
+                width="100%"
+                height="200"
+                nonDownloadable={true}
+              />
             </Col>
           </Col>
           <div></div>
         </Row>
         <Row style={{ display: "flex" }}>
           <Col span={12}>
-            <div style={{ height: "1215px" }}>
-              {loadCount > 10 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={43}
-                  width="100%"
-                  height="1215"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={43} width="100%" height="1200" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Pupil-Teacher ratio across level of education
@@ -311,16 +229,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             </div>
           </Col>
           <Col span={12}>
-            <div style={{ height: "1215px" }}>
-              {loadCount > 11 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={53}
-                  width="100%"
-                  height="1215"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={53} width="100%" height="1200" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Grade-wise Enrolment distribution
@@ -330,16 +239,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
         </Row>
         <Row>
           <Col span={24}>
-            <div style={{ height: "600px" }}>
-              {loadCount > 12 && (
-                <QuestionWithIframe
-                  handleLoadCounter={handleSetLoad}
-                  questionId={54}
-                  width="100%"
-                  height="600"
-                />
-              )}
-            </div>
+            <QuestionWithIframe questionId={54} width="100%" height="600" />
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
                 Stream-wise Enrolment distribution
@@ -393,7 +293,6 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               Clusters
             </Button>
           </Col> */}
-
           <Col span={6}>
             <Button
               style={{ height: "50px" }}
