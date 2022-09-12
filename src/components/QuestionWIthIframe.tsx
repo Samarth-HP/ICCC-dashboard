@@ -110,6 +110,9 @@ const QuestionWithIframe = ({
   params?: any;
   handleLoadCounter?: any;
 }) => {
+  useEffect(() => {
+    console.log(params);
+  }, []);
   return (
     <QuestionWithIframeProtected
       questionId={questionId}
