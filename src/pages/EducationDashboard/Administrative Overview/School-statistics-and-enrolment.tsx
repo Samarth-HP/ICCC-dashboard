@@ -334,7 +334,6 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-
           <Col span={24}>
             {props.active ? (
               <Col span={24}>
