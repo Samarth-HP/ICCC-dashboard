@@ -55,7 +55,7 @@ const Attendence = () => {
               <QuestionWithIframe
                 handleLoadCounter={handleSetLoad}
                 questionId={55}
-                width="50%"
+                width="100%"
                 height="200"
                 nonDownloadable={true}
               />
@@ -63,7 +63,7 @@ const Attendence = () => {
                 <QuestionWithIframe
                   handleLoadCounter={handleSetLoad}
                   questionId={57}
-                  width="50%"
+                  width="100%"
                   height="200"
                   nonDownloadable={true}
                 />

@@ -324,10 +324,10 @@ const EducationPortal: FC = () => {
                     fontSize: "25px",
                     marginRight: "10px",
                     fontWeight: "bold",
-                     textAlign:'center',
+                    textAlign: "center",
                     // lineHeight: "2.5",
-                    padding:'11px',
-                    cursor:'pointer'
+                    padding: "11px",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     history.push("/detailed-dashboard");
@@ -352,31 +352,30 @@ const EducationPortal: FC = () => {
             </Col>
           </Row>
           <Row>
-            {selectedButton == 1 && (
-              <Col>
-                <StudentAssessmentPerformanceGrade1_3
-                  markerData={markerData}
-                  getMarkerData={getMarkerData}
-                />
-              </Col>
-            )}
-            {selectedButton == 2 && (
-              <Col>
-                <StudentAssessmentPerformanceGrade4_8
-                  markerData={markerData}
-                  getMarkerData={getMarkerData}
-                />
-              </Col>
-            )}
-            {selectedButton == 3 && (
-              <Col>
-                <AdministrativeOverview
-                  //@ts-ignore
-                  markerData={markerData}
-                  getMarkerData={getMarkerData}
-                />
-              </Col>
-            )}
+            <Col>
+              <StudentAssessmentPerformanceGrade1_3
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+                active={selectedButton === 1}
+              />
+            </Col>
+
+            <Col>
+              <StudentAssessmentPerformanceGrade4_8
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+                active={selectedButton === 2}
+              />
+            </Col>
+
+            <Col>
+              <AdministrativeOverview
+                //@ts-ignore
+                markerData={markerData}
+                getMarkerData={getMarkerData}
+                active={selectedButton === 3}
+              />
+            </Col>
           </Row>
         </Content>
       </Layout>

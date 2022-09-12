@@ -108,7 +108,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                 <QuestionWithIframe
                   handleLoadCounter={handleSetLoad}
                   questionId={29}
-                  width="20%"
+                  width="17%"
                   height="200"
                   nonDownloadable={true}
                 />
@@ -126,7 +126,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={40}
-                    width="20%"
+                    width="23%"
                     height="200"
                     nonDownloadable={true}
                   />
