@@ -30,7 +30,13 @@ const ReviewAndMonitoring: FC = () => {
     "November",
     "December",
   ]);
-
+  const [loadCount, setLoadCount] = useState(0);
+  const handleSetLoad = () => {
+    // setLoadCount(loadCount + 1);
+    setLoadCount((prev: any) => {
+      return ++prev;
+    });
+  };
   return (
     <Layout>
       <Content>
@@ -42,94 +48,67 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={8} style={{ display: "flex" }}>
-              <select
-                onChange={(e) => setSelectedMonth({ month: e.target.value })}
-                className="forSelect"
-                defaultValue={""}
-              >
-                {ml.map((item) => (
-                  <option value={item}>{item}</option>
-                ))}
-              </select>
+              {" "}
+              <Input />{" "}
             </Col>
             <Col span={8} style={{ display: "flex" }}>
-              <select
-                onChange={(e) =>
-                  setSelectedQuarter({ Quarter: [parseInt(e.target.value)] })
-                }
-                className="forSelect"
-                defaultValue={""}
-              >
-                <option value={"1"}>1</option>
-                <option value={"2"}>2</option>
-                <option value={"3"}>3</option>
-                <option value={"4"}>4</option>
+              <select className="forSelect" defaultValue={""}>
+                <option value={""} selected>
+                  Quarter
+                </option>
+                <option onSelect={(e) => console.log(e)} value={"1"}>
+                  1
+                </option>
+                <option value={"1"}>2</option>
+                <option value={"1"}>3</option>
+                <option value={"1"}>4</option>
               </select>
             </Col>
           </Row>
           <Row>
             <Col span={24} style={{ display: "flex" }}>
-              {selectedMonth?.month.length ? (
-                <>
-                  <QuestionWithIframe
-                    questionId={62}
-                    width="33%"
-                    height="200"
-                    params={selectedMonth}
-                    nonDownloadable={true}
-                  />
+              <QuestionWithIframe
+                handleLoadCounter={handleSetLoad}
+                questionId={62}
+                width="33%"
+                height="200"
+                nonDownloadable={true}
+              />
 
-                  <QuestionWithIframe
-                    questionId={64}
-                    width="34%"
-                    height="200"
-                    nonDownloadable={true}
-                    params={selectedMonth}
-                  />
+              {loadCount > 0 && (
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={64}
+                  width="34%"
+                  height="200"
+                  nonDownloadable={true}
+                />
+              )}
 
-                  <QuestionWithIframe
-                    questionId={70}
-                    width="33%"
-                    height="200"
-                    nonDownloadable={true}
-                    params={selectedMonth}
-                  />
-                </>
-              ) : (
-                <>
-                  <QuestionWithIframe
-                    questionId={62}
-                    width="33%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-
-                  <QuestionWithIframe
-                    questionId={64}
-                    width="34%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-
-                  <QuestionWithIframe
-                    questionId={70}
-                    width="33%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                </>
+              {loadCount > 1 && (
+                <QuestionWithIframe
+                  handleLoadCounter={handleSetLoad}
+                  questionId={70}
+                  width="33%"
+                  height="200"
+                  nonDownloadable={true}
+                />
               )}
             </Col>
           </Row>
 
           <Row>
             <Col span={24}>
-              <QuestionWithIframe
-                params={selectedMonth}
-                questionId={63}
-                width="100%"
-                height="1251"
-              />
+              <div style={{ height: "1251px" }}>
+                {loadCount > 2 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={63}
+                    width="100%"
+                    height="1251"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.6" }}>
                   District-wise DRM Compliance
@@ -137,12 +116,16 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe
-                params={selectedMonth}
-                questionId={69}
-                width="100%"
-                height="1270"
-              />
+              <div style={{ height: "1270px" }}>
+                {loadCount > 3 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={69}
+                    width="100%"
+                    height="1270"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   District-wise BRM Compliance
@@ -150,12 +133,16 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
             <Col span={24}>
-              <QuestionWithIframe
-                params={selectedMonth}
-                questionId={71}
-                width="100%"
-                height="1409"
-              />
+              <div style={{ height: "1350px" }}>
+                {loadCount > 4 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={71}
+                    width="100%"
+                    height="1350"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   District-wise CRM Compliance
@@ -166,7 +153,16 @@ const ReviewAndMonitoring: FC = () => {
 
           <Row>
             <Col span={24}>
-              <QuestionWithIframe questionId={72} width="100%" height="808" />
+              <div style={{ height: "808px" }}>
+                {loadCount > 5 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={72}
+                    width="100%"
+                    height="808"
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>
                   Month-wise Review Meeting Compliance
@@ -174,8 +170,33 @@ const ReviewAndMonitoring: FC = () => {
               </div>
             </Col>
           </Row>
-          <Row></Row>
           <Row>
+            <Col span={12}>
+              <div style={{ height: "200px" }}>
+                {loadCount > 6 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={73}
+                    width="100%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+                )}
+              </div>
+            </Col>
+            <Col span={12}>
+              <div style={{ height: "200px" }}>
+                {loadCount > 7 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={76}
+                    width="100%"
+                    height="200"
+                    nonDownloadable={true}
+                  />
+                )}
+              </div>
+            </Col>
             <Col span={12}>
               <QuestionWithIframe
                 params={selectedQuarter}
@@ -197,15 +218,20 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={24}>
+              <div style={{ height: "1474px" }}>
+                {loadCount > 8 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={75}
+                    width="100%"
+                    height="1474"
+                    params={{ Quarter: [3] }}
+                  />
+                )}
+              </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
               </div>
-              <QuestionWithIframe
-                questionId={75}
-                width="100%"
-                height="1682"
-                params={selectedQuarter}
-              />
             </Col>
           </Row>
         </Col>

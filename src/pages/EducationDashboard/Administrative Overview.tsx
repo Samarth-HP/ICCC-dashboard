@@ -39,17 +39,20 @@ const AdministrativeOverview: FC = (props: any) => {
     setMarker(id);
   };
   return (
-    <Layout className={"layout-wrapper home-wrapper"}>
+    <Layout
+      className={"layout-wrapper home-wrapper"}
+      style={{ display: props.active ? "block" : "none" }}
+    >
       <Content style={{ padding: "10px" }}>
         <Row>
-          <Col span={11}>
+          <Col span={10}>
             <SchoolStatisticsAndEnrolment
               //@ts-ignore
               markerData={props.markerData}
               getMarkerData={props.getMarkerData}
             />
           </Col>
-          <Col span={7}>
+          <Col span={8}>
             <Attendence></Attendence>
           </Col>
           <Col span={6}>

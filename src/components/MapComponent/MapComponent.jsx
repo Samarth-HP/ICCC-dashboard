@@ -458,7 +458,7 @@ export default function MapComponent({
         center={center}
         zoom={8}
         maxZoom={18}
-        style={{ width:'100%',height: "100vh" }}
+        style={{ width: "100%", height: "120vh" }}
         zoomControl={config.map.zoomControl}
         scrollWheelZoom={config.map.scrollWheelZoom}
         dragging={config.map.dragging}
@@ -475,7 +475,7 @@ export default function MapComponent({
         {byGeoJson && <MapOverlays overlays={config.overlays} />}
         {!byGeoJson && //
           (markers?.shouldClusterMarkers ? (
-            <MarkerClusterGroup>
+            <MarkerClusterGroup style={{ height: "5000px" }}>
               {/* <div> */}
               {markers?.postions.map((item) => {
                 let markerColor = blue_marker;
@@ -501,7 +501,7 @@ export default function MapComponent({
                   // iconRetinaUrl: new URL(`${item.icon}`),
                   iconUrl: markerColor,
                   iconRetinaUrl: markerColor,
-                  iconSize: new L.Point(20, 30),
+                  iconSize: new L.Point(90, 60),
                   // onclick: getToolTipData,
                   // eventHandlers: { eventHandlers },
                   // className: "leaflet-div-icon",
@@ -563,7 +563,7 @@ export default function MapComponent({
                             {toolTipData?.GradeWiseavgResult?.grade2?.value ||
                               "NA"}
                           </span>{" "}
-                          |{" "}
+                          | <br />
                           <span>
                             {toolTipData?.GradeWiseavgResult?.grade3?.label}
                           </span>{" "}
@@ -766,7 +766,7 @@ export default function MapComponent({
           style={{
             display: config.legend.display ? "flex" : "none",
             width: "100%",
-            marginTop:'10px',
+            marginTop: "10px",
             // flexDirection: "column",
             justifyContent:
               config.legend.position.split("-")[1] == "right"
@@ -791,7 +791,9 @@ export default function MapComponent({
                     padding: "0px",
                   }}
                 />
-                <label style={{ ...item, color: "black",fontSize:'30px' }}>{item.label}</label>
+                <label style={{ ...item, color: "black", fontSize: "30px" }}>
+                  {item.label}
+                </label>
               </div>
             );
           })}
