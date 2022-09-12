@@ -32,12 +32,14 @@ const sample_data = {
 const EducationPortal: FC = () => {
   const history = useHistory();
   const [selectedButton, setSelectedButton] = useState(2);
+  const [loadCount, setLoadCount] = useState(0);
   const [marker, setMarker] = useState("Districts");
   const [selectedAssessment, setSelectedAssessment] = useState("SA1");
   const [markerData, setMarkerData] = useState({
     shouldClusterMarkers: true,
     postions: [],
   });
+
   const handleLogout = () => {
     localStorage.removeItem("user");
     sessionStorage.removeItem("user");
@@ -46,6 +48,7 @@ const EducationPortal: FC = () => {
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
+    setLoadCount(1);
   };
   const onSetMarker = (id: any) => {
     // console.log(id);
@@ -101,7 +104,6 @@ const EducationPortal: FC = () => {
               peravg: filteredItem?.per_AverageScore,
             };
           }
-
           return {
             ...item,
             color: "purple",
@@ -352,14 +354,15 @@ const EducationPortal: FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
-              <StudentAssessmentPerformanceGrade1_3
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-                active={selectedButton === 1}
-              />
-            </Col>
-
+            {loadCount > 0 && (
+              <Col>
+                <StudentAssessmentPerformanceGrade1_3
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                  active={selectedButton === 1}
+                />
+              </Col>
+            )}
             <Col>
               <StudentAssessmentPerformanceGrade4_8
                 markerData={markerData}
@@ -367,15 +370,16 @@ const EducationPortal: FC = () => {
                 active={selectedButton === 2}
               />
             </Col>
-
-            <Col>
-              <AdministrativeOverview
-                //@ts-ignore
-                markerData={markerData}
-                getMarkerData={getMarkerData}
-                active={selectedButton === 3}
-              />
-            </Col>
+            {loadCount > 0 && (
+              <Col>
+                <AdministrativeOverview
+                  //@ts-ignore
+                  markerData={markerData}
+                  getMarkerData={getMarkerData}
+                  active={selectedButton === 3}
+                />
+              </Col>
+            )}
           </Row>
         </Content>
       </Layout>

@@ -291,17 +291,19 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col span={24}>
-                    <div style={{ width: "100%" }}>
-                      <MapComponent
-                        at={selected}
-                        config={config}
-                        type={1}
-                        ay={academicYear}
-                        markers={props?.markerData}
-                      ></MapComponent>
-                    </div>
-                  </Col>
+                  {props.active ? (
+                    <Col span={24}>
+                      <div style={{ width: "100%" }}>
+                        <MapComponent
+                          at={selected}
+                          config={config}
+                          type={1}
+                          ay={academicYear}
+                          markers={props?.markerData}
+                        ></MapComponent>
+                      </div>
+                    </Col>
+                  ) : null}
                 </Row>
               </Col>
             </Row>

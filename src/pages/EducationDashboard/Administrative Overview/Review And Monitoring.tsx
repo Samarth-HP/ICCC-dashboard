@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Card, Col, Layout, Row, Image, Button, Input } from "antd";
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -14,8 +14,6 @@ import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import FooterLogo from "../../assets/footer_logo.png";
 
 const ReviewAndMonitoring: FC = () => {
-  const [selectedMonth, setSelectedMonth] = useState({ month: "" });
-  const [selectedQuarter, setSelectedQuarter] = useState({ Quarter: [3] });
   const [ml, setMl] = useState([
     "January",
     "February",
@@ -31,12 +29,21 @@ const ReviewAndMonitoring: FC = () => {
     "December",
   ]);
   const [loadCount, setLoadCount] = useState(0);
+  const [month, setMonth] = useState("June");
+  const [Quarter, setQuarter] = useState(3);
   const handleSetLoad = () => {
     // setLoadCount(loadCount + 1);
     setLoadCount((prev: any) => {
       return ++prev;
     });
   };
+  const monthValue = (e: any) => {
+    setMonth(e.target.value);
+  };
+  const quarterValue = (e: any) => {
+    setQuarter(e.target.value);
+  };
+
   return (
     <Layout>
       <Content>
@@ -48,20 +55,37 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={8} style={{ display: "flex" }}>
-              {" "}
-              <Input />{" "}
+              <select
+                onChange={(e) => {
+                  monthValue(e);
+                }}
+                className="forSelect"
+                defaultValue={""}
+              >
+                <option value={""} disabled selected hidden>
+                  Months
+                </option>
+                {ml.map((obj) => {
+                  return <option value={obj}>{obj}</option>;
+                })}
+              </select>
             </Col>
             <Col span={8} style={{ display: "flex" }}>
-              <select className="forSelect" defaultValue={""}>
-                <option value={""} selected>
+              <select
+                onChange={(e) => {
+                  quarterValue(e);
+                }}
+                // value={"1"}
+                className="forSelect"
+                defaultValue={""}
+              >
+                <option value={""} disabled selected hidden>
                   Quarter
                 </option>
-                <option onSelect={(e) => console.log(e)} value={"1"}>
-                  1
-                </option>
-                <option value={"1"}>2</option>
-                <option value={"1"}>3</option>
-                <option value={"1"}>4</option>
+                <option value={"1"}>1</option>
+                <option value={"2"}>2</option>
+                <option value={"3"}>3</option>
+                <option value={"4"}>4</option>
               </select>
             </Col>
           </Row>
@@ -73,6 +97,7 @@ const ReviewAndMonitoring: FC = () => {
                 width="33%"
                 height="200"
                 nonDownloadable={true}
+                params={{ month }}
               />
 
               {loadCount > 0 && (
@@ -82,6 +107,7 @@ const ReviewAndMonitoring: FC = () => {
                   width="34%"
                   height="200"
                   nonDownloadable={true}
+                  params={{ month }}
                 />
               )}
 
@@ -92,6 +118,7 @@ const ReviewAndMonitoring: FC = () => {
                   width="33%"
                   height="200"
                   nonDownloadable={true}
+                  params={{ month }}
                 />
               )}
             </Col>
@@ -106,6 +133,7 @@ const ReviewAndMonitoring: FC = () => {
                     questionId={63}
                     width="100%"
                     height="1251"
+                    params={{ month }}
                   />
                 )}
               </div>
@@ -123,6 +151,7 @@ const ReviewAndMonitoring: FC = () => {
                     questionId={69}
                     width="100%"
                     height="1270"
+                    params={{ month }}
                   />
                 )}
               </div>
@@ -140,6 +169,7 @@ const ReviewAndMonitoring: FC = () => {
                     questionId={71}
                     width="100%"
                     height="1350"
+                    params={{ month }}
                   />
                 )}
               </div>
@@ -172,65 +202,59 @@ const ReviewAndMonitoring: FC = () => {
           </Row>
           <Row>
             <Col span={12}>
-              <div style={{ height: "200px" }}>
-                {loadCount > 6 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={73}
-                    width="100%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-              </div>
+              {loadCount > 6 && (
+                <QuestionWithIframe
+                  questionId={73}
+                  width="100%"
+                  height="200"
+                  nonDownloadable={true}
+                  params={{ Quarter }}
+                />
+              )}
             </Col>
-            <Col span={12}>
-              <div style={{ height: "200px" }}>
-                {loadCount > 7 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={76}
-                    width="100%"
-                    height="200"
-                    nonDownloadable={true}
-                  />
-                )}
-              </div>
-            </Col>
-            <Col span={12}>
-              <QuestionWithIframe
-                params={selectedQuarter}
-                questionId={73}
-                width="100%"
-                height="200"
-                nonDownloadable={true}
-              />
-            </Col>
-            <Col span={12}>
-              <QuestionWithIframe
-                params={selectedQuarter}
-                questionId={76}
-                width="100%"
-                height="200"
-                nonDownloadable={true}
-              />
-            </Col>
+            {loadCount > 6 && (
+              <Col span={12}>
+                <QuestionWithIframe
+                  questionId={76}
+                  width="100%"
+                  height="200"
+                  nonDownloadable={true}
+                  params={{ Quarter }}
+                />
+              </Col>
+            )}
           </Row>
           <Row>
             <Col span={24}>
               <div style={{ height: "1474px" }}>
-                {loadCount > 8 && (
+                {loadCount > 6 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={75}
                     width="100%"
                     height="1474"
-                    params={{ Quarter: [3] }}
+                    params={{ Quarter }}
                   />
                 )}
               </div>
               <div className="navButtonSelected">
                 <p style={{ lineHeight: "2.5" }}>District-wise BRCC Visits</p>
+              </div>
+            </Col>
+            <Col span={24}>
+              <div style={{ height: "1170px" }}>
+                {loadCount > 7 && (
+                  <QuestionWithIframe
+                    handleLoadCounter={handleSetLoad}
+                    questionId={77}
+                    width="100%"
+                    height="1170"
+                    params={{ Quarter }}
+                  />
+                )}
+              </div>
+              <div className="navButtonSelected">
+                <p style={{ lineHeight: "2.5" }}>District-wise CRCC Visits</p>
               </div>
             </Col>
           </Row>

@@ -109,13 +109,13 @@ const Attendence = () => {
           </Row>
           <Row>
             <Col span={24}>
-              <div style={{ height: "808px" }}>
+              <div style={{ height: "1820px" }}>
                 {loadCount > 3 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={59}
                     width="100%"
-                    height="808"
+                    height="1700"
                   />
                 )}
               </div>
@@ -128,13 +128,13 @@ const Attendence = () => {
               </div>
             </Col>
             <Col span={24}>
-              <div style={{ height: "600px" }}>
+              <div style={{ height: "1952px" }}>
                 {loadCount > 4 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={60}
                     width="100%"
-                    height="600"
+                    height="1952"
                   />
                 )}
               </div>
@@ -144,21 +144,6 @@ const Attendence = () => {
                 <p style={{ lineHeight: "2.5" }}>
                   Daily Average Student Attendance and Compliance
                 </p>
-              </div>
-            </Col>
-            <Col span={24}>
-              <div style={{ height: "1170px" }}>
-                {loadCount > 5 && (
-                  <QuestionWithIframe
-                    handleLoadCounter={handleSetLoad}
-                    questionId={77}
-                    width="100%"
-                    height="1170"
-                  />
-                )}
-              </div>
-              <div className="navButtonSelected">
-                <p style={{ lineHeight: "2.5" }}>District-wise CRCC Visits</p>
               </div>
             </Col>
           </Row>

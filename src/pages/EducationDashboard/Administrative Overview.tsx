@@ -50,6 +50,7 @@ const AdministrativeOverview: FC = (props: any) => {
               //@ts-ignore
               markerData={props.markerData}
               getMarkerData={props.getMarkerData}
+              active={props.active}
             />
           </Col>
           <Col span={8}>

@@ -14,7 +14,7 @@ import assessments from "../../assets/thumb_assessments.png";
 
 import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
-import MapComponent from "../../../components/MapComponent/MapComponent";
+import MapComponent from "../../../pages/Review Meetings/index";
 import API_SERVICE from "../../../services/api-service";
 import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import parameters from "../../../services/parameters";
@@ -141,19 +141,17 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
                   />
                 )}
               </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row style={{ display: "flex" }}>
-          <Col span={24}>
-            <div className="NIPUNheading">School Statistics</div>
-          </Col>
 
-          {/* <Col span={12}>
+              <Col span={24}>
+                <div className="NIPUNheading">School Statistics</div>
+              </Col>
+
+              {/* <Col span={12}>
               <div className="NIPUNheading">Student Enrolment</div>
             </Col> */}
-        </Row>
-        <Row>
+            </Row>
+          </Col>
+
           <Col span={24}>
             <div style={{ height: "550px" }}>
               {loadCount > 3 && (
@@ -169,8 +167,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               <p>Category Wise Number of Schools</p>
             </div>
           </Col>
-        </Row>
-        <Row>
+
           <Col span={24}>
             <div style={{ height: "610px" }}>
               {loadCount > 4 && (
@@ -188,8 +185,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
-        <Row>
+
           <Col span={24}>
             <div style={{ height: "626px" }}>
               {loadCount > 5 && (
@@ -207,13 +203,11 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
-        <Row style={{ display: "flex" }}>
+
           <Col span={24}>
             <div className="NIPUNheading">Student Enrolment</div>
           </Col>
-        </Row>
-        <Row>
+
           <Col span={24}>
             <div style={{ height: "609px" }}>
               {loadCount > 6 && (
@@ -232,8 +226,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
-        <Row>
+
           <Col span={24}>
             <div style={{ height: "650px" }}>
               {loadCount > 7 && (
@@ -251,9 +244,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
 
-        <Row style={{ display: "flex" }}>
           <Col style={{ display: "flex" }} span={12}>
             <Col>
               <img src={boyIcon} alt="" />
@@ -290,17 +281,15 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </div>
             </Col>
           </Col>
-          <div></div>
-        </Row>
-        <Row style={{ display: "flex" }}>
-          <Col span={12}>
-            <div style={{ height: "1215px" }}>
+
+          <Col span={24}>
+            <div style={{ height: "900px" }}>
               {loadCount > 10 && (
                 <QuestionWithIframe
                   handleLoadCounter={handleSetLoad}
                   questionId={43}
                   width="100%"
-                  height="1215"
+                  height="900"
                 />
               )}
             </div>
@@ -310,7 +299,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-          <Col span={12}>
+          <Col span={24}>
             <div style={{ height: "1215px" }}>
               {loadCount > 11 && (
                 <QuestionWithIframe
@@ -327,16 +316,15 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
-        <Row>
+
           <Col span={24}>
-            <div style={{ height: "600px" }}>
+            <div style={{ height: "1000px" }}>
               {loadCount > 12 && (
                 <QuestionWithIframe
                   handleLoadCounter={handleSetLoad}
                   questionId={54}
                   width="100%"
-                  height="600"
+                  height="1000"
                 />
               )}
             </div>
@@ -346,83 +334,13 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
-        </Row>
-        <Row>
-          {/* <Col span={4}>
-            <Select defaultValue={"SA-1"} style={{ width: "100%" }}>
-              <Select.Option value={"SA-1"}>{"SA-1"}</Select.Option>
-              <Select.Option value={"SA-2"}>{"SA-2"}</Select.Option>
-            </Select>
-          </Col> */}
-          <Col span={6}>
-            <Button
-              style={{ height: "50px" }}
-              className={
-                marker == "Districts" ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                props.getMarkerData("Districts");
-                setMarker("Districts");
-              }}
-            >
-              <p style={{ lineHeight: "1.2" }}>Districts</p>
-            </Button>
-          </Col>
-          <Col span={6}>
-            <Button
-              style={{ height: "50px" }}
-              className={marker == "Blocks" ? "navButtonSelected" : "navButton"}
-              onClick={() => {
-                props.getMarkerData("Blocks");
-                setMarker("Blocks");
-              }}
-            >
-              <p style={{ lineHeight: "1.2" }}>Blocks</p>
-            </Button>
-          </Col>
-          {/* <Col span={5}>
-            <Button
-              className={
-                marker == "Clusters" ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                props.getMarkerData("Districts");
-                setMarker("Clusters");
-              }}
-            >
-              Clusters
-            </Button>
-          </Col> */}
 
-          <Col span={6}>
-            <Button
-              style={{ height: "50px" }}
-              className={
-                marker == "Schools" ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                props.getMarkerData("Schools");
-                setMarker("Schools");
-              }}
-            >
-              <p style={{ lineHeight: "1.2" }}>Schools</p>
-            </Button>
-          </Col>
-          <Col span={6}>
-            <Search
-              //@ts-ignore
-              onSearch={(val: any) => {
-                handleSearchByUDISE(val);
-                console.log(val);
-                setMarker("Schools");
-              }}
-              placeholder="Search UDISE"
-            />
-          </Col>
-        </Row>
-        <Row>
           <Col span={24}>
-            <MapComponent config={config} markers={markerData} />
+            {props.active ? (
+              <Col span={24}>
+                <MapComponent />
+              </Col>
+            ) : null}
           </Col>
         </Row>
       </Content>
