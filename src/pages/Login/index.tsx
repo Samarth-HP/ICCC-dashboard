@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Button, Col, Layout, Row, Input, Divider, Image } from "antd";
 import {
   UserOutlined,
@@ -40,7 +40,15 @@ const Login: FC = () => {
         token,
       })
     );
-    history.push("");
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then((registration) => {
+        console.log(`A service worker is active.....: ${registration.active}`);
+        // history.push("");
+        window.location.href = "/";
+      });
+    } else {
+      console.error("Service workers are not supported.");
+    }
   };
 
   return (

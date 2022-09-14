@@ -29,8 +29,9 @@ const sample_data = {
   },
 };
 
-const EducationPortal: FC = () => {
+const EducationPortal = () => {
   const history = useHistory();
+
   const [selectedButton, setSelectedButton] = useState(2);
   const [loadCount, setLoadCount] = useState(0);
   const [marker, setMarker] = useState("Districts");
@@ -40,11 +41,6 @@ const EducationPortal: FC = () => {
     postions: [],
   });
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    sessionStorage.removeItem("user");
-    history.push("/login");
-  };
   const onButtonClick = (id: any) => {
     // console.log(id);
     setSelectedButton(id);
@@ -316,7 +312,7 @@ const EducationPortal: FC = () => {
                 Administrative Overview
               </Button>
             </Col>
-            <Col style={{ display: "flex" }} span={6}>
+            <Col span={4}>
               <div>
                 <div
                   style={{
@@ -338,18 +334,12 @@ const EducationPortal: FC = () => {
                   VIEW DETAILED DASHBOARDS
                 </div>
               </div>
+            </Col>
+            <Col span={2}>
               <div>
                 <select className="forSelect" defaultValue={"2022-2023"}>
                   <option value={"2022-2023"}>2022-2023</option>
                 </select>
-              </div>
-              <div style={{ marginLeft: "55px" }}>
-                <Button
-                  style={{ height: "40px", cursor: "pointer" }}
-                  onClick={handleLogout}
-                >
-                  <span style={{ fontSize: "25px" }}>Log Out</span>
-                </Button>
               </div>
             </Col>
           </Row>

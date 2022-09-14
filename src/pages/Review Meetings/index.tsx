@@ -443,7 +443,9 @@ const ReviewMeeting: FC = () => {
         <Row style={{ display: "flex", justifyContent: "center" }}>
           <Col span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <h3 className="h3">District</h3>
+              <h3 style={{ fontSize: "22px" }} className="h3">
+                District
+              </h3>
               <select
                 style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
                 onChange={(val: any) => {
@@ -464,7 +466,9 @@ const ReviewMeeting: FC = () => {
           </Col>
           <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <h3 className="h3">Year</h3>
+              <h3 style={{ fontSize: "22px" }} className="h3">
+                Year
+              </h3>
               <select
                 style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
                 onChange={(val: any) => {
@@ -485,7 +489,9 @@ const ReviewMeeting: FC = () => {
           </Col>
           <Col offset={1} span={4}>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <h3 className="h3">Month</h3>
+              <h3 style={{ fontSize: "22px" }} className="h3">
+                Month
+              </h3>
               <select
                 style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
                 onSelect={(val: any) => {
@@ -512,7 +518,7 @@ const ReviewMeeting: FC = () => {
         <Row>
           <Col span={24}>
             <div style={{ width: "100%", border: "1px solid black" }}>
-              <Card style={{ height: "1000px" }} loading={loading}>
+              <Card style={{ height: "100%" }} loading={loading}>
                 <MapComponent
                   config={markerConfig}
                   //@ts-ignore
