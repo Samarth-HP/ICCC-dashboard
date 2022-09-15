@@ -14,7 +14,7 @@ import assessments from "../../assets/thumb_assessments.png";
 
 import FooterLogo from "../../assets/footer_logo.png";
 import FooterRightLogo from "../../assets/footer_Samarth_Himachal_logo.png";
-import MapComponent from "../../../pages/Review Meetings/index";
+import MapComponent from "../../../components/MapComponent/MapComponent";
 import API_SERVICE from "../../../services/api-service";
 import QuestionWithIframe from "../../../components/QuestionWIthIframe";
 import parameters from "../../../services/parameters";
@@ -337,7 +337,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           <Col span={24}>
             {props.active ? (
               <Col span={24}>
-                <MapComponent />
+                <MapComponent config={config} markers={markerData} />
               </Col>
             ) : null}
           </Col>
