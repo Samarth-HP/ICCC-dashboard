@@ -19,7 +19,8 @@ const getLoginInstance = () => {
     // @ts-ignore
     accept: "application/json",
     // baseURL: "http://us-edb.samagra.io",
-    baseURL: "https://run.mocky.io/v3/ac9efd42-d64f-487b-af64-410202013a6f",
+    // baseURL: "https://run.mocky.io/v3/ac9efd42-d64f-487b-af64-410202013a6f",
+    baseURL:'https://vskhp.in',
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

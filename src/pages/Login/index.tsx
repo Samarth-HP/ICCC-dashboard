@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Button, Col, Layout, Row, Input, Divider, Image } from "antd";
+import { Button, Col, Layout, Row, Input, Divider, Image, Spin } from "antd";
 import {
   UserOutlined,
   LockOutlined,
@@ -20,8 +20,10 @@ const Login: FC = () => {
   const history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loader, setLoader] = useState(false);
 
   const handleLogin = async () => {
+    setLoader(true);
     const params = {
       // loginId: "chaks",
       // password: "1234abcd",
@@ -49,6 +51,7 @@ const Login: FC = () => {
     } else {
       console.error("Service workers are not supported.");
     }
+    return <Spin style={{ height: "100rem", width: "500px" }} />;
   };
 
   return (
@@ -116,6 +119,11 @@ const Login: FC = () => {
                   >
                     Click to Login
                   </Button>
+                  {loader && (
+                    <div style={{ textAlign: "center" }}>
+                      <Spin />
+                    </div>
+                  )}
                   <div style={{ display: "flex" }}>
                     <Button type="link" className="link">
                       Forgot Password

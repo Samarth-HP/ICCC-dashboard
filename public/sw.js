@@ -15,6 +15,7 @@ let coreAssets = [
   "/metabase/app/dist/app-embed.css?95adcbb57b543a2c7671",
   "/metabase/app/dist/runtime.bundle.js?8440c6eb23722b8ccf1d",
   "/metabase/app/dist/styles.bundle.js?9547240b125d157904aa",
+  "/metabase/app/dist/runtime.bundle.js?8440c6eb23722b8ccf1d",
 ];
 
 self.addEventListener("install", function (event) {
