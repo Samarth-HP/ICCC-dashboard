@@ -76,8 +76,6 @@
 .navButtonSelected {
   background-color: #252c68;
   color: #fff;
-
-
 }
 .navButtonSelected p {
   font-size: 32px;
@@ -115,3 +113,7 @@
   font-size: 9px;
   margin-right: 5px;
 } */
+
+.myOption {
+  font-size: 25px;
+}

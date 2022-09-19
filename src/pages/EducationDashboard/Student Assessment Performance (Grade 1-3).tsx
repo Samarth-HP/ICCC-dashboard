@@ -67,6 +67,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
       return ++prev;
     });
   };
+  console.log(props.markerData, "hi");
 
   return (
     <Layout
@@ -241,8 +242,12 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
                     >
-                      <option value={"SA1"}>{"SA-1"}</option>
-                      <option value={"SA2"}>{"SA-2"}</option>
+                      <option className="myOption" value={"SA1"}>
+                        {"SA-1"}
+                      </option>
+                      <option className="myOption" value={"SA2"}>
+                        {"SA-2"}
+                      </option>
                     </select>
                   </Col>
                   <Col span={6}>
@@ -291,9 +296,9 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   </Col>
                 </Row>
                 <Row>
-                  {props.active ? (
-                    <Col span={24}>
-                      <div style={{ width: "100%" }}>
+                  <Col span={24}>
+                    <div style={{ width: "100%" }}>
+                      {props.active && (
                         <MapComponent
                           at={selected}
                           config={config}
@@ -301,9 +306,9 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                           ay={academicYear}
                           markers={props?.markerData}
                         ></MapComponent>
-                      </div>
-                    </Col>
-                  ) : null}
+                      )}
+                    </div>
+                  </Col>
                 </Row>
               </Col>
             </Row>

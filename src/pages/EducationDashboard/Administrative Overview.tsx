@@ -51,6 +51,7 @@ const AdministrativeOverview: FC = (props: any) => {
               markerData={props.markerData}
               getMarkerData={props.getMarkerData}
               active={props.active}
+              counter={props.counter}
             />
           </Col>
           <Col span={8}>

@@ -128,13 +128,13 @@ const Attendence = () => {
               </div>
             </Col>
             <Col span={24}>
-              <div style={{ height: "1952px" }}>
+              <div style={{ height: "2002px" }}>
                 {loadCount > 4 && (
                   <QuestionWithIframe
                     handleLoadCounter={handleSetLoad}
                     questionId={60}
                     width="100%"
-                    height="1952"
+                    height="2002"
                   />
                 )}
               </div>

@@ -72,8 +72,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
       return ++prev;
     });
   };
+
   return (
-    <Layout className={"layout-wrapper home-wrapper"} style={{display: props.active ? 'block': 'none'}}>
+    <Layout
+      className={"layout-wrapper home-wrapper"}
+      style={{ display: props.active ? "block" : "none" }}
+    >
       <Content style={{ padding: "10px" }}>
         <Row>
           <Col span={9}>
@@ -225,8 +229,12 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                       defaultValue={"SA1"}
                       style={{ width: "100%" }}
                     >
-                      <option value={"SA1"}>{"SA-1"}</option>
-                      <option value={"SA2"}>{"SA-2"}</option>
+                      <option className="myOption" value={"SA1"}>
+                        {"SA-1"}
+                      </option>
+                      <option className="myOption" value={"SA2"}>
+                        {"SA-2"}
+                      </option>
                     </select>
                   </Col>
                   <Col span={6}>
@@ -290,12 +298,14 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <Row>
                   <Col span={24}>
                     <div style={{ width: "100%" }}>
-                      <MapComponent
-                        at={selected}
-                        config={config}
-                        markers={props.markerData}
-                        type={2}
-                      />
+                      {props.active && (
+                        <MapComponent
+                          at={selected}
+                          config={config}
+                          markers={props?.markerData}
+                          type={2}
+                        />
+                      )}
                     </div>
                   </Col>
                 </Row>

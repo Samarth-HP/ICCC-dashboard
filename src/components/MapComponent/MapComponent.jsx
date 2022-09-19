@@ -55,6 +55,7 @@ export default function MapComponent({
     const params = {
       district: val,
     };
+
     return await API_SERVICE.getDistrictAttendance(params);
   };
   const getDistrictEnrolment = async (val) => {
@@ -309,7 +310,6 @@ export default function MapComponent({
     await emptyToolTip();
     const promiseArray = [];
     if (district) {
-      console.log(district);
       if (type === 2) {
         promiseArray.push(getStudentAssesmentDistrict2Grade48(district));
         promiseArray.push(getStudentAssesmentDistrict3Grade48(district));
@@ -320,6 +320,11 @@ export default function MapComponent({
         promiseArray.push(getStudentAssesmentDistrict3Grade13(district));
         promiseArray.push(getStudentAssesmentDistrict4Grade13(district));
         promiseArray.push(getStudentAssesmentDistrict5Grade13(district));
+      } else if (type === 3) {
+        promiseArray.push(getDistrictAttendance(district));
+        promiseArray.push(getDistrictEnrolment(district));
+        promiseArray.push(getDistrictCWSN(district));
+        promiseArray.push(getDistrictPTR(district));
       }
     } else if (block) {
       if (type === 2) {
@@ -332,6 +337,11 @@ export default function MapComponent({
         promiseArray.push(getStudentAssesmentBlock3Grade13(block));
         promiseArray.push(getStudentAssesmentBlock4Grade13(block));
         promiseArray.push(getStudentAssesmentBlock5Grade13(block));
+      } else if (type === 3) {
+        promiseArray.push(getBlockAttendance(block));
+        promiseArray.push(getBlockEnrolment(block));
+        promiseArray.push(getBlockCWSN(block));
+        promiseArray.push(getBlockPTR(block));
       }
     } else {
       console.log(school);
@@ -345,6 +355,11 @@ export default function MapComponent({
         promiseArray.push(getStudentAssesmentSchool3Grade13(school));
         promiseArray.push(getStudentAssesmentSchool4Grade13(school));
         promiseArray.push(getStudentAssesmentSchool5Grade13(school));
+      } else if (type === 3) {
+        promiseArray.push(getSchoolAttendance(school));
+        promiseArray.push(getSchoolEnrolment(school));
+        promiseArray.push(getSchoolCWSN(school));
+        promiseArray.push(getSchoolPTR(school));
       }
     }
 
@@ -352,14 +367,50 @@ export default function MapComponent({
 
     if (resData) {
       const getProcessed = async () => {
-        return resData.filter((item) => item.data.rows.length)[0]?.data
-          ?.rows[0];
+        if (type === 3) {
+          //First Method
+
+          // let a = resData.map((item) => {
+          //   return item.data.rows[0];
+          // });
+          // console.log(a, "data");
+          // const z = a.reduce((final, obj) => {
+          //   for (let key in obj) {
+          //     if (key === "PercAttendance") {
+          //       if (!final["PercAttendance"]) {
+          //         final["PercAttendance"] = "";
+          //       }
+          //       final["PercAttendance"] = obj.PercAttendance;
+          //     }
+          //     if (key === "total_cwsn_students") {
+          //       if (!final["total_cwsn_students"]) {
+          //         final["total_cwsn_students"] = "";
+          //       }
+          //       final["total_cwsn_students"] = obj.total_cwsn_students;
+          //     }
+          //   }
+          //   return final;
+          // });
+          // console.log("z===========", z);
+
+          //Second Method
+          return resData.map((item) => {
+            return (
+              item.data.rows[0].PercAttendance ||
+              item.data.rows[0].total_cwsn_students ||
+              item.data.rows[0].total_students ||
+              item.data.rows[0].Ratio
+            );
+          });
+        } else {
+          return resData.filter((item) => item.data.rows.length)[0]?.data
+            ?.rows[0];
+        }
       };
 
       const data = await getProcessed();
 
       if (data) {
-        console.log(data);
         if (type === 1) {
           const {
             per_AverageScore,
@@ -431,6 +482,19 @@ export default function MapComponent({
               grade5: { label: "Grade 5", value: null },
             },
           });
+        } else if (type === 3) {
+          const { block, school_name, district } = data;
+          setToolTipData({
+            color: "",
+            type: 3,
+            district: { label: "District", value: district },
+            block: { label: "Block", value: block },
+            school: { label: "School", value: school_name },
+            Attendance: { value: data[0] },
+            Enrolment: { value: data[1] },
+            CWSN: { value: data[2] },
+            PTR: { value: data[3] },
+          });
         }
       }
     }
@@ -476,25 +540,34 @@ export default function MapComponent({
         {!byGeoJson && //
           (markers?.shouldClusterMarkers ? (
             <MarkerClusterGroup style={{ height: "5000px" }}>
-              {/* <div> */}
               {markers?.postions.map((item) => {
                 let markerColor = blue_marker;
-                if (item.color == "red") {
-                  markerColor = red_marker;
-                } else if (item.color == "yellow") {
-                  markerColor = yellow_marker;
-                } else if (item.color == "blue") {
-                  markerColor = blue_marker;
-                } else if (item.color == "green") {
-                  markerColor = green_marker;
-                } else if (item.color == "purple") {
+                if (type === 3) {
                   markerColor = purple_marker;
-                } else if (item.color == "#259EA6" || item.color == "#259ea6") {
-                  markerColor = district_marker;
-                } else if (item.color == "#FF0000" || item.color == "#ff0000") {
-                  markerColor = red_marker;
                 } else {
-                  markerColor = yellow_marker;
+                  if (item.color == "red") {
+                    markerColor = red_marker;
+                  } else if (item.color == "yellow") {
+                    markerColor = yellow_marker;
+                  } else if (item.color == "blue") {
+                    markerColor = blue_marker;
+                  } else if (item.color == "green") {
+                    markerColor = green_marker;
+                  } else if (item.color == "purple") {
+                    markerColor = purple_marker;
+                  } else if (
+                    item.color == "#259EA6" ||
+                    item.color == "#259ea6"
+                  ) {
+                    markerColor = district_marker;
+                  } else if (
+                    item.color == "#FF0000" ||
+                    item.color == "#ff0000"
+                  ) {
+                    markerColor = red_marker;
+                  } else {
+                    markerColor = yellow_marker;
+                  }
                 }
                 const iconPerson = new L.Icon({
                   // iconUrl: new URL(`${item.icon}`),
@@ -698,6 +771,20 @@ export default function MapComponent({
                             <p></p>
                           </div>
                         </>
+                      ) : toolTipData?.type == 3 ? (
+                        <>
+                          <div>
+                            {item.district || item.block || item.school}
+                          </div>
+                          <div>
+                            Attendence: {toolTipData?.Attendance?.value || "NA"}
+                          </div>
+                          <div>CWSN: {toolTipData?.CWSN?.value || "NA"}</div>
+                          <div>
+                            Enrollment: {toolTipData?.Enrolment?.value || "NA"}
+                          </div>
+                          <div>PTR: {toolTipData?.PTR?.value || "NA"}</div>
+                        </>
                       ) : (
                         <>
                           {/* <div>
@@ -709,9 +796,7 @@ export default function MapComponent({
                           <div>CWSN: {toolTipData.CWSN || "NA"}</div>
                           <div>Enrollment: {toolTipData.Enrolment || "NA"}</div>
                           <div>PTR: {toolTipData.PTR || "NA"}</div> */}
-                          <div>
-                            <Spin style={{ margin: "auto" }} />
-                          </div>
+                          <Spin style={{ margin: "auto" }} />
                         </>
                       )}
                     </Popup>

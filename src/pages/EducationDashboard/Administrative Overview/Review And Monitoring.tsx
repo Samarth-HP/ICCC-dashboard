@@ -54,7 +54,9 @@ const ReviewAndMonitoring: FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col span={8} style={{ display: "flex" }}>
+            <Col span={8}></Col>
+            <Col span={8}></Col>
+            <Col span={8}>
               <select
                 onChange={(e) => {
                   monthValue(e);
@@ -66,26 +68,12 @@ const ReviewAndMonitoring: FC = () => {
                   Months
                 </option>
                 {ml.map((obj) => {
-                  return <option value={obj}>{obj}</option>;
+                  return (
+                    <option className="myOption" value={obj}>
+                      {obj}
+                    </option>
+                  );
                 })}
-              </select>
-            </Col>
-            <Col span={8} style={{ display: "flex" }}>
-              <select
-                onChange={(e) => {
-                  quarterValue(e);
-                }}
-                // value={"1"}
-                className="forSelect"
-                defaultValue={""}
-              >
-                <option value={""} disabled selected hidden>
-                  Quarter
-                </option>
-                <option value={"1"}>1</option>
-                <option value={"2"}>2</option>
-                <option value={"3"}>3</option>
-                <option value={"4"}>4</option>
               </select>
             </Col>
           </Row>
@@ -198,6 +186,36 @@ const ReviewAndMonitoring: FC = () => {
                   Month-wise Review Meeting Compliance
                 </p>
               </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}></Col>
+            <Col span={12}>
+              {" "}
+              <select
+                onChange={(e) => {
+                  quarterValue(e);
+                }}
+                // value={"1"}
+                className="forSelect"
+                defaultValue={""}
+              >
+                <option value={""} disabled selected hidden>
+                  Quarter
+                </option>
+                <option className="myOption" value={"1"}>
+                  1
+                </option>
+                <option className="myOption" value={"2"}>
+                  2
+                </option>
+                <option className="myOption" value={"3"}>
+                  3
+                </option>
+                <option className="myOption" value={"4"}>
+                  4
+                </option>
+              </select>
             </Col>
           </Row>
           <Row>

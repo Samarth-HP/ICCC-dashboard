@@ -46,9 +46,9 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
     const formattedData = [
       {
         icon: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon-2x.png",
-        color: "purple",
+        color: "black",
         tooltipCSS: {
-          color: "#ff0000",
+          color: "black",
         },
         tooltip: "This is the marker tooltip",
         position: [data.latitude, data.longitude],
@@ -334,12 +334,76 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               </p>
             </div>
           </Col>
+
+          <Col span={6}>
+            <Button
+              style={{ height: "50px" }}
+              className={
+                marker == "Districts" ? "navButtonSelected" : "navButton"
+              }
+              onClick={() => {
+                props.getMarkerData("Districts");
+                setMarker("Districts");
+              }}
+            >
+              <p style={{ lineHeight: "1.2" }}>Districts</p>
+            </Button>
+          </Col>
+          <Col span={6}>
+            <Button
+              style={{ height: "50px" }}
+              className={marker == "Blocks" ? "navButtonSelected" : "navButton"}
+              onClick={() => {
+                props.getMarkerData("Blocks");
+                setMarker("Blocks");
+              }}
+            >
+              <p style={{ lineHeight: "1.2" }}>Blocks</p>
+            </Button>
+          </Col>
+          {/* <Col span={5}>
+            <Button
+              className={
+                marker == "Clusters" ? "navButtonSelected" : "navButton"
+              }
+              onClick={() => {
+                props.getMarkerData("Districts");
+                setMarker("Clusters");
+              }}
+            >
+              Clusters
+            </Button>
+          </Col> */}
+
+          <Col span={6}>
+            <Button
+              style={{ height: "50px" }}
+              className={
+                marker == "Schools" ? "navButtonSelected" : "navButton"
+              }
+              onClick={() => {
+                props.getMarkerData("Schools");
+                setMarker("Schools");
+              }}
+            >
+              <p style={{ lineHeight: "1.2" }}>Schools</p>
+            </Button>
+          </Col>
+          <Col span={6}>
+            <Search
+              //@ts-ignore
+              onSearch={(val: any) => {
+                handleSearchByUDISE(val);
+                console.log(val);
+                setMarker("Schools");
+              }}
+              placeholder="Search UDISE"
+            />
+          </Col>
           <Col span={24}>
-            {props.active ? (
-              <Col span={24}>
-                <MapComponent config={config} markers={markerData} />
-              </Col>
-            ) : null}
+            {props.active && (
+              <MapComponent type={3} config={config} markers={markerData} />
+            )}
           </Col>
         </Row>
       </Content>

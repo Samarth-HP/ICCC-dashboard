@@ -34,6 +34,7 @@ const EducationPortal = () => {
 
   const [selectedButton, setSelectedButton] = useState(2);
   const [loadCount, setLoadCount] = useState(0);
+
   const [marker, setMarker] = useState("Districts");
   const [selectedAssessment, setSelectedAssessment] = useState("SA1");
   const [markerData, setMarkerData] = useState({
@@ -80,17 +81,20 @@ const EducationPortal = () => {
     const params: any = {
       district: "SIRMAUR",
     };
+
     if (marker === "Districts") {
       data = await API_SERVICE.getDistrictMarkerData(params);
-      if (selectedButton == 2) {
+      if (selectedButton === 2) {
         const assessmentData =
           await API_SERVICE.getStudentAssesmentDistrict1Grade48({
             assessment_type_v2: selectedAssessment,
           });
+
         dataWithHexCode = data.data.rows.map((item: any) => {
           const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.district === item.district;
           });
+
           if (filteredItem) {
             return {
               ...item,
@@ -105,11 +109,12 @@ const EducationPortal = () => {
             color: "purple",
           };
         });
-      } else if (selectedButton == 1) {
+      } else if (selectedButton === 1) {
         const assessmentData =
           await API_SERVICE.getStudentAssesmentDistrict1Grade13({
             assessment_type_v2: selectedAssessment,
           });
+
         dataWithHexCode = data.data.rows.map((item: any) => {
           const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.district === item.district;
@@ -118,6 +123,31 @@ const EducationPortal = () => {
             return {
               ...item,
               color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
+          }
+
+          return {
+            ...item,
+            color: "purple",
+          };
+        });
+      } else if (selectedButton === 3) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentDistrict1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
+            return row.district === item.district;
+          });
+
+          if (filteredItem) {
+            return {
+              ...item,
+              // color: "purple",
               ay: filteredItem?.academic_year,
               at: filteredItem?.assessment_type_v2,
               peravg: filteredItem?.per_AverageScore,
@@ -182,6 +212,30 @@ const EducationPortal = () => {
             color: "purple",
           };
         });
+      } else if (selectedButton == 3) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentBlock1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
+            return row.block === item.block;
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              // color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
+          }
+
+          return {
+            ...item,
+            color: "purple",
+          };
+        });
       }
     }
 
@@ -235,12 +289,37 @@ const EducationPortal = () => {
             color: "purple",
           };
         });
+      } else if (selectedButton == 3) {
+        const assessmentData =
+          await API_SERVICE.getStudentAssesmentSchool1Grade13({
+            assessment_type_v2: selectedAssessment,
+          });
+        dataWithHexCode = data.data.rows.map((item: any) => {
+          const filteredItem = assessmentData.data.rows.find((row: any) => {
+            return row.school_name === item.school_name;
+          });
+          if (filteredItem) {
+            return {
+              ...item,
+              // color: filteredItem?.HexCodes,
+              ay: filteredItem?.academic_year,
+              at: filteredItem?.assessment_type_v2,
+              peravg: filteredItem?.per_AverageScore,
+            };
+          }
+
+          return {
+            ...item,
+            color: "purple",
+          };
+        });
       }
     }
 
     if (marker === "Search") {
       data = await API_SERVICE.getSchoolMarkerData(params);
     }
+
     // formatMarkerData(data.data.rows);
     formatMarkerData(dataWithHexCode);
 
@@ -338,7 +417,9 @@ const EducationPortal = () => {
             <Col span={2}>
               <div>
                 <select className="forSelect" defaultValue={"2022-2023"}>
-                  <option value={"2022-2023"}>2022-2023</option>
+                  <option className="myOption" value={"2022-2023"}>
+                    2022-2023
+                  </option>
                 </select>
               </div>
             </Col>
