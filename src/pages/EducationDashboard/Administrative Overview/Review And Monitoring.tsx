@@ -65,7 +65,7 @@ const ReviewAndMonitoring: FC = () => {
                 defaultValue={""}
               >
                 <option value={""} disabled selected hidden>
-                  Months
+                  Month
                 </option>
                 {ml.map((obj) => {
                   return (

@@ -94,7 +94,6 @@ const EducationPortal = () => {
           const filteredItem = assessmentData.data.rows.find((row: any) => {
             return row.district === item.district;
           });
-
           if (filteredItem) {
             return {
               ...item,

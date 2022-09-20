@@ -124,14 +124,14 @@ const Login: FC = () => {
                       <Spin />
                     </div>
                   )}
-                  <div style={{ display: "flex" }}>
+                  {/* <div style={{ display: "flex" }}>
                     <Button type="link" className="link">
                       Forgot Password
                     </Button>
                     <Button type="link" className="link">
                       <u>Click Here to Reset Password</u>
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </Col>
             </Row>

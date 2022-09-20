@@ -777,7 +777,7 @@ export default function MapComponent({
                             {item.district || item.block || item.school}
                           </div>
                           <div>
-                            Attendence: {toolTipData?.Attendance?.value || "NA"}
+                            Attendance: {toolTipData?.Attendance?.value || "NA"}
                           </div>
                           <div>CWSN: {toolTipData?.CWSN?.value || "NA"}</div>
                           <div>

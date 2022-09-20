@@ -53,10 +53,15 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
     // console.log('data', data);
     // const data = await API_SERVICE.searchSchoolData(params);
     const res = await API_SERVICE.getSchoolMarkerData(params);
+
     const data = res.data.rows.find((item: any) => {
-      setSearchUdiseLoader(2);
+      setSearchUdiseLoader(0);
       return item?.Udise_Code == val;
     });
+    if (data == undefined) {
+      setSearchUdiseLoader(0);
+      return alert("Invalid Udise");
+    }
 
     const formattedData = [
       {
@@ -310,7 +315,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             </div>
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
-                Pupil-Teacher ratio across level of education
+                Pupil-Teacher Ratio Across Level of Education
               </p>
             </div>
           </Col>
@@ -327,7 +332,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             </div>
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
-                Grade-wise Enrolment distribution
+                Grade-wise Enrolment Distribution
               </p>
             </div>
           </Col>
@@ -345,7 +350,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
             </div>
             <div className="navButtonSelected">
               <p style={{ lineHeight: "2.5" }}>
-                Stream-wise Enrolment distribution
+                Stream-wise Enrolment Distribution
               </p>
             </div>
           </Col>
@@ -376,6 +381,20 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               <p style={{ lineHeight: "1.2" }}>Blocks</p>
             </Button>
           </Col>
+          <Col span={6}>
+            <Button
+              style={{ height: "50px" }}
+              className={
+                marker == "Schools" ? "navButtonSelected" : "navButton"
+              }
+              onClick={async () => {
+                await props.getMarkerData("Schools");
+                setMarker("Schools");
+              }}
+            >
+              <p style={{ lineHeight: "1.2" }}>Schools</p>
+            </Button>
+          </Col>
           {/* <Col span={5}>
             <Button
               className={
@@ -389,21 +408,6 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               Clusters
             </Button>
           </Col> */}
-
-          <Col span={6}>
-            <Button
-              style={{ height: "50px" }}
-              className={
-                marker == "Schools" ? "navButtonSelected" : "navButton"
-              }
-              onClick={() => {
-                props.getMarkerData("Schools");
-                setMarker("Schools");
-              }}
-            >
-              <p style={{ lineHeight: "1.2" }}>Schools</p>
-            </Button>
-          </Col>
           <Col span={5}>
             <Search
               //@ts-ignore

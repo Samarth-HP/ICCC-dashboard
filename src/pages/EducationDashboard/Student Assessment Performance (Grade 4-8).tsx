@@ -122,7 +122,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
-                  District-wise Assessment Performance (SA 1 & SA2)
+                  District-wise Assessment Performance (SA1 & SA2)
                 </div>
               </Col>
             </Row>
@@ -355,9 +355,9 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Districts with highest
+                    Districts With Highest
                     <br></br>
-                    jump in scores
+                    Jump in Scores
                   </p>
                 </div>
               </Col>
@@ -374,7 +374,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Districts with highest <br /> fall in scores
+                    Districts With Highest <br /> Fall in Scores
                   </p>
                 </div>
               </Col>
@@ -391,7 +391,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise change in average <br /> score across SAs
+                    Subject Wise Change in Average <br /> Score Across SAs
                   </p>
                 </div>
               </Col>
@@ -411,7 +411,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 <div className="navButtonSelected">
                   <p>
                     Average Grade-wise Performance <br />
-                    distribution (SA-1 & SA-2)
+                    Distribution (SA-1 & SA-2)
                   </p>
                 </div>
               </Col>
@@ -482,7 +482,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Comparative Performance <br /> in SA-1 and SA-2 (Class 4)
+                    Comparative Performance <br /> in SA1 & SA2 (Class 4)
                   </p>
                 </div>
               </Col>
@@ -503,7 +503,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                   <p>
                     Comparative Performance
                     <br />
-                    in SA-1 and SA-2 (Class 5)
+                    in SA1 & SA2 (Class 5)
                   </p>
                 </div>
               </Col>
@@ -522,7 +522,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Comparative Performance <br /> in SA-1 and SA-2 (Class 6)
+                    Comparative Performance <br /> in SA1 & SA2 (Class 6)
                   </p>
                 </div>
               </Col>
@@ -541,7 +541,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Comparative Performance <br /> in SA-1 and SA-2 (Class 7)
+                    Comparative Performance <br /> in SA1 & SA2 (Class 7)
                   </p>
                 </div>
               </Col>
@@ -560,7 +560,7 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Comparative Performance <br /> in SA-1 and SA-2 (Class 8)
+                    Comparative Performance <br /> in SA1 & SA2 (Class 8)
                   </p>
                 </div>
               </Col>
@@ -588,7 +588,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise average score across <br /> SAs (Class 4)
+                    Subject Wise Average Score
+                    <br /> Across SAs (Class 4)
                   </p>
                 </div>
               </Col>
@@ -605,7 +606,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise average score across <br /> SAs (Class 5)
+                    Subject Wise Average Score
+                    <br /> Across SAs (Class 5)
                   </p>
                 </div>
               </Col>
@@ -622,7 +624,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise average score across <br /> SAs (Class 6)
+                    Subject Wise Average Score
+                    <br /> Across SAs (Class 6)
                   </p>
                 </div>
               </Col>
@@ -639,7 +642,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise average score across <br /> SAs (Class 7)
+                    Subject Wise Average Score
+                    <br /> Across SAs (Class 7)
                   </p>
                 </div>
               </Col>
@@ -656,7 +660,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Subject wise average score across <br /> SAs (Class 8)
+                    Subject Wise Average Score
+                    <br /> Across SAs (Class 8)
                   </p>
                 </div>
               </Col>
@@ -665,8 +670,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
           <Col span={4}>
             <Col span={24}>
               <div className="NIPUNheading">
-                Class-wise weakest Learning <br />
-                Outcomes across SAs
+                Class-wise Weakest Learning <br />
+                Outcomes Across SAs
               </div>
               <Col span={24}>
                 <div style={{ height: "900px" }}>
@@ -681,8 +686,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Weakest Learning Outcomes (Class <br />
-                    4)
+                    Weakest Learning Outcomes
+                    <br /> (Class 4)
                   </p>
                 </div>
               </Col>
@@ -699,8 +704,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Weakest Learning Outcomes (Class <br />
-                    5)
+                    Weakest Learning Outcomes
+                    <br /> (Class 5)
                   </p>
                 </div>
               </Col>
@@ -717,7 +722,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Weakest Learning Outcomes (Class <br /> 6)
+                    Weakest Learning Outcomes
+                    <br /> (Class 6)
                   </p>
                 </div>
               </Col>
@@ -734,7 +740,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Weakest Learning Outcomes (Class <br /> 7)
+                    Weakest Learning Outcomes
+                    <br /> (Class 7)
                   </p>
                 </div>
               </Col>
@@ -751,7 +758,8 @@ const StudentAssessmentPerformanceGrade4_8 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Weakest Learning Outcomes (Class <br /> 8)
+                    Weakest Learning Outcomes
+                    <br /> (Class 8)
                   </p>
                 </div>
               </Col>

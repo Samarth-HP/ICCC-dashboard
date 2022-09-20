@@ -168,7 +168,8 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
             <Row>
               <Col span={24}>
                 <div className="NIPUNheading">
-                  District-wise Assessment Performance (SA 1 <br /> & SA2)
+                  District-wise Assessment Performance
+                  <br /> (SA1 & SA2)
                 </div>
               </Col>
             </Row>
@@ -357,7 +358,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 </Col>
                 <Col span={24}>
                   <div className="NIPUNheading">
-                    Districts with highest <br /> jump in scores
+                    Districts With Highest <br /> Jump in Scores
                   </div>
                   <div style={{ height: "550px" }}>
                     {loadCount > 9 && (
@@ -372,7 +373,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 </Col>
                 <Col>
                   <div className="NIPUNheading">
-                    Districts with highest fall in scores
+                    Districts With Highest Fall in Scores
                   </div>
                   <div style={{ height: "697px" }}>
                     {loadCount > 15 && (
@@ -418,8 +419,8 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    Average Grade-wise Performance <br /> distribution (SA-1 &
-                    SA-2)
+                    Average Grade-wise Performance <br /> Distribution (SA1 &
+                    SA2)
                   </p>
                 </div>
 
@@ -437,7 +438,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   <div className="navButtonSelected">
                     <p>
                       {" "}
-                      Comparative Performance in SA-1 <br /> and SA-2 (Class 1)
+                      Comparative Performance in <br /> SA1 & SA-2 (Class 1)
                     </p>
                   </div>
                 </Col>
@@ -454,7 +455,7 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   </div>
                   <div className="navButtonSelected">
                     <p>
-                      Comparative Performance in SA-1 <br /> and SA-2 (Class 2)
+                      Comparative Performance in <br /> SA-1 & SA-2 (Class 2)
                     </p>
                   </div>
                 </Col>
@@ -471,13 +472,13 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                   </div>
                   <div className="navButtonSelected">
                     <p>
-                      Comparative Performance in SA-1 <br /> and SA-2 (Class 3)
+                      Comparative Performance in <br /> SA-1 & SA-2 (Class 3)
                     </p>
                   </div>
                 </Col>
               </Col>
               <Col span={24}>
-                <div className="NIPUNheading">District wise trends</div>
+                <div className="NIPUNheading">District Wise Trends</div>
               </Col>
               <Col span={24}>
                 <Col span={24}>
@@ -811,8 +812,8 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
                 </div>
                 <div className="navButtonSelected">
                   <p>
-                    District wise students practising atleast
-                    <br /> once a month
+                    District Wise Students Practising Atleast
+                    <br /> Once a Month
                   </p>
                 </div>
               </Col>

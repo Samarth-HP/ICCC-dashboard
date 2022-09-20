@@ -47,7 +47,7 @@ const DashboardHeader: FC = () => {
                   font: "normal normal 700 normal 36px/40px Mukta",
                 }}
               >
-                एकीकृत शिक्षा समीक्षा डैशबोर्ड
+                एकीकृत विद्या समीक्षा डैशबोर्ड
               </Col>
             </Row>
             <Row align={"middle"}>
