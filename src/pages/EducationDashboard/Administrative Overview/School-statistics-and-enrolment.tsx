@@ -1,5 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
-import { Card, Col, Layout, Row, Image, Button, Select, Input } from "antd";
+import {
+  Card,
+  Col,
+  Layout,
+  Row,
+  Image,
+  Button,
+  Select,
+  Input,
+  Spin,
+} from "antd";
 
 import "./index.css";
 import { Content } from "antd/es/layout/layout";
@@ -26,12 +36,16 @@ const { Search } = Input;
 const SchoolStatisticsAndEnrolment: FC = (props: any) => {
   const [marker, setMarker] = useState("Districts");
   const [loadCount, setLoadCount] = useState(0);
+  const [searchUdiseLoader, setSearchUdiseLoader] = useState(0);
   const [markerData, setMarkerData] = useState(props.markerData);
   const [config, setConfig] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
   const handleSearchByUDISE = async (val: string) => {
+    if (val) {
+      setSearchUdiseLoader(1);
+    }
     const params = {
       udise: val,
     };
@@ -40,6 +54,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
     // const data = await API_SERVICE.searchSchoolData(params);
     const res = await API_SERVICE.getSchoolMarkerData(params);
     const data = res.data.rows.find((item: any) => {
+      setSearchUdiseLoader(2);
       return item?.Udise_Code == val;
     });
 
@@ -389,7 +404,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               <p style={{ lineHeight: "1.2" }}>Schools</p>
             </Button>
           </Col>
-          <Col span={6}>
+          <Col span={5}>
             <Search
               //@ts-ignore
               onSearch={(val: any) => {
@@ -400,6 +415,13 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               placeholder="Search UDISE"
             />
           </Col>
+
+          {searchUdiseLoader == 1 && (
+            <Col style={{ display: "flex", alignItems: "center" }} span={1}>
+              <Spin style={{ marginLeft: "12px" }} />
+            </Col>
+          )}
+
           <Col span={24}>
             {props.active && (
               <MapComponent type={3} config={config} markers={markerData} />
