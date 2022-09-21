@@ -364,6 +364,7 @@ export default function MapComponent({
     }
 
     const resData = await Promise.all(promiseArray);
+    console.log(resData, "resData");
 
     if (resData) {
       const getProcessed = async () => {
