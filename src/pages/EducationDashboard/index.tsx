@@ -406,7 +406,11 @@ const EducationPortal = () => {
                     cursor: "pointer",
                   }}
                   onClick={() => {
-                    history.push("/detailed-dashboard");
+                    if (!localStorage.getItem("user")) {
+                      window.location.href = "/login";
+                    } else {
+                      window.location.href = "/detailed-dashboard";
+                    }
                   }}
                 >
                   VIEW DETAILED DASHBOARDS

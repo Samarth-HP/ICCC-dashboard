@@ -46,7 +46,7 @@ const Login: FC = () => {
       navigator.serviceWorker.ready.then((registration) => {
         console.log(`A service worker is active.....: ${registration.active}`);
         // history.push("");
-        window.location.href = "/";
+        window.location.href = "/detailed-dashboard";
       });
     } else {
       console.error("Service workers are not supported.");

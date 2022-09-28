@@ -13,13 +13,14 @@ const DashboardHeader: FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     sessionStorage.removeItem("user");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   const pathname = window.location.pathname;
+  console.warn(localStorage.getItem("user"), "localStorage");
 
   return (
-    <div className="dashboard-header">
+    <div key={+new Date()} className="dashboard-header">
       <Row gutter={10} justify={"space-between"}>
         <Col span={4}>
           <NavLink to={"/"}>
@@ -63,6 +64,7 @@ const DashboardHeader: FC = () => {
             </Row>
           </NavLink>
         </Col>
+
         <Col
           span={4}
           style={{
@@ -71,21 +73,25 @@ const DashboardHeader: FC = () => {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <Image src={RightLogo} height={"50px"} preview={false} />
-            {pathname === "/" ? (
-              <Button
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  marginTop: "2px",
-                  height: "28px",
-                  fontSize: "12px",
-                }}
-                onClick={handleLogout}
-              >
-                <span>Log Out</span>
-              </Button>
-            ) : null}
+            {pathname === "/login" ? null : (
+              <>
+                <Image src={RightLogo} height={"50px"} preview={false} />
+                {localStorage.getItem("user") && (
+                  <Button
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      marginTop: "2px",
+                      height: "28px",
+                      fontSize: "12px",
+                    }}
+                    onClick={handleLogout}
+                  >
+                    <span>Log Out</span>
+                  </Button>
+                )}
+              </>
+            )}
           </div>
         </Col>
 
