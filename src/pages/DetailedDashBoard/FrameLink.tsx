@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Button, Col, Layout, Row, Input, Divider, Image } from "antd";
 import {
   UserOutlined,
@@ -20,9 +20,24 @@ import Side_Img from "../../assets/image 135.png";
 import { useHistory } from "react-router-dom";
 
 const IframeLink = (showLink: any) => {
+  const [curDistrict, setCurDistrict] = useState("");
   const {
     match: { params },
   } = showLink;
+  const districts = [
+    "SIRMAUR",
+    "CHAMBA",
+    "UNA",
+    "KULLU",
+    "KANGRA",
+    "MANDI",
+    "SOLAN",
+    "SHIMLA",
+    "HAMIRPUR",
+    "LAHUL AND SPITI",
+    "BILASPUR",
+    "KINNAUR",
+  ];
 
   if (params.name === "mentoring") {
     return (
@@ -42,11 +57,31 @@ const IframeLink = (showLink: any) => {
     );
   } else if (params.name === "Enrolment") {
     return (
-      <iframe
-        src="https://samarthhp-metabase.in/public/dashboard/e08ae997-520a-42a7-99e8-96a9483546e7"
-        width="100%"
-        height="100%"
-      ></iframe>
+      <>
+        <Col span={4}>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            {districts.map((obj: any, i: number) => {
+              return (
+                <option key={i} value={obj}>
+                  {obj}
+                </option>
+              );
+            })}
+          </select>
+        </Col>
+        <iframe
+          src="https://samarthhp-metabase.in/public/dashboard/e08ae997-520a-42a7-99e8-96a9483546e7"
+          width="100%"
+          height="100%"
+        ></iframe>
+      </>
     );
   } else if (params.name === "StudentAttendance") {
     return (

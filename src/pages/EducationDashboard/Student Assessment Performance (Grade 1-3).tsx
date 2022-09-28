@@ -67,7 +67,6 @@ const StudentAssessmentPerformanceGrade1_3 = (props: any) => {
       return ++prev;
     });
   };
-  console.log(props.markerData, "hi");
 
   return (
     <Layout

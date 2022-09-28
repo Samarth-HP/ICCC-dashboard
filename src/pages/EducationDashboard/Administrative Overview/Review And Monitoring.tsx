@@ -43,7 +43,6 @@ const ReviewAndMonitoring: FC = () => {
   const quarterValue = (e: any) => {
     setQuarter(e.target.value);
   };
-
   return (
     <Layout>
       <Content>

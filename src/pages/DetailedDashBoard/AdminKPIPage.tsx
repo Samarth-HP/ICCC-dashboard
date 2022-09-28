@@ -83,43 +83,59 @@ const AdminKPIPage: FC = () => {
                 <div className="title">
                   <b className="headingb">Administrative KPIs</b>
                 </div>
-                <div style={{display:'flex',flexDirection:'column'}}>
-                <Button className="DetailsButton" onClick={()=> history.push('/link/Enrolment')}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={Enrolment}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={6}>Enrolment</Col>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/Enrolment")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={Enrolment} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={6}>
+                        Enrolment
+                      </Col>
                     </Row>
-                </Button>
-                <Button className="DetailsButton" onClick={()=> history.push('/link/StudentAttendance')}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={StudentAttendance}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={3}>Student Attendance</Col>
+                  </Button>
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/StudentAttendance")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={StudentAttendance} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={3}>
+                        Student Attendance
+                      </Col>
                     </Row>
-                </Button>
-                <Button className="DetailsButton" onClick={()=> history.push('/link/SchoolMonitoringVisits')}>
-                  <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={SchoolMonitoringVisits}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={2}>School Monitoring Visits</Col>
+                  </Button>
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/SchoolMonitoringVisits")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={SchoolMonitoringVisits} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={2}>
+                        School Monitoring Visits
+                      </Col>
                     </Row>
-                </Button>
-                <Button className="DetailsButton" onClick={()=> history.push('/link/ReviewMeetings')}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={ReviewMeetingScorecards}
-                      alt=""
-                    /></Col>
-                    <Col className="responsiveHeader" offset={4}>Review Meetings</Col>
+                  </Button>
+                  <Button
+                    className="DetailsButton"
+                    onClick={() => history.push("/link/ReviewMeetings")}
+                  >
+                    <Row style={{ display: "flex" }}>
+                      <Col span={3}>
+                        <img src={ReviewMeetingScorecards} alt="" />
+                      </Col>
+                      <Col className="responsiveHeader" offset={4}>
+                        Review Meetings
+                      </Col>
                     </Row>
-                </Button>
+                  </Button>
                 </div>
                 {/*<Button className="DetailsButton">
                    <Row style={{display:'flex'}}>

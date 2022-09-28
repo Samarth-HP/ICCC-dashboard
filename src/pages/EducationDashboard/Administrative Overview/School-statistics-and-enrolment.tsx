@@ -38,6 +38,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
   const [loadCount, setLoadCount] = useState(0);
   const [searchUdiseLoader, setSearchUdiseLoader] = useState(0);
   const [markerData, setMarkerData] = useState(props.markerData);
+  const [inputValue, setInputValue] = useState("");
   const [config, setConfig] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -364,6 +365,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               onClick={() => {
                 props.getMarkerData("Districts");
                 setMarker("Districts");
+                setInputValue("");
               }}
             >
               <p style={{ lineHeight: "1.2" }}>Districts</p>
@@ -376,6 +378,7 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               onClick={() => {
                 props.getMarkerData("Blocks");
                 setMarker("Blocks");
+                setInputValue("");
               }}
             >
               <p style={{ lineHeight: "1.2" }}>Blocks</p>
@@ -387,8 +390,8 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               className={
                 marker == "Schools" ? "navButtonSelected" : "navButton"
               }
-              onClick={async () => {
-                await props.getMarkerData("Schools");
+              onClick={() => {
+                props.getMarkerData("Schools");
                 setMarker("Schools");
               }}
             >
@@ -408,9 +411,13 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
               Clusters
             </Button>
           </Col> */}
-          <Col span={5}>
+          <Col span={searchUdiseLoader === 1 ? 5 : 6}>
             <Search
               //@ts-ignore
+              value={inputValue}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
               onSearch={(val: any) => {
                 handleSearchByUDISE(val);
                 console.log(val);
@@ -427,9 +434,11 @@ const SchoolStatisticsAndEnrolment: FC = (props: any) => {
           )}
 
           <Col span={24}>
+            {/* <Spin tip="Loading..."> */}
             {props.active && (
               <MapComponent type={3} config={config} markers={markerData} />
             )}
+            {/* </Spin> */}
           </Col>
         </Row>
       </Content>

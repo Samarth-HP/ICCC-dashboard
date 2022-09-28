@@ -344,7 +344,6 @@ export default function MapComponent({
         promiseArray.push(getBlockPTR(block));
       }
     } else {
-      console.log(school);
       if (type === 2) {
         promiseArray.push(getStudentAssesmentSchool2Grade48(school));
         promiseArray.push(getStudentAssesmentSchool3Grade48(school));
@@ -364,7 +363,7 @@ export default function MapComponent({
     }
 
     const resData = await Promise.all(promiseArray);
-    console.log(resData, "resData");
+    // console.log(resData, "resData");
 
     if (resData) {
       const getProcessed = async () => {
@@ -395,18 +394,19 @@ export default function MapComponent({
           // console.log("z===========", z);
 
           //Second Method
+
           return resData.map((item) => {
             return (
-              item.data.rows[0].PercAttendance ||
-              item.data.rows[0].total_cwsn_students ||
-              item.data.rows[0].total_students ||
-              item.data.rows[0].Ratio
+              item.data.rows[0]?.PercAttendance ||
+              item.data.rows[0]?.total_cwsn_students ||
+              item.data.rows[0]?.total_students ||
+              item.data.rows[0]?.Ratio
             );
           });
         } else {
           return resData.filter((item) => item.data.rows.length)[0]?.data
             ?.rows[0];
-        }
+        } 
       };
 
       const data = await getProcessed();
@@ -420,6 +420,7 @@ export default function MapComponent({
             district,
             total_students,
           } = data;
+
           setToolTipData({
             color: "",
             type: 1,
@@ -544,7 +545,7 @@ export default function MapComponent({
               {markers?.postions.map((item) => {
                 let markerColor = blue_marker;
                 if (type === 3) {
-                  markerColor = purple_marker;
+                  
                 } else {
                   if (item.color == "red") {
                     markerColor = red_marker;
