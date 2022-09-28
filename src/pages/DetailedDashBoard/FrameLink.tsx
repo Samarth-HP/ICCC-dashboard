@@ -21,7 +21,6 @@ import { useHistory } from "react-router-dom";
 import SamarthQuestionWithIframe from "../../components/SamarthQuestionWIthIframe";
 
 const IframeLink = (showLink: any) => {
-  const [curDistrict, setCurDistrict] = useState("");
   const {
     match: { params },
   } = showLink;
@@ -39,6 +38,7 @@ const IframeLink = (showLink: any) => {
     "BILASPUR",
     "KINNAUR",
   ];
+  const [curDistrict, setCurDistrict] = useState("SIRMAUR");
 
   if (params.name === "mentoring") {
     return (

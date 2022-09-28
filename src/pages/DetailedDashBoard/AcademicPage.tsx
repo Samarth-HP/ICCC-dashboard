@@ -87,19 +87,14 @@ const AcademicPage: FC = () => {
                   <b className="headingb">Academic KPIs</b>
                 </div>
 
-                {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={Classroom}
-                      alt=""
-                    /></Col>
+                <Button className="DetailsButton">
+                  <Row style={{ display: "flex" }}>
+                    <Col span={3}>
+                      <img src={Classroom} alt="" />
+                    </Col>
                     <Col offset={3}>Classroom Inputs</Col>
-                    </Row>
-                    
-                    {window.location.href=''}}
-               
-               
-               </Button>*/}
+                  </Row>
+                </Button>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <Button
@@ -130,24 +125,22 @@ const AcademicPage: FC = () => {
                     </Row>
                   </Button>
                 </div>
-                {/*<Button className="DetailsButton" onClick={() => {window.location.href=''}}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={TeacherPerformance}
-                      alt=""
-                    /></Col>
+                <Button className="DetailsButton">
+                  <Row style={{ display: "flex" }}>
+                    <Col span={3}>
+                      <img src={TeacherPerformance} alt="" />
+                    </Col>
                     <Col offset={3}>Teacher Performance</Col>
-                    </Row>
+                  </Row>
                 </Button>
-                <Button className="DetailsButton" onClick={() => {window.location.href=''}}>
-                   <Row style={{display:'flex'}}>
-                    <Col span={3}><img
-                      src={StudentLearning}
-                      alt=""
-                    /></Col>
+                <Button className="DetailsButton">
+                  <Row style={{ display: "flex" }}>
+                    <Col span={3}>
+                      <img src={StudentLearning} alt="" />
+                    </Col>
                     <Col offset={4}>Student Learning</Col>
-                    </Row>
-                </Button>*/}
+                  </Row>
+                </Button>
                 {/* <div className="form-container">
                 <Input
                   className="input"
