@@ -58,7 +58,10 @@ const IframeLink = (showLink: any) => {
   } else if (params.name === "Enrolment") {
     return (
       <>
-        <Col span={4}>
+        <Col
+          style={{ display: "flex", justifyContent: "space-evenly" }}
+          span={24}
+        >
           <select
             // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
             onChange={(val: any) => {
@@ -74,6 +77,56 @@ const IframeLink = (showLink: any) => {
                 </option>
               );
             })}
+          </select>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            <option>Block</option>
+          </select>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            <option>Session</option>
+          </select>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            <option>School Type</option>
+          </select>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            <option>Grade</option>
+          </select>
+          <select
+            // style={{ height: "40px", fontSize: "22px", cursor: "pointer" }}
+            onChange={(val: any) => {
+              setCurDistrict(val.target.value);
+            }}
+            className="select"
+            placeholder={"Choose District sasd"}
+          >
+            <option>Gender</option>
           </select>
         </Col>
         <iframe
